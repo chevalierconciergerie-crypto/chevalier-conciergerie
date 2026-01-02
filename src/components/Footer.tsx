@@ -1,20 +1,19 @@
 import { Instagram, Linkedin, Facebook, MapPin, Phone, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
     services: [
-      { label: "Conciergerie", href: "#services" },
-      { label: "Sous-location", href: "#sublocation" },
-      { label: "Tarifs", href: "#pricing" },
-      { label: "Estimation gratuite", href: "#contact" },
+      { label: "Conciergerie", href: "/conciergerie" },
+      { label: "Sous-location", href: "/sous-location" },
+      { label: "Tarifs Conciergerie", href: "/conciergerie#tarifs" },
+      { label: "Estimation gratuite", href: "/contact" },
     ],
     company: [
-      { label: "À propos", href: "#about" },
-      { label: "Notre équipe", href: "#" },
-      { label: "Témoignages", href: "#" },
-      { label: "Blog", href: "#" },
+      { label: "Accueil", href: "/" },
+      { label: "Contact", href: "/contact" },
     ],
     legal: [
       { label: "Mentions légales", href: "#" },
@@ -35,11 +34,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <a href="#" className="inline-block mb-6">
+            <Link to="/" className="inline-block mb-6">
               <span className="font-serif text-2xl font-semibold text-primary-foreground">
                 CHEVALIER <span className="text-gold">CONCIERGERIE</span>
               </span>
-            </a>
+            </Link>
             <p className="font-sans text-primary-foreground/70 text-sm leading-relaxed mb-6 max-w-sm">
               L'excellence de la gestion locative à Avignon. 
               Conciergerie haut de gamme et sous-location professionnelle 
@@ -77,12 +76,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="font-sans text-sm text-primary-foreground/70 hover:text-gold transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -91,17 +90,17 @@ const Footer = () => {
           {/* Company Links */}
           <div>
             <h4 className="font-serif text-lg font-semibold text-primary-foreground mb-6">
-              Entreprise
+              Navigation
             </h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="font-sans text-sm text-primary-foreground/70 hover:text-gold transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
