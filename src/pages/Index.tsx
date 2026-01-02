@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Sublocation from "@/components/Sublocation";
 import LocalExpertise from "@/components/LocalExpertise";
+import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
 import Booking from "@/components/Booking";
 import ComingSoon from "@/components/ComingSoon";
@@ -32,6 +33,7 @@ const Index = () => {
           <Services />
           <Sublocation />
           <LocalExpertise />
+          <Testimonials />
           <Pricing />
           <Booking />
           <ComingSoon />
