@@ -1,14 +1,15 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import Sublocation from "@/components/Sublocation";
 import LocalExpertise from "@/components/LocalExpertise";
 import Testimonials from "@/components/Testimonials";
-import Pricing from "@/components/Pricing";
-import Booking from "@/components/Booking";
 import ComingSoon from "@/components/ComingSoon";
-import Footer from "@/components/Footer";
+import { ArrowRight, Home, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import serviceSublocation from "@/assets/service-sublocation.jpg";
+import serviceConciergerie from "@/assets/service-concierge.jpg";
 
 const Index = () => {
   return (
@@ -30,12 +31,102 @@ const Index = () => {
         <Header />
         <main>
           <Hero />
-          <Services />
-          <Sublocation />
+          
+          {/* Services Overview */}
+          <section className="py-24 bg-background">
+            <div className="container mx-auto px-6">
+              <div className="text-center max-w-3xl mx-auto mb-16">
+                <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Nos Solutions</span>
+                <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4 mb-6">
+                  Deux Formules, Un Objectif
+                </h2>
+                <p className="font-sans text-muted-foreground text-lg">
+                  Que vous souhaitiez déléguer la gestion ou sécuriser vos revenus, nous avons la solution adaptée.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                {/* Conciergerie Card */}
+                <div className="group relative overflow-hidden rounded-2xl bg-card shadow-soft hover:shadow-medium transition-all duration-500">
+                  <div className="absolute inset-0">
+                    <img 
+                      src={serviceConciergerie} 
+                      alt="Service Conciergerie"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/30" />
+                  </div>
+                  <div className="relative z-10 p-8 md:p-10 min-h-[400px] flex flex-col justify-end">
+                    <div className="w-14 h-14 rounded-xl bg-gold/20 backdrop-blur-sm flex items-center justify-center mb-6">
+                      <Sparkles className="w-7 h-7 text-gold" />
+                    </div>
+                    <h3 className="font-serif text-2xl md:text-3xl text-primary-foreground font-semibold mb-4">
+                      Conciergerie
+                    </h3>
+                    <p className="font-sans text-primary-foreground/80 mb-6">
+                      Service complet de gestion locative saisonnière. Accueil voyageurs, ménage, 
+                      optimisation des revenus. Vous restez propriétaire et bénéficiez de notre expertise.
+                    </p>
+                    <div className="flex flex-wrap gap-3 mb-6">
+                      <span className="px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full text-sm text-primary-foreground font-medium">
+                        À partir de 15%
+                      </span>
+                      <span className="px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full text-sm text-primary-foreground font-medium">
+                        Revenus optimisés
+                      </span>
+                    </div>
+                    <Button variant="gold" className="w-fit group/btn" asChild>
+                      <Link to="/conciergerie">
+                        Découvrir
+                        <ArrowRight className="ml-2 transition-transform group-hover/btn:translate-x-1" />
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Sous-location Card */}
+                <div className="group relative overflow-hidden rounded-2xl bg-card shadow-soft hover:shadow-medium transition-all duration-500">
+                  <div className="absolute inset-0">
+                    <img 
+                      src={serviceSublocation} 
+                      alt="Sous-location Professionnelle"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/30" />
+                  </div>
+                  <div className="relative z-10 p-8 md:p-10 min-h-[400px] flex flex-col justify-end">
+                    <div className="w-14 h-14 rounded-xl bg-gold/20 backdrop-blur-sm flex items-center justify-center mb-6">
+                      <Home className="w-7 h-7 text-gold" />
+                    </div>
+                    <h3 className="font-serif text-2xl md:text-3xl text-primary-foreground font-semibold mb-4">
+                      Sous-Location
+                    </h3>
+                    <p className="font-sans text-primary-foreground/80 mb-6">
+                      Loyer garanti chaque mois, zéro vacance locative. Nous louons votre bien 
+                      et vous versons un revenu fixe. Aucune gestion, aucun risque.
+                    </p>
+                    <div className="flex flex-wrap gap-3 mb-6">
+                      <span className="px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full text-sm text-primary-foreground font-medium">
+                        Loyer garanti
+                      </span>
+                      <span className="px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full text-sm text-primary-foreground font-medium">
+                        0% vacance
+                      </span>
+                    </div>
+                    <Button variant="gold" className="w-fit group/btn" asChild>
+                      <Link to="/sous-location">
+                        Découvrir
+                        <ArrowRight className="ml-2 transition-transform group-hover/btn:translate-x-1" />
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
           <LocalExpertise />
           <Testimonials />
-          <Pricing />
-          <Booking />
           <ComingSoon />
         </main>
         <Footer />
