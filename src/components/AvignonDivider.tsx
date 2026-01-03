@@ -2,95 +2,129 @@ import { ScrollAnimate } from "@/hooks/useScrollAnimation";
 
 const AvignonDivider = () => {
   return (
-    <div className="relative py-8 overflow-hidden bg-gradient-to-r from-transparent via-secondary/30 to-transparent">
+    <div className="relative py-16 md:py-24 overflow-hidden bg-white">
       <ScrollAnimate>
         <div className="container mx-auto px-6">
           {/* Avignon Skyline SVG */}
           <svg 
-            viewBox="0 0 1200 120" 
-            className="w-full h-16 md:h-24 text-gold/30"
+            viewBox="0 0 1200 200" 
+            className="w-full h-32 md:h-48 lg:h-56 text-gold/40"
             preserveAspectRatio="xMidYMid meet"
           >
-            {/* Pont d'Avignon */}
-            <g fill="none" stroke="currentColor" strokeWidth="1.5">
+            {/* Pont d'Avignon - Gauche */}
+            <g fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               {/* Arches du pont */}
-              <path d="M50 100 Q75 70 100 100" />
-              <path d="M100 100 Q125 70 150 100" />
-              <path d="M150 100 Q175 70 200 100" />
-              <path d="M200 100 Q225 70 250 100" />
+              <path d="M30 180 Q70 120 110 180" />
+              <path d="M110 180 Q150 120 190 180" />
+              <path d="M190 180 Q230 120 270 180" />
+              <path d="M270 180 Q310 120 350 180" />
+              {/* Tablier du pont */}
+              <line x1="30" y1="130" x2="350" y2="130" strokeWidth="3" />
+              <line x1="30" y1="135" x2="350" y2="135" strokeWidth="1" />
               {/* Chapelle Saint-Nicolas */}
-              <rect x="120" y="60" width="30" height="40" />
-              <path d="M120 60 L135 45 L150 60" />
-              <circle cx="135" cy="52" r="3" />
+              <rect x="160" y="85" width="50" height="45" strokeWidth="2" />
+              <path d="M160 85 L185 55 L210 85" strokeWidth="2" />
+              <circle cx="185" cy="70" r="8" strokeWidth="1.5" />
+              <line x1="185" y1="55" x2="185" y2="45" strokeWidth="2" />
+              <circle cx="185" cy="42" r="4" className="fill-gold/30" stroke="currentColor" strokeWidth="1.5" />
+              {/* Fenêtre chapelle */}
+              <path d="M180 100 L180 120 M180 100 Q185 95 190 100 L190 120" strokeWidth="1.5" />
             </g>
 
-            {/* Remparts */}
-            <g fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M300 100 L300 70 L310 70 L310 65 L320 65 L320 70 L330 70 L330 65 L340 65 L340 70 L350 70 L350 100" />
-              <path d="M360 100 L360 75 L370 75 L370 70 L380 70 L380 75 L390 75 L390 100" />
+            {/* Remparts - Centre gauche */}
+            <g fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" transform="translate(380, 0)">
+              <path d="M0 180 L0 120 L15 120 L15 110 L30 110 L30 120 L45 120 L45 110 L60 110 L60 120 L75 120 L75 110 L90 110 L90 120 L105 120 L105 180" />
+              {/* Meurtrières */}
+              <line x1="22" y1="140" x2="22" y2="155" strokeWidth="1.5" />
+              <line x1="52" y1="140" x2="52" y2="155" strokeWidth="1.5" />
+              <line x1="82" y1="140" x2="82" y2="155" strokeWidth="1.5" />
             </g>
 
             {/* Palais des Papes - Centre */}
-            <g fill="none" stroke="currentColor" strokeWidth="1.5" transform="translate(500, 0)">
-              {/* Tour principale gauche */}
-              <rect x="0" y="40" width="35" height="60" />
-              <path d="M0 40 L17.5 20 L35 40" />
-              {/* Créneaux */}
-              <path d="M0 40 L0 35 L7 35 L7 40 M14 40 L14 35 L21 35 L21 40 M28 40 L28 35 L35 35 L35 40" />
+            <g fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" transform="translate(520, 0)">
+              {/* Tour gauche */}
+              <rect x="0" y="70" width="45" height="110" />
+              <path d="M0 70 L22.5 35 L45 70" />
+              {/* Créneaux tour gauche */}
+              <path d="M0 70 L0 60 L9 60 L9 70 M18 70 L18 60 L27 60 L27 70 M36 70 L36 60 L45 60 L45 70" strokeWidth="1.5" />
+              {/* Fenêtres tour gauche */}
+              <path d="M15 100 L15 130 M15 100 Q22.5 90 30 100 L30 130" strokeWidth="1.5" />
               
               {/* Corps central */}
-              <rect x="35" y="50" width="80" height="50" />
-              {/* Fenêtres gothiques */}
-              <path d="M50 70 L50 90 M50 70 Q55 65 60 70 L60 90" />
-              <path d="M75 70 L75 90 M75 70 Q80 65 85 70 L85 90" />
-              <path d="M100 70 L100 90 M100 70 Q105 65 110 70 L110 90" />
-              
-              {/* Tour principale droite */}
-              <rect x="115" y="35" width="40" height="65" />
-              <path d="M115 35 L135 10 L155 35" />
-              {/* Créneaux */}
-              <path d="M115 35 L115 30 L123 30 L123 35 M131 35 L131 30 L139 30 L139 35 M147 35 L147 30 L155 30 L155 35" />
+              <rect x="45" y="90" width="110" height="90" />
+              {/* Grandes fenêtres gothiques */}
+              <path d="M60 110 L60 160 M60 110 Q75 95 90 110 L90 160" strokeWidth="1.5" />
+              <path d="M110 110 L110 160 M110 110 Q125 95 140 110 L140 160" strokeWidth="1.5" />
+              {/* Rosace */}
+              <circle cx="100" cy="105" r="12" strokeWidth="1.5" />
+              <circle cx="100" cy="105" r="6" strokeWidth="1" />
               
               {/* Tour centrale avec flèche */}
-              <rect x="60" y="30" width="30" height="70" />
-              <path d="M60 30 L75 5 L90 30" />
-              <line x1="75" y1="5" x2="75" y2="0" />
-              <circle cx="75" cy="0" r="3" />
+              <rect x="75" y="50" width="50" height="130" />
+              <path d="M75 50 L100 10 L125 50" />
+              <line x1="100" y1="10" x2="100" y2="0" strokeWidth="2" />
+              <circle cx="100" cy="0" r="6" className="fill-gold/40" stroke="currentColor" strokeWidth="1.5" />
+              {/* Fenêtre centrale */}
+              <path d="M90 70 L90 100 M90 70 Q100 60 110 70 L110 100" strokeWidth="1.5" />
+              
+              {/* Tour droite */}
+              <rect x="155" y="60" width="50" height="120" />
+              <path d="M155 60 L180 20 L205 60" />
+              {/* Créneaux tour droite */}
+              <path d="M155 60 L155 50 L165 50 L165 60 M175 60 L175 50 L185 50 L185 60 M195 60 L195 50 L205 50 L205 60" strokeWidth="1.5" />
+              {/* Fenêtres tour droite */}
+              <path d="M170 85 L170 115 M170 85 Q180 75 190 85 L190 115" strokeWidth="1.5" />
+              <rect x="170" y="130" width="20" height="30" strokeWidth="1.5" />
             </g>
 
-            {/* Maisons provençales droite */}
-            <g fill="none" stroke="currentColor" strokeWidth="1.5">
-              <rect x="750" y="70" width="40" height="30" />
-              <path d="M750 70 L770 55 L790 70" />
-              <rect x="760" y="80" width="10" height="20" />
+            {/* Cathédrale Notre-Dame des Doms - Droite */}
+            <g fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" transform="translate(780, 0)">
+              <rect x="0" y="100" width="70" height="80" />
+              <path d="M0 100 L35 60 L70 100" />
+              {/* Fenêtre rosace */}
+              <circle cx="35" cy="85" r="10" strokeWidth="1.5" />
+              {/* Porte */}
+              <path d="M25 150 L25 180 M25 150 Q35 140 45 150 L45 180" strokeWidth="1.5" />
+              {/* Clocher */}
+              <rect x="70" y="70" width="35" height="110" />
+              <path d="M70 70 L87.5 40 L105 70" />
+              <line x1="87.5" y1="40" x2="87.5" y2="25" strokeWidth="2" />
+              {/* Statue dorée de la Vierge */}
+              <ellipse cx="87.5" cy="18" rx="6" ry="10" className="fill-gold/50" stroke="currentColor" strokeWidth="1.5" />
+              {/* Fenêtres clocher */}
+              <path d="M80 90 L80 110 M80 90 Q87.5 83 95 90 L95 110" strokeWidth="1.5" />
+              <path d="M80 125 L80 145 M80 125 Q87.5 118 95 125 L95 145" strokeWidth="1.5" />
+            </g>
+
+            {/* Maisons provençales - Extrême droite */}
+            <g fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" transform="translate(920, 0)">
+              <rect x="0" y="130" width="50" height="50" />
+              <path d="M0 130 L25 100 L50 130" />
+              <rect x="15" y="145" width="15" height="20" strokeWidth="1.5" />
+              <rect x="35" y="150" width="10" height="10" strokeWidth="1" />
               
-              <rect x="800" y="65" width="35" height="35" />
-              <path d="M800 65 L817.5 50 L835 65" />
-              <rect x="810" y="75" width="8" height="10" />
-              <rect x="810" y="90" width="15" height="10" />
+              <rect x="60" y="120" width="45" height="60" />
+              <path d="M60 120 L82.5 90 L105 120" />
+              <rect x="72" y="135" width="12" height="15" strokeWidth="1.5" />
+              <rect x="72" y="160" width="20" height="20" strokeWidth="1.5" />
             </g>
 
             {/* Cyprès */}
-            <g fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M880 100 L880 60 Q885 50 890 60 L890 100" />
-              <path d="M910 100 L910 55 Q917 40 924 55 L924 100" />
-              <path d="M950 100 L950 65 Q955 55 960 65 L960 100" />
+            <g fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M1050 180 L1050 100 Q1060 70 1070 100 L1070 180" />
+              <path d="M1055 120 Q1060 90 1065 120" strokeWidth="1" />
+              <path d="M1055 150 Q1060 130 1065 150" strokeWidth="1" />
+              
+              <path d="M1100 180 L1100 90 Q1112 50 1124 90 L1124 180" />
+              <path d="M1105 110 Q1112 75 1119 110" strokeWidth="1" />
+              <path d="M1105 145 Q1112 120 1119 145" strokeWidth="1" />
+              
+              <path d="M1150 180 L1150 110 Q1160 80 1170 110 L1170 180" />
+              <path d="M1155 130 Q1160 100 1165 130" strokeWidth="1" />
             </g>
 
-            {/* Cathédrale Notre-Dame des Doms */}
-            <g fill="none" stroke="currentColor" strokeWidth="1.5">
-              <rect x="1000" y="55" width="50" height="45" />
-              <path d="M1000 55 L1025 30 L1050 55" />
-              {/* Clocher */}
-              <rect x="1050" y="40" width="20" height="60" />
-              <path d="M1050 40 L1060 25 L1070 40" />
-              <line x1="1060" y1="25" x2="1060" y2="18" />
-              {/* Statue dorée */}
-              <circle cx="1060" cy="15" r="5" className="fill-gold/50" />
-            </g>
-
-            {/* Ligne de sol */}
-            <line x1="0" y1="100" x2="1200" y2="100" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            {/* Ligne de sol stylisée */}
+            <path d="M0 180 Q300 175 600 180 T1200 180" stroke="currentColor" strokeWidth="1.5" fill="none" opacity="0.6" />
           </svg>
         </div>
       </ScrollAnimate>
