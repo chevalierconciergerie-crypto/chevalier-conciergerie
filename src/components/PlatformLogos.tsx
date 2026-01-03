@@ -12,31 +12,34 @@ const PlatformLogos = () => {
             <p className="text-muted-foreground font-sans text-sm tracking-wide uppercase mb-8">
               Présent sur les meilleures plateformes
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
+            <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20">
               {/* Airbnb Logo */}
-              <div className="group opacity-70 hover:opacity-100 transition-all duration-300">
+              <div className="group transition-all duration-300 hover:scale-110">
                 <img 
                   src={logoAirbnb} 
                   alt="Airbnb" 
-                  className="h-12 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
+                  className="h-16 md:h-24 w-auto object-contain drop-shadow-sm"
+                  style={{ mixBlendMode: 'multiply' }}
                 />
               </div>
 
               {/* Booking.com Logo */}
-              <div className="group opacity-70 hover:opacity-100 transition-all duration-300">
+              <div className="group transition-all duration-300 hover:scale-110">
                 <img 
                   src={logoBooking} 
                   alt="Booking.com" 
-                  className="h-12 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
+                  className="h-16 md:h-24 w-auto object-contain drop-shadow-sm"
+                  style={{ mixBlendMode: 'multiply' }}
                 />
               </div>
 
               {/* Abritel Logo */}
-              <div className="group opacity-70 hover:opacity-100 transition-all duration-300">
+              <div className="group transition-all duration-300 hover:scale-110">
                 <img 
                   src={logoAbritel} 
                   alt="Abritel" 
-                  className="h-12 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
+                  className="h-16 md:h-24 w-auto object-contain drop-shadow-sm"
+                  style={{ mixBlendMode: 'multiply' }}
                 />
               </div>
             </div>
