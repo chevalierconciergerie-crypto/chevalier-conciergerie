@@ -81,10 +81,10 @@ const Header = () => {
             
             {/* Text */}
             <div className="flex flex-col items-center leading-none">
-              <span className="font-serif text-xs sm:text-sm tracking-[0.4em] text-primary-foreground/70 uppercase">
+              <span className="font-serif text-lg sm:text-xl md:text-2xl font-semibold tracking-[0.2em] text-primary-foreground uppercase">
                 Chevalier
               </span>
-              <span className="font-serif text-lg sm:text-xl md:text-2xl font-semibold tracking-[0.15em] text-gold uppercase">
+              <span className="font-serif text-[10px] sm:text-xs tracking-[0.35em] text-gold/80 uppercase">
                 Conciergerie
               </span>
             </div>
