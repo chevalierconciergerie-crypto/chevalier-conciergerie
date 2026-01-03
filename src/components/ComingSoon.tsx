@@ -1,11 +1,13 @@
 import { Sparkles, Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import AvignonIllustration from "@/components/AvignonIllustration";
 
 const ComingSoon = () => {
   return (
-    <section className="py-24 bg-background">
-      <div className="container mx-auto px-6">
+    <section className="relative py-24 bg-background overflow-hidden">
+      <AvignonIllustration variant="remparts" />
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           {/* Icon */}
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-gold mb-8">
