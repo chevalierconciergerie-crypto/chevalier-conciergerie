@@ -5,41 +5,38 @@ import logoAbritel from "@/assets/logo-abritel.png";
 
 const PlatformLogos = () => {
   return (
-    <section className="py-12 bg-secondary/50 border-y border-border/30">
+    <section className="py-14 bg-white border-y border-border/20">
       <div className="container mx-auto px-6">
         <ScrollAnimate>
           <div className="flex flex-col items-center">
-            <p className="text-muted-foreground font-sans text-sm tracking-wide uppercase mb-8">
+            <p className="text-muted-foreground font-sans text-sm tracking-wide uppercase mb-10">
               Présent sur les meilleures plateformes
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20">
+            <div className="flex flex-wrap items-center justify-center gap-12 md:gap-24">
               {/* Airbnb Logo */}
-              <div className="group transition-all duration-300 hover:scale-110">
+              <div className="transition-all duration-300 hover:scale-110">
                 <img 
                   src={logoAirbnb} 
                   alt="Airbnb" 
-                  className="h-16 md:h-24 w-auto object-contain drop-shadow-sm"
-                  style={{ mixBlendMode: 'multiply' }}
+                  className="h-20 md:h-28 w-auto object-contain"
                 />
               </div>
 
               {/* Booking.com Logo */}
-              <div className="group transition-all duration-300 hover:scale-110">
+              <div className="transition-all duration-300 hover:scale-110">
                 <img 
                   src={logoBooking} 
                   alt="Booking.com" 
-                  className="h-16 md:h-24 w-auto object-contain drop-shadow-sm"
-                  style={{ mixBlendMode: 'multiply' }}
+                  className="h-20 md:h-28 w-auto object-contain"
                 />
               </div>
 
               {/* Abritel Logo */}
-              <div className="group transition-all duration-300 hover:scale-110">
+              <div className="transition-all duration-300 hover:scale-110">
                 <img 
                   src={logoAbritel} 
                   alt="Abritel" 
-                  className="h-16 md:h-24 w-auto object-contain drop-shadow-sm"
-                  style={{ mixBlendMode: 'multiply' }}
+                  className="h-24 md:h-36 w-auto object-contain"
                 />
               </div>
             </div>
