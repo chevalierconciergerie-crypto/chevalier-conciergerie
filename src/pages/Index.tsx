@@ -5,8 +5,7 @@ import Hero from "@/components/Hero";
 import LocalExpertise from "@/components/LocalExpertise";
 import ComingSoon from "@/components/ComingSoon";
 import PlatformLogos from "@/components/PlatformLogos";
-import AvignonDivider from "@/components/AvignonDivider";
-import FloatingAvignonElements from "@/components/FloatingAvignonElements";
+import AvignonBackground from "@/components/AvignonBackground";
 import { ArrowRight, Home, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -31,16 +30,17 @@ const Index = () => {
       </Helmet>
       
       <div className="min-h-screen bg-background relative">
-        {/* Floating Avignon Elements */}
-        <FloatingAvignonElements />
-        
         <Header />
         <main className="relative z-10">
           <Hero />
-          <PlatformLogos />
           
-          {/* Avignon Divider */}
-          <AvignonDivider />
+          {/* Platform Logos with Avignon Background */}
+          <section className="relative bg-white">
+            <AvignonBackground />
+            <div className="relative z-10">
+              <PlatformLogos />
+            </div>
+          </section>
           
           {/* Services Overview */}
           <section className="py-24 bg-background">
@@ -140,9 +140,6 @@ const Index = () => {
               </div>
             </div>
           </section>
-
-          {/* Second Avignon Divider */}
-          <AvignonDivider />
 
           <LocalExpertise />
           <ComingSoon />
