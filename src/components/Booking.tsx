@@ -1,5 +1,6 @@
-import { Calendar, Phone, Mail, MessageCircle } from "lucide-react";
+import { Phone, Mail, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ContactMap from "@/components/ContactMap";
 
 const Booking = () => {
   return (
@@ -19,30 +20,8 @@ const Booking = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Calendly Embed Placeholder */}
-            <div className="bg-card rounded-2xl shadow-soft p-8 min-h-[400px] flex flex-col items-center justify-center">
-              <div className="w-20 h-20 rounded-2xl bg-gradient-gold flex items-center justify-center mb-6">
-                <Calendar className="w-10 h-10 text-primary" />
-              </div>
-              <h3 className="font-serif text-2xl font-semibold text-foreground mb-4 text-center">
-                Réservez votre créneau
-              </h3>
-              <p className="font-sans text-muted-foreground text-center mb-8">
-                Sélectionnez un créneau qui vous convient pour un appel de 30 minutes.
-              </p>
-              
-              {/* Placeholder for Calendly Widget */}
-              <div className="w-full h-64 border-2 border-dashed border-border rounded-xl flex items-center justify-center bg-secondary/50">
-                <div className="text-center">
-                  <p className="font-sans text-muted-foreground text-sm mb-2">
-                    Widget Calendly
-                  </p>
-                  <p className="font-sans text-xs text-muted-foreground/60">
-                    L'intégration sera configurée prochainement
-                  </p>
-                </div>
-              </div>
-            </div>
+            {/* Map Section */}
+            <ContactMap />
 
             {/* Contact Options */}
             <div className="space-y-6">

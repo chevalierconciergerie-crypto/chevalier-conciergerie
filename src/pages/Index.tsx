@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import LocalExpertise from "@/components/LocalExpertise";
 import ComingSoon from "@/components/ComingSoon";
+import PlatformLogos from "@/components/PlatformLogos";
 import { ArrowRight, Home, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -30,6 +31,7 @@ const Index = () => {
         <Header />
         <main>
           <Hero />
+          <PlatformLogos />
           
           {/* Services Overview */}
           <section className="py-24 bg-background">
