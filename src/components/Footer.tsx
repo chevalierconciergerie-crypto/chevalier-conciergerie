@@ -8,17 +8,17 @@ const Footer = () => {
     services: [
       { label: "Conciergerie", href: "/conciergerie" },
       { label: "Sous-location", href: "/sous-location" },
-      { label: "Tarifs Conciergerie", href: "/conciergerie#tarifs" },
       { label: "Estimation gratuite", href: "/contact" },
     ],
     company: [
       { label: "Accueil", href: "/" },
       { label: "Contact", href: "/contact" },
+      { label: "Conciergerie", href: "/conciergerie" },
+      { label: "Sous-location", href: "/sous-location" },
     ],
     legal: [
-      { label: "Mentions légales", href: "#" },
-      { label: "Politique de confidentialité", href: "#" },
-      { label: "CGV", href: "#" },
+      { label: "Mentions légales", href: "/mentions-legales" },
+      { label: "Politique de confidentialité", href: "/politique-confidentialite" },
     ],
   };
 
@@ -114,12 +114,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="font-sans text-sm text-primary-foreground/70 hover:text-gold transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
