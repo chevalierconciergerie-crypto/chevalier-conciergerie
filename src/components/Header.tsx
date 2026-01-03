@@ -35,22 +35,8 @@ const Header = () => {
   }, [isMobileMenuOpen]);
 
   const navItems = [
-    { 
-      label: "Conciergerie", 
-      href: "/conciergerie",
-      subItems: [
-        { label: "Services", href: "/conciergerie#services" },
-        { label: "Tarifs", href: "/conciergerie#tarifs" },
-      ]
-    },
-    { 
-      label: "Sous-location", 
-      href: "/sous-location",
-      subItems: [
-        { label: "Avantages", href: "/sous-location#avantages" },
-        { label: "Fonctionnement", href: "/sous-location#fonctionnement" },
-      ]
-    },
+    { label: "Conciergerie", href: "/conciergerie" },
+    { label: "Sous-location", href: "/sous-location" },
     { label: "Contact", href: "/contact" },
   ];
 
@@ -99,29 +85,13 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
-              <div key={item.label} className="relative group">
-                <Link
-                  to={item.href}
-                  className="font-sans text-sm font-medium tracking-wide transition-colors duration-300 hover:text-gold text-primary-foreground/80"
-                >
-                  {item.label}
-                </Link>
-                {item.subItems && (
-                  <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                    <div className="bg-card rounded-lg shadow-medium py-2 min-w-[160px]">
-                      {item.subItems.map((subItem) => (
-                        <Link
-                          key={subItem.label}
-                          to={subItem.href}
-                          className="block px-4 py-2 text-sm text-foreground hover:bg-secondary hover:text-gold transition-colors"
-                        >
-                          {subItem.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
+              <Link
+                key={item.label}
+                to={item.href}
+                className="font-sans text-sm font-medium tracking-wide transition-colors duration-300 hover:text-gold text-primary-foreground/80"
+              >
+                {item.label}
+              </Link>
             ))}
             <Button variant="gold" size="sm" asChild>
               <Link to="/contact">Prendre Rendez-vous</Link>
