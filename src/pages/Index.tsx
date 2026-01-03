@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import LocalExpertise from "@/components/LocalExpertise";
-import Testimonials from "@/components/Testimonials";
 import ComingSoon from "@/components/ComingSoon";
 import { ArrowRight, Home, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -132,7 +131,6 @@ const Index = () => {
           </section>
 
           <LocalExpertise />
-          <Testimonials />
           <ComingSoon />
         </main>
         <Footer />
