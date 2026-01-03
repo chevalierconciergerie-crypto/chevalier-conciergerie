@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Check, Sparkles, Users, Clock, Star, Camera, TrendingUp, Shield } from "lucide-react";
+import { Check, X, Sparkles, Users, Clock, Camera, TrendingUp, FileText, Key, Package, Shield, Gift, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import serviceConciergerie from "@/assets/service-concierge.jpg";
@@ -35,39 +35,52 @@ const Conciergerie = () => {
     },
   ];
 
+  const gestionFeatures = [
+    { name: "Création et gestion de l'annonce", included: true },
+    { name: "Rencontre & visite du bien", included: true },
+    { name: "Rédaction du contrat de location", included: true },
+    { name: "Communication voyageurs", included: true },
+    { name: "Gestion des réservations", included: true },
+    { name: "Ménage professionnel", included: true },
+    { name: "Automatisation boîte à clés", included: true },
+    { name: "Gestion des consommables", included: true },
+    { name: "Photos professionnelles", included: false },
+    { name: "Pack de bienvenue voyageurs", included: false },
+    { name: "Infos touristiques personnalisées", included: false },
+    { name: "Assurance dommages voyageurs", included: false },
+  ];
+
+  const premiumFeatures = [
+    { name: "Création et gestion de l'annonce", included: true },
+    { name: "Rencontre & visite du bien", included: true },
+    { name: "Rédaction du contrat de location", included: true },
+    { name: "Communication voyageurs", included: true },
+    { name: "Gestion des réservations", included: true },
+    { name: "Ménage professionnel", included: true },
+    { name: "Automatisation boîte à clés", included: true },
+    { name: "Gestion des consommables", included: true },
+    { name: "Photos professionnelles", included: true },
+    { name: "Pack de bienvenue voyageurs", included: true },
+    { name: "Infos touristiques personnalisées", included: true },
+    { name: "Assurance dommages voyageurs", included: true },
+  ];
+
   const pricingPlans = [
     {
       name: "Gestion Locative",
       description: "Pour les propriétaires souhaitant déléguer l'essentiel",
-      price: "15%",
+      price: "20%",
       priceNote: "des revenus locatifs",
       featured: false,
-      features: [
-        "Création et gestion des annonces",
-        "Communication voyageurs",
-        "Gestion des réservations",
-        "Check-in / Check-out",
-        "Remise des clés",
-        "Support propriétaire dédié",
-        "Reporting mensuel",
-      ],
+      features: gestionFeatures,
     },
     {
       name: "Conciergerie Premium",
       description: "L'expérience complète haut de gamme",
-      price: "20%",
+      price: "25%",
       priceNote: "des revenus locatifs",
       featured: true,
-      features: [
-        "Tout le pack Gestion Locative",
-        "Ménage professionnel inclus",
-        "Linge de maison hôtelier",
-        "Produits d'accueil premium",
-        "Maintenance préventive",
-        "Photographie professionnelle",
-        "Optimisation dynamique des prix",
-        "Disponibilité 7j/7 - 24h/24",
-      ],
+      features: premiumFeatures,
     },
   ];
 
@@ -208,18 +221,26 @@ const Conciergerie = () => {
                       </p>
                     </div>
 
-                    <ul className="space-y-4 mb-8">
+                    <ul className="space-y-3 mb-8">
                       {plan.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-3">
-                          <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                            plan.featured ? "bg-gold/20" : "bg-secondary"
-                          }`}>
-                            <Check className={`w-3 h-3 text-gold`} />
-                          </div>
+                        <li key={feature.name} className="flex items-start gap-3">
+                          {feature.included ? (
+                            <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
+                              plan.featured ? "bg-gold/20" : "bg-secondary"
+                            }`}>
+                              <Check className="w-3 h-3 text-gold" />
+                            </div>
+                          ) : (
+                            <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-muted/50">
+                              <X className="w-3 h-3 text-muted-foreground/50" />
+                            </div>
+                          )}
                           <span className={`font-sans text-sm ${
-                            plan.featured ? "text-primary-foreground/80" : "text-muted-foreground"
+                            feature.included
+                              ? plan.featured ? "text-primary-foreground/80" : "text-muted-foreground"
+                              : "text-muted-foreground/50 line-through"
                           }`}>
-                            {feature}
+                            {feature.name}
                           </span>
                         </li>
                       ))}
