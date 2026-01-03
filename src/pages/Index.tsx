@@ -5,7 +5,7 @@ import Hero from "@/components/Hero";
 import LocalExpertise from "@/components/LocalExpertise";
 import ComingSoon from "@/components/ComingSoon";
 import PlatformLogos from "@/components/PlatformLogos";
-import AvignonBackground from "@/components/AvignonBackground";
+import AvignonIllustration from "@/components/AvignonIllustration";
 import { ArrowRight, Home, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -34,17 +34,15 @@ const Index = () => {
         <main className="relative z-10">
           <Hero />
           
-          {/* Platform Logos with Avignon Background */}
-          <section className="relative bg-white">
-            <AvignonBackground />
-            <div className="relative z-10">
-              <PlatformLogos />
-            </div>
+          {/* Platform Logos */}
+          <section className="bg-white py-8">
+            <PlatformLogos />
           </section>
           
-          {/* Services Overview */}
-          <section className="py-24 bg-background">
-            <div className="container mx-auto px-6">
+          {/* Services Overview with Pont d'Avignon background */}
+          <section className="relative py-24 bg-background overflow-hidden">
+            <AvignonIllustration variant="pont" />
+            <div className="container mx-auto px-6 relative z-10">
               <ScrollAnimate>
                 <div className="text-center max-w-3xl mx-auto mb-16">
                   <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Nos Solutions</span>
