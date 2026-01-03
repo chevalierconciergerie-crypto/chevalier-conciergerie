@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -19,7 +20,20 @@ const Header = () => {
   // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
+    setOpenSubmenu(null);
   }, [location]);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
 
   const navItems = [
     { 
@@ -40,6 +54,10 @@ const Header = () => {
     },
     { label: "Contact", href: "/contact" },
   ];
+
+  const toggleSubmenu = (label: string) => {
+    setOpenSubmenu(openSubmenu === label ? null : label);
+  };
 
   return (
     <header
@@ -92,47 +110,115 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="lg:hidden text-primary-foreground"
+          className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 transition-colors"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Slide-in Panel */}
       <div
-        className={`lg:hidden fixed inset-0 top-[72px] bg-primary/98 backdrop-blur-md transition-all duration-300 ${
-          isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        className={`lg:hidden fixed inset-0 top-0 z-50 transition-all duration-500 ${
+          isMobileMenuOpen ? "visible" : "invisible"
         }`}
       >
-        <nav className="flex flex-col items-center justify-center gap-6 pt-12">
-          {navItems.map((item) => (
-            <div key={item.label} className="text-center">
-              <Link
-                to={item.href}
-                className="font-sans text-lg font-medium text-primary-foreground/90 hover:text-gold transition-colors"
-              >
-                {item.label}
-              </Link>
-              {item.subItems && (
-                <div className="mt-2 space-y-1">
-                  {item.subItems.map((subItem) => (
-                    <Link
-                      key={subItem.label}
-                      to={subItem.href}
-                      className="block text-sm text-primary-foreground/60 hover:text-gold transition-colors"
+        {/* Backdrop */}
+        <div 
+          className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-500 ${
+            isMobileMenuOpen ? "opacity-100" : "opacity-0"
+          }`}
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+        
+        {/* Menu Panel */}
+        <div
+          className={`absolute top-0 right-0 h-full w-[85%] max-w-sm bg-primary shadow-2xl transition-transform duration-500 ease-out ${
+            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          {/* Menu Header */}
+          <div className="flex items-center justify-between p-6 border-b border-primary-foreground/10">
+            <span className="font-serif text-lg font-semibold text-primary-foreground">
+              Menu
+            </span>
+            <button
+              className="w-10 h-10 flex items-center justify-center rounded-lg bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+              aria-label="Fermer le menu"
+            >
+              <X size={20} />
+            </button>
+          </div>
+
+          {/* Menu Content */}
+          <nav className="p-6 space-y-2">
+            {navItems.map((item) => (
+              <div key={item.label} className="border-b border-primary-foreground/10 last:border-0">
+                {item.subItems ? (
+                  <>
+                    <button
+                      onClick={() => toggleSubmenu(item.label)}
+                      className="w-full flex items-center justify-between py-4 font-sans text-lg font-medium text-primary-foreground hover:text-gold transition-colors"
                     >
-                      {subItem.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-          <Button variant="gold" className="mt-4" asChild>
-            <Link to="/contact">Prendre Rendez-vous</Link>
-          </Button>
-        </nav>
+                      <span>{item.label}</span>
+                      <ChevronDown 
+                        className={`w-5 h-5 transition-transform duration-300 ${
+                          openSubmenu === item.label ? "rotate-180" : ""
+                        }`} 
+                      />
+                    </button>
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ${
+                        openSubmenu === item.label ? "max-h-40 pb-4" : "max-h-0"
+                      }`}
+                    >
+                      <div className="pl-4 space-y-2">
+                        <Link
+                          to={item.href}
+                          className="block py-2 font-sans text-base text-primary-foreground/70 hover:text-gold transition-colors"
+                        >
+                          Vue d'ensemble
+                        </Link>
+                        {item.subItems.map((subItem) => (
+                          <Link
+                            key={subItem.label}
+                            to={subItem.href}
+                            className="block py-2 font-sans text-base text-primary-foreground/70 hover:text-gold transition-colors"
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <Link
+                    to={item.href}
+                    className="block py-4 font-sans text-lg font-medium text-primary-foreground hover:text-gold transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </nav>
+
+          {/* Menu Footer */}
+          <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-primary-foreground/10 bg-primary">
+            <Button variant="gold" className="w-full mb-4" size="lg" asChild>
+              <Link to="/contact">Prendre Rendez-vous</Link>
+            </Button>
+            <a 
+              href="tel:+33783198341" 
+              className="flex items-center justify-center gap-2 py-3 font-sans text-sm text-primary-foreground/70 hover:text-gold transition-colors"
+            >
+              <Phone size={16} />
+              +33 7 83 19 83 41
+            </a>
+          </div>
+        </div>
       </div>
     </header>
   );
