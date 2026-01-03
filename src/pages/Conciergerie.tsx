@@ -37,10 +37,12 @@ const Conciergerie = () => {
 
   const gestionFeatures = [
     { name: "Création et gestion de l'annonce", included: true },
+    { name: "Optimisation annonce et prix", included: true },
     { name: "Rencontre & visite du bien", included: true },
     { name: "Rédaction du contrat de location", included: true },
-    { name: "Communication voyageurs", included: true },
+    { name: "Gestion des messages", included: true },
     { name: "Gestion des réservations", included: true },
+    { name: "Check-in / Check-out", included: true },
     { name: "Ménage professionnel", included: true },
     { name: "Automatisation boîte à clés", included: true },
     { name: "Gestion des consommables", included: true },
@@ -52,10 +54,12 @@ const Conciergerie = () => {
 
   const premiumFeatures = [
     { name: "Création et gestion de l'annonce", included: true },
+    { name: "Optimisation annonce et prix", included: true },
     { name: "Rencontre & visite du bien", included: true },
     { name: "Rédaction du contrat de location", included: true },
-    { name: "Communication voyageurs", included: true },
+    { name: "Gestion des messages", included: true },
     { name: "Gestion des réservations", included: true },
+    { name: "Check-in / Check-out", included: true },
     { name: "Ménage professionnel", included: true },
     { name: "Automatisation boîte à clés", included: true },
     { name: "Gestion des consommables", included: true },
@@ -67,7 +71,7 @@ const Conciergerie = () => {
 
   const pricingPlans = [
     {
-      name: "Gestion Locative",
+      name: "Essentiel",
       description: "Pour les propriétaires souhaitant déléguer l'essentiel",
       price: "20%",
       priceNote: "des revenus locatifs",
