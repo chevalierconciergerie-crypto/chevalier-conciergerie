@@ -344,7 +344,7 @@ const Conciergerie = () => {
                       </div>
                       <div className="flex items-center justify-center gap-4">
                         <div className="text-center">
-                          <p className="font-serif text-3xl font-bold text-foreground">20€</p>
+                          <p className="font-serif text-3xl font-bold text-foreground">110€</p>
                           <p className="font-sans text-xs text-muted-foreground mt-1">/nuit</p>
                         </div>
                         <X className="w-5 h-5 text-muted-foreground/30" />
@@ -354,7 +354,7 @@ const Conciergerie = () => {
                         </div>
                         <span className="font-serif text-2xl text-muted-foreground/50">=</span>
                         <div className="text-center">
-                          <p className="font-serif text-3xl font-bold text-gold">180€</p>
+                          <p className="font-serif text-3xl font-bold text-gold">990€</p>
                           <p className="font-sans text-xs text-muted-foreground mt-1">brut</p>
                         </div>
                       </div>
@@ -392,7 +392,7 @@ const Conciergerie = () => {
                           {/* Le montant principal - Impact visuel fort */}
                           <div className="mb-10">
                             <div className="flex items-baseline gap-2">
-                              <span className="font-serif text-7xl md:text-8xl font-bold text-gold tracking-tight">110</span>
+                              <span className="font-serif text-7xl md:text-8xl font-bold text-gold tracking-tight">792</span>
                               <div className="flex flex-col">
                                 <span className="font-serif text-3xl md:text-4xl font-bold text-gold">€</span>
                                 <span className="font-sans text-sm text-primary-foreground/50">net</span>
@@ -407,7 +407,7 @@ const Conciergerie = () => {
                           <div className="grid grid-cols-2 gap-4 mb-8">
                             <div className="bg-primary-foreground/5 rounded-xl p-4">
                               <p className="font-sans text-xs text-primary-foreground/50 mb-1">Commission</p>
-                              <p className="font-sans text-lg font-medium text-primary-foreground">36€ <span className="text-xs text-primary-foreground/50">HT</span></p>
+                              <p className="font-sans text-lg font-medium text-primary-foreground">198€ <span className="text-xs text-primary-foreground/50">HT</span></p>
                             </div>
                             <div className="bg-primary-foreground/5 rounded-xl p-4">
                               <p className="font-sans text-xs text-primary-foreground/50 mb-1">Ménage</p>
