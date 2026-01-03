@@ -25,13 +25,14 @@ const MentionsLegales = () => {
                   1. Éditeur du site
                 </h2>
                 <div className="font-sans text-muted-foreground leading-relaxed space-y-2">
-                  <p><strong className="text-foreground">Raison sociale :</strong> Chevalier Conciergerie</p>
-                  <p><strong className="text-foreground">Forme juridique :</strong> [À compléter]</p>
+                  <p><strong className="text-foreground">Raison sociale :</strong> CHEVALIER LOCABUSINESS</p>
+                  <p><strong className="text-foreground">Forme juridique :</strong> SASU (Société par Actions Simplifiée Unipersonnelle)</p>
+                  <p><strong className="text-foreground">Nom commercial :</strong> Chevalier Conciergerie</p>
                   <p><strong className="text-foreground">Siège social :</strong> Avignon, 84000 France</p>
                   <p><strong className="text-foreground">Téléphone :</strong> +33 7 83 19 83 41</p>
                   <p><strong className="text-foreground">Email :</strong> contact@chevalier-conciergerie.fr</p>
                   <p><strong className="text-foreground">SIRET :</strong> [À compléter]</p>
-                  <p><strong className="text-foreground">Directeur de la publication :</strong> [À compléter]</p>
+                  <p><strong className="text-foreground">Président :</strong> [À compléter]</p>
                 </div>
               </section>
 

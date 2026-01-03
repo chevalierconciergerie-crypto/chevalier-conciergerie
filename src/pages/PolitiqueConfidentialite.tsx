@@ -37,7 +37,8 @@ const PolitiqueConfidentialite = () => {
                   2. Responsable du traitement
                 </h2>
                 <div className="font-sans text-muted-foreground leading-relaxed space-y-2">
-                  <p><strong className="text-foreground">Raison sociale :</strong> Chevalier Conciergerie</p>
+                  <p><strong className="text-foreground">Raison sociale :</strong> CHEVALIER LOCABUSINESS (SASU)</p>
+                  <p><strong className="text-foreground">Nom commercial :</strong> Chevalier Conciergerie</p>
                   <p><strong className="text-foreground">Adresse :</strong> Avignon, 84000 France</p>
                   <p><strong className="text-foreground">Email :</strong> contact@chevalier-conciergerie.fr</p>
                   <p><strong className="text-foreground">Téléphone :</strong> +33 7 83 19 83 41</p>
