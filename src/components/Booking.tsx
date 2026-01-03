@@ -1,11 +1,13 @@
 import { Phone, Mail, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ContactMap from "@/components/ContactMap";
+import AvignonIllustration from "@/components/AvignonIllustration";
 
 const Booking = () => {
   return (
-    <section id="contact" className="py-24 bg-secondary">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="relative py-24 bg-secondary overflow-hidden">
+      <AvignonIllustration variant="palais" />
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
