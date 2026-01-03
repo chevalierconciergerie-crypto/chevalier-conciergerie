@@ -1,4 +1,5 @@
 import { Star, Quote } from "lucide-react";
+import { ScrollAnimate } from "@/hooks/useScrollAnimation";
 
 const Testimonials = () => {
   const testimonials = [
@@ -36,84 +37,87 @@ const Testimonials = () => {
     <section className="py-24 bg-secondary overflow-hidden">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Témoignages</span>
-          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4 mb-6">
-            La Confiance de nos Clients
-          </h2>
-          <p className="font-sans text-muted-foreground text-lg">
-            Découvrez les retours de propriétaires qui nous ont fait confiance pour gérer leur patrimoine.
-          </p>
-        </div>
+        <ScrollAnimate>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Témoignages</span>
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4 mb-6">
+              La Confiance de nos Clients
+            </h2>
+            <p className="font-sans text-muted-foreground text-lg">
+              Découvrez les retours de propriétaires qui nous ont fait confiance pour gérer leur patrimoine.
+            </p>
+          </div>
+        </ScrollAnimate>
 
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {testimonials.map((testimonial, index) => (
-            <div
-              key={testimonial.name}
-              className="group relative bg-card rounded-2xl p-8 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1"
-            >
-              {/* Quote Icon */}
-              <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                <Quote className="w-12 h-12 text-gold" />
-              </div>
+            <ScrollAnimate key={testimonial.name} delay={index * 100} animation="fade-up">
+              <div className="group relative bg-card rounded-2xl p-8 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1 h-full">
+                {/* Quote Icon */}
+                <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <Quote className="w-12 h-12 text-gold" />
+                </div>
 
-              {/* Stars */}
-              <div className="flex gap-1 mb-6">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-gold text-gold" />
-                ))}
-              </div>
+                {/* Stars */}
+                <div className="flex gap-1 mb-6">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-gold text-gold" />
+                  ))}
+                </div>
 
-              {/* Content */}
-              <p className="font-sans text-foreground/80 leading-relaxed mb-8 relative z-10">
-                "{testimonial.content}"
-              </p>
+                {/* Content */}
+                <p className="font-sans text-foreground/80 leading-relaxed mb-8 relative z-10">
+                  "{testimonial.content}"
+                </p>
 
-              {/* Author */}
-              <div className="flex items-center gap-4">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-14 h-14 rounded-full object-cover ring-2 ring-gold/20"
-                />
-                <div>
-                  <p className="font-serif text-lg font-semibold text-foreground">
-                    {testimonial.name}
-                  </p>
-                  <p className="font-sans text-sm text-muted-foreground">
-                    {testimonial.role}
-                  </p>
+                {/* Author */}
+                <div className="flex items-center gap-4">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-14 h-14 rounded-full object-cover ring-2 ring-gold/20"
+                  />
+                  <div>
+                    <p className="font-serif text-lg font-semibold text-foreground">
+                      {testimonial.name}
+                    </p>
+                    <p className="font-sans text-sm text-muted-foreground">
+                      {testimonial.role}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </ScrollAnimate>
           ))}
         </div>
 
         {/* Trust Stats */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-          <div className="text-center">
-            <div className="flex items-center justify-center gap-1 mb-2">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-gold text-gold" />
-              ))}
+        <ScrollAnimate delay={200}>
+          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="flex items-center justify-center gap-1 mb-2">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-gold text-gold" />
+                ))}
+              </div>
+              <p className="font-serif text-3xl font-semibold text-foreground">4.9/5</p>
+              <p className="font-sans text-sm text-muted-foreground mt-1">Note moyenne</p>
             </div>
-            <p className="font-serif text-3xl font-semibold text-foreground">4.9/5</p>
-            <p className="font-sans text-sm text-muted-foreground mt-1">Note moyenne</p>
+            <div className="text-center">
+              <p className="font-serif text-3xl font-semibold text-foreground">+200</p>
+              <p className="font-sans text-sm text-muted-foreground mt-1">Avis voyageurs</p>
+            </div>
+            <div className="text-center">
+              <p className="font-serif text-3xl font-semibold text-foreground">98%</p>
+              <p className="font-sans text-sm text-muted-foreground mt-1">Clients satisfaits</p>
+            </div>
+            <div className="text-center">
+              <p className="font-serif text-3xl font-semibold text-foreground">Superhost</p>
+              <p className="font-sans text-sm text-muted-foreground mt-1">Statut Airbnb</p>
+            </div>
           </div>
-          <div className="text-center">
-            <p className="font-serif text-3xl font-semibold text-foreground">+200</p>
-            <p className="font-sans text-sm text-muted-foreground mt-1">Avis voyageurs</p>
-          </div>
-          <div className="text-center">
-            <p className="font-serif text-3xl font-semibold text-foreground">98%</p>
-            <p className="font-sans text-sm text-muted-foreground mt-1">Clients satisfaits</p>
-          </div>
-          <div className="text-center">
-            <p className="font-serif text-3xl font-semibold text-foreground">Superhost</p>
-            <p className="font-sans text-sm text-muted-foreground mt-1">Statut Airbnb</p>
-          </div>
-        </div>
+        </ScrollAnimate>
       </div>
     </section>
   );
