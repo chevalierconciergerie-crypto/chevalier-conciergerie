@@ -162,7 +162,7 @@ const AvignonIllustration = ({ variant, className = "" }: AvignonIllustrationPro
   };
 
   return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center">
+    <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-start pt-16">
       <div className="w-full text-gold opacity-[0.25] -ml-12">
         {renderIllustration()}
       </div>
