@@ -71,7 +71,7 @@ const Index = () => {
                       </p>
                       <div className="flex flex-wrap gap-3 mb-6">
                         <span className="px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full text-sm text-primary-foreground font-medium">
-                          À partir de 15%
+                          À partir de 20%
                         </span>
                         <span className="px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full text-sm text-primary-foreground font-medium">
                           Revenus optimisés
