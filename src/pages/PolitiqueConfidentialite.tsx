@@ -1,36 +1,36 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { useState } from "react";
+import { Shield, Database, Clock, Lock, UserCheck, Cookie, Building, HelpCircle } from "lucide-react";
 
 const PolitiqueConfidentialite = () => {
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
   const sections = [
     {
       id: "donnee-personnelle",
-      title: "Qu'est-ce qu'une donnée personnelle ?",
+      icon: HelpCircle,
+      title: "Donnée personnelle",
+      subtitle: "Définition",
       content: `Une donnée personnelle est toute information permettant d'identifier directement ou indirectement une personne physique. Il peut s'agir de votre nom, prénom, adresse email, numéro de téléphone, adresse postale, ou encore de votre adresse IP.`
     },
     {
       id: "donnees-collectees",
-      title: "Quelles sont les données personnelles collectées ?",
-      content: `Chevalier Conciergerie collecte les données suivantes :
-
-• Données d'identification : nom, prénom, adresse email, numéro de téléphone
+      icon: Database,
+      title: "Données collectées",
+      subtitle: "Ce que nous recueillons",
+      content: `• Données d'identification : nom, prénom, adresse email, numéro de téléphone
 • Données relatives à votre bien : adresse, type de bien, caractéristiques
 • Données de navigation : adresse IP, type de navigateur, pages visitées
 • Données de correspondance : messages envoyés via le formulaire de contact`
     },
     {
       id: "responsable",
-      title: "Qui est responsable du traitement de vos données ?",
-      content: `Le responsable du traitement de vos données personnelles est :
-
-CHEVALIER LOCABUSINESS (SASU)
+      icon: Building,
+      title: "Responsable",
+      subtitle: "Qui traite vos données",
+      content: `CHEVALIER LOCABUSINESS (SASU)
 Nom commercial : Chevalier Conciergerie
 Siège social : Avignon, 84000 France
 Email : contact@chevalier-conciergerie.fr
@@ -38,61 +38,62 @@ Téléphone : +33 7 83 19 83 41`
     },
     {
       id: "pourquoi",
-      title: "Pourquoi Chevalier Conciergerie collecte vos données ?",
-      content: `Chevalier Conciergerie réalise différents types de traitement à partir de vos données personnelles :
-
-Traitements opérés sur le fondement légal de l'exécution des obligations contractuelles :
+      icon: Shield,
+      title: "Finalités",
+      subtitle: "Pourquoi nous collectons",
+      content: `Traitements contractuels :
 • Gestion des demandes de contact et de devis
-• Gestion de la relation client et de nos prestations de services
+• Gestion de la relation client et de nos prestations
 • Communication relative à nos services
 
-Traitements opérés sur le fondement légal de votre consentement :
-• Envoi de communications marketing et d'informations sur nos services
-• Amélioration de notre site internet et de votre expérience utilisateur
+Traitements avec consentement :
+• Communications marketing
+• Amélioration de votre expérience utilisateur
 
-Vous disposez du droit de retirer à tout moment votre consentement en nous écrivant à : contact@chevalier-conciergerie.fr`
+Retrait du consentement : contact@chevalier-conciergerie.fr`
     },
     {
       id: "stockage",
-      title: "Où sont stockées vos données ?",
-      content: `Vos données sont stockées sur des serveurs sécurisés situés dans l'Union Européenne. Nous mettons en œuvre toutes les mesures techniques et organisationnelles appropriées pour protéger vos données contre la destruction, la perte, l'altération ou l'accès non autorisé.`
+      icon: Lock,
+      title: "Stockage",
+      subtitle: "Où sont vos données",
+      content: `Vos données sont stockées sur des serveurs sécurisés situés dans l'Union Européenne. Nous mettons en œuvre toutes les mesures techniques et organisationnelles appropriées pour protéger vos données.`
     },
     {
       id: "duree",
-      title: "Combien de temps conservons-nous vos données ?",
-      content: `Vos données personnelles sont conservées pendant une durée n'excédant pas celle nécessaire aux finalités pour lesquelles elles sont collectées :
-
-• Données clients : durée de la relation commerciale + 3 ans
-• Données de prospection : 3 ans à compter du dernier contact
+      icon: Clock,
+      title: "Conservation",
+      subtitle: "Durées de rétention",
+      content: `• Données clients : durée de la relation + 3 ans
+• Données de prospection : 3 ans après dernier contact
 • Données de facturation : 10 ans (obligations légales)
 • Données de navigation : 13 mois maximum`
     },
     {
       id: "droits",
-      title: "Quels sont vos droits ?",
-      content: `Conformément au RGPD, vous disposez des droits suivants :
+      icon: UserCheck,
+      title: "Vos droits",
+      subtitle: "RGPD",
+      content: `• Droit d'accès : obtenir une copie de vos données
+• Droit de rectification : corriger des données inexactes
+• Droit à l'effacement : demander la suppression
+• Droit à la limitation : limiter le traitement
+• Droit à la portabilité : recevoir vos données
+• Droit d'opposition : vous opposer au traitement
 
-• Droit d'accès : obtenir une copie de vos données personnelles
-• Droit de rectification : corriger des données inexactes ou incomplètes
-• Droit à l'effacement : demander la suppression de vos données
-• Droit à la limitation : limiter le traitement de vos données
-• Droit à la portabilité : recevoir vos données dans un format structuré
-• Droit d'opposition : vous opposer au traitement de vos données
-
-Pour exercer ces droits, contactez-nous à : contact@chevalier-conciergerie.fr
-
-Vous pouvez également introduire une réclamation auprès de la CNIL : www.cnil.fr`
+Contact : contact@chevalier-conciergerie.fr
+Réclamation CNIL : www.cnil.fr`
     },
     {
       id: "cookies",
-      title: "Utilisation des cookies",
-      content: `Notre site peut utiliser des cookies pour améliorer votre expérience de navigation. Les cookies sont de petits fichiers texte stockés sur votre appareil.
+      icon: Cookie,
+      title: "Cookies",
+      subtitle: "Navigation",
+      content: `Types de cookies utilisés :
+• Cookies essentiels : nécessaires au fonctionnement
+• Cookies analytiques : comprendre votre utilisation
 
-Types de cookies utilisés :
-• Cookies essentiels : nécessaires au fonctionnement du site
-• Cookies analytiques : nous aident à comprendre comment vous utilisez le site
-
-Vous pouvez configurer votre navigateur pour refuser les cookies, mais certaines fonctionnalités du site pourraient ne plus être disponibles.`
+Vous pouvez configurer votre navigateur pour refuser les cookies.`
     },
   ];
 
@@ -105,52 +106,107 @@ Vous pouvez configurer votre navigateur pour refuser les cookies, mais certaines
 
       <Header />
 
-      <main className="pt-32 pb-20 bg-secondary/30 min-h-screen">
+      <main className="pt-32 pb-20 bg-gradient-to-b from-secondary/20 via-background to-secondary/30 min-h-screen">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            {/* Header */}
-            <div className="text-center mb-16">
-              <div className="flex items-center justify-center gap-4 mb-6">
-                <div className="h-px w-12 bg-gold/60" />
-                <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Protection des données</span>
-                <div className="h-px w-12 bg-gold/60" />
-              </div>
-              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground">
-                Politique de Confidentialité
-              </h1>
+          {/* Header */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gold/10 mb-8">
+              <Shield className="w-10 h-10 text-gold" />
             </div>
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-4">
+              Protection des données
+            </h1>
+            <p className="font-sans text-muted-foreground max-w-xl mx-auto">
+              Transparence et sécurité au cœur de notre engagement
+            </p>
+          </div>
 
-            {/* Accordion */}
-            <Accordion type="single" collapsible className="space-y-4">
-              {sections.map((section) => (
-                <AccordionItem 
-                  key={section.id} 
-                  value={section.id}
-                  className="border-none"
+          {/* Cards Grid */}
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+            {sections.map((section) => {
+              const Icon = section.icon;
+              const isActive = activeSection === section.id;
+              
+              return (
+                <button
+                  key={section.id}
+                  onClick={() => setActiveSection(isActive ? null : section.id)}
+                  className={`group relative p-6 rounded-2xl text-left transition-all duration-500 ${
+                    isActive 
+                      ? 'bg-gold text-background shadow-lg shadow-gold/20' 
+                      : 'bg-background hover:bg-gold/5 border border-border/50 hover:border-gold/30'
+                  }`}
                 >
-                  <AccordionTrigger className="bg-background hover:bg-background/80 px-6 py-5 rounded-lg shadow-sm hover:no-underline group transition-all duration-300 data-[state=open]:rounded-b-none data-[state=open]:shadow-none">
-                    <span className="font-serif text-lg md:text-xl text-gold group-hover:text-gold/80 transition-colors text-left">
-                      {section.title}
-                    </span>
-                  </AccordionTrigger>
-                  <AccordionContent className="bg-background px-6 pb-6 pt-2 rounded-b-lg shadow-sm">
-                    <div className="font-sans text-muted-foreground leading-relaxed whitespace-pre-line border-t border-border/50 pt-4">
-                      {section.content}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+                  <div className={`mb-4 transition-colors duration-300 ${isActive ? 'text-background' : 'text-gold'}`}>
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <h3 className={`font-serif text-lg font-medium mb-1 transition-colors duration-300 ${
+                    isActive ? 'text-background' : 'text-foreground'
+                  }`}>
+                    {section.title}
+                  </h3>
+                  <p className={`font-sans text-sm transition-colors duration-300 ${
+                    isActive ? 'text-background/70' : 'text-muted-foreground'
+                  }`}>
+                    {section.subtitle}
+                  </p>
+                  
+                  {/* Indicator */}
+                  <div className={`absolute bottom-3 right-3 w-2 h-2 rounded-full transition-all duration-300 ${
+                    isActive ? 'bg-background' : 'bg-gold/30 group-hover:bg-gold/60'
+                  }`} />
+                </button>
+              );
+            })}
+          </div>
 
-            {/* Footer note */}
-            <div className="mt-16 text-center">
+          {/* Content Panel */}
+          <div className={`max-w-4xl mx-auto transition-all duration-500 ${
+            activeSection ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none h-0'
+          }`}>
+            {sections.map((section) => (
+              <div
+                key={section.id}
+                className={`bg-background rounded-2xl p-8 md:p-12 shadow-sm border border-border/30 ${
+                  activeSection === section.id ? 'block' : 'hidden'
+                }`}
+              >
+                <div className="flex items-start gap-6 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0">
+                    <section.icon className="w-6 h-6 text-gold" />
+                  </div>
+                  <div>
+                    <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-2">
+                      {section.title}
+                    </h2>
+                    <p className="font-sans text-sm text-gold uppercase tracking-wider">
+                      {section.subtitle}
+                    </p>
+                  </div>
+                </div>
+                <div className="font-sans text-muted-foreground leading-relaxed whitespace-pre-line pl-0 md:pl-18">
+                  {section.content}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* No selection state */}
+          <div className={`max-w-2xl mx-auto text-center transition-all duration-500 ${
+            !activeSection ? 'opacity-100' : 'opacity-0 pointer-events-none absolute'
+          }`}>
+            <p className="font-sans text-muted-foreground">
+              Sélectionnez une catégorie pour en savoir plus
+            </p>
+          </div>
+
+          {/* Footer note */}
+          <div className="mt-20 text-center">
+            <div className="inline-block px-6 py-3 rounded-full bg-background border border-border/50">
               <p className="font-sans text-sm text-muted-foreground">
-                Dernière mise à jour : Janvier 2026
-              </p>
-              <p className="font-sans text-sm text-muted-foreground mt-2">
-                Pour toute question, contactez-nous à{" "}
-                <a href="mailto:contact@chevalier-conciergerie.fr" className="text-gold hover:underline">
-                  contact@chevalier-conciergerie.fr
+                Mise à jour : Janvier 2026 · 
+                <a href="mailto:contact@chevalier-conciergerie.fr" className="text-gold hover:underline ml-1">
+                  Questions ?
                 </a>
               </p>
             </div>
