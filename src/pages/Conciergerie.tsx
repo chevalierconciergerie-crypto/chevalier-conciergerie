@@ -312,10 +312,10 @@ const Conciergerie = () => {
                           <span className="font-sans text-xs font-medium text-gold uppercase tracking-wider">Le bien</span>
                         </div>
                         <h3 className="font-serif text-2xl font-semibold text-foreground mb-3">
-                          T2 · Centre Avignon
+                          Studio · Centre Avignon
                         </h3>
                         <p className="font-sans text-muted-foreground leading-relaxed">
-                          55m² avec vue sur les remparts. Idéalement situé à 5 minutes du Palais des Papes.
+                          30m² idéalement situé à 5 minutes du Palais des Papes.
                         </p>
                       </div>
                     </div>
@@ -344,7 +344,7 @@ const Conciergerie = () => {
                       </div>
                       <div className="flex items-center justify-center gap-4">
                         <div className="text-center">
-                          <p className="font-serif text-3xl font-bold text-foreground">85€</p>
+                          <p className="font-serif text-3xl font-bold text-foreground">20€</p>
                           <p className="font-sans text-xs text-muted-foreground mt-1">/nuit</p>
                         </div>
                         <X className="w-5 h-5 text-muted-foreground/30" />
@@ -354,7 +354,7 @@ const Conciergerie = () => {
                         </div>
                         <span className="font-serif text-2xl text-muted-foreground/50">=</span>
                         <div className="text-center">
-                          <p className="font-serif text-3xl font-bold text-gold">765€</p>
+                          <p className="font-serif text-3xl font-bold text-gold">180€</p>
                           <p className="font-sans text-xs text-muted-foreground mt-1">brut</p>
                         </div>
                       </div>
@@ -392,9 +392,9 @@ const Conciergerie = () => {
                           {/* Le montant principal - Impact visuel fort */}
                           <div className="mb-10">
                             <div className="flex items-baseline gap-2">
-                              <span className="font-serif text-7xl md:text-8xl font-bold text-gold tracking-tight">581</span>
+                              <span className="font-serif text-7xl md:text-8xl font-bold text-gold tracking-tight">110</span>
                               <div className="flex flex-col">
-                                <span className="font-serif text-3xl md:text-4xl font-bold text-gold">,40€</span>
+                                <span className="font-serif text-3xl md:text-4xl font-bold text-gold">€</span>
                                 <span className="font-sans text-sm text-primary-foreground/50">net</span>
                               </div>
                             </div>
@@ -407,11 +407,11 @@ const Conciergerie = () => {
                           <div className="grid grid-cols-2 gap-4 mb-8">
                             <div className="bg-primary-foreground/5 rounded-xl p-4">
                               <p className="font-sans text-xs text-primary-foreground/50 mb-1">Commission</p>
-                              <p className="font-sans text-lg font-medium text-primary-foreground">153€ <span className="text-xs text-primary-foreground/50">HT</span></p>
+                              <p className="font-sans text-lg font-medium text-primary-foreground">36€ <span className="text-xs text-primary-foreground/50">HT</span></p>
                             </div>
                             <div className="bg-primary-foreground/5 rounded-xl p-4">
                               <p className="font-sans text-xs text-primary-foreground/50 mb-1">Ménage</p>
-                              <p className="font-sans text-lg font-medium text-primary-foreground">45€ <span className="text-xs text-primary-foreground/50">payé par voyageur</span></p>
+                              <p className="font-sans text-lg font-medium text-primary-foreground">34€ <span className="text-xs text-primary-foreground/50">payé par voyageur</span></p>
                             </div>
                           </div>
 
