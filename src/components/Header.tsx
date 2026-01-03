@@ -71,12 +71,29 @@ const Header = () => {
         }`}
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="group">
-            <span className="font-serif text-xl md:text-2xl font-semibold tracking-wide text-primary-foreground">
-              CHEVALIER{" "}
-              <span className="text-gold">CONCIERGERIE</span>
-            </span>
+        {/* Logo */}
+          <Link to="/" className="group flex items-center gap-3">
+            {/* Decorative line left */}
+            <div className="hidden sm:flex items-center gap-2">
+              <div className="w-8 h-px bg-gradient-to-r from-transparent to-gold/60" />
+              <div className="w-1.5 h-1.5 rotate-45 border border-gold/60" />
+            </div>
+            
+            {/* Text */}
+            <div className="flex flex-col items-center leading-none">
+              <span className="font-serif text-xs sm:text-sm tracking-[0.4em] text-primary-foreground/70 uppercase">
+                Chevalier
+              </span>
+              <span className="font-serif text-lg sm:text-xl md:text-2xl font-semibold tracking-[0.15em] text-gold uppercase">
+                Conciergerie
+              </span>
+            </div>
+            
+            {/* Decorative line right */}
+            <div className="hidden sm:flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rotate-45 border border-gold/60" />
+              <div className="w-8 h-px bg-gradient-to-l from-transparent to-gold/60" />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
