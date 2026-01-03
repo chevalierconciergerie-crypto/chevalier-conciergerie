@@ -34,27 +34,6 @@ const LocalExpertise = () => {
               nous maîtrisons chaque nuance de cette ville d'exception.
             </p>
           </ScrollAnimate>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-            <ScrollAnimate delay={0} animation="scale-in">
-              <div className="text-center">
-                <p className="font-serif text-4xl md:text-5xl text-gold font-semibold mb-2">5+</p>
-                <p className="font-sans text-primary-foreground/70">Années d'expérience locale</p>
-              </div>
-            </ScrollAnimate>
-            <ScrollAnimate delay={100} animation="scale-in">
-              <div className="text-center">
-                <p className="font-serif text-4xl md:text-5xl text-gold font-semibold mb-2">50+</p>
-                <p className="font-sans text-primary-foreground/70">Biens gérés à Avignon</p>
-              </div>
-            </ScrollAnimate>
-            <ScrollAnimate delay={200} animation="scale-in">
-              <div className="text-center">
-                <p className="font-serif text-4xl md:text-5xl text-gold font-semibold mb-2">98%</p>
-                <p className="font-sans text-primary-foreground/70">Propriétaires satisfaits</p>
-              </div>
-            </ScrollAnimate>
-          </div>
         </div>
       </div>
     </section>
