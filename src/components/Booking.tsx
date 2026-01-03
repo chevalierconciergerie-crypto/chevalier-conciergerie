@@ -58,8 +58,8 @@ const Booking = () => {
                     <p className="font-sans text-muted-foreground text-sm mb-2">
                       Du lundi au samedi, 9h - 19h
                     </p>
-                    <a href="tel:+33490000000" className="font-sans text-gold font-medium hover:underline">
-                      +33 4 90 00 00 00
+                    <a href="tel:+33783198341" className="font-sans text-gold font-medium hover:underline">
+                      +33 7 83 19 83 41
                     </a>
                   </div>
                 </div>
@@ -96,24 +96,15 @@ const Booking = () => {
                     <p className="font-sans text-muted-foreground text-sm mb-2">
                       Pour une réponse rapide
                     </p>
-                    <Button variant="outline-gold" size="sm">
-                      Démarrer une conversation
+                    <Button variant="outline-gold" size="sm" asChild>
+                      <a href="https://wa.me/33783198341" target="_blank" rel="noopener noreferrer">
+                        Démarrer une conversation
+                      </a>
                     </Button>
                   </div>
                 </div>
               </div>
 
-              {/* Address */}
-              <div className="bg-primary rounded-2xl p-6 mt-6">
-                <h4 className="font-serif text-lg font-semibold text-primary-foreground mb-3">
-                  Notre adresse
-                </h4>
-                <p className="font-sans text-primary-foreground/80 text-sm">
-                  CHEVALIER CONCIERGERIE<br />
-                  Centre-ville d'Avignon<br />
-                  84000 Avignon, France
-                </p>
-              </div>
             </div>
           </div>
         </div>
