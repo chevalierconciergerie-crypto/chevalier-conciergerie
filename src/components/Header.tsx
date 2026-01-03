@@ -62,9 +62,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 transition-all duration-500 ${
-        isMobileMenuOpen ? "z-40" : "z-50"
-      } ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
           ? "bg-primary/95 backdrop-blur-md shadow-medium py-3"
           : "bg-transparent py-6"
@@ -123,7 +121,7 @@ const Header = () => {
 
       {/* Mobile Menu - Slide-in Panel */}
       <div
-        className={`lg:hidden fixed inset-0 top-0 z-50 transition-all duration-500 ${
+        className={`lg:hidden fixed inset-0 z-[60] transition-all duration-500 ${
           isMobileMenuOpen ? "visible" : "invisible"
         }`}
       >
