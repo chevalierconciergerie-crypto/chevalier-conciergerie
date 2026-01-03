@@ -33,11 +33,6 @@ const Conciergerie = () => {
       title: "Disponibilité 24/7",
       description: "Support réactif pour vous et vos voyageurs à tout moment.",
     },
-    {
-      icon: Shield,
-      title: "Gestion des Litiges",
-      description: "Prise en charge complète des réclamations et de la relation client.",
-    },
   ];
 
   const pricingPlans = [
@@ -112,7 +107,7 @@ const Conciergerie = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button variant="gold" size="xl" asChild>
-                    <Link to="/contact">Demander un devis</Link>
+                    <Link to="/contact">Prendre rendez-vous</Link>
                   </Button>
                   <Button variant="outline-light" size="xl" asChild>
                     <a href="#tarifs">Voir les tarifs</a>

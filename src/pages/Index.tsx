@@ -107,10 +107,10 @@ const Index = () => {
                     </p>
                     <div className="flex flex-wrap gap-3 mb-6">
                       <span className="px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full text-sm text-primary-foreground font-medium">
-                        Loyer garanti
+                        Sérénité totale
                       </span>
                       <span className="px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full text-sm text-primary-foreground font-medium">
-                        0% vacance
+                        Revenus sécurisés
                       </span>
                     </div>
                     <Button variant="gold" className="w-fit group/btn" asChild>
