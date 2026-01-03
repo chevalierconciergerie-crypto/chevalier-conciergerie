@@ -5,12 +5,15 @@ import Hero from "@/components/Hero";
 import LocalExpertise from "@/components/LocalExpertise";
 import ComingSoon from "@/components/ComingSoon";
 import PlatformLogos from "@/components/PlatformLogos";
+import AvignonDivider from "@/components/AvignonDivider";
+import FloatingAvignonElements from "@/components/FloatingAvignonElements";
 import { ArrowRight, Home, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import serviceSublocation from "@/assets/service-sublocation.jpg";
 import serviceConciergerie from "@/assets/service-concierge.jpg";
 import { ScrollAnimate } from "@/hooks/useScrollAnimation";
+
 const Index = () => {
   return (
     <>
@@ -27,11 +30,17 @@ const Index = () => {
         <link rel="canonical" href="https://chevalier-conciergerie.fr" />
       </Helmet>
       
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background relative">
+        {/* Floating Avignon Elements */}
+        <FloatingAvignonElements />
+        
         <Header />
-        <main>
+        <main className="relative z-10">
           <Hero />
           <PlatformLogos />
+          
+          {/* Avignon Divider */}
+          <AvignonDivider />
           
           {/* Services Overview */}
           <section className="py-24 bg-background">
@@ -131,6 +140,9 @@ const Index = () => {
               </div>
             </div>
           </section>
+
+          {/* Second Avignon Divider */}
+          <AvignonDivider />
 
           <LocalExpertise />
           <ComingSoon />
