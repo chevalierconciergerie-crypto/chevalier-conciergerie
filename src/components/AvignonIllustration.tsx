@@ -163,7 +163,7 @@ const AvignonIllustration = ({ variant, className = "" }: AvignonIllustrationPro
 
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
-      <div className="w-full max-w-5xl text-gold opacity-[0.35]">
+      <div className="w-[120%] max-w-none text-gold opacity-[0.35]">
         {renderIllustration()}
       </div>
     </div>
