@@ -55,8 +55,8 @@ const Hero = () => {
           {/* Trust Indicators */}
           <div className="mt-16 flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-0 animate-fade-up animation-delay-400">
             <div className="text-center">
-              <p className="font-serif text-3xl md:text-4xl text-gold font-semibold">0%</p>
-              <p className="font-sans text-sm text-primary-foreground/60 mt-1">Vacance locative</p>
+              <p className="font-serif text-3xl md:text-4xl text-gold font-semibold">2</p>
+              <p className="font-sans text-sm text-primary-foreground/60 mt-1">Formules sur mesure</p>
             </div>
             <div className="h-12 w-px bg-primary-foreground/20 hidden md:block" />
             <div className="text-center">
@@ -65,8 +65,8 @@ const Hero = () => {
             </div>
             <div className="h-12 w-px bg-primary-foreground/20 hidden md:block" />
             <div className="text-center">
-              <p className="font-serif text-3xl md:text-4xl text-gold font-semibold">100%</p>
-              <p className="font-sans text-sm text-primary-foreground/60 mt-1">Loyer garanti</p>
+              <p className="font-serif text-3xl md:text-4xl text-gold font-semibold">Avignon</p>
+              <p className="font-sans text-sm text-primary-foreground/60 mt-1">Expertise locale</p>
             </div>
           </div>
         </div>
