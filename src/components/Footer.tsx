@@ -62,8 +62,8 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-gold" />
-                <a href="mailto:contact@chevalier-conciergerie.fr" className="font-sans text-sm text-primary-foreground/70 hover:text-gold transition-colors">
-                  contact@chevalier-conciergerie.fr
+                <a href="mailto:chevalierconciergerie@gmail.com" className="font-sans text-sm text-primary-foreground/70 hover:text-gold transition-colors">
+                  chevalierconciergerie@gmail.com
                 </a>
               </div>
             </div>
