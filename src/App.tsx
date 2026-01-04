@@ -7,6 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import Conciergerie from "./pages/Conciergerie";
 import SousLocation from "./pages/SousLocation";
+import EstimationSousLocation from "./pages/EstimationSousLocation";
 import Contact from "./pages/Contact";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 import NotFound from "./pages/NotFound";
@@ -24,6 +25,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/conciergerie" element={<Conciergerie />} />
             <Route path="/sous-location" element={<SousLocation />} />
+            <Route path="/estimation-sous-location" element={<EstimationSousLocation />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

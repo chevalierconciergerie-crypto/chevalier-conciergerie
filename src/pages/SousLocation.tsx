@@ -133,7 +133,7 @@ const SousLocation = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button variant="gold" size="xl" asChild>
-                    <Link to="/contact">Obtenir mon estimation</Link>
+                    <Link to="/estimation-sous-location">Obtenir mon estimation</Link>
                   </Button>
                   <Button variant="outline-light" size="xl" asChild>
                     <a href="#fonctionnement">Comment ça marche</a>
@@ -347,7 +347,7 @@ const SousLocation = () => {
                 Découvrez combien vous pourriez percevoir chaque mois avec notre service de sous-location.
               </p>
               <Button variant="gold" size="xl" asChild>
-                <Link to="/contact">Estimer mon loyer garanti</Link>
+                <Link to="/estimation-sous-location">Estimer mon loyer garanti</Link>
               </Button>
             </div>
           </section>
