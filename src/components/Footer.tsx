@@ -17,6 +17,7 @@ const Footer = () => {
       { label: "Sous-location", href: "/sous-location" },
     ],
     legal: [
+      { label: "Mentions légales", href: "/mentions-legales" },
       { label: "Politique de confidentialité", href: "/politique-confidentialite" },
       { label: "Gestion des cookies", href: "/politique-confidentialite" },
     ],
