@@ -6,9 +6,9 @@ import { Check, X, Sparkles, Users, Clock, Camera, TrendingUp, Home, Euro, Arrow
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import palaisPapes from "@/assets/avignon-palais-hero.jpg";
-import pontAvignon from "@/assets/pont-avignon.jpg";
-import placeHorloge from "@/assets/place-horloge.jpg";
-import detailArchitectural from "@/assets/detail-architectural.jpg";
+import pontAvignon from "@/assets/pont-avignon-2.jpg";
+import placeHorloge from "@/assets/place-horloge-2.jpg";
+import rueTeinturiers from "@/assets/rue-teinturiers-2.jpg";
 
 const Conciergerie = () => {
   const services = [
@@ -125,9 +125,9 @@ const Conciergerie = () => {
                   { src: palaisPapes, alt: "Palais des Papes - Avignon" },
                   { src: pontAvignon, alt: "Pont d'Avignon" },
                   { src: placeHorloge, alt: "Place de l'Horloge - Avignon" },
-                  { src: detailArchitectural, alt: "Architecture provençale" },
+                  { src: rueTeinturiers, alt: "Rue des Teinturiers - Avignon" },
                 ]}
-                interval={4000}
+                interval={6000}
               />
             </div>
             <div className="relative z-10 container mx-auto px-6">

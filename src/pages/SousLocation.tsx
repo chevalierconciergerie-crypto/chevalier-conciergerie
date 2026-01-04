@@ -5,10 +5,10 @@ import HeroImageCarousel from "@/components/HeroImageCarousel";
 import { Check, Banknote, Shield, Clock, TrendingUp, FileCheck, Home, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import rueTeinturiers from "@/assets/rue-teinturiers.jpg";
-import rempartsAvignon from "@/assets/remparts-avignon.jpg";
-import pontAvignon from "@/assets/pont-avignon.jpg";
-import placeHorloge from "@/assets/place-horloge.jpg";
+import rueTeinturiers from "@/assets/rue-teinturiers-2.jpg";
+import rempartsAvignon from "@/assets/remparts-avignon-2.jpg";
+import pontAvignon from "@/assets/pont-avignon-2.jpg";
+import placeHorloge from "@/assets/place-horloge-2.jpg";
 
 const SousLocation = () => {
   const advantages = [
@@ -94,7 +94,7 @@ const SousLocation = () => {
                   { src: pontAvignon, alt: "Pont d'Avignon" },
                   { src: placeHorloge, alt: "Place de l'Horloge - Avignon" },
                 ]}
-                interval={4000}
+                interval={6000}
               />
             </div>
             <div className="relative z-10 container mx-auto px-6">
