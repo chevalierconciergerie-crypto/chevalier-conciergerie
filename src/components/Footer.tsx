@@ -18,6 +18,7 @@ const Footer = () => {
     ],
     legal: [
       { label: "Politique de confidentialité", href: "/politique-confidentialite" },
+      { label: "Gestion des cookies", href: "/politique-confidentialite" },
     ],
   };
 
