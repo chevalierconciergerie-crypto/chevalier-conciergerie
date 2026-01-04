@@ -5,10 +5,11 @@ import HeroImageCarousel from "@/components/HeroImageCarousel";
 import { Check, X, Sparkles, Users, Clock, Camera, TrendingUp, Home, Euro, ArrowRight, Calendar, Wallet } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import palaisPapes from "@/assets/avignon-palais-hero.jpg";
-import pontAvignon from "@/assets/pont-avignon-2.jpg";
-import placeHorloge from "@/assets/place-horloge-2.jpg";
-import rueTeinturiers from "@/assets/rue-teinturiers-2.jpg";
+import villeneuveChartreuse from "@/assets/villeneuve-chartreuse.jpg";
+import villeneuveFort from "@/assets/villeneuve-fort.jpg";
+import palaisPapesPanorama from "@/assets/palais-papes-panorama.jpg";
+import pontAvignonAerien from "@/assets/pont-avignon-aerien.png";
+import avignonStatue from "@/assets/avignon-statue-doree.png";
 
 const Conciergerie = () => {
   const services = [
@@ -122,10 +123,11 @@ const Conciergerie = () => {
             <div className="absolute inset-0 opacity-30">
               <HeroImageCarousel
                 images={[
-                  { src: palaisPapes, alt: "Palais des Papes - Avignon" },
-                  { src: pontAvignon, alt: "Pont d'Avignon" },
-                  { src: placeHorloge, alt: "Place de l'Horloge - Avignon" },
-                  { src: rueTeinturiers, alt: "Rue des Teinturiers - Avignon" },
+                  { src: palaisPapesPanorama, alt: "Palais des Papes - Avignon" },
+                  { src: pontAvignonAerien, alt: "Pont d'Avignon vue aérienne" },
+                  { src: villeneuveFort, alt: "Fort Saint-André - Villeneuve-lès-Avignon" },
+                  { src: villeneuveChartreuse, alt: "Chartreuse - Villeneuve-lès-Avignon" },
+                  { src: avignonStatue, alt: "Statue dorée - Avignon" },
                 ]}
                 interval={6000}
               />
