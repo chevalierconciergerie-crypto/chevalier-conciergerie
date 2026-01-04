@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroVideo from "@/assets/hero-video.mp4";
 
-const cities = ["Avignon", "Villeneuve-lès-Avignon"];
+const cities = ["Avignon", "Villeneuve-lès-Avignon", "Les Angles"];
 
 const Hero = () => {
   const [currentCityIndex, setCurrentCityIndex] = useState(0);
