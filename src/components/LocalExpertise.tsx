@@ -1,4 +1,4 @@
-import avignonImage from "@/assets/avignon-palais.jpg";
+import avignonImage from "@/assets/avignon-palais-hero.jpg";
 import { ScrollAnimate } from "@/hooks/useScrollAnimation";
 
 const LocalExpertise = () => {
