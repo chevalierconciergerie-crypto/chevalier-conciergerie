@@ -5,10 +5,11 @@ import HeroImageCarousel from "@/components/HeroImageCarousel";
 import { Check, Banknote, Shield, Clock, TrendingUp, FileCheck, Home, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import rueTeinturiers from "@/assets/rue-teinturiers-2.jpg";
-import rempartsAvignon from "@/assets/remparts-avignon-2.jpg";
-import pontAvignon from "@/assets/pont-avignon-2.jpg";
-import placeHorloge from "@/assets/place-horloge-2.jpg";
+import villeneuveChartreuse from "@/assets/villeneuve-chartreuse.jpg";
+import villeneuveFort from "@/assets/villeneuve-fort.jpg";
+import villeneuveJardin from "@/assets/villeneuve-jardin.jpg";
+import palaisPapesPanorama from "@/assets/palais-papes-panorama.jpg";
+import pontAvignonAerien from "@/assets/pont-avignon-aerien.png";
 
 const SousLocation = () => {
   const advantages = [
@@ -89,10 +90,11 @@ const SousLocation = () => {
             <div className="absolute inset-0 opacity-30">
               <HeroImageCarousel
                 images={[
-                  { src: rueTeinturiers, alt: "Rue des Teinturiers - Avignon" },
-                  { src: rempartsAvignon, alt: "Remparts d'Avignon" },
-                  { src: pontAvignon, alt: "Pont d'Avignon" },
-                  { src: placeHorloge, alt: "Place de l'Horloge - Avignon" },
+                  { src: palaisPapesPanorama, alt: "Palais des Papes - Avignon" },
+                  { src: pontAvignonAerien, alt: "Pont d'Avignon vue aérienne" },
+                  { src: villeneuveFort, alt: "Fort Saint-André - Villeneuve-lès-Avignon" },
+                  { src: villeneuveChartreuse, alt: "Chartreuse - Villeneuve-lès-Avignon" },
+                  { src: villeneuveJardin, alt: "Jardins - Villeneuve-lès-Avignon" },
                 ]}
                 interval={6000}
               />
