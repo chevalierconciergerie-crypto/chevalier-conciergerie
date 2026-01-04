@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Booking from "@/components/Booking";
+import ContactForm from "@/components/ContactForm";
 
 const Contact = () => {
   return (
@@ -32,6 +33,8 @@ const Contact = () => {
           </section>
 
           <Booking />
+
+          <ContactForm />
         </main>
         
         <Footer />
