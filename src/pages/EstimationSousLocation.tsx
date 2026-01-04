@@ -25,6 +25,8 @@ interface FormData {
   typeLogement: string;
   superficie: string;
   nombrePieces: string;
+  nombreChambres: string;
+  nombreSdb: string;
   meuble: boolean;
   parking: boolean;
   exterieur: boolean;
@@ -54,6 +56,8 @@ const EstimationSousLocation = () => {
     typeLogement: "",
     superficie: "",
     nombrePieces: "",
+    nombreChambres: "",
+    nombreSdb: "",
     meuble: false,
     parking: false,
     exterieur: false,
@@ -96,7 +100,9 @@ Code postal : ${formData.codePostal}
 Ville : ${formData.ville}
 Type : ${formData.typeLogement}
 Superficie : ${formData.superficie} m²
-Nombre de pièces : ${formData.nombrePieces}
+Nombre de pièces : ${formData.nombrePieces}${formData.typeLogement === "maison" ? `
+Nombre de chambres : ${formData.nombreChambres}
+Nombre de salles de bain : ${formData.nombreSdb}` : ""}
 Meublé : ${formData.meuble ? "Oui" : "Non"}
 Parking : ${formData.parking ? "Oui" : "Non"}
 Extérieur : ${formData.exterieur ? "Oui" : "Non"}
@@ -266,6 +272,48 @@ Commentaire : ${formData.commentaire || "Aucun"}
                           />
                         </div>
                       </div>
+
+                      {/* Champs supplémentaires pour les maisons */}
+                      {formData.typeLogement === "maison" && (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                          <div>
+                            <Label className="text-sm text-muted-foreground mb-2 block">Chambres</Label>
+                            <Select
+                              value={formData.nombreChambres}
+                              onValueChange={(value) => updateField("nombreChambres", value)}
+                            >
+                              <SelectTrigger className="border-border focus:border-gold bg-background">
+                                <SelectValue placeholder="Nombre" />
+                              </SelectTrigger>
+                              <SelectContent className="bg-card border-border">
+                                {[1, 2, 3, 4, 5, "6+"].map((num) => (
+                                  <SelectItem key={num} value={num.toString()}>
+                                    {num}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                          <div>
+                            <Label className="text-sm text-muted-foreground mb-2 block">Salles de bain</Label>
+                            <Select
+                              value={formData.nombreSdb}
+                              onValueChange={(value) => updateField("nombreSdb", value)}
+                            >
+                              <SelectTrigger className="border-border focus:border-gold bg-background">
+                                <SelectValue placeholder="Nombre" />
+                              </SelectTrigger>
+                              <SelectContent className="bg-card border-border">
+                                {[1, 2, 3, "4+"].map((num) => (
+                                  <SelectItem key={num} value={num.toString()}>
+                                    {num}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        </div>
+                      )}
 
                       <div className="flex flex-wrap gap-6">
                         <label className="flex items-center gap-3 cursor-pointer group">
