@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://chevalier-conciergerie.fr/sitemap.xml

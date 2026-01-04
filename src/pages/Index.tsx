@@ -17,16 +17,57 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Chevalier Conciergerie | Gestion Locative de Luxe à Avignon</title>
+        <title>Conciergerie Avignon | Gestion Locative & Sous-location | Chevalier Conciergerie</title>
         <meta 
           name="description" 
-          content="Conciergerie haut de gamme et sous-location professionnelle à Avignon. Optimisez vos revenus locatifs avec un loyer garanti et une gestion 5 étoiles." 
+          content="Conciergerie Airbnb à Avignon, Villeneuve-lès-Avignon et Les Angles. Gestion locative saisonnière haut de gamme et sous-location professionnelle avec loyer garanti. Devis gratuit." 
         />
-        <meta name="keywords" content="conciergerie Avignon, gestion locative, sous-location professionnelle, Airbnb Avignon, location saisonnière" />
-        <meta property="og:title" content="Chevalier Conciergerie | Gestion Locative de Luxe à Avignon" />
-        <meta property="og:description" content="Conciergerie haut de gamme et sous-location professionnelle à Avignon." />
+        <meta name="keywords" content="conciergerie Avignon, gestion locative Avignon, Airbnb Avignon, location saisonnière Avignon, sous-location Avignon, conciergerie Villeneuve-lès-Avignon, gestion Airbnb" />
+        <meta property="og:title" content="Conciergerie Avignon | Gestion Locative Saisonnière | Chevalier Conciergerie" />
+        <meta property="og:description" content="Conciergerie Airbnb haut de gamme à Avignon. Gestion locative saisonnière et sous-location avec loyer garanti. Consultation gratuite." />
         <meta property="og:type" content="website" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta name="geo.region" content="FR-84" />
+        <meta name="geo.placename" content="Avignon" />
         <link rel="canonical" href="https://chevalier-conciergerie.fr" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "@id": "https://chevalier-conciergerie.fr",
+            "name": "Chevalier Conciergerie",
+            "description": "Conciergerie Airbnb et gestion locative saisonnière haut de gamme à Avignon. Sous-location professionnelle avec loyer garanti.",
+            "url": "https://chevalier-conciergerie.fr",
+            "telephone": "+33783198341",
+            "email": "contact@chevalier-conciergerie.fr",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "5 Lotissement Les Cades",
+              "addressLocality": "Villeneuve-lès-Avignon",
+              "postalCode": "30400",
+              "addressCountry": "FR"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 43.9657,
+              "longitude": 4.7956
+            },
+            "areaServed": [
+              { "@type": "City", "name": "Avignon" },
+              { "@type": "City", "name": "Villeneuve-lès-Avignon" },
+              { "@type": "City", "name": "Les Angles" }
+            ],
+            "serviceType": ["Conciergerie Airbnb", "Gestion locative saisonnière", "Sous-location professionnelle"],
+            "priceRange": "€€",
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              "opens": "00:00",
+              "closes": "23:59"
+            },
+            "sameAs": []
+          })}
+        </script>
       </Helmet>
       
       <div className="min-h-screen bg-background relative">
