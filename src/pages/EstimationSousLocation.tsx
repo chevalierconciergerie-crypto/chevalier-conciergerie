@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Select,
   SelectContent,
@@ -13,37 +14,32 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Check, Home, FileText, User, ChevronRight, Send } from "lucide-react";
+import { Check, Home, User, ChevronRight, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface FormData {
-  // Étape 1 - Informations du bien
+  // Étape 1 - Le bien
   adresse: string;
-  superficie: string;
+  codePostal: string;
+  ville: string;
   typeLogement: string;
-  nombreChambres: string;
-  nombreSallesDeBain: string;
-  nombreEtages: string;
-  ascenseur: string;
-  stationnement: string;
-  accesExterieur: string;
-  // Étape 2 - Détails sous-location
-  duree: string;
-  periodes: string;
-  tarifSouhaite: string;
-  restrictions: string;
-  // Étape 3 - Coordonnées
-  nom: string;
-  prenom: string;
+  superficie: string;
+  nombrePieces: string;
+  meuble: boolean;
+  parking: boolean;
+  exterieur: boolean;
+  equipements: string;
+  // Étape 2 - Contact
+  nomComplet: string;
   telephone: string;
   email: string;
-  message: string;
+  disponibilite: string;
+  commentaire: string;
 }
 
 const steps = [
-  { id: 1, title: "Votre Bien", icon: Home },
-  { id: 2, title: "Votre Projet", icon: FileText },
-  { id: 3, title: "Vos Coordonnées", icon: User },
+  { id: 1, title: "Le Bien", icon: Home },
+  { id: 2, title: "Vous Contacter", icon: User },
 ];
 
 const EstimationSousLocation = () => {
@@ -53,81 +49,66 @@ const EstimationSousLocation = () => {
   
   const [formData, setFormData] = useState<FormData>({
     adresse: "",
-    superficie: "",
+    codePostal: "",
+    ville: "",
     typeLogement: "",
-    nombreChambres: "",
-    nombreSallesDeBain: "",
-    nombreEtages: "",
-    ascenseur: "",
-    stationnement: "",
-    accesExterieur: "",
-    duree: "",
-    periodes: "",
-    tarifSouhaite: "",
-    restrictions: "",
-    nom: "",
-    prenom: "",
+    superficie: "",
+    nombrePieces: "",
+    meuble: false,
+    parking: false,
+    exterieur: false,
+    equipements: "",
+    nomComplet: "",
     telephone: "",
     email: "",
-    message: "",
+    disponibilite: "",
+    commentaire: "",
   });
 
-  const updateField = (field: keyof FormData, value: string) => {
+  const updateField = (field: keyof FormData, value: string | boolean) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleNext = () => {
-    if (step < 3) setStep(step + 1);
+    if (step < 2) setStep(step + 1);
   };
 
   const handlePrev = () => {
     if (step > 1) setStep(step - 1);
   };
 
-  const goToStep = (targetStep: number) => {
-    if (targetStep <= step) {
-      setStep(targetStep);
-    }
-  };
-
   const handleSubmit = () => {
-    if (!formData.nom || !formData.prenom || !formData.email || !formData.telephone) {
+    if (!formData.nomComplet || !formData.email || !formData.telephone) {
       toast({
         title: "Champs requis",
-        description: "Veuillez remplir tous les champs obligatoires.",
+        description: "Veuillez remplir votre nom, email et téléphone.",
         variant: "destructive",
       });
       return;
     }
 
-    const subject = encodeURIComponent(`Demande d'estimation sous-location - ${formData.prenom} ${formData.nom}`);
+    const subject = encodeURIComponent(`Nouvelle demande sous-location - ${formData.nomComplet}`);
     const body = encodeURIComponent(
-`INFORMATIONS DU BIEN
---------------------
+`LE BIEN
+-------
 Adresse : ${formData.adresse}
+Code postal : ${formData.codePostal}
+Ville : ${formData.ville}
+Type : ${formData.typeLogement}
 Superficie : ${formData.superficie} m²
-Type de logement : ${formData.typeLogement}
-Nombre de chambres : ${formData.nombreChambres}
-Nombre de salles de bain : ${formData.nombreSallesDeBain}
-Nombre d'étages : ${formData.nombreEtages}
-Ascenseur : ${formData.ascenseur}
-Stationnement : ${formData.stationnement}
-Accès extérieur : ${formData.accesExterieur}
+Nombre de pièces : ${formData.nombrePieces}
+Meublé : ${formData.meuble ? "Oui" : "Non"}
+Parking : ${formData.parking ? "Oui" : "Non"}
+Extérieur : ${formData.exterieur ? "Oui" : "Non"}
+Équipements particuliers : ${formData.equipements || "Non précisé"}
 
-DÉTAILS DE LA SOUS-LOCATION
----------------------------
-Durée prévue : ${formData.duree}
-Périodes disponibles : ${formData.periodes}
-Tarif mensuel souhaité : ${formData.tarifSouhaite}
-Restrictions : ${formData.restrictions}
-
-COORDONNÉES
------------
-Nom : ${formData.nom}
-Prénom : ${formData.prenom}
+CONTACT
+-------
+Nom : ${formData.nomComplet}
 Téléphone : ${formData.telephone}
 Email : ${formData.email}
-Message : ${formData.message}
+Disponibilité : ${formData.disponibilite}
+Commentaire : ${formData.commentaire || "Aucun"}
 `
     );
 
@@ -136,7 +117,7 @@ Message : ${formData.message}
     
     toast({
       title: "Demande envoyée !",
-      description: "Nous reviendrons vers vous rapidement.",
+      description: "Nous vous recontacterons sous 48h.",
     });
   };
 
@@ -156,7 +137,7 @@ Message : ${formData.message}
         <main className="pt-32 pb-20">
           <div className="container mx-auto px-6">
             {/* Header */}
-            <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="text-center max-w-2xl mx-auto mb-12">
               <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">
                 Estimation Gratuite
               </span>
@@ -164,322 +145,191 @@ Message : ${formData.message}
                 Estimez votre Loyer Garanti
               </h1>
               <p className="font-sans text-muted-foreground text-lg">
-                Quelques informations suffisent pour vous proposer une offre personnalisée.
+                Décrivez votre bien, nous vous proposons une offre sous 48h.
               </p>
             </div>
 
-            <div className="max-w-4xl mx-auto">
-              {/* Steps Navigation - Sidebar style on desktop */}
-              <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-                {/* Left sidebar with steps */}
-                <div className="lg:col-span-1">
-                  <div className="flex lg:flex-col gap-2 lg:gap-0 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0">
-                    {steps.map((s, index) => (
-                      <button
-                        key={s.id}
-                        onClick={() => goToStep(s.id)}
-                        disabled={s.id > step}
-                        className={`flex items-center gap-3 p-4 rounded-xl transition-all text-left min-w-[160px] lg:min-w-0 ${
+            <div className="max-w-3xl mx-auto">
+              {/* Steps indicator */}
+              <div className="flex items-center justify-center gap-4 mb-10">
+                {steps.map((s, index) => (
+                  <div key={s.id} className="flex items-center">
+                    <button
+                      onClick={() => s.id <= step && setStep(s.id)}
+                      disabled={s.id > step}
+                      className={`flex items-center gap-3 px-5 py-3 rounded-full transition-all ${
+                        step === s.id
+                          ? "bg-primary text-primary-foreground shadow-lg"
+                          : s.id < step
+                          ? "bg-gold/20 text-gold cursor-pointer hover:bg-gold/30"
+                          : "bg-muted text-muted-foreground cursor-not-allowed"
+                      }`}
+                    >
+                      <div
+                        className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold ${
                           step === s.id
-                            ? "bg-primary text-primary-foreground shadow-medium"
+                            ? "bg-gold text-primary"
                             : s.id < step
-                            ? "bg-gold/10 text-gold cursor-pointer hover:bg-gold/20"
-                            : "bg-muted/50 text-muted-foreground cursor-not-allowed"
+                            ? "bg-gold text-primary"
+                            : "bg-muted-foreground/20 text-muted-foreground"
                         }`}
                       >
-                        <div
-                          className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${
-                            step === s.id
-                              ? "bg-gold text-primary"
-                              : s.id < step
-                              ? "bg-gold/20 text-gold"
-                              : "bg-muted text-muted-foreground"
-                          }`}
-                        >
-                          {s.id < step ? (
-                            <Check className="w-5 h-5" />
-                          ) : (
-                            <s.icon className="w-5 h-5" />
-                          )}
-                        </div>
-                        <div className="hidden lg:block">
-                          <span className="text-xs uppercase tracking-wider opacity-70">
-                            Étape {s.id}
-                          </span>
-                          <p className="font-serif font-medium">{s.title}</p>
-                        </div>
-                      </button>
-                    ))}
+                        {s.id < step ? <Check className="w-4 h-4" /> : s.id}
+                      </div>
+                      <span className="font-medium hidden sm:inline">{s.title}</span>
+                    </button>
+                    {index < steps.length - 1 && (
+                      <div className={`w-12 h-0.5 mx-2 ${step > s.id ? "bg-gold" : "bg-border"}`} />
+                    )}
                   </div>
-                </div>
+                ))}
+              </div>
 
-                {/* Right content area */}
-                <div className="lg:col-span-3">
-                  <div className="bg-card rounded-2xl shadow-soft p-6 md:p-10 border border-border/50">
-                    {/* Step Title */}
-                    <div className="mb-8">
-                      <h2 className="font-serif text-2xl font-semibold text-foreground">
-                        {steps[step - 1].title}
+              {/* Form Card */}
+              <div className="bg-card rounded-2xl shadow-soft p-6 md:p-10 border border-border/50">
+                
+                {/* Étape 1 - Le bien */}
+                {step === 1 && (
+                  <div className="space-y-8 animate-fade-in">
+                    <div>
+                      <h2 className="font-serif text-xl font-semibold text-foreground mb-1">
+                        Localisation
                       </h2>
-                      <div className="w-16 h-1 bg-gold mt-3 rounded-full" />
+                      <p className="text-sm text-muted-foreground mb-4">Où se situe votre bien ?</p>
+                      
+                      <div className="space-y-4">
+                        <Input
+                          placeholder="Adresse (numéro et rue)"
+                          value={formData.adresse}
+                          onChange={(e) => updateField("adresse", e.target.value)}
+                          className="border-border focus:border-gold"
+                        />
+                        <div className="grid grid-cols-2 gap-4">
+                          <Input
+                            placeholder="Code postal"
+                            value={formData.codePostal}
+                            onChange={(e) => updateField("codePostal", e.target.value)}
+                            className="border-border focus:border-gold"
+                          />
+                          <Input
+                            placeholder="Ville"
+                            value={formData.ville}
+                            onChange={(e) => updateField("ville", e.target.value)}
+                            className="border-border focus:border-gold"
+                          />
+                        </div>
+                      </div>
                     </div>
 
-                    {/* Étape 1 - Informations du bien */}
-                    {step === 1 && (
-                      <div className="space-y-6 animate-fade-in">
+                    <div>
+                      <h2 className="font-serif text-xl font-semibold text-foreground mb-1">
+                        Caractéristiques
+                      </h2>
+                      <p className="text-sm text-muted-foreground mb-4">Décrivez votre logement</p>
+                      
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                         <div>
-                          <Label className="text-foreground font-medium mb-2 block">
-                            Adresse du logement
-                          </Label>
+                          <Label className="text-sm text-muted-foreground mb-2 block">Type</Label>
+                          <Select
+                            value={formData.typeLogement}
+                            onValueChange={(value) => updateField("typeLogement", value)}
+                          >
+                            <SelectTrigger className="border-border focus:border-gold bg-background">
+                              <SelectValue placeholder="Choisir" />
+                            </SelectTrigger>
+                            <SelectContent className="bg-card border-border">
+                              <SelectItem value="studio">Studio</SelectItem>
+                              <SelectItem value="t1">T1</SelectItem>
+                              <SelectItem value="t2">T2</SelectItem>
+                              <SelectItem value="t3">T3</SelectItem>
+                              <SelectItem value="t4+">T4 et plus</SelectItem>
+                              <SelectItem value="maison">Maison</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        <div>
+                          <Label className="text-sm text-muted-foreground mb-2 block">Surface (m²)</Label>
                           <Input
-                            placeholder="12 Rue des Lilas, 84000 Avignon"
-                            value={formData.adresse}
-                            onChange={(e) => updateField("adresse", e.target.value)}
-                            className="border-border focus:border-gold focus:ring-gold/20"
+                            placeholder="Ex: 45"
+                            value={formData.superficie}
+                            onChange={(e) => updateField("superficie", e.target.value)}
+                            className="border-border focus:border-gold"
                           />
                         </div>
-
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          <div>
-                            <Label className="text-foreground font-medium mb-2 block">
-                              Superficie (m²)
-                            </Label>
-                            <Input
-                              placeholder="45"
-                              value={formData.superficie}
-                              onChange={(e) => updateField("superficie", e.target.value)}
-                              className="border-border focus:border-gold focus:ring-gold/20"
-                            />
-                          </div>
-                          <div>
-                            <Label className="text-foreground font-medium mb-2 block">
-                              Type de logement
-                            </Label>
-                            <Select
-                              value={formData.typeLogement}
-                              onValueChange={(value) => updateField("typeLogement", value)}
-                            >
-                              <SelectTrigger className="border-border focus:border-gold bg-background">
-                                <SelectValue placeholder="Sélectionner" />
-                              </SelectTrigger>
-                              <SelectContent className="bg-card border-border">
-                                <SelectItem value="appartement">Appartement</SelectItem>
-                                <SelectItem value="maison">Maison</SelectItem>
-                                <SelectItem value="studio">Studio</SelectItem>
-                                <SelectItem value="loft">Loft</SelectItem>
-                              </SelectContent>
-                            </Select>
-                          </div>
-                        </div>
-
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                          <div>
-                            <Label className="text-foreground font-medium mb-2 block text-sm">
-                              Chambres
-                            </Label>
-                            <Select
-                              value={formData.nombreChambres}
-                              onValueChange={(value) => updateField("nombreChambres", value)}
-                            >
-                              <SelectTrigger className="border-border focus:border-gold bg-background">
-                                <SelectValue placeholder="-" />
-                              </SelectTrigger>
-                              <SelectContent className="bg-card border-border">
-                                {[0, 1, 2, 3, 4, 5, "6+"].map((num) => (
-                                  <SelectItem key={num} value={num.toString()}>
-                                    {num}
-                                  </SelectItem>
-                                ))}
-                              </SelectContent>
-                            </Select>
-                          </div>
-                          <div>
-                            <Label className="text-foreground font-medium mb-2 block text-sm">
-                              Salles de bain
-                            </Label>
-                            <Select
-                              value={formData.nombreSallesDeBain}
-                              onValueChange={(value) => updateField("nombreSallesDeBain", value)}
-                            >
-                              <SelectTrigger className="border-border focus:border-gold bg-background">
-                                <SelectValue placeholder="-" />
-                              </SelectTrigger>
-                              <SelectContent className="bg-card border-border">
-                                {[1, 2, 3, "4+"].map((num) => (
-                                  <SelectItem key={num} value={num.toString()}>
-                                    {num}
-                                  </SelectItem>
-                                ))}
-                              </SelectContent>
-                            </Select>
-                          </div>
-                          <div>
-                            <Label className="text-foreground font-medium mb-2 block text-sm">
-                              Étage
-                            </Label>
-                            <Select
-                              value={formData.nombreEtages}
-                              onValueChange={(value) => updateField("nombreEtages", value)}
-                            >
-                              <SelectTrigger className="border-border focus:border-gold bg-background">
-                                <SelectValue placeholder="-" />
-                              </SelectTrigger>
-                              <SelectContent className="bg-card border-border">
-                                {["RDC", "1", "2", "3", "4", "5+"].map((num) => (
-                                  <SelectItem key={num} value={num}>
-                                    {num}
-                                  </SelectItem>
-                                ))}
-                              </SelectContent>
-                            </Select>
-                          </div>
-                          <div>
-                            <Label className="text-foreground font-medium mb-2 block text-sm">
-                              Ascenseur
-                            </Label>
-                            <Select
-                              value={formData.ascenseur}
-                              onValueChange={(value) => updateField("ascenseur", value)}
-                            >
-                              <SelectTrigger className="border-border focus:border-gold bg-background">
-                                <SelectValue placeholder="-" />
-                              </SelectTrigger>
-                              <SelectContent className="bg-card border-border">
-                                <SelectItem value="oui">Oui</SelectItem>
-                                <SelectItem value="non">Non</SelectItem>
-                              </SelectContent>
-                            </Select>
-                          </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          <div>
-                            <Label className="text-foreground font-medium mb-2 block">
-                              Stationnement
-                            </Label>
-                            <Select
-                              value={formData.stationnement}
-                              onValueChange={(value) => updateField("stationnement", value)}
-                            >
-                              <SelectTrigger className="border-border focus:border-gold bg-background">
-                                <SelectValue placeholder="Sélectionner" />
-                              </SelectTrigger>
-                              <SelectContent className="bg-card border-border">
-                                <SelectItem value="aucun">Aucun</SelectItem>
-                                <SelectItem value="parking">Parking</SelectItem>
-                                <SelectItem value="garage">Garage</SelectItem>
-                                <SelectItem value="rue">Rue</SelectItem>
-                              </SelectContent>
-                            </Select>
-                          </div>
-                          <div>
-                            <Label className="text-foreground font-medium mb-2 block">
-                              Extérieur
-                            </Label>
-                            <Select
-                              value={formData.accesExterieur}
-                              onValueChange={(value) => updateField("accesExterieur", value)}
-                            >
-                              <SelectTrigger className="border-border focus:border-gold bg-background">
-                                <SelectValue placeholder="Sélectionner" />
-                              </SelectTrigger>
-                              <SelectContent className="bg-card border-border">
-                                <SelectItem value="aucun">Aucun</SelectItem>
-                                <SelectItem value="balcon">Balcon</SelectItem>
-                                <SelectItem value="terrasse">Terrasse</SelectItem>
-                                <SelectItem value="jardin">Jardin</SelectItem>
-                                <SelectItem value="cour">Cour</SelectItem>
-                              </SelectContent>
-                            </Select>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Étape 2 - Détails sous-location */}
-                    {step === 2 && (
-                      <div className="space-y-6 animate-fade-in">
                         <div>
-                          <Label className="text-foreground font-medium mb-2 block">
-                            Durée envisagée
-                          </Label>
+                          <Label className="text-sm text-muted-foreground mb-2 block">Pièces</Label>
                           <Input
-                            placeholder="1 an, 2 ans, indéterminée..."
-                            value={formData.duree}
-                            onChange={(e) => updateField("duree", e.target.value)}
-                            className="border-border focus:border-gold focus:ring-gold/20"
-                          />
-                        </div>
-
-                        <div>
-                          <Label className="text-foreground font-medium mb-2 block">
-                            Disponibilité
-                          </Label>
-                          <Input
-                            placeholder="Toute l'année, hors vacances scolaires..."
-                            value={formData.periodes}
-                            onChange={(e) => updateField("periodes", e.target.value)}
-                            className="border-border focus:border-gold focus:ring-gold/20"
-                          />
-                        </div>
-
-                        <div>
-                          <Label className="text-foreground font-medium mb-2 block">
-                            Loyer mensuel souhaité
-                          </Label>
-                          <Input
-                            placeholder="800€"
-                            value={formData.tarifSouhaite}
-                            onChange={(e) => updateField("tarifSouhaite", e.target.value)}
-                            className="border-border focus:border-gold focus:ring-gold/20"
-                          />
-                          <p className="text-sm text-muted-foreground mt-1">
-                            Nous vous proposerons notre estimation après étude.
-                          </p>
-                        </div>
-
-                        <div>
-                          <Label className="text-foreground font-medium mb-2 block">
-                            Restrictions particulières
-                          </Label>
-                          <Input
-                            placeholder="Pas d'animaux, non-fumeur..."
-                            value={formData.restrictions}
-                            onChange={(e) => updateField("restrictions", e.target.value)}
-                            className="border-border focus:border-gold focus:ring-gold/20"
+                            placeholder="Ex: 3"
+                            value={formData.nombrePieces}
+                            onChange={(e) => updateField("nombrePieces", e.target.value)}
+                            className="border-border focus:border-gold"
                           />
                         </div>
                       </div>
-                    )}
 
-                    {/* Étape 3 - Coordonnées */}
-                    {step === 3 && (
-                      <div className="space-y-6 animate-fade-in">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          <div>
-                            <Label className="text-foreground font-medium mb-2 block">
-                              Nom <span className="text-gold">*</span>
-                            </Label>
-                            <Input
-                              placeholder="Dupont"
-                              value={formData.nom}
-                              onChange={(e) => updateField("nom", e.target.value)}
-                              className="border-border focus:border-gold focus:ring-gold/20"
-                              required
-                            />
-                          </div>
-                          <div>
-                            <Label className="text-foreground font-medium mb-2 block">
-                              Prénom <span className="text-gold">*</span>
-                            </Label>
-                            <Input
-                              placeholder="Marie"
-                              value={formData.prenom}
-                              onChange={(e) => updateField("prenom", e.target.value)}
-                              className="border-border focus:border-gold focus:ring-gold/20"
-                              required
-                            />
-                          </div>
+                      <div className="flex flex-wrap gap-6">
+                        <label className="flex items-center gap-3 cursor-pointer group">
+                          <Checkbox
+                            checked={formData.meuble}
+                            onCheckedChange={(checked) => updateField("meuble", checked as boolean)}
+                            className="border-gold data-[state=checked]:bg-gold data-[state=checked]:border-gold"
+                          />
+                          <span className="text-foreground group-hover:text-gold transition-colors">Meublé</span>
+                        </label>
+                        <label className="flex items-center gap-3 cursor-pointer group">
+                          <Checkbox
+                            checked={formData.parking}
+                            onCheckedChange={(checked) => updateField("parking", checked as boolean)}
+                            className="border-gold data-[state=checked]:bg-gold data-[state=checked]:border-gold"
+                          />
+                          <span className="text-foreground group-hover:text-gold transition-colors">Parking</span>
+                        </label>
+                        <label className="flex items-center gap-3 cursor-pointer group">
+                          <Checkbox
+                            checked={formData.exterieur}
+                            onCheckedChange={(checked) => updateField("exterieur", checked as boolean)}
+                            className="border-gold data-[state=checked]:bg-gold data-[state=checked]:border-gold"
+                          />
+                          <span className="text-foreground group-hover:text-gold transition-colors">Extérieur (balcon, terrasse...)</span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div>
+                      <Label className="text-sm text-muted-foreground mb-2 block">
+                        Équipements ou points forts (optionnel)
+                      </Label>
+                      <Input
+                        placeholder="Climatisation, vue, parking privé..."
+                        value={formData.equipements}
+                        onChange={(e) => updateField("equipements", e.target.value)}
+                        className="border-border focus:border-gold"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Étape 2 - Contact */}
+                {step === 2 && (
+                  <div className="space-y-6 animate-fade-in">
+                    <div>
+                      <h2 className="font-serif text-xl font-semibold text-foreground mb-1">
+                        Vos coordonnées
+                      </h2>
+                      <p className="text-sm text-muted-foreground mb-6">Pour vous recontacter avec notre proposition</p>
+                      
+                      <div className="space-y-4">
+                        <div>
+                          <Label className="text-foreground font-medium mb-2 block">
+                            Nom complet <span className="text-gold">*</span>
+                          </Label>
+                          <Input
+                            placeholder="Jean Dupont"
+                            value={formData.nomComplet}
+                            onChange={(e) => updateField("nomComplet", e.target.value)}
+                            className="border-border focus:border-gold"
+                            required
+                          />
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -492,7 +342,7 @@ Message : ${formData.message}
                               placeholder="06 12 34 56 78"
                               value={formData.telephone}
                               onChange={(e) => updateField("telephone", e.target.value)}
-                              className="border-border focus:border-gold focus:ring-gold/20"
+                              className="border-border focus:border-gold"
                               required
                             />
                           </div>
@@ -502,10 +352,10 @@ Message : ${formData.message}
                             </Label>
                             <Input
                               type="email"
-                              placeholder="marie.dupont@email.com"
+                              placeholder="jean.dupont@email.com"
                               value={formData.email}
                               onChange={(e) => updateField("email", e.target.value)}
-                              className="border-border focus:border-gold focus:ring-gold/20"
+                              className="border-border focus:border-gold"
                               required
                             />
                           </div>
@@ -513,56 +363,68 @@ Message : ${formData.message}
 
                         <div>
                           <Label className="text-foreground font-medium mb-2 block">
-                            Message (optionnel)
+                            Quand êtes-vous disponible pour un appel ?
                           </Label>
-                          <Textarea
-                            placeholder="Parlez-nous de votre projet, vos attentes..."
-                            value={formData.message}
-                            onChange={(e) => updateField("message", e.target.value)}
-                            className="border-border focus:border-gold focus:ring-gold/20 min-h-[100px]"
+                          <Input
+                            placeholder="En semaine après 18h, le week-end..."
+                            value={formData.disponibilite}
+                            onChange={(e) => updateField("disponibilite", e.target.value)}
+                            className="border-border focus:border-gold"
                           />
                         </div>
 
-                        {isSubmitted && (
-                          <div className="p-4 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
-                              <Check className="w-5 h-5 text-green-600" />
-                            </div>
-                            <p className="text-green-700 font-sans text-sm">
-                              Merci ! Nous reviendrons vers vous très rapidement.
-                            </p>
-                          </div>
-                        )}
+                        <div>
+                          <Label className="text-foreground font-medium mb-2 block">
+                            Une question ? Un commentaire ?
+                          </Label>
+                          <Textarea
+                            placeholder="Dites-nous en plus sur votre projet..."
+                            value={formData.commentaire}
+                            onChange={(e) => updateField("commentaire", e.target.value)}
+                            className="border-border focus:border-gold min-h-[100px]"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {isSubmitted && (
+                      <div className="p-4 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
+                          <Check className="w-5 h-5 text-green-600" />
+                        </div>
+                        <p className="text-green-700 font-sans text-sm">
+                          Merci ! Nous vous recontacterons sous 48h avec votre estimation.
+                        </p>
                       </div>
                     )}
-
-                    {/* Navigation */}
-                    <div className="flex justify-between mt-10 pt-6 border-t border-border/50">
-                      {step > 1 ? (
-                        <Button
-                          variant="ghost"
-                          onClick={handlePrev}
-                          className="text-muted-foreground hover:text-foreground"
-                        >
-                          Retour
-                        </Button>
-                      ) : (
-                        <div />
-                      )}
-
-                      {step < 3 ? (
-                        <Button variant="gold" onClick={handleNext} className="group">
-                          Continuer
-                          <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                        </Button>
-                      ) : (
-                        <Button variant="gold" onClick={handleSubmit} className="group">
-                          Envoyer ma demande
-                          <Send className="w-4 h-4 ml-2" />
-                        </Button>
-                      )}
-                    </div>
                   </div>
+                )}
+
+                {/* Navigation */}
+                <div className="flex justify-between mt-10 pt-6 border-t border-border/50">
+                  {step > 1 ? (
+                    <Button
+                      variant="ghost"
+                      onClick={handlePrev}
+                      className="text-muted-foreground hover:text-foreground"
+                    >
+                      Retour
+                    </Button>
+                  ) : (
+                    <div />
+                  )}
+
+                  {step < 2 ? (
+                    <Button variant="gold" onClick={handleNext} className="group">
+                      Continuer
+                      <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  ) : (
+                    <Button variant="gold" onClick={handleSubmit} className="group">
+                      Envoyer ma demande
+                      <Send className="w-4 h-4 ml-2" />
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>
