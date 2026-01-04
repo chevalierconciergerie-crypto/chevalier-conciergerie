@@ -34,11 +34,6 @@ const Index = () => {
         <main className="relative z-10">
           <Hero />
           
-          {/* Platform Logos */}
-          <section className="bg-white py-8">
-            <PlatformLogos />
-          </section>
-          
           {/* Services Overview with Pont d'Avignon background */}
           <section className="relative py-24 bg-background overflow-hidden">
             <AvignonIllustration variant="pont" />
@@ -136,6 +131,13 @@ const Index = () => {
                   </div>
                 </ScrollAnimate>
               </div>
+            </div>
+          </section>
+
+          {/* Platform Logos */}
+          <section className="bg-white py-12">
+            <div className="max-w-3xl mx-auto">
+              <PlatformLogos />
             </div>
           </section>
 
