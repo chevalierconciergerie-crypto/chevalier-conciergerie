@@ -8,8 +8,6 @@ import { Link } from "react-router-dom";
 import villeneuveChartreuse from "@/assets/villeneuve-chartreuse.jpg";
 import villeneuveFort from "@/assets/villeneuve-fort.jpg";
 import palaisPapesPanorama from "@/assets/palais-papes-panorama.jpg";
-import pontAvignonAerien from "@/assets/pont-avignon-aerien.png";
-import avignonStatue from "@/assets/avignon-statue-doree.png";
 
 const Conciergerie = () => {
   const services = [
@@ -124,10 +122,8 @@ const Conciergerie = () => {
               <HeroImageCarousel
                 images={[
                   { src: palaisPapesPanorama, alt: "Palais des Papes - Avignon" },
-                  { src: pontAvignonAerien, alt: "Pont d'Avignon vue aérienne" },
                   { src: villeneuveFort, alt: "Fort Saint-André - Villeneuve-lès-Avignon" },
                   { src: villeneuveChartreuse, alt: "Chartreuse - Villeneuve-lès-Avignon" },
-                  { src: avignonStatue, alt: "Statue dorée - Avignon" },
                 ]}
                 interval={6000}
               />
