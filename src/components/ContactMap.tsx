@@ -40,10 +40,11 @@ const ContactMap = ({ accessToken }: ContactMapProps) => {
         'top-right'
       );
 
-      // Add markers for Avignon and Villeneuve-lès-Avignon
+      // Add markers for coverage area
       const locations = [
         { coords: [4.8055, 43.9493] as [number, number], name: 'Avignon' },
         { coords: [4.7955, 43.9663] as [number, number], name: 'Villeneuve-lès-Avignon' },
+        { coords: [4.7642, 43.9567] as [number, number], name: 'Les Angles' },
       ];
 
       locations.forEach(location => {
@@ -130,7 +131,7 @@ const ContactMap = ({ accessToken }: ContactMapProps) => {
           Notre Zone d'Intervention
         </h3>
         <p className="font-sans text-muted-foreground text-center mb-6">
-          Avignon et Villeneuve-lès-Avignon
+          Avignon, Villeneuve-lès-Avignon et Les Angles
         </p>
         <div className="w-full max-w-sm space-y-4">
           <input
@@ -161,7 +162,7 @@ const ContactMap = ({ accessToken }: ContactMapProps) => {
       <div ref={mapContainer} className="absolute inset-0" />
       <div className="absolute top-4 left-4 bg-card/90 backdrop-blur-sm rounded-xl px-4 py-3 shadow-soft">
         <p className="font-serif text-lg font-semibold text-foreground">Zone d'intervention</p>
-        <p className="font-sans text-sm text-muted-foreground">Avignon & Villeneuve-lès-Avignon</p>
+        <p className="font-sans text-sm text-muted-foreground">Avignon, Villeneuve-lès-Avignon & Les Angles</p>
       </div>
     </div>
   );
