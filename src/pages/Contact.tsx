@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Booking from "@/components/Booking";
+import ContactMap from "@/components/ContactMap";
 
 const Contact = () => {
   return (
@@ -32,6 +33,24 @@ const Contact = () => {
           </section>
 
           <Booking />
+
+          {/* Map Section */}
+          <section className="py-20 bg-muted/30">
+            <div className="container mx-auto px-6">
+              <div className="text-center mb-12">
+                <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Localisation</span>
+                <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mt-4">
+                  Notre Zone d'Intervention
+                </h2>
+                <p className="font-sans text-muted-foreground mt-4 max-w-xl mx-auto">
+                  Nous intervenons à Avignon et dans les communes environnantes.
+                </p>
+              </div>
+              <div className="max-w-5xl mx-auto h-[500px]">
+                <ContactMap />
+              </div>
+            </div>
+          </section>
         </main>
         
         <Footer />
