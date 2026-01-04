@@ -9,8 +9,8 @@ import AvignonIllustration from "@/components/AvignonIllustration";
 import { ArrowRight, Home, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import serviceSublocation from "@/assets/service-sublocation.jpg";
-import serviceConciergerie from "@/assets/service-concierge.jpg";
+import rueTeinturiers from "@/assets/rue-teinturiers.jpg";
+import detailArchitectural from "@/assets/detail-architectural.jpg";
 import { ScrollAnimate } from "@/hooks/useScrollAnimation";
 
 const Index = () => {
@@ -61,8 +61,8 @@ const Index = () => {
                   <div className="group relative overflow-hidden rounded-2xl bg-card shadow-soft hover:shadow-medium transition-all duration-500">
                     <div className="absolute inset-0">
                       <img 
-                        src={serviceConciergerie} 
-                        alt="Service Conciergerie"
+                        src={detailArchitectural} 
+                        alt="Service Conciergerie - Volets provençaux typiques d'Avignon"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/30" />
@@ -101,8 +101,8 @@ const Index = () => {
                   <div className="group relative overflow-hidden rounded-2xl bg-card shadow-soft hover:shadow-medium transition-all duration-500">
                     <div className="absolute inset-0">
                       <img 
-                        src={serviceSublocation} 
-                        alt="Sous-location Professionnelle"
+                        src={rueTeinturiers} 
+                        alt="Sous-location - Rue des Teinturiers à Avignon"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/30" />
