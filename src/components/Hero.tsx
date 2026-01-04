@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroVideo from "@/assets/hero-video.mp4";
@@ -8,6 +8,8 @@ const cities = ["Avignon", "Villeneuve-lès-Avignon", "Les Angles"];
 const Hero = () => {
   const [currentCityIndex, setCurrentCityIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,16 +23,31 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const handleVideoLoaded = () => {
+    setIsVideoLoaded(true);
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0">
+        {/* Placeholder gradient while video loads */}
+        <div 
+          className={`absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-midnight-light transition-opacity duration-1000 ${
+            isVideoLoaded ? "opacity-0" : "opacity-100"
+          }`} 
+        />
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          preload="auto"
+          onLoadedData={handleVideoLoaded}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+            isVideoLoaded ? "opacity-100" : "opacity-0"
+          }`}
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
