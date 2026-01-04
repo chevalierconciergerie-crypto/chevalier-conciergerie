@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroImageCarousel from "@/components/HeroImageCarousel";
-import { Check, X, Sparkles, Users, Clock, Camera, TrendingUp, Home, Euro, ArrowRight, Calendar, Wallet } from "lucide-react";
+import { Check, X, Sparkles, Users, Clock, Camera, TrendingUp, Home, Euro, ArrowRight, Calendar, Wallet, Handshake, FileEdit, Package } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import villeneuveChartreuse from "@/assets/villeneuve-chartreuse.jpg";
@@ -11,6 +11,26 @@ import palaisPapesPanorama from "@/assets/palais-papes-panorama.jpg";
 
 const Conciergerie = () => {
   const services = [
+    {
+      icon: Handshake,
+      title: "Rencontre & Visite du Bien",
+      description: "Nous commençons par une rencontre personnalisée et une visite approfondie de votre propriété.",
+    },
+    {
+      icon: FileEdit,
+      title: "Création de l'Annonce",
+      description: "Rédaction soignée et optimisée de votre annonce pour attirer les meilleurs voyageurs.",
+    },
+    {
+      icon: TrendingUp,
+      title: "Optimisation Continue",
+      description: "Tarification dynamique et ajustements réguliers pour maximiser votre taux d'occupation.",
+    },
+    {
+      icon: Package,
+      title: "Gestion des Consommables",
+      description: "Approvisionnement en produits essentiels : café, thé, savons, papier toilette, etc.",
+    },
     {
       icon: Users,
       title: "Accueil Voyageurs 5 Étoiles",
@@ -25,11 +45,6 @@ const Conciergerie = () => {
       icon: Camera,
       title: "Photographie Professionnelle",
       description: "Mise en valeur de votre bien avec des photos HDR pour maximiser les réservations.",
-    },
-    {
-      icon: TrendingUp,
-      title: "Optimisation des Prix",
-      description: "Tarification dynamique basée sur la demande pour maximiser vos revenus.",
     },
     {
       icon: Clock,
