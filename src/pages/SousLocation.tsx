@@ -1,10 +1,14 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HeroImageCarousel from "@/components/HeroImageCarousel";
 import { Check, Banknote, Shield, Clock, TrendingUp, FileCheck, Home, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import serviceSublocation from "@/assets/service-sublocation.jpg";
+import rueTeinturiers from "@/assets/rue-teinturiers.jpg";
+import rempartsAvignon from "@/assets/remparts-avignon.jpg";
+import pontAvignon from "@/assets/pont-avignon.jpg";
+import placeHorloge from "@/assets/place-horloge.jpg";
 
 const SousLocation = () => {
   const advantages = [
@@ -82,11 +86,15 @@ const SousLocation = () => {
         <main>
           {/* Hero Section */}
           <section className="relative pt-32 pb-20 bg-primary overflow-hidden">
-            <div className="absolute inset-0 opacity-20">
-              <img 
-                src={serviceSublocation} 
-                alt="Sous-location professionnelle"
-                className="w-full h-full object-cover"
+            <div className="absolute inset-0 opacity-30">
+              <HeroImageCarousel
+                images={[
+                  { src: rueTeinturiers, alt: "Rue des Teinturiers - Avignon" },
+                  { src: rempartsAvignon, alt: "Remparts d'Avignon" },
+                  { src: pontAvignon, alt: "Pont d'Avignon" },
+                  { src: placeHorloge, alt: "Place de l'Horloge - Avignon" },
+                ]}
+                interval={4000}
               />
             </div>
             <div className="relative z-10 container mx-auto px-6">
