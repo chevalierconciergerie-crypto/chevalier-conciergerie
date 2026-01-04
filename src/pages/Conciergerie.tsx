@@ -1,10 +1,14 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HeroImageCarousel from "@/components/HeroImageCarousel";
 import { Check, X, Sparkles, Users, Clock, Camera, TrendingUp, Home, Euro, ArrowRight, Calendar, Wallet } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import serviceConciergerie from "@/assets/service-concierge.jpg";
+import palaisPapes from "@/assets/avignon-palais-hero.jpg";
+import pontAvignon from "@/assets/pont-avignon.jpg";
+import placeHorloge from "@/assets/place-horloge.jpg";
+import detailArchitectural from "@/assets/detail-architectural.jpg";
 
 const Conciergerie = () => {
   const services = [
@@ -115,11 +119,15 @@ const Conciergerie = () => {
         <main>
           {/* Hero Section */}
           <section className="relative pt-32 pb-20 bg-primary overflow-hidden">
-            <div className="absolute inset-0 opacity-20">
-              <img 
-                src={serviceConciergerie} 
-                alt="Service conciergerie"
-                className="w-full h-full object-cover"
+            <div className="absolute inset-0 opacity-30">
+              <HeroImageCarousel
+                images={[
+                  { src: palaisPapes, alt: "Palais des Papes - Avignon" },
+                  { src: pontAvignon, alt: "Pont d'Avignon" },
+                  { src: placeHorloge, alt: "Place de l'Horloge - Avignon" },
+                  { src: detailArchitectural, alt: "Architecture provençale" },
+                ]}
+                interval={4000}
               />
             </div>
             <div className="relative z-10 container mx-auto px-6">
