@@ -1,8 +1,26 @@
+import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroVideo from "@/assets/hero-video.mp4";
 
+const cities = ["Avignon", "Villeneuve-lès-Avignon"];
+
 const Hero = () => {
+  const [currentCityIndex, setCurrentCityIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentCityIndex((prev) => (prev + 1) % cities.length);
+        setIsAnimating(false);
+      }, 600);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video */}
@@ -22,10 +40,20 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="max-w-4xl mx-auto">
-          {/* Decorative Line */}
+          {/* Decorative Line with Animated City */}
           <div className="flex items-center justify-center gap-4 mb-8 opacity-0 animate-fade-up">
             <div className="h-px w-12 bg-gold" />
-            <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Avignon</span>
+            <div className="relative h-6 overflow-hidden min-w-[200px]">
+              <span 
+                className={`text-gold font-sans text-sm tracking-[0.3em] uppercase absolute inset-0 flex items-center justify-center transition-all duration-700 ease-out ${
+                  isAnimating 
+                    ? "opacity-0 -translate-y-4" 
+                    : "opacity-100 translate-y-0"
+                }`}
+              >
+                {cities[currentCityIndex]}
+              </span>
+            </div>
             <div className="h-px w-12 bg-gold" />
           </div>
 
@@ -38,7 +66,7 @@ const Hero = () => {
           {/* Subtitle */}
           <p className="font-sans text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10 opacity-0 animate-fade-up animation-delay-200">
             Optimisez vos revenus et offrez à votre bien le prestige qu'il mérite.
-            Conciergerie haut de gamme et sous-location professionnelle à Avignon.
+            Conciergerie haut de gamme et sous-location professionnelle.
           </p>
 
           {/* CTA Buttons */}
@@ -65,8 +93,8 @@ const Hero = () => {
             </div>
             <div className="h-12 w-px bg-primary-foreground/20 hidden md:block" />
             <div className="text-center">
-              <p className="font-serif text-3xl md:text-4xl text-gold font-semibold">Avignon</p>
-              <p className="font-sans text-sm text-primary-foreground/60 mt-1">Expertise locale</p>
+              <p className="font-serif text-3xl md:text-4xl text-gold font-semibold">Local</p>
+              <p className="font-sans text-sm text-primary-foreground/60 mt-1">Expertise régionale</p>
             </div>
           </div>
         </div>
