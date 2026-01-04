@@ -41,20 +41,24 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="max-w-4xl mx-auto">
           {/* Decorative Line with Animated City */}
-          <div className="flex items-center justify-center gap-4 mb-8 opacity-0 animate-fade-up">
-            <div className="h-px w-12 bg-gold" />
-            <div className="relative h-6 overflow-hidden min-w-[200px]">
+          {/* Animated City Name */}
+          <div className="mb-8 opacity-0 animate-fade-up">
+            <div className="relative h-10 md:h-12 overflow-hidden">
               <span 
-                className={`text-gold font-sans text-sm tracking-[0.3em] uppercase absolute inset-0 flex items-center justify-center transition-all duration-700 ease-out ${
+                className={`text-gold font-serif text-2xl md:text-3xl lg:text-4xl font-semibold absolute inset-0 flex items-center justify-center transition-all duration-700 ease-out ${
                   isAnimating 
-                    ? "opacity-0 -translate-y-4" 
+                    ? "opacity-0 -translate-y-6" 
                     : "opacity-100 translate-y-0"
                 }`}
               >
                 {cities[currentCityIndex]}
               </span>
             </div>
-            <div className="h-px w-12 bg-gold" />
+            <div className="flex items-center justify-center gap-4 mt-2">
+              <div className="h-px w-16 bg-gold/60" />
+              <div className="w-2 h-2 bg-gold rotate-45" />
+              <div className="h-px w-16 bg-gold/60" />
+            </div>
           </div>
 
           {/* Main Title */}
