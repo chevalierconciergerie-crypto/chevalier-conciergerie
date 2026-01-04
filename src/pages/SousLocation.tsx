@@ -5,11 +5,16 @@ import HeroImageCarousel from "@/components/HeroImageCarousel";
 import { Check, Banknote, Shield, Clock, TrendingUp, FileCheck, Home, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import villeneuveChartreuse from "@/assets/villeneuve-chartreuse.jpg";
 import villeneuveFort from "@/assets/villeneuve-fort.jpg";
 import villeneuveJardin from "@/assets/villeneuve-jardin.jpg";
 import palaisPapesPanorama from "@/assets/palais-papes-panorama.jpg";
-
 const SousLocation = () => {
   const advantages = [
     {
@@ -70,6 +75,24 @@ const SousLocation = () => {
     "Maintenance et petites réparations",
   ];
 
+  const faqItems = [
+    {
+      question: "Quel est le concept ?",
+      answer: "Nous devenons votre locataire principal. On loue votre bien à l'année pour y accueillir des voyageurs de passage. Vous touchez vos revenus, on gère l'exploitation.",
+    },
+    {
+      question: "Est-ce autorisé ?",
+      answer: "Oui. La pratique est totalement légale. Elle est encadrée par un contrat spécifique qui nous autorise à sous-louer votre logement en toute transparence.",
+    },
+    {
+      question: "Qui assure la gestion ?",
+      answer: "Nous gérons tout de A à Z. Ménage professionnel, maintenance et accueil des occupants. Vous n'avez plus aucune contrainte opérationnelle, on est votre unique interlocuteur.",
+    },
+    {
+      question: "Le logement doit-il être meublé ?",
+      answer: "Pas forcément. On peut récupérer votre bien vide et l'équiper de A à Z. Le but est d'offrir un logement clé en main et haut de gamme à nos clients.",
+    },
+  ];
   return (
     <>
       <Helmet>
@@ -280,6 +303,36 @@ const SousLocation = () => {
                     ))}
                   </ul>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          {/* FAQ Section */}
+          <section className="py-24 bg-background">
+            <div className="container mx-auto px-6">
+              <div className="text-center max-w-3xl mx-auto mb-16">
+                <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Questions Fréquentes</span>
+                <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4 mb-6">
+                  FAQ
+                </h2>
+                <p className="font-sans text-muted-foreground text-lg">
+                  Tout ce que vous devez savoir sur notre service de sous-location.
+                </p>
+              </div>
+
+              <div className="max-w-3xl mx-auto">
+                <Accordion type="single" collapsible className="w-full">
+                  {faqItems.map((item, index) => (
+                    <AccordionItem key={index} value={`item-${index}`} className="border-b border-border">
+                      <AccordionTrigger className="font-serif text-lg text-foreground hover:text-gold hover:no-underline py-6">
+                        {item.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="font-sans text-muted-foreground text-base leading-relaxed pb-6">
+                        {item.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
               </div>
             </div>
           </section>
