@@ -33,7 +33,7 @@ const MentionsLegales = () => {
       title: "Contact",
       items: [
         { label: "Téléphone", value: "+33 7 83 19 83 41" },
-        { label: "Email", value: "contact@chevalier-conciergerie.fr" },
+        { label: "Email", value: "chevalierconciergerie@gmail.com" },
       ],
     },
     {

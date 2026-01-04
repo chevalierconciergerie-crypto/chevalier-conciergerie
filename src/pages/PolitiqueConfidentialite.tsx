@@ -33,7 +33,7 @@ const PolitiqueConfidentialite = () => {
       content: `CHEVALIER LOCABUSINESS (SASU)
 Nom commercial : Chevalier Conciergerie
 Siège social : Avignon, 84000 France
-Email : contact@chevalier-conciergerie.fr
+Email : chevalierconciergerie@gmail.com
 Téléphone : +33 7 83 19 83 41`
     },
     {
@@ -50,7 +50,7 @@ Traitements avec consentement :
 • Communications marketing
 • Amélioration de votre expérience utilisateur
 
-Retrait du consentement : contact@chevalier-conciergerie.fr`
+Retrait du consentement : chevalierconciergerie@gmail.com`
     },
     {
       id: "stockage",
@@ -81,7 +81,7 @@ Retrait du consentement : contact@chevalier-conciergerie.fr`
 • Droit à la portabilité : recevoir vos données
 • Droit d'opposition : vous opposer au traitement
 
-Contact : contact@chevalier-conciergerie.fr
+Contact : chevalierconciergerie@gmail.com
 Réclamation CNIL : www.cnil.fr`
     },
     {
@@ -205,7 +205,7 @@ Vous pouvez configurer votre navigateur pour refuser les cookies.`
             <div className="inline-block px-6 py-3 rounded-full bg-background border border-border/50">
               <p className="font-sans text-sm text-muted-foreground">
                 Mise à jour : Janvier 2026 · 
-                <a href="mailto:contact@chevalier-conciergerie.fr" className="text-gold hover:underline ml-1">
+                <a href="mailto:chevalierconciergerie@gmail.com" className="text-gold hover:underline ml-1">
                   Questions ?
                 </a>
               </p>
