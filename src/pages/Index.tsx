@@ -35,7 +35,7 @@ const Index = () => {
           <Hero />
           
           {/* Services Overview with Pont d'Avignon background */}
-          <section className="relative py-24 bg-background overflow-hidden">
+          <section id="formules" className="relative py-24 bg-background overflow-hidden">
             <AvignonIllustration variant="pont" />
             <div className="container mx-auto px-6 relative z-10">
               <ScrollAnimate>

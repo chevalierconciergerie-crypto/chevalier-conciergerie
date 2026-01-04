@@ -79,8 +79,8 @@ const Hero = () => {
               Prendre Rendez-vous
               <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button variant="outline-light" size="xl">
-              Découvrir nos services
+            <Button variant="outline-light" size="xl" asChild>
+              <a href="#formules">Découvrir nos services</a>
             </Button>
           </div>
 
