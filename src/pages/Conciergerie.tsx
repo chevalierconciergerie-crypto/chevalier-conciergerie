@@ -432,7 +432,7 @@ const Conciergerie = () => {
                             </div>
                             <div className="bg-primary-foreground/5 rounded-xl p-4">
                               <p className="font-sans text-xs text-primary-foreground/50 mb-1">Ménage</p>
-                              <p className="font-sans text-lg font-medium text-primary-foreground">34€ <span className="text-xs text-primary-foreground/50">payé par le voyageur</span></p>
+                              <p className="font-sans text-lg font-medium text-primary-foreground">40€ <span className="text-xs text-primary-foreground/50">payé par le voyageur</span></p>
                             </div>
                           </div>
 
