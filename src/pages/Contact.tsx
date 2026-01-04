@@ -8,11 +8,13 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact | Chevalier Conciergerie Avignon</title>
+        <title>Contact Conciergerie Avignon | Consultation Gratuite | Chevalier</title>
         <meta 
           name="description" 
-          content="Contactez Chevalier Conciergerie pour une consultation gratuite. Gestion locative et sous-location professionnelle à Avignon." 
+          content="Contactez Chevalier Conciergerie à Avignon. Consultation gratuite pour votre projet de gestion locative ou sous-location. Réponse sous 24h." 
         />
+        <meta name="keywords" content="contact conciergerie Avignon, devis gestion locative Avignon, rendez-vous conciergerie" />
+        <link rel="canonical" href="https://chevalier-conciergerie.fr/contact" />
       </Helmet>
       
       <div className="min-h-screen bg-background">

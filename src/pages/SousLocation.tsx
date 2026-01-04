@@ -96,11 +96,15 @@ const SousLocation = () => {
   return (
     <>
       <Helmet>
-        <title>Sous-Location Professionnelle à Avignon | Loyer Garanti | Chevalier Conciergerie</title>
+        <title>Sous-location Avignon | Loyer Garanti & Zéro Vacance | Chevalier</title>
         <meta 
           name="description" 
-          content="Sous-location professionnelle avec loyer garanti à Avignon. Zéro vacance, zéro risque, zéro gestion. Revenus sécurisés chaque mois." 
+          content="Sous-location professionnelle à Avignon avec loyer garanti chaque mois. Zéro vacance locative, zéro gestion. Estimation gratuite de votre bien." 
         />
+        <meta name="keywords" content="sous-location Avignon, loyer garanti Avignon, gestion locative Avignon, location meublée Avignon" />
+        <meta property="og:title" content="Sous-location Avignon | Loyer Garanti Chaque Mois" />
+        <meta property="og:description" content="Sous-location professionnelle à Avignon. Loyer garanti, zéro vacance, zéro risque." />
+        <link rel="canonical" href="https://chevalier-conciergerie.fr/sous-location" />
       </Helmet>
       
       <div className="min-h-screen bg-background">
