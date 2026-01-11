@@ -110,6 +110,10 @@ export default {
           "50%": { transform: "translateY(-8px) rotate(-1deg)", opacity: "0.1" },
           "75%": { transform: "translateY(-20px) rotate(1deg)", opacity: "0.08" },
         },
+        "marquee": {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -119,6 +123,7 @@ export default {
         "scale-in": "scale-in 0.5s ease-out forwards",
         "shimmer": "shimmer 2s linear infinite",
         "float": "float 20s ease-in-out infinite",
+        "marquee": "marquee 20s linear infinite",
       },
     },
   },

@@ -72,10 +72,12 @@ const Index = () => {
       </Helmet>
       
       <div className="min-h-screen bg-background relative">
-        <PromoBanner />
         <Header />
         <main className="relative z-10">
           <Hero />
+          
+          {/* Promo Banner - Offre de lancement */}
+          <PromoBanner />
           
           {/* Services Overview with Pont d'Avignon background */}
           <section id="formules" className="relative py-24 bg-background overflow-hidden">
