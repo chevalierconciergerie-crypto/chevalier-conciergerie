@@ -123,7 +123,7 @@ export default {
         "scale-in": "scale-in 0.5s ease-out forwards",
         "shimmer": "shimmer 2s linear infinite",
         "float": "float 20s ease-in-out infinite",
-        "marquee": "marquee 20s linear infinite",
+        "marquee": "marquee 12s linear infinite",
       },
     },
   },
