@@ -6,6 +6,7 @@ import LocalExpertise from "@/components/LocalExpertise";
 import ComingSoon from "@/components/ComingSoon";
 import PlatformLogos from "@/components/PlatformLogos";
 import AvignonIllustration from "@/components/AvignonIllustration";
+import SocialBar from "@/components/SocialBar";
 import PromoBanner from "@/components/PromoBanner";
 import { ArrowRight, Home, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -75,6 +76,9 @@ const Index = () => {
         <Header />
         <main className="relative z-10">
           <Hero />
+          
+          {/* Social Bar */}
+          <SocialBar />
           
           {/* Promo Banner - Offre de lancement */}
           <PromoBanner />
