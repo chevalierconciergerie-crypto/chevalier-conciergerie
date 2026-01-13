@@ -25,7 +25,7 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Instagram, href: "https://www.instagram.com/chevalier_conciergerie/", label: "Instagram" },
-    { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61586713280591", label: "Facebook" },
+    { icon: Facebook, href: "https://www.facebook.com/share/1GCBBTtP2R/", label: "Facebook" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/chevalier-conciergerie-7559b03a4/", label: "LinkedIn" },
   ];
 
