@@ -77,11 +77,11 @@ const Index = () => {
         <main className="relative z-10">
           <Hero />
           
-          {/* Social Bar */}
-          <SocialBar />
-          
           {/* Promo Banner - Offre de lancement */}
           <PromoBanner />
+          
+          {/* Social Bar */}
+          <SocialBar />
           
           {/* Services Overview with Pont d'Avignon background */}
           <section id="formules" className="relative py-24 bg-background overflow-hidden">
