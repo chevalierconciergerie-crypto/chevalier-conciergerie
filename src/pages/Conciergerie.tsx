@@ -72,8 +72,6 @@ const Conciergerie = () => {
     { name: "Infos touristiques personnalisées", included: false },
     // Après le séjour
     { name: "Ménage professionnel", included: true },
-    // Protection
-    { name: "Assurance dommages voyageurs", included: false },
   ];
 
   const premiumFeatures = [
@@ -94,8 +92,6 @@ const Conciergerie = () => {
     { name: "Infos touristiques personnalisées", included: true },
     // Après le séjour
     { name: "Ménage professionnel", included: true },
-    // Protection
-    { name: "Assurance dommages voyageurs", included: true },
   ];
 
   const pricingPlans = [

@@ -66,7 +66,6 @@ const SousLocation = () => {
     "Loyer fixe versé chaque mois",
     "Aucune vacance locative",
     "Gestion 100% déléguée",
-    "Assurance tous risques incluse",
     "Entretien régulier du bien",
     "État des lieux d'entrée et sortie",
     "Contrat juridiquement sécurisé",
