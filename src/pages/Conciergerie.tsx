@@ -107,6 +107,7 @@ const Conciergerie = () => {
       name: "Premium",
       description: "L'expérience complète haut de gamme",
       price: "15%",
+      oldPrice: "25%",
       priceNote: "des revenus locatifs",
       featured: true,
       features: premiumFeatures,
@@ -263,11 +264,18 @@ const Conciergerie = () => {
                     </div>
 
                     <div className="text-center mb-8">
-                      <span className={`font-serif text-5xl font-bold ${
-                        plan.featured ? "text-gold" : "text-foreground"
-                      }`}>
-                        {plan.price}
-                      </span>
+                      <div className="flex items-center justify-center gap-3">
+                        {plan.oldPrice && (
+                          <span className="font-serif text-3xl font-bold text-primary-foreground/40 line-through">
+                            {plan.oldPrice}
+                          </span>
+                        )}
+                        <span className={`font-serif text-5xl font-bold ${
+                          plan.featured ? "text-gold" : "text-foreground"
+                        }`}>
+                          {plan.price}
+                        </span>
+                      </div>
                       <p className={`font-sans text-sm mt-2 ${
                         plan.featured ? "text-primary-foreground/60" : "text-muted-foreground"
                       }`}>
