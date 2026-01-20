@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroImageCarousel from "@/components/HeroImageCarousel";
-import { Check, X, Sparkles, Users, Clock, Camera, TrendingUp, Home, Euro, ArrowRight, Calendar, Wallet, Handshake, FileEdit, Package, Gift, Percent } from "lucide-react";
+import { Check, X, Sparkles, Users, Clock, Camera, TrendingUp, Home, Euro, ArrowRight, Calendar, Wallet, Handshake, FileEdit, Package } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import villeneuveChartreuse from "@/assets/villeneuve-chartreuse.jpg";
@@ -106,7 +106,7 @@ const Conciergerie = () => {
     {
       name: "Premium",
       description: "L'expérience complète haut de gamme",
-      price: "25%",
+      price: "15%",
       priceNote: "des revenus locatifs",
       featured: true,
       features: premiumFeatures,
@@ -166,29 +166,47 @@ const Conciergerie = () => {
             </div>
           </section>
 
-          {/* Services Grid */}
-          <section id="services" className="py-24 bg-background">
+          {/* Services Grid - Compact on mobile */}
+          <section id="services" className="py-12 md:py-24 bg-background">
             <div className="container mx-auto px-6">
-              <div className="text-center max-w-3xl mx-auto mb-16">
+              <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
                 <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Nos Services</span>
-                <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4 mb-6">
+                <h2 className="font-serif text-2xl md:text-5xl font-semibold text-foreground mt-3 md:mt-4 mb-4 md:mb-6">
                   Une Gestion Complète
                 </h2>
-                <p className="font-sans text-muted-foreground text-lg">
-                  De l'accueil de vos voyageurs à l'entretien de votre bien, nous prenons tout en charge.
+                <p className="font-sans text-muted-foreground text-base md:text-lg">
+                  De l'accueil à l'entretien, nous prenons tout en charge.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Mobile: Compact horizontal scroll / Desktop: Grid */}
+              <div className="flex md:hidden gap-3 overflow-x-auto pb-4 -mx-6 px-6 snap-x snap-mandatory scrollbar-hide">
                 {services.map((service) => (
                   <div
                     key={service.title}
-                    className="group p-8 rounded-2xl bg-card shadow-soft hover:shadow-medium hover:-translate-y-1 transition-all duration-300"
+                    className="flex-shrink-0 w-[200px] snap-start p-4 rounded-xl bg-card shadow-soft"
                   >
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-gold flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                      <service.icon className="w-7 h-7 text-primary" />
+                    <div className="w-10 h-10 rounded-xl bg-gradient-gold flex items-center justify-center mb-3">
+                      <service.icon className="w-5 h-5 text-primary" />
                     </div>
-                    <h3 className="font-serif text-xl font-semibold text-foreground mb-3">
+                    <h3 className="font-serif text-sm font-semibold text-foreground">
+                      {service.title}
+                    </h3>
+                  </div>
+                ))}
+              </div>
+
+              {/* Desktop Grid */}
+              <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
+                {services.map((service) => (
+                  <div
+                    key={service.title}
+                    className="group p-6 rounded-2xl bg-card shadow-soft hover:shadow-medium hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-gradient-gold flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                      <service.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="font-serif text-lg font-semibold text-foreground mb-2">
                       {service.title}
                     </h3>
                     <p className="font-sans text-muted-foreground text-sm leading-relaxed">
@@ -200,54 +218,8 @@ const Conciergerie = () => {
             </div>
           </section>
 
-          {/* Early Adopter Promo Banner */}
-          <section className="py-8 bg-primary relative overflow-hidden">
-            {/* Decorative elements */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_hsl(43_67%_52%_/_0.15),_transparent_50%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_hsl(43_67%_52%_/_0.1),_transparent_50%)]" />
-            
-            <div className="container mx-auto px-6 relative">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-6 max-w-4xl mx-auto">
-                {/* Left side - Icon and text */}
-                <div className="flex items-center gap-4 md:gap-6">
-                  <div className="relative">
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gold/20 flex items-center justify-center">
-                      <Gift className="w-8 h-8 md:w-10 md:h-10 text-gold" />
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-gold rounded-full flex items-center justify-center animate-pulse">
-                      <Percent className="w-4 h-4 text-primary" />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="bg-gold/20 text-gold text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
-                        Offre Lancement
-                      </span>
-                    </div>
-                    <h3 className="font-serif text-xl md:text-2xl font-semibold text-primary-foreground">
-                      Premiers Clients : <span className="text-gold">15% au lieu de 25%</span>
-                    </h3>
-                    <p className="font-sans text-sm text-primary-foreground/70 mt-1">
-                      Tarif préférentiel exclusif pour nos premiers partenaires propriétaires
-                    </p>
-                  </div>
-                </div>
-                
-                {/* Right side - CTA */}
-                <div className="flex-shrink-0">
-                  <Button variant="gold" size="lg" className="group" asChild>
-                    <Link to="/contact">
-                      En profiter
-                      <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </section>
-
           {/* Pricing Section */}
-          <section id="tarifs" className="py-24 bg-secondary">
+          <section id="tarifs" className="py-16 md:py-24 bg-secondary">
             <div className="container mx-auto px-6">
               <div className="text-center max-w-3xl mx-auto mb-16">
                 <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Tarifs</span>
