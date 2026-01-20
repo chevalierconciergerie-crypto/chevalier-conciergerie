@@ -146,29 +146,47 @@ const SousLocation = () => {
             </div>
           </section>
 
-          {/* Advantages Section */}
-          <section id="avantages" className="py-24 bg-background">
+          {/* Advantages Section - Compact on mobile */}
+          <section id="avantages" className="py-12 md:py-24 bg-background">
             <div className="container mx-auto px-6">
-              <div className="text-center max-w-3xl mx-auto mb-16">
+              <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
                 <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Avantages</span>
-                <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4 mb-6">
+                <h2 className="font-serif text-2xl md:text-5xl font-semibold text-foreground mt-3 md:mt-4 mb-4 md:mb-6">
                   Pourquoi la Sous-Location ?
                 </h2>
-                <p className="font-sans text-muted-foreground text-lg">
-                  Une solution idéale pour les propriétaires souhaitant sécuriser leurs revenus sans contrainte.
+                <p className="font-sans text-muted-foreground text-base md:text-lg">
+                  Sécurisez vos revenus sans contrainte.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+              {/* Mobile: Horizontal scroll / Desktop: Grid */}
+              <div className="flex md:hidden gap-3 overflow-x-auto pb-4 -mx-6 px-6 snap-x snap-mandatory scrollbar-hide mb-8">
                 {advantages.map((advantage) => (
                   <div
                     key={advantage.title}
-                    className="group p-8 rounded-2xl bg-card shadow-soft hover:shadow-medium hover:-translate-y-1 transition-all duration-300"
+                    className="flex-shrink-0 w-[200px] snap-start p-4 rounded-xl bg-card shadow-soft"
                   >
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-gold flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                      <advantage.icon className="w-7 h-7 text-primary" />
+                    <div className="w-10 h-10 rounded-xl bg-gradient-gold flex items-center justify-center mb-3">
+                      <advantage.icon className="w-5 h-5 text-primary" />
                     </div>
-                    <h3 className="font-serif text-xl font-semibold text-foreground mb-3">
+                    <h3 className="font-serif text-sm font-semibold text-foreground">
+                      {advantage.title}
+                    </h3>
+                  </div>
+                ))}
+              </div>
+
+              {/* Desktop Grid */}
+              <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                {advantages.map((advantage) => (
+                  <div
+                    key={advantage.title}
+                    className="group p-6 rounded-2xl bg-card shadow-soft hover:shadow-medium hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-gradient-gold flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                      <advantage.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="font-serif text-lg font-semibold text-foreground mb-2">
                       {advantage.title}
                     </h3>
                     <p className="font-sans text-muted-foreground text-sm leading-relaxed">
