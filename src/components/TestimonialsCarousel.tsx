@@ -156,25 +156,6 @@ const TestimonialsCarousel = () => {
         </div>
       </div>
 
-      {/* Trust indicators */}
-      <div className="container mx-auto px-6 mt-12">
-        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
-          <div className="text-center">
-            <p className="font-serif text-3xl md:text-4xl font-bold text-gold">98%</p>
-            <p className="font-sans text-sm text-muted-foreground mt-1">Clients satisfaits</p>
-          </div>
-          <div className="w-px h-12 bg-border/50 hidden md:block" />
-          <div className="text-center">
-            <p className="font-serif text-3xl md:text-4xl font-bold text-gold">5.0</p>
-            <p className="font-sans text-sm text-muted-foreground mt-1">Note moyenne</p>
-          </div>
-          <div className="w-px h-12 bg-border/50 hidden md:block" />
-          <div className="text-center">
-            <p className="font-serif text-3xl md:text-4xl font-bold text-gold">50+</p>
-            <p className="font-sans text-sm text-muted-foreground mt-1">Biens gérés</p>
-          </div>
-        </div>
-      </div>
     </section>
   );
 };
