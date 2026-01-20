@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroImageCarousel from "@/components/HeroImageCarousel";
-import { Check, X, Sparkles, Users, Clock, Camera, TrendingUp, Home, Euro, ArrowRight, Calendar, Wallet, Handshake, FileEdit, Package } from "lucide-react";
+import { Check, X, Sparkles, Users, Clock, Camera, TrendingUp, Home, Euro, ArrowRight, Calendar, Wallet, Handshake, FileEdit, Package, Gift, Percent } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import villeneuveChartreuse from "@/assets/villeneuve-chartreuse.jpg";
@@ -196,6 +196,52 @@ const Conciergerie = () => {
                     </p>
                   </div>
                 ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Early Adopter Promo Banner */}
+          <section className="py-8 bg-primary relative overflow-hidden">
+            {/* Decorative elements */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_hsl(43_67%_52%_/_0.15),_transparent_50%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_hsl(43_67%_52%_/_0.1),_transparent_50%)]" />
+            
+            <div className="container mx-auto px-6 relative">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-6 max-w-4xl mx-auto">
+                {/* Left side - Icon and text */}
+                <div className="flex items-center gap-4 md:gap-6">
+                  <div className="relative">
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gold/20 flex items-center justify-center">
+                      <Gift className="w-8 h-8 md:w-10 md:h-10 text-gold" />
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-gold rounded-full flex items-center justify-center animate-pulse">
+                      <Percent className="w-4 h-4 text-primary" />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="bg-gold/20 text-gold text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+                        Offre Lancement
+                      </span>
+                    </div>
+                    <h3 className="font-serif text-xl md:text-2xl font-semibold text-primary-foreground">
+                      Premiers Clients : <span className="text-gold">15% au lieu de 25%</span>
+                    </h3>
+                    <p className="font-sans text-sm text-primary-foreground/70 mt-1">
+                      Tarif préférentiel exclusif pour nos premiers partenaires propriétaires
+                    </p>
+                  </div>
+                </div>
+                
+                {/* Right side - CTA */}
+                <div className="flex-shrink-0">
+                  <Button variant="gold" size="lg" className="group" asChild>
+                    <Link to="/contact">
+                      En profiter
+                      <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </div>
           </section>
