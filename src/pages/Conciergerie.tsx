@@ -281,6 +281,13 @@ const Conciergerie = () => {
                       }`}>
                         {plan.priceNote}
                       </p>
+                      {plan.oldPrice && (
+                        <div className="mt-3 inline-flex items-center gap-2 bg-gold/20 rounded-full px-3 py-1.5">
+                          <span className="font-sans text-xs font-medium text-gold">
+                            Sur 3 mois · 5 premiers propriétaires
+                          </span>
+                        </div>
+                      )}
                     </div>
 
                     <ul className="space-y-3 mb-8">
