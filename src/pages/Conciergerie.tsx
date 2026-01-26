@@ -180,7 +180,7 @@ const Conciergerie = () => {
           </section>
 
           {/* Pricing Section - Single Offer */}
-          <section id="tarifs" className="py-16 md:py-24 bg-secondary overflow-hidden">
+          <section id="tarifs" className="py-16 md:py-24 bg-secondary">
             <div className="container mx-auto px-6">
               <div className="text-center max-w-3xl mx-auto mb-12">
                 <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Notre Offre</span>
@@ -192,81 +192,61 @@ const Conciergerie = () => {
                 </p>
               </div>
 
-              <div className="max-w-4xl mx-auto">
-                <div className="relative">
-                  {/* Glow effect */}
-                  <div className="absolute -inset-4 bg-gradient-to-br from-gold/20 via-primary/10 to-transparent rounded-[2.5rem] blur-2xl" />
-                  
-                  <div className="relative bg-primary rounded-3xl p-8 md:p-12 overflow-hidden">
-                    {/* Pattern décoratif */}
-                    <div className="absolute top-0 right-0 w-80 h-80 opacity-5">
-                      <svg viewBox="0 0 200 200" className="w-full h-full">
-                        <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-gold" />
-                        <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-gold" />
-                        <circle cx="100" cy="100" r="40" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-gold" />
-                      </svg>
+              <div className="max-w-5xl mx-auto">
+                <div className="bg-card rounded-3xl shadow-medium border border-gold/20 overflow-hidden">
+                  {/* Header */}
+                  <div className="bg-primary p-8 md:p-10 text-center">
+                    <div className="inline-flex items-center gap-2 bg-gold/20 rounded-full px-4 py-1.5 mb-4">
+                      <Sparkles className="w-4 h-4 text-gold" />
+                      <span className="font-sans text-xs font-medium text-gold uppercase tracking-wider">Formule Complète</span>
                     </div>
-                    
-                    <div className="relative z-10">
-                      {/* Header avec prix */}
-                      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-10 pb-10 border-b border-primary-foreground/10">
-                        <div>
-                          <div className="inline-flex items-center gap-2 bg-gold/20 rounded-full px-4 py-1.5 mb-4">
-                            <Sparkles className="w-4 h-4 text-gold" />
-                            <span className="font-sans text-xs font-medium text-gold uppercase tracking-wider">Formule Complète</span>
+                    <h3 className="font-serif text-2xl md:text-3xl font-semibold text-primary-foreground mb-2">
+                      Service Intégral
+                    </h3>
+                    <div className="flex items-baseline justify-center gap-1 mt-4">
+                      <span className="font-serif text-6xl md:text-7xl font-bold text-gold">20</span>
+                      <span className="font-serif text-2xl md:text-3xl font-bold text-gold">%</span>
+                    </div>
+                    <p className="font-sans text-sm text-primary-foreground/70 mt-2">
+                      des revenus locatifs
+                    </p>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-8 md:p-10">
+                    {/* Features Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+                      {includedFeatures.map((feature) => (
+                        <div key={feature} className="flex items-center gap-3">
+                          <div className="w-6 h-6 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
+                            <Check className="w-3.5 h-3.5 text-gold" />
                           </div>
-                          <h3 className="font-serif text-3xl md:text-4xl font-semibold text-primary-foreground">
-                            Service Intégral
-                          </h3>
-                          <p className="font-sans text-primary-foreground/70 mt-2">
-                            Tout ce dont vous avez besoin pour une gestion réussie
-                          </p>
+                          <span className="font-sans text-sm text-foreground">
+                            {feature}
+                          </span>
                         </div>
-                        <div className="text-center lg:text-right">
-                          <div className="flex items-baseline justify-center lg:justify-end gap-1">
-                            <span className="font-serif text-6xl md:text-7xl font-bold text-gold">20</span>
-                            <span className="font-serif text-3xl font-bold text-gold">%</span>
-                          </div>
-                          <p className="font-sans text-sm text-primary-foreground/60 mt-1">
-                            des revenus locatifs
-                          </p>
-                        </div>
-                      </div>
+                      ))}
+                    </div>
 
-                      {/* Features Grid */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
-                        {includedFeatures.map((feature) => (
-                          <div key={feature} className="flex items-center gap-3 bg-primary-foreground/5 rounded-xl px-4 py-3">
-                            <div className="w-6 h-6 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
-                              <Check className="w-3.5 h-3.5 text-gold" />
-                            </div>
-                            <span className="font-sans text-sm text-primary-foreground/80">
-                              {feature}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
+                    {/* Ménage info */}
+                    <div className="bg-secondary rounded-xl p-4 mb-8 flex items-center gap-3">
+                      <Sparkles className="w-5 h-5 text-gold flex-shrink-0" />
+                      <p className="font-sans text-sm text-muted-foreground">
+                        <span className="text-gold font-medium">Ménage professionnel</span> — 40€ par séjour, payés par le voyageur
+                      </p>
+                    </div>
 
-                      {/* Ménage info */}
-                      <div className="bg-gold/10 rounded-xl p-4 mb-8 flex items-center gap-3">
-                        <Sparkles className="w-5 h-5 text-gold flex-shrink-0" />
-                        <p className="font-sans text-sm text-primary-foreground/80">
-                          <span className="text-gold font-medium">Ménage professionnel</span> — 40€ par séjour, payés par le voyageur
-                        </p>
-                      </div>
-
-                      {/* CTA */}
-                      <div className="flex flex-col sm:flex-row gap-4">
-                        <Button variant="gold" size="xl" asChild className="flex-1">
-                          <Link to="/contact" className="flex items-center justify-center gap-2">
-                            Choisir cette formule
-                            <ArrowRight className="w-5 h-5" />
-                          </Link>
-                        </Button>
-                        <Button variant="outline-light" size="lg" asChild>
-                          <a href="tel:+33783198341">Nous appeler</a>
-                        </Button>
-                      </div>
+                    {/* CTA */}
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <Button variant="gold" size="xl" asChild>
+                        <Link to="/contact" className="flex items-center justify-center gap-2">
+                          Choisir cette formule
+                          <ArrowRight className="w-5 h-5" />
+                        </Link>
+                      </Button>
+                      <Button variant="outline" size="xl" asChild>
+                        <a href="tel:+33783198341">Nous appeler</a>
+                      </Button>
                     </div>
                   </div>
                 </div>
