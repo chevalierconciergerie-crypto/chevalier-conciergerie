@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroImageCarousel from "@/components/HeroImageCarousel";
-import { Check, X, Sparkles, Users, Clock, Camera, TrendingUp, Home, Euro, ArrowRight, Calendar, Wallet, Handshake, FileEdit, Package } from "lucide-react";
+import { Check, X, Sparkles, Users, Clock, Camera, TrendingUp, Home, ArrowRight, Calendar, Wallet, Handshake, FileEdit, Package, Palette } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import villeneuveChartreuse from "@/assets/villeneuve-chartreuse.jpg";
@@ -20,6 +20,16 @@ const Conciergerie = () => {
       icon: FileEdit,
       title: "Création de l'Annonce",
       description: "Rédaction soignée et optimisée de votre annonce pour attirer les meilleurs voyageurs.",
+    },
+    {
+      icon: Camera,
+      title: "Photos Professionnelles",
+      description: "Shooting HDR professionnel pour sublimer votre bien et maximiser les réservations.",
+    },
+    {
+      icon: Palette,
+      title: "Conseils Déco & Travaux",
+      description: "Recommandations personnalisées pour optimiser l'attractivité et les revenus de votre bien.",
     },
     {
       icon: TrendingUp,
@@ -42,76 +52,26 @@ const Conciergerie = () => {
       description: "Nettoyage hôtelier entre chaque séjour avec linge de maison premium fourni.",
     },
     {
-      icon: Camera,
-      title: "Photographie Professionnelle",
-      description: "Mise en valeur de votre bien avec des photos HDR pour maximiser les réservations.",
-    },
-    {
       icon: Clock,
       title: "Disponibilité 24/7",
       description: "Support réactif pour vous et vos voyageurs à tout moment.",
     },
   ];
 
-  // Features ordonnées logiquement : Avant location → Pendant → Après → Extras Premium
-  const gestionFeatures = [
-    // Avant la location
-    { name: "Rencontre & visite du bien", included: true },
-    { name: "Création et gestion de l'annonce", included: true },
-    { name: "Optimisation annonce et prix", included: true },
-    { name: "Photos professionnelles", included: false },
-    // Gestion des réservations
-    { name: "Gestion des messages", included: true },
-    { name: "Gestion des réservations", included: true },
-    { name: "Rédaction du contrat de location", included: true },
-    // Pendant le séjour
-    { name: "Check-in / Check-out", included: true },
-    { name: "Automatisation boîte à clés", included: true },
-    { name: "Gestion des consommables", included: true },
-    { name: "Pack de bienvenue voyageurs", included: false },
-    { name: "Infos touristiques personnalisées", included: false },
-    // Après le séjour
-    { name: "Ménage professionnel", included: true },
-  ];
-
-  const premiumFeatures = [
-    // Avant la location
-    { name: "Rencontre & visite du bien", included: true },
-    { name: "Création et gestion de l'annonce", included: true },
-    { name: "Optimisation annonce et prix", included: true },
-    { name: "Photos professionnelles", included: true },
-    // Gestion des réservations
-    { name: "Gestion des messages", included: true },
-    { name: "Gestion des réservations", included: true },
-    { name: "Rédaction du contrat de location", included: true },
-    // Pendant le séjour
-    { name: "Check-in / Check-out", included: true },
-    { name: "Automatisation boîte à clés", included: true },
-    { name: "Gestion des consommables", included: true },
-    { name: "Pack de bienvenue voyageurs", included: true },
-    { name: "Infos touristiques personnalisées", included: true },
-    // Après le séjour
-    { name: "Ménage professionnel", included: true },
-  ];
-
-  const pricingPlans = [
-    {
-      name: "Essentiel",
-      description: "Pour les propriétaires souhaitant déléguer l'essentiel",
-      price: "20%",
-      priceNote: "des revenus locatifs",
-      featured: false,
-      features: gestionFeatures,
-    },
-    {
-      name: "Premium",
-      description: "L'expérience complète haut de gamme",
-      price: "15%",
-      oldPrice: "25%",
-      priceNote: "des revenus locatifs",
-      featured: true,
-      features: premiumFeatures,
-    },
+  // Features incluses dans l'offre unique
+  const includedFeatures = [
+    "Rencontre & visite du bien",
+    "Création et gestion de l'annonce",
+    "Optimisation annonce et prix",
+    "Photos professionnelles",
+    "Conseils déco & travaux",
+    "Gestion des messages",
+    "Gestion des réservations",
+    "Rédaction du contrat de location",
+    "Check-in / Check-out",
+    "Automatisation boîte à clés",
+    "Gestion des consommables",
+    "Ménage professionnel",
   ];
 
   return (
@@ -219,112 +179,97 @@ const Conciergerie = () => {
             </div>
           </section>
 
-          {/* Pricing Section */}
-          <section id="tarifs" className="py-16 md:py-24 bg-secondary">
+          {/* Pricing Section - Single Offer */}
+          <section id="tarifs" className="py-16 md:py-24 bg-secondary overflow-hidden">
             <div className="container mx-auto px-6">
-              <div className="text-center max-w-3xl mx-auto mb-16">
-                <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Tarifs</span>
+              <div className="text-center max-w-3xl mx-auto mb-12">
+                <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Notre Offre</span>
                 <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4 mb-6">
-                  Nos Formules Conciergerie
+                  Service Intégral
                 </h2>
                 <p className="font-sans text-muted-foreground text-lg">
-                  Des tarifs transparents basés sur vos revenus locatifs.
+                  Une formule tout-en-un pour une gestion sans stress.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                {pricingPlans.map((plan) => (
-                  <div
-                    key={plan.name}
-                    className={`relative rounded-2xl p-8 transition-all duration-300 ${
-                      plan.featured
-                        ? "bg-primary shadow-medium scale-105"
-                        : "bg-card shadow-soft hover:shadow-medium hover:-translate-y-1"
-                    }`}
-                  >
-                    {plan.featured && (
-                      <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                        <span className="bg-gradient-gold text-primary text-sm font-semibold px-4 py-1.5 rounded-full">
-                          Premium
-                        </span>
-                      </div>
-                    )}
-
-                    <div className="text-center mb-8">
-                      <h3 className={`font-serif text-2xl font-semibold mb-2 ${
-                        plan.featured ? "text-primary-foreground" : "text-foreground"
-                      }`}>
-                        {plan.name}
-                      </h3>
-                      <p className={`font-sans text-sm ${
-                        plan.featured ? "text-primary-foreground/70" : "text-muted-foreground"
-                      }`}>
-                        {plan.description}
-                      </p>
+              <div className="max-w-4xl mx-auto">
+                <div className="relative">
+                  {/* Glow effect */}
+                  <div className="absolute -inset-4 bg-gradient-to-br from-gold/20 via-primary/10 to-transparent rounded-[2.5rem] blur-2xl" />
+                  
+                  <div className="relative bg-primary rounded-3xl p-8 md:p-12 overflow-hidden">
+                    {/* Pattern décoratif */}
+                    <div className="absolute top-0 right-0 w-80 h-80 opacity-5">
+                      <svg viewBox="0 0 200 200" className="w-full h-full">
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-gold" />
+                        <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-gold" />
+                        <circle cx="100" cy="100" r="40" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-gold" />
+                      </svg>
                     </div>
-
-                    <div className="text-center mb-8">
-                      <div className="flex items-center justify-center gap-3">
-                        {plan.oldPrice && (
-                          <span className="font-serif text-3xl font-bold text-primary-foreground/40 line-through">
-                            {plan.oldPrice}
-                          </span>
-                        )}
-                        <span className={`font-serif text-5xl font-bold ${
-                          plan.featured ? "text-gold" : "text-foreground"
-                        }`}>
-                          {plan.price}
-                        </span>
-                      </div>
-                      <p className={`font-sans text-sm mt-2 ${
-                        plan.featured ? "text-primary-foreground/60" : "text-muted-foreground"
-                      }`}>
-                        {plan.priceNote}
-                      </p>
-                      {plan.oldPrice && (
-                        <div className="mt-3 inline-flex items-center gap-2 bg-gold/20 rounded-full px-3 py-1.5">
-                          <span className="font-sans text-xs font-medium text-gold">
-                            Sur 3 mois · 5 premiers propriétaires
-                          </span>
+                    
+                    <div className="relative z-10">
+                      {/* Header avec prix */}
+                      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-10 pb-10 border-b border-primary-foreground/10">
+                        <div>
+                          <div className="inline-flex items-center gap-2 bg-gold/20 rounded-full px-4 py-1.5 mb-4">
+                            <Sparkles className="w-4 h-4 text-gold" />
+                            <span className="font-sans text-xs font-medium text-gold uppercase tracking-wider">Formule Complète</span>
+                          </div>
+                          <h3 className="font-serif text-3xl md:text-4xl font-semibold text-primary-foreground">
+                            Service Intégral
+                          </h3>
+                          <p className="font-sans text-primary-foreground/70 mt-2">
+                            Tout ce dont vous avez besoin pour une gestion réussie
+                          </p>
                         </div>
-                      )}
+                        <div className="text-center lg:text-right">
+                          <div className="flex items-baseline justify-center lg:justify-end gap-1">
+                            <span className="font-serif text-6xl md:text-7xl font-bold text-gold">20</span>
+                            <span className="font-serif text-3xl font-bold text-gold">%</span>
+                          </div>
+                          <p className="font-sans text-sm text-primary-foreground/60 mt-1">
+                            des revenus locatifs
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Features Grid */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+                        {includedFeatures.map((feature) => (
+                          <div key={feature} className="flex items-center gap-3 bg-primary-foreground/5 rounded-xl px-4 py-3">
+                            <div className="w-6 h-6 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
+                              <Check className="w-3.5 h-3.5 text-gold" />
+                            </div>
+                            <span className="font-sans text-sm text-primary-foreground/80">
+                              {feature}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Ménage info */}
+                      <div className="bg-gold/10 rounded-xl p-4 mb-8 flex items-center gap-3">
+                        <Sparkles className="w-5 h-5 text-gold flex-shrink-0" />
+                        <p className="font-sans text-sm text-primary-foreground/80">
+                          <span className="text-gold font-medium">Ménage professionnel</span> — 40€ par séjour, payés par le voyageur
+                        </p>
+                      </div>
+
+                      {/* CTA */}
+                      <div className="flex flex-col sm:flex-row gap-4">
+                        <Button variant="gold" size="xl" asChild className="flex-1">
+                          <Link to="/contact" className="flex items-center justify-center gap-2">
+                            Choisir cette formule
+                            <ArrowRight className="w-5 h-5" />
+                          </Link>
+                        </Button>
+                        <Button variant="outline-light" size="lg" asChild>
+                          <a href="tel:+33783198341">Nous appeler</a>
+                        </Button>
+                      </div>
                     </div>
-
-                    <ul className="space-y-3 mb-8">
-                      {plan.features.map((feature) => (
-                        <li key={feature.name} className="flex items-start gap-3">
-                          {feature.included ? (
-                            <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                              plan.featured ? "bg-gold/20" : "bg-secondary"
-                            }`}>
-                              <Check className="w-3 h-3 text-gold" />
-                            </div>
-                          ) : (
-                            <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-muted/50">
-                              <X className="w-3 h-3 text-muted-foreground/50" />
-                            </div>
-                          )}
-                          <span className={`font-sans text-sm ${
-                            feature.included
-                              ? plan.featured ? "text-primary-foreground/80" : "text-muted-foreground"
-                              : "text-muted-foreground/50 line-through"
-                          }`}>
-                            {feature.name}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <Button
-                      variant={plan.featured ? "gold" : "outline-gold"}
-                      className="w-full"
-                      size="lg"
-                      asChild
-                    >
-                      <Link to="/contact">Choisir cette formule</Link>
-                    </Button>
                   </div>
-                ))}
+                </div>
               </div>
             </div>
           </section>
@@ -394,7 +339,7 @@ const Conciergerie = () => {
                     {/* L'équation visuelle */}
                     <div className="bg-card rounded-3xl p-6 shadow-soft border border-border/50 mt-8">
                       <div className="text-center mb-6">
-                        <span className="font-sans text-xs tracking-widest uppercase text-muted-foreground">Formule Essentiel</span>
+                        <span className="font-sans text-xs tracking-widest uppercase text-muted-foreground">Service Intégral</span>
                       </div>
                       <div className="flex items-center justify-center gap-4">
                         <div className="text-center">
