@@ -232,7 +232,7 @@ const Conciergerie = () => {
                     <div className="bg-secondary rounded-xl p-4 mb-8 flex items-center gap-3">
                       <Sparkles className="w-5 h-5 text-gold flex-shrink-0" />
                       <p className="font-sans text-sm text-muted-foreground">
-                        <span className="text-gold font-medium">Ménage professionnel</span> — 40€ par séjour, payés par le voyageur
+                        <span className="text-gold font-medium">Ménage professionnel</span> — payé par le voyageur
                       </p>
                     </div>
 
