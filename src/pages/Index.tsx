@@ -7,8 +7,6 @@ import ComingSoon from "@/components/ComingSoon";
 import PlatformLogos from "@/components/PlatformLogos";
 import AvignonIllustration from "@/components/AvignonIllustration";
 import SocialBar from "@/components/SocialBar";
-import PromoBanner from "@/components/PromoBanner";
-import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import { ArrowRight, Home, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -78,8 +76,6 @@ const Index = () => {
         <main className="relative z-10">
           <Hero />
           
-          {/* Promo Banner - Offre de lancement */}
-          <PromoBanner />
           
           {/* Social Bar */}
           <SocialBar />
@@ -191,8 +187,6 @@ const Index = () => {
             </div>
           </section>
 
-          {/* Testimonials */}
-          <TestimonialsCarousel />
 
           <LocalExpertise />
           <ComingSoon />
