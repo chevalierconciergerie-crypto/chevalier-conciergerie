@@ -364,14 +364,14 @@ const Conciergerie = () => {
                             </div>
                             <div>
                               <p className="font-sans text-xs tracking-widest uppercase text-primary-foreground/60">Votre gain net</p>
-                              <p className="font-sans text-sm text-primary-foreground/80">Après commission de 20%</p>
+                              <p className="font-sans text-sm text-primary-foreground/80">Après commission Airbnb et notre service</p>
                             </div>
                           </div>
 
                           {/* Le montant principal - Impact visuel fort */}
                           <div className="mb-10">
                             <div className="flex items-baseline gap-2">
-                              <span className="font-serif text-7xl md:text-8xl font-bold text-gold tracking-tight">792</span>
+                              <span className="font-serif text-7xl md:text-8xl font-bold text-gold tracking-tight">673</span>
                               <div className="flex flex-col">
                                 <span className="font-serif text-3xl md:text-4xl font-bold text-gold">€</span>
                                 <span className="font-sans text-sm text-primary-foreground/50">net</span>
@@ -383,14 +383,22 @@ const Conciergerie = () => {
                           </div>
 
                           {/* Détail transparent */}
-                          <div className="grid grid-cols-2 gap-4 mb-8">
-                            <div className="bg-primary-foreground/5 rounded-xl p-4">
-                              <p className="font-sans text-xs text-primary-foreground/50 mb-1">Commission</p>
-                              <p className="font-sans text-lg font-medium text-primary-foreground">198€ <span className="text-xs text-primary-foreground/50">HT</span></p>
+                          <div className="space-y-3 mb-8">
+                            <div className="bg-primary-foreground/5 rounded-xl p-4 flex justify-between items-center">
+                              <p className="font-sans text-sm text-primary-foreground/70">Revenus bruts</p>
+                              <p className="font-sans text-lg font-medium text-primary-foreground">990€</p>
                             </div>
-                            <div className="bg-primary-foreground/5 rounded-xl p-4">
-                              <p className="font-sans text-xs text-primary-foreground/50 mb-1">Ménage</p>
-                              <p className="font-sans text-lg font-medium text-primary-foreground">40€ <span className="text-xs text-primary-foreground/50">payé par le voyageur</span></p>
+                            <div className="bg-primary-foreground/5 rounded-xl p-4 flex justify-between items-center">
+                              <p className="font-sans text-sm text-primary-foreground/70">Commission Airbnb (15%)</p>
+                              <p className="font-sans text-lg font-medium text-primary-foreground">-149€</p>
+                            </div>
+                            <div className="bg-primary-foreground/5 rounded-xl p-4 flex justify-between items-center">
+                              <p className="font-sans text-sm text-primary-foreground/70">Notre commission (20%)</p>
+                              <p className="font-sans text-lg font-medium text-primary-foreground">-168€</p>
+                            </div>
+                            <div className="bg-gold/20 rounded-xl p-4 flex justify-between items-center">
+                              <p className="font-sans text-sm font-medium text-gold">Vous recevez</p>
+                              <p className="font-serif text-xl font-bold text-gold">673€</p>
                             </div>
                           </div>
 
