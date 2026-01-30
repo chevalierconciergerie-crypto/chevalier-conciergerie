@@ -35,9 +35,9 @@ const FounderPresentation = () => {
                 
                 {/* Badge */}
                 <div className="absolute bottom-6 left-6 right-6">
-                  <div className="bg-background/95 backdrop-blur-sm rounded-xl p-4 shadow-soft">
+                <div className="bg-background/95 backdrop-blur-sm rounded-xl p-4 shadow-soft">
                     <p className="font-serif text-xl font-semibold text-foreground mb-1">Victor Chevalier</p>
-                    <p className="font-sans text-sm text-muted-foreground">Fondateur & Gérant</p>
+                    <p className="font-sans text-sm text-muted-foreground">Fondateur</p>
                   </div>
                 </div>
               </div>
@@ -59,7 +59,7 @@ const FounderPresentation = () => {
                   </div>
                   <div>
                     <p className="font-sans text-xs text-muted-foreground">Formation</p>
-                    <p className="font-sans text-sm font-medium text-foreground">CUPGE Sciences</p>
+                    <p className="font-sans text-sm font-medium text-foreground">CUPGE Maths</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 bg-card rounded-xl p-4 shadow-soft">
@@ -85,8 +85,8 @@ const FounderPresentation = () => {
               {/* Description */}
               <div className="space-y-4">
                 <p className="font-sans text-muted-foreground leading-relaxed">
-                  À seulement <span className="text-foreground font-medium">20 ans</span>, j'ai su allier ma passion pour les sciences — 
-                  avec des études en mathématiques et physique à la CUPGE d'Avignon — à mon attrait pour l'immobilier 
+                  Passionné par les sciences, j'ai suivi des études en mathématiques et physique 
+                  à la CUPGE d'Avignon, tout en développant un vif intérêt pour l'immobilier 
                   et l'entrepreneuriat.
                 </p>
                 <p className="font-sans text-muted-foreground leading-relaxed">
