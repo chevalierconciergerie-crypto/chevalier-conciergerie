@@ -7,6 +7,7 @@ import ComingSoon from "@/components/ComingSoon";
 import PlatformLogos from "@/components/PlatformLogos";
 import AvignonIllustration from "@/components/AvignonIllustration";
 import SocialBar from "@/components/SocialBar";
+import FounderPresentation from "@/components/FounderPresentation";
 import { ArrowRight, Home, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -187,6 +188,8 @@ const Index = () => {
             </div>
           </section>
 
+          {/* Présentation du fondateur */}
+          <FounderPresentation />
 
           <LocalExpertise />
           <ComingSoon />

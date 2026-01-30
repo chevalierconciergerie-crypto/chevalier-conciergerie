@@ -18,7 +18,7 @@ const SocialBar = () => {
     },
     { 
       icon: Linkedin, 
-      href: "https://www.linkedin.com/in/chevalier-conciergerie-7559b03a4/", 
+      href: "https://www.linkedin.com/in/victor-chevalier-bba282356/", 
       label: "LinkedIn",
       bgColor: "bg-[#0A66C2]",
       hoverColor: "hover:bg-[#004182]"
