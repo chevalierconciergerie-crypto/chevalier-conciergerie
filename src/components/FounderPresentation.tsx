@@ -11,12 +11,9 @@ const FounderPresentation = () => {
         <ScrollAnimate>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Le Fondateur</span>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4 mb-6">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4">
               Victor Chevalier
             </h2>
-            <p className="font-sans text-muted-foreground text-lg">
-              Un jeune entrepreneur avignonnais passionné par l'immobilier
-            </p>
           </div>
         </ScrollAnimate>
 
@@ -86,7 +83,7 @@ const FounderPresentation = () => {
               <div className="space-y-4">
                 <p className="font-sans text-muted-foreground leading-relaxed">
                   Passionné par les sciences, j'ai suivi des études en mathématiques et physique 
-                  à la CUPGE d'Avignon, tout en développant un vif intérêt pour l'immobilier 
+                  à la CUPGE d'Avignon, tout en m'intéressant à l'immobilier 
                   et l'entrepreneuriat.
                 </p>
                 <p className="font-sans text-muted-foreground leading-relaxed">
