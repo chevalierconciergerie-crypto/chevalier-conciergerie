@@ -26,7 +26,7 @@ const SocialBar = () => {
   ];
 
   return (
-    <section className="bg-background py-8">
+    <section className="bg-background py-4">
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center gap-4">
           <p className="font-sans text-muted-foreground text-sm tracking-wide">

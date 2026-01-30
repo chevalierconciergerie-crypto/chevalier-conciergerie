@@ -5,7 +5,7 @@ import logoAbritel from "@/assets/logo-abritel.png";
 
 const PlatformLogos = () => {
   return (
-    <div className="py-16 md:py-20">
+    <div className="py-8 md:py-10">
       <ScrollAnimate>
         <div className="flex flex-col items-center">
           <p className="text-muted-foreground font-sans text-sm tracking-wide uppercase mb-10">

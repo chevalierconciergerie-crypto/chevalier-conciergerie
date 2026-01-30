@@ -6,7 +6,7 @@ import { Building2, GraduationCap, MapPin } from "lucide-react";
 
 const FounderPresentation = () => {
   return (
-    <section className="bg-background py-24 overflow-hidden">
+    <section className="bg-background py-16 overflow-hidden">
       <div className="container mx-auto px-6">
         <ScrollAnimate>
           <div className="text-center max-w-3xl mx-auto mb-16">

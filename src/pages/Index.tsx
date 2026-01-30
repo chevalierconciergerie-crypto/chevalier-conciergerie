@@ -82,7 +82,7 @@ const Index = () => {
           <SocialBar />
           
           {/* Services Overview with Pont d'Avignon background */}
-          <section id="formules" className="relative py-24 bg-background overflow-hidden">
+          <section id="formules" className="relative py-16 bg-background overflow-hidden">
             <AvignonIllustration variant="pont" />
             <div className="container mx-auto px-6 relative z-10">
               <ScrollAnimate>
@@ -182,7 +182,7 @@ const Index = () => {
           </section>
 
           {/* Platform Logos */}
-          <section className="bg-white py-12">
+          <section className="bg-white py-6">
             <div className="max-w-3xl mx-auto">
               <PlatformLogos />
             </div>
