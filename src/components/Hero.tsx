@@ -54,10 +54,10 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
       </div>
 
-      {/* Content — bottom-aligned, minimal */}
-      <div className="relative z-10 w-full pb-20 md:pb-24">
+      {/* Content — centered */}
+      <div className="relative z-10 w-full flex-1 flex items-center justify-center">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mx-auto text-center">
             {/* Animated City */}
             <div className="mb-6 opacity-0 animate-fade-up">
               <div className="relative h-8 overflow-hidden">
@@ -75,12 +75,11 @@ const Hero = () => {
 
             {/* Title — clean, editorial */}
             <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-semibold text-primary-foreground leading-[1.05] mb-6 opacity-0 animate-fade-up animation-delay-100">
-              L'Excellence de la<br />
-              Gestion Locative
+              Votre Conciergerie
             </h1>
 
             {/* Thin separator */}
-            <div className="w-16 h-px bg-gold/60 mb-6 opacity-0 animate-fade-up animation-delay-150" />
+            <div className="w-16 h-px bg-gold/60 mb-6 mx-auto opacity-0 animate-fade-up animation-delay-150" />
 
             {/* Subtitle — short */}
             <p className="font-sans text-base md:text-lg text-primary-foreground/70 max-w-lg mb-10 opacity-0 animate-fade-up animation-delay-200">
@@ -88,7 +87,7 @@ const Hero = () => {
             </p>
 
             {/* CTA — single, clean */}
-            <div className="flex items-center gap-6 opacity-0 animate-fade-up animation-delay-300">
+            <div className="flex items-center justify-center gap-6 opacity-0 animate-fade-up animation-delay-300">
               <Button variant="hero" size="xl" className="group">
                 Prendre Rendez-vous
                 <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
