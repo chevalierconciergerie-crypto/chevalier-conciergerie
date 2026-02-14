@@ -47,6 +47,8 @@ const Conciergerie = () => {
               <img 
                 src={heroConciergerie} 
                 alt="Villa provençale en pierre de travertin" 
+                loading="eager"
+                fetchPriority="high"
                 className="w-full h-full object-cover opacity-40"
               />
             </div>

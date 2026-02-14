@@ -98,7 +98,7 @@ const LocalSeoPage = ({
           {/* Hero */}
           <section className="relative pt-32 pb-20 bg-primary overflow-hidden">
             <div className="absolute inset-0">
-              <img src={heroImage} alt={heroAlt} className="w-full h-full object-cover opacity-40" />
+              <img src={heroImage} alt={heroAlt} className="w-full h-full object-cover opacity-40" loading="eager" fetchPriority="high" />
             </div>
             <div className="relative z-10 container mx-auto px-6">
               <div className="max-w-3xl">
