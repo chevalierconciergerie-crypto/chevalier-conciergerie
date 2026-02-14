@@ -153,7 +153,7 @@ const Header = () => {
               <img 
                 src={logoCc} 
                 alt="Chevalier Conciergerie" 
-                className="h-36 w-auto object-contain drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
+                className="h-52 w-auto object-contain drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
               />
             </div>
 
