@@ -1,5 +1,6 @@
 import { Instagram, Linkedin, Facebook, MapPin, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import logoCc from "@/assets/logo-cc-transparent.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -36,9 +37,7 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
-              <span className="font-serif text-2xl font-semibold text-primary-foreground">
-                CHEVALIER <span className="text-gold">CONCIERGERIE</span>
-              </span>
+              <img src={logoCc} alt="Chevalier Conciergerie" className="h-16 w-auto" />
             </Link>
             <p className="font-sans text-primary-foreground/70 text-sm leading-relaxed mb-6 max-w-sm">
               L'excellence de la gestion locative à Avignon. 
