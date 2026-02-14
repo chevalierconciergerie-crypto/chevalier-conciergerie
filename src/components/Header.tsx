@@ -56,9 +56,9 @@ const Header = () => {
             : "bg-transparent py-4"
         }`}
       >
-        <div className="w-full px-4 flex items-center justify-between">
+        <div className="w-full px-2 flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="group flex items-center">
+          <Link to="/" className="group flex items-center -ml-4">
             <img 
               src={logoCc} 
               alt="Chevalier Conciergerie" 
