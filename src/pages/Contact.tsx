@@ -28,6 +28,8 @@ const Contact = () => {
               <img 
                 src={heroContact} 
                 alt="Intérieur provençal élégant" 
+                loading="eager"
+                fetchPriority="high"
                 className="w-full h-full object-cover opacity-40"
               />
             </div>

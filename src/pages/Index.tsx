@@ -126,6 +126,8 @@ const Index = () => {
                       <img 
                         src={serviceConciergerie} 
                         alt="Service Conciergerie"
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent" />
@@ -168,6 +170,8 @@ const Index = () => {
                       <img 
                         src={serviceSousLocation} 
                         alt="Sous-location professionnelle"
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent" />

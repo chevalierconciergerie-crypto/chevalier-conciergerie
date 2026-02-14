@@ -26,6 +26,8 @@ const FounderPresentation = () => {
                 <img 
                   src={victorPhoto} 
                   alt="Victor Chevalier - Fondateur de Chevalier Conciergerie"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full aspect-[3/4] object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />

@@ -112,6 +112,8 @@ const SousLocation = () => {
               <img 
                 src={heroSouslocation} 
                 alt="Maison provençale authentique avec volets bleus" 
+                loading="eager"
+                fetchPriority="high"
                 className="w-full h-full object-cover opacity-40"
               />
             </div>
