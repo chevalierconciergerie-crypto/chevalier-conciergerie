@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import heroVideo from "@/assets/hero-video-luxury.mp4";
 
 const cities = ["Avignon", "Villeneuve-lès-Avignon", "Les Angles"];
@@ -19,7 +18,6 @@ const Hero = () => {
         setIsAnimating(false);
       }, 600);
     }, 4000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -31,10 +29,10 @@ const Hero = () => {
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0">
-        <div 
+        <div
           className={`absolute inset-0 bg-primary transition-opacity duration-1000 ${
             isVideoLoaded ? "opacity-0" : "opacity-100"
-          }`} 
+          }`}
         />
         <video
           ref={videoRef}
@@ -50,60 +48,60 @@ const Hero = () => {
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
-        {/* Subtle bottom gradient only */}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
+        <div className="absolute inset-0 bg-primary/50" />
       </div>
 
-      {/* Content — centered */}
-      <div className="relative z-10">
-        <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            {/* Animated City */}
-            <div className="mb-6 opacity-0 animate-fade-up">
-              <div className="relative h-8 overflow-hidden">
-                <span 
-                  className={`text-gold/80 font-sans text-xs tracking-[0.4em] uppercase absolute inset-0 flex items-center transition-all duration-700 ease-out ${
-                    isAnimating 
-                      ? "opacity-0 -translate-y-4" 
-                      : "opacity-100 translate-y-0"
-                  }`}
-                >
-                  {cities[currentCityIndex]}
-                </span>
-              </div>
-            </div>
+      {/* Content */}
+      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+        {/* Brand label */}
+        <p className="font-sans text-xs md:text-sm tracking-[0.5em] uppercase text-primary-foreground/50 mb-8 opacity-0 animate-fade-up">
+          Chevalier Conciergerie
+        </p>
 
-            {/* Title — clean, editorial */}
-            <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-semibold text-primary-foreground leading-[1.05] mb-6 opacity-0 animate-fade-up animation-delay-100">
-              Votre Conciergerie
-            </h1>
+        {/* Main title */}
+        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-light text-primary-foreground tracking-wide leading-none mb-4 opacity-0 animate-fade-up animation-delay-100">
+          VOTRE CONCIERGERIE
+        </h1>
 
-            {/* Thin separator */}
-            <div className="w-16 h-px bg-gold/60 mb-6 mx-auto opacity-0 animate-fade-up animation-delay-150" />
+        {/* Animated city in gold */}
+        <div className="relative h-14 md:h-20 overflow-hidden mb-10 opacity-0 animate-fade-up animation-delay-150">
+          <span
+            className={`font-serif text-4xl md:text-6xl lg:text-7xl text-gold italic absolute inset-0 flex items-center justify-center transition-all duration-700 ease-out ${
+              isAnimating
+                ? "opacity-0 translate-y-6"
+                : "opacity-100 translate-y-0"
+            }`}
+          >
+            {cities[currentCityIndex]}
+          </span>
+        </div>
 
-            {/* Subtitle — short */}
-            <p className="font-sans text-base md:text-lg text-primary-foreground/70 max-w-lg mb-10 opacity-0 animate-fade-up animation-delay-200">
-              Conciergerie haut de gamme & sous-location professionnelle.
-            </p>
+        {/* Description */}
+        <p className="font-sans text-sm md:text-base text-primary-foreground/60 max-w-xl mx-auto mb-12 leading-relaxed tracking-wide uppercase opacity-0 animate-fade-up animation-delay-200">
+          Une référence en conciergerie haut de gamme.<br className="hidden md:block" />
+          Rentabilité, confort et excellence pour vos biens.
+        </p>
 
-            {/* CTA — single, clean */}
-            <div className="flex items-center justify-center gap-6 opacity-0 animate-fade-up animation-delay-300">
-              <Button variant="hero" size="xl" className="group">
-                Prendre Rendez-vous
-                <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <a 
-                href="#formules" 
-                className="font-sans text-sm text-primary-foreground/60 hover:text-gold transition-colors tracking-wide uppercase hidden sm:block"
-              >
-                Nos services
-              </a>
-            </div>
-          </div>
+        {/* Two CTAs */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-up animation-delay-300">
+          <a
+            href="/conciergerie"
+            className="group flex items-center gap-3 border border-primary-foreground/30 px-8 py-4 text-primary-foreground text-xs tracking-[0.3em] uppercase hover:bg-primary-foreground/10 transition-all duration-300"
+          >
+            Conciergerie
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </a>
+          <a
+            href="/contact"
+            className="group flex items-center gap-3 border border-gold/60 bg-gold/10 px-8 py-4 text-gold text-xs tracking-[0.3em] uppercase hover:bg-gold/20 transition-all duration-300"
+          >
+            Rendez-vous
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </a>
         </div>
       </div>
 
-      {/* Scroll Indicator — minimal */}
+      {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fade-up animation-delay-500">
         <div className="w-5 h-8 border border-primary-foreground/20 rounded-full flex justify-center">
           <div className="w-1 h-2.5 bg-gold/60 rounded-full mt-1.5 animate-bounce" />
