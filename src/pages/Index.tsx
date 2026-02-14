@@ -76,15 +76,15 @@ const Index = () => {
         <main className="relative z-10">
           <Hero />
 
-          {/* Social Proof Bar — cream, minimal */}
-          <section className="bg-background border-t border-border py-6">
+          {/* Social Proof Bar — visible */}
+          <section className="bg-background py-4">
             <div className="container mx-auto px-6">
-              <div className="flex items-center justify-center gap-8">
-                <span className="font-sans text-[10px] tracking-[0.4em] uppercase text-muted-foreground/50">
+              <div className="flex items-center justify-center gap-6">
+                <span className="font-sans text-[10px] tracking-[0.4em] uppercase text-foreground/50">
                   Suivez-nous
                 </span>
-                <div className="w-8 h-px bg-gold/30" />
-                <div className="flex items-center gap-5">
+                <div className="w-8 h-px bg-gold/40" />
+                <div className="flex items-center gap-4">
                   {[
                     { icon: Instagram, href: "https://www.instagram.com/chevalier_conciergerie/", label: "Instagram" },
                     { icon: Facebook, href: "https://www.facebook.com/share/1GCBBTtP2R/", label: "Facebook" },
@@ -95,7 +95,7 @@ const Index = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full border border-foreground/10 flex items-center justify-center text-foreground/30 hover:text-gold hover:border-gold/40 transition-all duration-300"
+                      className="w-10 h-10 rounded-full border border-foreground/25 flex items-center justify-center text-foreground/60 hover:text-gold hover:border-gold transition-all duration-300"
                       aria-label={social.label}
                     >
                       <social.icon className="w-4 h-4" />
@@ -107,10 +107,10 @@ const Index = () => {
           </section>
 
           {/* Services — cream background */}
-          <section id="formules" className="relative py-20 md:py-28 bg-background overflow-hidden">
+          <section id="formules" className="relative py-12 md:py-20 bg-background overflow-hidden">
             <div className="container mx-auto px-6 relative z-10">
               <ScrollAnimate>
-                <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
+                <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
                   <div className="w-10 h-px bg-gold/40 mx-auto mb-6" />
                   <span className="font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase text-gold">
                     Nos Solutions
