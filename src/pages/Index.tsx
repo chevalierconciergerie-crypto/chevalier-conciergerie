@@ -206,9 +206,9 @@ const Index = () => {
             </div>
           </section>
 
-          {/* Platform Logos — cream theme */}
-          <section className="bg-primary py-8">
-            <div className="max-w-3xl mx-auto">
+          {/* Platform Logos */}
+          <section className="bg-background py-8">
+            <div className="max-w-4xl mx-auto">
               <PlatformLogos />
             </div>
           </section>

@@ -8,28 +8,33 @@ const PlatformLogos = () => {
     <div className="py-6 md:py-8">
       <ScrollAnimate>
         <div className="flex flex-col items-center">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-12 h-px bg-gold/40" />
-            <p className="text-primary-foreground/50 font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase">
+          {/* Title with gold lines */}
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-12 h-px bg-gold" />
+            <p className="text-muted-foreground font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase">
               Présent sur les meilleures plateformes
             </p>
-            <div className="w-12 h-px bg-gold/40" />
+            <div className="w-12 h-px bg-gold" />
           </div>
-          <div className="flex items-center justify-center gap-8 md:gap-16">
+
+          {/* Logo cards with shadows, separated by gold lines */}
+          <div className="flex items-center justify-center gap-0">
             {[
               { src: logoAirbnb, alt: "Airbnb" },
               { src: logoBooking, alt: "Booking.com" },
               { src: logoAbritel, alt: "Abritel" },
-            ].map((platform) => (
-              <div
-                key={platform.alt}
-                className="group px-6 py-5 md:px-10 md:py-6 rounded-xl bg-white hover:bg-white transition-all duration-300 hover:-translate-y-1 shadow-soft"
-              >
-                <img
-                  src={platform.src}
-                  alt={platform.alt}
-                  className="h-16 md:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-                />
+            ].map((platform, index) => (
+              <div key={platform.alt} className="flex items-center">
+                {index > 0 && (
+                  <div className="w-px h-16 bg-gold/40 mx-4 md:mx-6" />
+                )}
+                <div className="group px-6 py-5 md:px-10 md:py-6 rounded-xl bg-white shadow-medium hover:-translate-y-1 transition-all duration-300">
+                  <img
+                    src={platform.src}
+                    alt={platform.alt}
+                    className="h-16 md:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
               </div>
             ))}
           </div>
