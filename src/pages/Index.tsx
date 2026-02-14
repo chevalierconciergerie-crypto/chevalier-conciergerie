@@ -216,7 +216,7 @@ const Index = () => {
           {/* Présentation du fondateur */}
           <FounderPresentation />
 
-          <LocalExpertise />
+          
           <ComingSoon />
         </main>
         <Footer />
