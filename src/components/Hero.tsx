@@ -28,7 +28,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative h-screen flex items-end overflow-hidden">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0">
         <div 
@@ -55,7 +55,7 @@ const Hero = () => {
       </div>
 
       {/* Content — centered */}
-      <div className="relative z-10 w-full absolute inset-0 flex items-center justify-center">
+      <div className="relative z-10">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             {/* Animated City */}
