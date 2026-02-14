@@ -12,6 +12,9 @@ import EstimationSousLocation from "./pages/EstimationSousLocation";
 import Contact from "./pages/Contact";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 import MentionsLegales from "./pages/MentionsLegales";
+import ConciergerieAvignon from "./pages/ConciergerieAvignon";
+import ConciergerieVilleneuve from "./pages/ConciergerieVilleneuve";
+import ConciergerieLesAngles from "./pages/ConciergerieLesAngles";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +35,9 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
+            <Route path="/conciergerie-avignon" element={<ConciergerieAvignon />} />
+            <Route path="/conciergerie-villeneuve-les-avignon" element={<ConciergerieVilleneuve />} />
+            <Route path="/conciergerie-les-angles" element={<ConciergerieLesAngles />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
