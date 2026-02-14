@@ -1,13 +1,10 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import HeroImageCarousel from "@/components/HeroImageCarousel";
+import heroConciergerie from "@/assets/hero-conciergerie.jpg";
 import { Check, X, Sparkles, Users, Clock, Camera, TrendingUp, Home, ArrowRight, Calendar, Wallet, Handshake, FileEdit, Package, Palette } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import villeneuveChartreuse from "@/assets/villeneuve-chartreuse.jpg";
-import villeneuveFort from "@/assets/villeneuve-fort.jpg";
-import palaisPapesPanorama from "@/assets/palais-papes-panorama.jpg";
 
 const Conciergerie = () => {
   const services = [
@@ -94,14 +91,11 @@ const Conciergerie = () => {
         <main>
           {/* Hero Section */}
           <section className="relative pt-32 pb-20 bg-primary overflow-hidden">
-            <div className="absolute inset-0 opacity-30">
-              <HeroImageCarousel
-                images={[
-                  { src: palaisPapesPanorama, alt: "Palais des Papes - Avignon" },
-                  { src: villeneuveFort, alt: "Fort Saint-André - Villeneuve-lès-Avignon" },
-                  { src: villeneuveChartreuse, alt: "Chartreuse - Villeneuve-lès-Avignon" },
-                ]}
-                interval={6000}
+            <div className="absolute inset-0">
+              <img 
+                src={heroConciergerie} 
+                alt="Villa provençale en pierre de travertin" 
+                className="w-full h-full object-cover opacity-40"
               />
             </div>
             <div className="relative z-10 container mx-auto px-6">
