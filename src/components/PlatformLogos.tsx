@@ -54,7 +54,7 @@ const PlatformLogos = () => {
                   <img
                     src={platform.src}
                     alt={platform.alt}
-                    className="h-12 w-auto object-contain"
+                    className="h-14 w-auto object-contain"
                   />
                 </div>
               </div>
