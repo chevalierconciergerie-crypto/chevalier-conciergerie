@@ -122,57 +122,60 @@ const Conciergerie = () => {
           </section>
 
           {/* Services Grid - Compact on mobile */}
-          <section id="services" className="py-16 md:py-28 bg-primary">
+          <section id="services" className="py-16 md:py-24 bg-background">
             <div className="container mx-auto px-6">
-              <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
+              <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
                 <div className="w-10 h-px bg-gold/40 mx-auto mb-6" />
-                <span className="font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase text-gold/60">Nos Services</span>
-                <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light text-primary-foreground mt-6 mb-6 tracking-wide">
+                <span className="font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase text-gold">Nos Services</span>
+                <h2 className="font-serif text-3xl md:text-5xl font-light text-foreground mt-6 mb-6 tracking-wide">
                   Une Gestion Complète
                 </h2>
-                <p className="font-sans text-sm md:text-base text-primary-foreground/40 tracking-wide">
+                <p className="font-sans text-sm md:text-base text-muted-foreground tracking-wide">
                   De l'accueil à l'entretien, nous prenons tout en charge.
                 </p>
               </div>
 
               {/* Mobile: Compact scroll */}
               <div className="flex md:hidden gap-3 overflow-x-auto pb-4 -mx-6 px-6 snap-x snap-mandatory scrollbar-hide">
-                {services.map((service, index) => (
+                {services.map((service) => (
                   <div
                     key={service.title}
-                    className="flex-shrink-0 w-[220px] snap-start p-5 rounded-xl bg-primary-foreground/5 border border-primary-foreground/10"
+                    className="flex-shrink-0 w-[220px] snap-start p-5 rounded-xl border border-border bg-card"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-gold/15 flex items-center justify-center mb-3">
+                    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center mb-3">
                       <service.icon className="w-5 h-5 text-gold" />
                     </div>
-                    <h3 className="font-serif text-sm font-medium text-primary-foreground">
+                    <h3 className="font-serif text-sm font-medium text-foreground">
                       {service.title}
                     </h3>
                   </div>
                 ))}
               </div>
 
-              {/* Desktop: Modern grid */}
-              <div className="hidden md:grid grid-cols-3 gap-px bg-primary-foreground/10 rounded-2xl overflow-hidden max-w-5xl mx-auto">
+              {/* Desktop: Modern list */}
+              <div className="hidden md:block max-w-4xl mx-auto">
                 {services.map((service, index) => (
                   <div
                     key={service.title}
-                    className="group p-8 bg-primary hover:bg-primary-foreground/5 transition-all duration-500 relative"
+                    className="group flex items-start gap-6 py-7 border-b border-border last:border-b-0 hover:px-4 transition-all duration-300"
                   >
-                    {/* Number */}
-                    <span className="absolute top-6 right-6 font-sans text-[10px] tracking-[0.3em] text-primary-foreground/15">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    
-                    <div className="w-11 h-11 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center mb-5 group-hover:bg-gold/20 transition-colors duration-300">
-                      <service.icon className="w-5 h-5 text-gold" />
+                    <div className="flex items-center gap-5 flex-shrink-0">
+                      <span className="font-sans text-xs text-muted-foreground/40 tracking-widest w-6">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <service.icon className="w-5 h-5 text-gold" />
+                      </div>
                     </div>
-                    <h3 className="font-serif text-base font-medium text-primary-foreground mb-2 tracking-wide">
-                      {service.title}
-                    </h3>
-                    <p className="font-sans text-xs text-primary-foreground/40 leading-relaxed">
-                      {service.description}
-                    </p>
+                    <div className="flex-1 pt-1">
+                      <h3 className="font-serif text-lg font-medium text-foreground mb-1 group-hover:text-gold transition-colors duration-300">
+                        {service.title}
+                      </h3>
+                      <p className="font-sans text-sm text-muted-foreground leading-relaxed">
+                        {service.description}
+                      </p>
+                    </div>
+                    <ArrowRight className="w-5 h-5 text-muted-foreground/20 group-hover:text-gold group-hover:translate-x-1 transition-all duration-300 mt-3 flex-shrink-0" />
                   </div>
                 ))}
               </div>
