@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroVideo from "@/assets/hero-video.mp4";
+import heroVideo from "@/assets/hero-video-luxury.mp4";
 
 const cities = ["Avignon", "Villeneuve-lès-Avignon", "Les Angles"];
 
@@ -28,12 +28,11 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen flex items-end overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0">
-        {/* Placeholder gradient while video loads */}
         <div 
-          className={`absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-midnight-light transition-opacity duration-1000 ${
+          className={`absolute inset-0 bg-primary transition-opacity duration-1000 ${
             isVideoLoaded ? "opacity-0" : "opacity-100"
           }`} 
         />
@@ -51,80 +50,64 @@ const Hero = () => {
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/50 to-primary/70" />
+        {/* Subtle bottom gradient only */}
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 text-center">
-        <div className="max-w-4xl mx-auto">
-          {/* Decorative Line with Animated City */}
-          {/* Animated City Name */}
-          <div className="mb-8 opacity-0 animate-fade-up">
-            <div className="relative h-10 md:h-12 overflow-hidden">
-              <span 
-                className={`text-gold font-serif text-2xl md:text-3xl lg:text-4xl font-semibold absolute inset-0 flex items-center justify-center transition-all duration-700 ease-out ${
-                  isAnimating 
-                    ? "opacity-0 -translate-y-6" 
-                    : "opacity-100 translate-y-0"
-                }`}
+      {/* Content — bottom-aligned, minimal */}
+      <div className="relative z-10 w-full pb-20 md:pb-24">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl">
+            {/* Animated City */}
+            <div className="mb-6 opacity-0 animate-fade-up">
+              <div className="relative h-8 overflow-hidden">
+                <span 
+                  className={`text-gold/80 font-sans text-xs tracking-[0.4em] uppercase absolute inset-0 flex items-center transition-all duration-700 ease-out ${
+                    isAnimating 
+                      ? "opacity-0 -translate-y-4" 
+                      : "opacity-100 translate-y-0"
+                  }`}
+                >
+                  {cities[currentCityIndex]}
+                </span>
+              </div>
+            </div>
+
+            {/* Title — clean, editorial */}
+            <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-semibold text-primary-foreground leading-[1.05] mb-6 opacity-0 animate-fade-up animation-delay-100">
+              L'Excellence de la<br />
+              Gestion Locative
+            </h1>
+
+            {/* Thin separator */}
+            <div className="w-16 h-px bg-gold/60 mb-6 opacity-0 animate-fade-up animation-delay-150" />
+
+            {/* Subtitle — short */}
+            <p className="font-sans text-base md:text-lg text-primary-foreground/70 max-w-lg mb-10 opacity-0 animate-fade-up animation-delay-200">
+              Conciergerie haut de gamme & sous-location professionnelle.
+            </p>
+
+            {/* CTA — single, clean */}
+            <div className="flex items-center gap-6 opacity-0 animate-fade-up animation-delay-300">
+              <Button variant="hero" size="xl" className="group">
+                Prendre Rendez-vous
+                <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
+              </Button>
+              <a 
+                href="#formules" 
+                className="font-sans text-sm text-primary-foreground/60 hover:text-gold transition-colors tracking-wide uppercase hidden sm:block"
               >
-                {cities[currentCityIndex]}
-              </span>
-            </div>
-            <div className="flex items-center justify-center gap-4 mt-2">
-              <div className="h-px w-16 bg-gold/60" />
-              <div className="w-2 h-2 bg-gold rotate-45" />
-              <div className="h-px w-16 bg-gold/60" />
-            </div>
-          </div>
-
-          {/* Main Title */}
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-semibold text-primary-foreground leading-tight mb-6 opacity-0 animate-fade-up animation-delay-100">
-            L'Excellence de la<br />
-            <span className="text-gold">Gestion Locative</span>
-          </h1>
-
-          {/* Subtitle */}
-          <p className="font-sans text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10 opacity-0 animate-fade-up animation-delay-200">
-            Optimisez vos revenus et offrez à votre bien le prestige qu'il mérite.
-            Conciergerie haut de gamme et sous-location professionnelle.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-up animation-delay-300">
-            <Button variant="hero" size="xl" className="group">
-              Prendre Rendez-vous
-              <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button variant="outline-light" size="xl" asChild>
-              <a href="#formules">Découvrir nos services</a>
-            </Button>
-          </div>
-
-          {/* Trust Indicators */}
-          <div className="mt-16 flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-0 animate-fade-up animation-delay-400">
-            <div className="text-center">
-              <p className="font-serif text-3xl md:text-4xl text-gold font-semibold">2</p>
-              <p className="font-sans text-sm text-primary-foreground/60 mt-1">Formules sur mesure</p>
-            </div>
-            <div className="h-12 w-px bg-primary-foreground/20 hidden md:block" />
-            <div className="text-center">
-              <p className="font-serif text-3xl md:text-4xl text-gold font-semibold">5★</p>
-              <p className="font-sans text-sm text-primary-foreground/60 mt-1">Expérience voyageur</p>
-            </div>
-            <div className="h-12 w-px bg-primary-foreground/20 hidden md:block" />
-            <div className="text-center">
-              <p className="font-serif text-3xl md:text-4xl text-gold font-semibold">Local</p>
-              <p className="font-sans text-sm text-primary-foreground/60 mt-1">Expertise régionale</p>
+                Nos services
+              </a>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator — minimal */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fade-up animation-delay-500">
-        <div className="w-6 h-10 border-2 border-primary-foreground/30 rounded-full flex justify-center">
-          <div className="w-1.5 h-3 bg-gold rounded-full mt-2 animate-bounce" />
+        <div className="w-5 h-8 border border-primary-foreground/20 rounded-full flex justify-center">
+          <div className="w-1 h-2.5 bg-gold/60 rounded-full mt-1.5 animate-bounce" />
         </div>
       </div>
     </section>
