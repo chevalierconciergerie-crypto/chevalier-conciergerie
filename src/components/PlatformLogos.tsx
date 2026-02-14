@@ -10,10 +10,10 @@ const PlatformLogos = () => {
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-4 mb-8">
             <div className="w-12 h-px bg-gold/30" />
-            <p className="text-foreground/50 font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase">
+            <p className="text-primary-foreground/50 font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase">
               Présent sur les meilleures plateformes
             </p>
-            <div className="w-12 h-px bg-gold/30" />
+            <div className="w-12 h-px bg-gold/40" />
           </div>
           <div className="flex items-center justify-center gap-8 md:gap-16">
             {[
@@ -23,7 +23,7 @@ const PlatformLogos = () => {
             ].map((platform) => (
               <div
                 key={platform.alt}
-                className="group px-5 py-4 md:px-8 md:py-5 rounded-xl bg-primary/5 border border-primary/10 hover:bg-primary/10 transition-all duration-300 hover:-translate-y-1"
+                className="group px-5 py-4 md:px-8 md:py-5 rounded-xl bg-white/95 hover:bg-white transition-all duration-300 hover:-translate-y-1 shadow-soft"
               >
                 <img
                   src={platform.src}
