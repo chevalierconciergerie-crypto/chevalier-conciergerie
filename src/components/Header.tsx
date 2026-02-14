@@ -61,7 +61,7 @@ const Header = () => {
             <img 
               src={logoCc} 
               alt="Chevalier Conciergerie" 
-              className="h-20 sm:h-24 md:h-28 w-auto object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+              className="h-32 sm:h-36 md:h-44 w-auto object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
             />
           </Link>
 
