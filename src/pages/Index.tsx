@@ -9,8 +9,8 @@ import FounderPresentation from "@/components/FounderPresentation";
 import { ArrowRight, Home, Sparkles, Instagram, Facebook, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import rueTeinturiers from "@/assets/rue-teinturiers.jpg";
-import detailArchitectural from "@/assets/detail-architectural.jpg";
+import serviceConciergerie from "@/assets/service-conciergerie-luxury.jpg";
+import serviceSousLocation from "@/assets/service-souslocation-luxury.jpg";
 import { ScrollAnimate } from "@/hooks/useScrollAnimation";
 
 const Index = () => {
@@ -71,19 +71,19 @@ const Index = () => {
         </script>
       </Helmet>
       
-      <div className="min-h-screen bg-primary relative">
+      <div className="min-h-screen bg-background relative">
         <Header />
         <main className="relative z-10">
           <Hero />
 
-          {/* Social Proof Bar — dark, minimal */}
-          <section className="bg-primary border-t border-gold/10 py-6">
+          {/* Social Proof Bar — cream, minimal */}
+          <section className="bg-background border-t border-border py-6">
             <div className="container mx-auto px-6">
               <div className="flex items-center justify-center gap-8">
-                <span className="font-sans text-[10px] tracking-[0.4em] uppercase text-primary-foreground/30">
+                <span className="font-sans text-[10px] tracking-[0.4em] uppercase text-muted-foreground/50">
                   Suivez-nous
                 </span>
-                <div className="w-8 h-px bg-gold/20" />
+                <div className="w-8 h-px bg-gold/30" />
                 <div className="flex items-center gap-5">
                   {[
                     { icon: Instagram, href: "https://www.instagram.com/chevalier_conciergerie/", label: "Instagram" },
@@ -95,7 +95,7 @@ const Index = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full border border-primary-foreground/15 flex items-center justify-center text-primary-foreground/40 hover:text-gold hover:border-gold/40 transition-all duration-300"
+                      className="w-10 h-10 rounded-full border border-foreground/10 flex items-center justify-center text-foreground/30 hover:text-gold hover:border-gold/40 transition-all duration-300"
                       aria-label={social.label}
                     >
                       <social.icon className="w-4 h-4" />
@@ -106,25 +106,19 @@ const Index = () => {
             </div>
           </section>
 
-          {/* Services — immersive dark */}
-          <section id="formules" className="relative py-20 md:py-28 bg-primary overflow-hidden">
-            {/* Subtle background texture */}
-            <div className="absolute inset-0 opacity-[0.03]" style={{
-              backgroundImage: 'radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)',
-              backgroundSize: '40px 40px'
-            }} />
-            
+          {/* Services — cream background */}
+          <section id="formules" className="relative py-20 md:py-28 bg-background overflow-hidden">
             <div className="container mx-auto px-6 relative z-10">
               <ScrollAnimate>
                 <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
                   <div className="w-10 h-px bg-gold/40 mx-auto mb-6" />
-                  <span className="font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase text-gold/60">
+                  <span className="font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase text-gold">
                     Nos Solutions
                   </span>
-                  <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light text-primary-foreground mt-6 mb-6 tracking-wide">
+                  <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light text-foreground mt-6 mb-6 tracking-wide">
                     Deux Formules
                   </h2>
-                  <p className="font-sans text-sm md:text-base text-primary-foreground/40 tracking-wide leading-relaxed">
+                  <p className="font-sans text-sm md:text-base text-muted-foreground tracking-wide leading-relaxed">
                     Que vous souhaitiez déléguer la gestion ou sécuriser vos revenus,<br className="hidden md:block" />
                     nous avons la solution adaptée.
                   </p>
@@ -135,13 +129,13 @@ const Index = () => {
                 {/* Conciergerie Card */}
                 <ScrollAnimate delay={100} animation="slide-right">
                   <Link to="/conciergerie" className="group block">
-                    <div className="relative overflow-hidden aspect-[4/5] md:aspect-[3/4]">
+                    <div className="relative overflow-hidden aspect-[4/5] md:aspect-[3/4] rounded-lg">
                       <img 
-                        src={detailArchitectural} 
+                        src={serviceConciergerie} 
                         alt="Service Conciergerie"
                         className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent" />
                       
                       {/* Content overlay */}
                       <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-10">
@@ -166,7 +160,6 @@ const Index = () => {
                           </span>
                         </div>
                         
-                        {/* Arrow */}
                         <div className="absolute bottom-8 right-8 w-12 h-12 rounded-full border border-primary-foreground/20 flex items-center justify-center group-hover:border-gold/60 group-hover:bg-gold/10 transition-all duration-500">
                           <ArrowRight className="w-5 h-5 text-primary-foreground/40 group-hover:text-gold transition-colors" />
                         </div>
@@ -178,13 +171,13 @@ const Index = () => {
                 {/* Sous-location Card */}
                 <ScrollAnimate delay={200} animation="slide-left">
                   <Link to="/sous-location" className="group block">
-                    <div className="relative overflow-hidden aspect-[4/5] md:aspect-[3/4]">
+                    <div className="relative overflow-hidden aspect-[4/5] md:aspect-[3/4] rounded-lg">
                       <img 
-                        src={rueTeinturiers} 
+                        src={serviceSousLocation} 
                         alt="Sous-location professionnelle"
                         className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent" />
                       
                       {/* Content overlay */}
                       <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-10">
@@ -209,7 +202,6 @@ const Index = () => {
                           </span>
                         </div>
                         
-                        {/* Arrow */}
                         <div className="absolute bottom-8 right-8 w-12 h-12 rounded-full border border-primary-foreground/20 flex items-center justify-center group-hover:border-gold/60 group-hover:bg-gold/10 transition-all duration-500">
                           <ArrowRight className="w-5 h-5 text-primary-foreground/40 group-hover:text-gold transition-colors" />
                         </div>
@@ -221,8 +213,8 @@ const Index = () => {
             </div>
           </section>
 
-          {/* Platform Logos — dark theme */}
-          <section className="bg-primary border-t border-gold/10 py-8">
+          {/* Platform Logos — cream theme */}
+          <section className="bg-secondary border-t border-border py-8">
             <div className="max-w-3xl mx-auto">
               <PlatformLogos />
             </div>
