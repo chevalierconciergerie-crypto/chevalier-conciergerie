@@ -51,8 +51,8 @@ const Header = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-primary/95 backdrop-blur-md shadow-medium py-2"
-            : "bg-transparent py-3"
+            ? "bg-primary/95 backdrop-blur-md shadow-medium py-1"
+            : "bg-transparent py-2"
         }`}
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
@@ -61,7 +61,7 @@ const Header = () => {
             <img 
               src={logoCc} 
               alt="Chevalier Conciergerie" 
-              className="h-36 sm:h-40 md:h-48 w-auto object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+              className="h-12 sm:h-14 md:h-16 w-auto object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
             />
           </Link>
 
