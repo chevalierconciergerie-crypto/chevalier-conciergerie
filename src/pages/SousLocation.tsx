@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import HeroImageCarousel from "@/components/HeroImageCarousel";
 import { Check, Banknote, Shield, Clock, TrendingUp, FileCheck, Home, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -11,11 +10,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import villeneuveChartreuse from "@/assets/villeneuve-chartreuse.jpg";
-import villeneuveFort from "@/assets/villeneuve-fort.jpg";
-import villeneuveJardin from "@/assets/villeneuve-jardin.jpg";
-import palaisPapesPanorama from "@/assets/palais-papes-panorama.jpg";
-import heroSouslocationLuxury from "@/assets/hero-souslocation-luxury.jpg";
+import heroSouslocation from "@/assets/hero-souslocation-realistic.jpg";
 const SousLocation = () => {
   const advantages = [
     {
@@ -113,16 +108,11 @@ const SousLocation = () => {
         <main>
           {/* Hero Section */}
           <section className="relative pt-32 pb-20 bg-primary overflow-hidden">
-            <div className="absolute inset-0 opacity-30">
-              <HeroImageCarousel
-                images={[
-                  { src: heroSouslocationLuxury, alt: "Villa méditerranéenne avec piscine en Provence" },
-                  { src: palaisPapesPanorama, alt: "Palais des Papes - Avignon" },
-                  { src: villeneuveFort, alt: "Fort Saint-André - Villeneuve-lès-Avignon" },
-                  { src: villeneuveChartreuse, alt: "Chartreuse - Villeneuve-lès-Avignon" },
-                  { src: villeneuveJardin, alt: "Jardins - Villeneuve-lès-Avignon" },
-                ]}
-                interval={6000}
+            <div className="absolute inset-0">
+              <img 
+                src={heroSouslocation} 
+                alt="Maison provençale authentique avec volets bleus" 
+                className="w-full h-full object-cover opacity-40"
               />
             </div>
             <div className="relative z-10 container mx-auto px-6">
