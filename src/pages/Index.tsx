@@ -5,10 +5,8 @@ import Hero from "@/components/Hero";
 import LocalExpertise from "@/components/LocalExpertise";
 import ComingSoon from "@/components/ComingSoon";
 import PlatformLogos from "@/components/PlatformLogos";
-import AvignonIllustration from "@/components/AvignonIllustration";
-import SocialBar from "@/components/SocialBar";
 import FounderPresentation from "@/components/FounderPresentation";
-import { ArrowRight, Home, Sparkles } from "lucide-react";
+import { ArrowRight, Home, Sparkles, Instagram, Facebook, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import rueTeinturiers from "@/assets/rue-teinturiers.jpg";
@@ -57,7 +55,8 @@ const Index = () => {
             "areaServed": [
               { "@type": "City", "name": "Avignon" },
               { "@type": "City", "name": "Villeneuve-lès-Avignon" },
-              { "@type": "City", "name": "Les Angles" }
+              { "@type": "City", "name": "Aix-en-Provence" },
+              { "@type": "City", "name": "Montpellier" }
             ],
             "serviceType": ["Conciergerie Airbnb", "Gestion locative saisonnière", "Sous-location professionnelle"],
             "priceRange": "€€",
@@ -72,117 +71,158 @@ const Index = () => {
         </script>
       </Helmet>
       
-      <div className="min-h-screen bg-background relative">
+      <div className="min-h-screen bg-primary relative">
         <Header />
         <main className="relative z-10">
           <Hero />
-          
-          
-          {/* Social Bar */}
-          <SocialBar />
-          
-          {/* Services Overview with Pont d'Avignon background */}
-          <section id="formules" className="relative py-16 bg-background overflow-hidden">
-            <AvignonIllustration variant="pont" />
+
+          {/* Social Proof Bar — dark, minimal */}
+          <section className="bg-primary border-t border-gold/10 py-6">
+            <div className="container mx-auto px-6">
+              <div className="flex items-center justify-center gap-8">
+                <span className="font-sans text-[10px] tracking-[0.4em] uppercase text-primary-foreground/30">
+                  Suivez-nous
+                </span>
+                <div className="w-8 h-px bg-gold/20" />
+                <div className="flex items-center gap-5">
+                  {[
+                    { icon: Instagram, href: "https://www.instagram.com/chevalier_conciergerie/", label: "Instagram" },
+                    { icon: Facebook, href: "https://www.facebook.com/share/1GCBBTtP2R/", label: "Facebook" },
+                    { icon: Linkedin, href: "https://www.linkedin.com/in/victor-chevalier-bba282356/", label: "LinkedIn" },
+                  ].map((social) => (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full border border-primary-foreground/15 flex items-center justify-center text-primary-foreground/40 hover:text-gold hover:border-gold/40 transition-all duration-300"
+                      aria-label={social.label}
+                    >
+                      <social.icon className="w-4 h-4" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Services — immersive dark */}
+          <section id="formules" className="relative py-20 md:py-28 bg-primary overflow-hidden">
+            {/* Subtle background texture */}
+            <div className="absolute inset-0 opacity-[0.03]" style={{
+              backgroundImage: 'radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)',
+              backgroundSize: '40px 40px'
+            }} />
+            
             <div className="container mx-auto px-6 relative z-10">
               <ScrollAnimate>
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                  <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Nos Solutions</span>
-                  <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4 mb-6">
-                    Deux Formules, Un Objectif
+                <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
+                  <div className="w-10 h-px bg-gold/40 mx-auto mb-6" />
+                  <span className="font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase text-gold/60">
+                    Nos Solutions
+                  </span>
+                  <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light text-primary-foreground mt-6 mb-6 tracking-wide">
+                    Deux Formules
                   </h2>
-                  <p className="font-sans text-muted-foreground text-lg">
-                    Que vous souhaitiez déléguer la gestion ou sécuriser vos revenus, nous avons la solution adaptée.
+                  <p className="font-sans text-sm md:text-base text-primary-foreground/40 tracking-wide leading-relaxed">
+                    Que vous souhaitiez déléguer la gestion ou sécuriser vos revenus,<br className="hidden md:block" />
+                    nous avons la solution adaptée.
                   </p>
                 </div>
               </ScrollAnimate>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
                 {/* Conciergerie Card */}
                 <ScrollAnimate delay={100} animation="slide-right">
-                  <div className="group relative overflow-hidden rounded-2xl bg-card shadow-soft hover:shadow-medium transition-all duration-500">
-                    <div className="absolute inset-0">
+                  <Link to="/conciergerie" className="group block">
+                    <div className="relative overflow-hidden aspect-[4/5] md:aspect-[3/4]">
                       <img 
                         src={detailArchitectural} 
-                        alt="Service Conciergerie - Volets provençaux typiques d'Avignon"
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        alt="Service Conciergerie"
+                        className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/30" />
-                    </div>
-                    <div className="relative z-10 p-8 md:p-10 min-h-[400px] flex flex-col justify-end">
-                      <div className="w-14 h-14 rounded-xl bg-gold/20 backdrop-blur-sm flex items-center justify-center mb-6">
-                        <Sparkles className="w-7 h-7 text-gold" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent" />
+                      
+                      {/* Content overlay */}
+                      <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-10">
+                        <div className="mb-4">
+                          <div className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center mb-6">
+                            <Sparkles className="w-5 h-5 text-gold" />
+                          </div>
+                          <span className="font-sans text-[10px] tracking-[0.4em] uppercase text-gold/60 mb-3 block">
+                            01 — Service
+                          </span>
+                          <h3 className="font-serif text-3xl md:text-4xl text-primary-foreground font-light tracking-wide mb-4">
+                            Conciergerie
+                          </h3>
+                          <p className="font-sans text-sm text-primary-foreground/60 leading-relaxed mb-6 max-w-sm">
+                            Service complet de gestion locative. Accueil voyageurs, ménage professionnel, optimisation des revenus.
+                          </p>
+                        </div>
+                        
+                        <div className="flex items-center gap-3">
+                          <span className="px-4 py-1.5 border border-gold/20 text-[10px] tracking-[0.2em] text-gold/70 uppercase">
+                            À partir de 20%
+                          </span>
+                        </div>
+                        
+                        {/* Arrow */}
+                        <div className="absolute bottom-8 right-8 w-12 h-12 rounded-full border border-primary-foreground/20 flex items-center justify-center group-hover:border-gold/60 group-hover:bg-gold/10 transition-all duration-500">
+                          <ArrowRight className="w-5 h-5 text-primary-foreground/40 group-hover:text-gold transition-colors" />
+                        </div>
                       </div>
-                      <h3 className="font-serif text-2xl md:text-3xl text-primary-foreground font-semibold mb-4">
-                        Conciergerie
-                      </h3>
-                      <p className="font-sans text-primary-foreground/80 mb-6">
-                        Service complet de gestion locative saisonnière. Accueil voyageurs, ménage, 
-                        optimisation des revenus. Vous restez propriétaire et bénéficiez de notre expertise.
-                      </p>
-                      <div className="flex flex-wrap gap-3 mb-6">
-                        <span className="px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full text-sm text-primary-foreground font-medium">
-                          À partir de 20%
-                        </span>
-                        <span className="px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full text-sm text-primary-foreground font-medium">
-                          Revenus optimisés
-                        </span>
-                      </div>
-                      <Button variant="gold" className="w-fit group/btn" asChild>
-                        <Link to="/conciergerie">
-                          Découvrir
-                          <ArrowRight className="ml-2 transition-transform group-hover/btn:translate-x-1" />
-                        </Link>
-                      </Button>
                     </div>
-                  </div>
+                  </Link>
                 </ScrollAnimate>
 
                 {/* Sous-location Card */}
                 <ScrollAnimate delay={200} animation="slide-left">
-                  <div className="group relative overflow-hidden rounded-2xl bg-card shadow-soft hover:shadow-medium transition-all duration-500">
-                    <div className="absolute inset-0">
+                  <Link to="/sous-location" className="group block">
+                    <div className="relative overflow-hidden aspect-[4/5] md:aspect-[3/4]">
                       <img 
                         src={rueTeinturiers} 
-                        alt="Sous-location - Rue des Teinturiers à Avignon"
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        alt="Sous-location professionnelle"
+                        className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/30" />
-                    </div>
-                    <div className="relative z-10 p-8 md:p-10 min-h-[400px] flex flex-col justify-end">
-                      <div className="w-14 h-14 rounded-xl bg-gold/20 backdrop-blur-sm flex items-center justify-center mb-6">
-                        <Home className="w-7 h-7 text-gold" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent" />
+                      
+                      {/* Content overlay */}
+                      <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-10">
+                        <div className="mb-4">
+                          <div className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center mb-6">
+                            <Home className="w-5 h-5 text-gold" />
+                          </div>
+                          <span className="font-sans text-[10px] tracking-[0.4em] uppercase text-gold/60 mb-3 block">
+                            02 — Solution
+                          </span>
+                          <h3 className="font-serif text-3xl md:text-4xl text-primary-foreground font-light tracking-wide mb-4">
+                            Sous-Location
+                          </h3>
+                          <p className="font-sans text-sm text-primary-foreground/60 leading-relaxed mb-6 max-w-sm">
+                            Loyer garanti chaque mois, zéro vacance locative. Aucune gestion, aucun risque.
+                          </p>
+                        </div>
+                        
+                        <div className="flex items-center gap-3">
+                          <span className="px-4 py-1.5 border border-gold/20 text-[10px] tracking-[0.2em] text-gold/70 uppercase">
+                            Revenus sécurisés
+                          </span>
+                        </div>
+                        
+                        {/* Arrow */}
+                        <div className="absolute bottom-8 right-8 w-12 h-12 rounded-full border border-primary-foreground/20 flex items-center justify-center group-hover:border-gold/60 group-hover:bg-gold/10 transition-all duration-500">
+                          <ArrowRight className="w-5 h-5 text-primary-foreground/40 group-hover:text-gold transition-colors" />
+                        </div>
                       </div>
-                      <h3 className="font-serif text-2xl md:text-3xl text-primary-foreground font-semibold mb-4">
-                        Sous-Location
-                      </h3>
-                      <p className="font-sans text-primary-foreground/80 mb-6">
-                        Loyer garanti chaque mois, zéro vacance locative. Nous louons votre bien 
-                        et vous versons un revenu fixe. Aucune gestion, aucun risque.
-                      </p>
-                      <div className="flex flex-wrap gap-3 mb-6">
-                        <span className="px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full text-sm text-primary-foreground font-medium">
-                          Sérénité totale
-                        </span>
-                        <span className="px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full text-sm text-primary-foreground font-medium">
-                          Revenus sécurisés
-                        </span>
-                      </div>
-                      <Button variant="gold" className="w-fit group/btn" asChild>
-                        <Link to="/sous-location">
-                          Découvrir
-                          <ArrowRight className="ml-2 transition-transform group-hover/btn:translate-x-1" />
-                        </Link>
-                      </Button>
                     </div>
-                  </div>
+                  </Link>
                 </ScrollAnimate>
               </div>
             </div>
           </section>
 
-          {/* Platform Logos */}
-          <section className="bg-white py-6">
+          {/* Platform Logos — dark theme */}
+          <section className="bg-primary border-t border-gold/10 py-8">
             <div className="max-w-3xl mx-auto">
               <PlatformLogos />
             </div>
