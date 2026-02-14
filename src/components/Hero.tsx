@@ -95,10 +95,10 @@ const Hero = () => {
             <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
           </a>
           <a
-            href="/contact"
+            href="/sous-location"
             className="group flex items-center gap-2 md:gap-3 border border-gold/40 px-5 md:px-8 py-3 md:py-4 text-gold text-[10px] md:text-xs tracking-[0.25em] uppercase hover:bg-gold/10 transition-all duration-300"
           >
-            Rendez-vous
+            Sous-location
             <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
