@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { Phone } from "lucide-react";
+import { Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import logoCc from "@/assets/logo-cc-transparent.png";
+import heroVideo from "@/assets/hero-video-luxury.mp4";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -102,20 +103,43 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Fullscreen Mobile Menu */}
+      {/* Fullscreen Mobile Menu — Immersive with video background */}
       {createPortal(
         <div
           className={`lg:hidden fixed inset-0 z-[9999] transition-all duration-700 ${
             isMobileMenuOpen ? "visible" : "invisible pointer-events-none"
           }`}
         >
-          {/* Full screen dark overlay with blur */}
-          <div 
-            className={`absolute inset-0 bg-primary transition-opacity duration-700 ${
-              isMobileMenuOpen ? "opacity-[0.97]" : "opacity-0"
+          {/* Video background */}
+          <div className="absolute inset-0">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+                isMobileMenuOpen ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <source src={heroVideo} type="video/mp4" />
+            </video>
+            {/* Dark overlay */}
+            <div className={`absolute inset-0 bg-primary/85 backdrop-blur-sm transition-opacity duration-700 ${
+              isMobileMenuOpen ? "opacity-100" : "opacity-0"
+            }`} />
+          </div>
+
+          {/* Close button — top right */}
+          <button
+            className={`absolute top-6 right-6 z-10 w-12 h-12 flex items-center justify-center rounded-full border border-primary-foreground/20 text-primary-foreground/60 hover:text-gold hover:border-gold/40 transition-all duration-500 ${
+              isMobileMenuOpen ? "opacity-100 scale-100" : "opacity-0 scale-75"
             }`}
+            style={{ transitionDelay: isMobileMenuOpen ? '100ms' : '0ms' }}
             onClick={() => setIsMobileMenuOpen(false)}
-          />
+            aria-label="Fermer le menu"
+          >
+            <X size={20} />
+          </button>
 
           {/* Content */}
           <div className={`absolute inset-0 flex flex-col justify-between transition-all duration-700 ${
@@ -123,26 +147,28 @@ const Header = () => {
           }`}>
             
             {/* Top — Logo centered */}
-            <div className="flex items-center justify-center pt-24">
+            <div className={`flex items-center justify-center pt-20 transition-all duration-600 ${
+              isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
+            }`} style={{ transitionDelay: isMobileMenuOpen ? '150ms' : '0ms' }}>
               <img 
                 src={logoCc} 
                 alt="Chevalier Conciergerie" 
-                className="h-16 w-auto object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+                className="h-20 w-auto object-contain drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
               />
             </div>
 
             {/* Center — Nav links */}
-            <nav className="flex-1 flex flex-col items-center justify-center gap-1 px-8">
+            <nav className="flex-1 flex flex-col items-center justify-center gap-2 px-8">
               {mobileNavItems.map((item, index) => (
                 <Link
                   key={item.label}
                   to={item.href}
                   className={`group flex items-center gap-4 py-4 w-full max-w-xs transition-all duration-500 ${
                     isMobileMenuOpen 
-                      ? "opacity-100 translate-y-0" 
-                      : "opacity-0 translate-y-8"
+                      ? "opacity-100 translate-x-0" 
+                      : "opacity-0 -translate-x-8"
                   }`}
-                  style={{ transitionDelay: isMobileMenuOpen ? `${200 + index * 100}ms` : '0ms' }}
+                  style={{ transitionDelay: isMobileMenuOpen ? `${250 + index * 100}ms` : '0ms' }}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {/* Number */}
@@ -152,7 +178,7 @@ const Header = () => {
                   {/* Thin line */}
                   <span className="w-6 h-px bg-gold/20 group-hover:w-10 group-hover:bg-gold/60 transition-all duration-500" />
                   {/* Label */}
-                  <span className="font-serif text-2xl text-primary-foreground/80 group-hover:text-gold transition-colors duration-300 tracking-wide">
+                  <span className="font-serif text-2xl text-primary-foreground/90 group-hover:text-gold transition-colors duration-300 tracking-wide">
                     {item.label}
                   </span>
                 </Link>
@@ -162,10 +188,10 @@ const Header = () => {
             {/* Bottom — CTA + Phone */}
             <div className={`px-8 pb-10 flex flex-col items-center gap-5 transition-all duration-500 ${
               isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`} style={{ transitionDelay: isMobileMenuOpen ? '600ms' : '0ms' }}>
+            }`} style={{ transitionDelay: isMobileMenuOpen ? '650ms' : '0ms' }}>
               
               {/* Thin separator */}
-              <div className="w-16 h-px bg-gold/20 mb-2" />
+              <div className="w-16 h-px bg-gold/30 mb-2" />
               
               <Button variant="gold" className="w-full max-w-xs" size="lg" asChild>
                 <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
