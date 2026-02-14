@@ -55,7 +55,7 @@ const Hero = () => {
       </div>
 
       {/* Content — centered */}
-      <div className="relative z-10 w-full flex-1 flex items-center justify-center">
+      <div className="relative z-10 w-full absolute inset-0 flex items-center justify-center">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             {/* Animated City */}
