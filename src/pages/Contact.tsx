@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Booking from "@/components/Booking";
 import ContactForm from "@/components/ContactForm";
+import heroContact from "@/assets/hero-contact.jpg";
 
 const Contact = () => {
   return (
@@ -22,14 +23,20 @@ const Contact = () => {
         
         <main>
           {/* Hero Section */}
-          <section className="pt-32 pb-12 bg-background">
-            <div className="container mx-auto px-6 text-center">
-              <div className="w-10 h-px bg-gold mx-auto mb-6" />
-              <span className="text-gold font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase">Contact</span>
-              <h1 className="font-serif text-4xl md:text-6xl font-light text-foreground mt-6 mb-6 tracking-wide">
+          <section className="relative pt-32 pb-20 bg-primary overflow-hidden">
+            <div className="absolute inset-0">
+              <img 
+                src={heroContact} 
+                alt="Intérieur provençal élégant" 
+                className="w-full h-full object-cover opacity-40"
+              />
+            </div>
+            <div className="relative z-10 container mx-auto px-6 text-center">
+              <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Contact</span>
+              <h1 className="font-serif text-4xl md:text-6xl font-semibold text-primary-foreground mt-4 mb-6">
                 Parlons de Votre Projet
               </h1>
-              <p className="font-sans text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="font-sans text-xl text-primary-foreground/80 max-w-2xl mx-auto">
                 Prenez rendez-vous pour une consultation gratuite et personnalisée.
               </p>
             </div>
