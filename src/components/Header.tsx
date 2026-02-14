@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
-import logoCc from "@/assets/logo-cc-dark.png";
+import logoCc from "@/assets/logo-cc-transparent.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -61,7 +61,7 @@ const Header = () => {
             <img 
               src={logoCc} 
               alt="Chevalier Conciergerie" 
-              className="h-14 sm:h-16 md:h-20 w-auto object-contain mix-blend-screen brightness-150"
+              className="h-14 sm:h-16 md:h-20 w-auto object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
             />
           </Link>
 
@@ -125,7 +125,7 @@ const Header = () => {
               <img 
                 src={logoCc} 
                 alt="Chevalier Conciergerie" 
-                className="h-16 w-auto object-contain mix-blend-screen brightness-150"
+                className="h-16 w-auto object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
               />
             </div>
 
