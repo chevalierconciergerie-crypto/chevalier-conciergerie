@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import heroVideo from "@/assets/hero-video-luxury.mp4";
 
-const cities = ["Avignon", "Villeneuve-lès-Avignon", "Les Angles"];
+const cities = ["Avignon", "Villeneuve-lès-Avignon", "Aix-en-Provence", "Montpellier"];
 
 const Hero = () => {
   const [currentCityIndex, setCurrentCityIndex] = useState(0);
