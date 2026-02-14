@@ -15,6 +15,7 @@ import villeneuveChartreuse from "@/assets/villeneuve-chartreuse.jpg";
 import villeneuveFort from "@/assets/villeneuve-fort.jpg";
 import villeneuveJardin from "@/assets/villeneuve-jardin.jpg";
 import palaisPapesPanorama from "@/assets/palais-papes-panorama.jpg";
+import heroSouslocationLuxury from "@/assets/hero-souslocation-luxury.jpg";
 const SousLocation = () => {
   const advantages = [
     {
@@ -115,6 +116,7 @@ const SousLocation = () => {
             <div className="absolute inset-0 opacity-30">
               <HeroImageCarousel
                 images={[
+                  { src: heroSouslocationLuxury, alt: "Villa méditerranéenne avec piscine en Provence" },
                   { src: palaisPapesPanorama, alt: "Palais des Papes - Avignon" },
                   { src: villeneuveFort, alt: "Fort Saint-André - Villeneuve-lès-Avignon" },
                   { src: villeneuveChartreuse, alt: "Chartreuse - Villeneuve-lès-Avignon" },
