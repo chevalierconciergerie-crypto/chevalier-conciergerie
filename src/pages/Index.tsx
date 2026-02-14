@@ -77,7 +77,7 @@ const Index = () => {
           <Hero />
 
           {/* Social Proof Bar — colorful & compact */}
-          <section className="bg-background py-3">
+          <section className="bg-background py-5 md:py-6">
             <div className="container mx-auto px-6">
               <div className="flex items-center justify-center gap-5">
                 <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-foreground/40">
@@ -100,7 +100,7 @@ const Index = () => {
           </section>
 
           {/* Services — cream background, tight spacing */}
-          <section id="formules" className="relative pt-6 pb-12 md:pt-10 md:pb-20 bg-background overflow-hidden">
+          <section id="formules" className="relative pt-4 pb-12 md:pt-6 md:pb-20 bg-background overflow-hidden">
             <div className="container mx-auto px-6 relative z-10">
               <ScrollAnimate>
                 <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
