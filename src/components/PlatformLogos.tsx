@@ -17,18 +17,18 @@ const PlatformLogos = () => {
           </div>
           <div className="flex items-center justify-center gap-8 md:gap-16">
             {[
-              { src: logoAirbnb, alt: "Airbnb", height: "h-12 md:h-16" },
-              { src: logoBooking, alt: "Booking.com", height: "h-12 md:h-16" },
-              { src: logoAbritel, alt: "Abritel", height: "h-14 md:h-20" },
+              { src: logoAirbnb, alt: "Airbnb" },
+              { src: logoBooking, alt: "Booking.com" },
+              { src: logoAbritel, alt: "Abritel" },
             ].map((platform) => (
               <div
                 key={platform.alt}
-                className="group px-5 py-4 md:px-8 md:py-5 rounded-xl bg-card shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1"
+                className="group px-5 py-4 md:px-8 md:py-5 rounded-xl bg-primary/5 border border-primary/10 hover:bg-primary/10 transition-all duration-300 hover:-translate-y-1"
               >
                 <img
                   src={platform.src}
                   alt={platform.alt}
-                  className={`${platform.height} w-auto object-contain transition-transform duration-300 group-hover:scale-105`}
+                  className="h-12 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
             ))}
