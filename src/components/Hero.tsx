@@ -147,11 +147,9 @@ const Hero = () => {
           />
           {/* Panel */}
           <div className="relative w-full max-w-lg bg-card shadow-2xl animate-slide-in-right z-10 flex flex-col">
-            {/* Panel Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-border">
-              <div>
-                <h3 className="font-serif text-lg text-foreground">Sélectionnez votre séjour</h3>
-              </div>
+            {/* Header - minimal */}
+            <div className="flex items-center justify-between px-6 py-4">
+              <h3 className="font-serif text-lg text-foreground">Sélectionnez votre séjour</h3>
               <button
                 onClick={() => setIsBookingOpen(false)}
                 className="w-9 h-9 rounded-full flex items-center justify-center hover:bg-secondary transition-colors"
