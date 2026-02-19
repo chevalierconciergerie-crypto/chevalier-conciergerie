@@ -80,7 +80,7 @@ const Header = () => {
               </Link>
             ))}
             <Button variant="gold" size="sm" asChild>
-              <a href="https://chevalier-locabusiness.amenitiz.io/fr/booking/room#DatesGuests-BE" target="_blank" rel="noopener noreferrer">Réserver</a>
+              <a href="/#reservation-widget" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); const event = new CustomEvent('open-booking'); window.dispatchEvent(event); }}>Réserver</a>
             </Button>
           </nav>
 
@@ -194,7 +194,7 @@ const Header = () => {
               <div className="w-16 h-px bg-gold/30 mb-2" />
               
               <Button variant="gold" className="w-full max-w-xs" size="lg" asChild>
-                <a href="https://chevalier-locabusiness.amenitiz.io/fr/booking/room#DatesGuests-BE" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)}>
+                <a href="/#reservation" onClick={(e) => { e.preventDefault(); setIsMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); setTimeout(() => { window.dispatchEvent(new CustomEvent('open-booking')); }, 400); }}>
                   Réserver
                 </a>
               </Button>
