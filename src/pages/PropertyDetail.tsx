@@ -34,13 +34,13 @@ const PropertyDetail = () => {
         <main className="relative z-10">
           {/* Back link */}
           <div className="container mx-auto px-6 pt-28 pb-4">
-            <a
-              href="/#nos-proprietes"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-gold transition-colors font-sans text-sm tracking-wide"
+            <button
+              onClick={() => window.history.back()}
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-gold transition-colors font-sans text-sm tracking-wide cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4" />
               Retour aux propriétés
-            </a>
+            </button>
           </div>
 
           {/* Gallery */}
