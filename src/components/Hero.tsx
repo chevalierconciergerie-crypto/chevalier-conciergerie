@@ -88,11 +88,11 @@ const Hero = () => {
               {cities[currentCityIndex]}
             </span>
           </div>
-          <p className="font-sans text-[11px] md:text-sm text-primary-foreground/50 max-w-md mx-auto mb-10 md:mb-12 leading-relaxed tracking-[0.15em] uppercase opacity-0 animate-fade-up animation-delay-200">
+          <p className="font-sans text-[11px] md:text-sm text-primary-foreground/50 max-w-md mx-auto mb-6 md:mb-8 leading-relaxed tracking-[0.15em] uppercase opacity-0 animate-fade-up animation-delay-200">
             Conciergerie haut de gamme &<br />
             sous-location professionnelle
           </p>
-          <div className="flex items-center justify-center gap-3 md:gap-5 opacity-0 animate-fade-up animation-delay-300">
+          <div className="flex items-center justify-center gap-3 md:gap-5 mb-8 md:mb-10 opacity-0 animate-fade-up animation-delay-300">
             <a
               href="/conciergerie"
               className="group flex items-center gap-2 md:gap-3 border border-primary-foreground/25 px-5 md:px-8 py-3 md:py-4 text-primary-foreground text-[10px] md:text-xs tracking-[0.25em] uppercase hover:bg-primary-foreground/10 transition-all duration-300"
@@ -108,26 +108,28 @@ const Hero = () => {
               <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
-        </div>
 
-        {/* Booking Widget — bottom right, bigger */}
-        <button
-          onClick={() => setIsBookingOpen(true)}
-          className="absolute bottom-10 right-6 md:bottom-14 md:right-12 z-20 group opacity-0 animate-fade-up animation-delay-500 cursor-pointer"
-        >
-          <div className="bg-primary/80 backdrop-blur-md border border-gold/30 rounded-lg px-6 py-5 md:px-8 md:py-6 text-center hover:border-gold/60 hover:bg-primary/90 transition-all duration-300 shadow-xl">
-            <CalendarDays className="w-6 h-6 md:w-7 md:h-7 text-gold mx-auto mb-2.5" />
-            <p className="font-serif text-base md:text-lg text-gold font-medium tracking-wide mb-1">
-              Meilleur Tarif
-            </p>
-            <p className="font-sans text-[9px] md:text-[11px] tracking-[0.2em] uppercase text-primary-foreground/50 mb-3">
-              Garanti sur notre site
-            </p>
-            <span className="inline-block bg-gold text-primary font-sans text-[11px] md:text-xs font-semibold tracking-[0.15em] uppercase px-5 py-2 group-hover:bg-gold-light transition-colors duration-300">
-              Réserver
-            </span>
+          {/* Booking Widget — centered */}
+          <div className="opacity-0 animate-fade-up animation-delay-500">
+            <button
+              onClick={() => setIsBookingOpen(true)}
+              className="group cursor-pointer mx-auto"
+            >
+              <div className="bg-primary/80 backdrop-blur-md border border-gold/30 rounded-lg px-8 py-5 md:px-10 md:py-6 text-center hover:border-gold/60 hover:bg-primary/90 transition-all duration-300 shadow-xl">
+                <CalendarDays className="w-6 h-6 md:w-7 md:h-7 text-gold mx-auto mb-2.5" />
+                <p className="font-serif text-base md:text-lg text-gold font-medium tracking-wide mb-1">
+                  Meilleur Tarif
+                </p>
+                <p className="font-sans text-[9px] md:text-[11px] tracking-[0.2em] uppercase text-primary-foreground/50 mb-3">
+                  Garanti sur notre site
+                </p>
+                <span className="inline-block bg-gold text-primary font-sans text-[11px] md:text-xs font-semibold tracking-[0.15em] uppercase px-5 py-2 group-hover:bg-gold-light transition-colors duration-300">
+                  Réserver
+                </span>
+              </div>
+            </button>
           </div>
-        </button>
+        </div>
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 opacity-0 animate-fade-up animation-delay-500">
