@@ -147,18 +147,15 @@ const Hero = () => {
           />
           {/* Panel */}
           <div className="relative w-full max-w-lg bg-card shadow-2xl animate-slide-in-right z-10 flex flex-col">
-            {/* Header - minimal */}
-            <div className="flex items-center justify-between px-6 py-4">
-              <h3 className="font-serif text-lg text-foreground">Sélectionnez votre séjour</h3>
-              <button
-                onClick={() => setIsBookingOpen(false)}
-                className="w-9 h-9 rounded-full flex items-center justify-center hover:bg-secondary transition-colors"
-                aria-label="Fermer"
-              >
-                <X className="w-5 h-5 text-foreground/60" />
-              </button>
-            </div>
-            {/* Iframe */}
+            {/* Close button */}
+            <button
+              onClick={() => setIsBookingOpen(false)}
+              className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full flex items-center justify-center hover:bg-secondary transition-colors bg-card/80"
+              aria-label="Fermer"
+            >
+              <X className="w-5 h-5 text-foreground/60" />
+            </button>
+            {/* Iframe only */}
             <div className="flex-1 overflow-hidden">
               <iframe
                 src={BOOKING_URL}
