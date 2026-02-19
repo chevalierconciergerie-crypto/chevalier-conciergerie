@@ -155,12 +155,13 @@ const Hero = () => {
             >
               <X className="w-5 h-5 text-foreground/60" />
             </button>
-            {/* Iframe only */}
-            <div className="flex-1 overflow-hidden">
+            {/* Iframe — offset to hide Amenitiz header */}
+            <div className="flex-1 overflow-hidden relative">
               <iframe
                 src={BOOKING_URL}
                 title="Moteur de réservation Chevalier Conciergerie"
-                className="w-full h-full border-0"
+                className="w-full border-0 absolute top-0 left-0"
+                style={{ height: "calc(100% + 280px)", marginTop: "-280px" }}
                 allow="payment"
               />
             </div>
