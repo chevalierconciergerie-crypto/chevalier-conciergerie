@@ -80,7 +80,7 @@ const Header = () => {
               </Link>
             ))}
             <Button variant="gold" size="sm" asChild>
-              <Link to="/contact">Prendre Rendez-vous</Link>
+              <a href="https://chevalier-locabusiness.amenitiz.io/fr/booking/room#DatesGuests-BE" target="_blank" rel="noopener noreferrer">Réserver</a>
             </Button>
           </nav>
 
@@ -194,9 +194,9 @@ const Header = () => {
               <div className="w-16 h-px bg-gold/30 mb-2" />
               
               <Button variant="gold" className="w-full max-w-xs" size="lg" asChild>
-                <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                  Prendre Rendez-vous
-                </Link>
+                <a href="https://chevalier-locabusiness.amenitiz.io/fr/booking/room#DatesGuests-BE" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)}>
+                  Réserver
+                </a>
               </Button>
               
               <a 

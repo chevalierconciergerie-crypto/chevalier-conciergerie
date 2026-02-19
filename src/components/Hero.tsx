@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CalendarDays } from "lucide-react";
 import heroVideo from "@/assets/hero-video-luxury.mp4";
 
 const cities = ["Avignon", "Villeneuve-lès-Avignon", "Aix-en-Provence", "Montpellier"];
@@ -103,6 +103,27 @@ const Hero = () => {
           </a>
         </div>
       </div>
+
+      {/* Booking Widget — bottom right */}
+      <a
+        href="https://chevalier-locabusiness.amenitiz.io/fr/booking/room#DatesGuests-BE"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute bottom-8 right-6 md:bottom-12 md:right-10 z-20 group opacity-0 animate-fade-up animation-delay-500"
+      >
+        <div className="bg-primary/80 backdrop-blur-md border border-gold/30 rounded-lg px-5 py-4 md:px-6 md:py-5 text-center hover:border-gold/60 hover:bg-primary/90 transition-all duration-300 shadow-lg">
+          <CalendarDays className="w-5 h-5 text-gold mx-auto mb-2" />
+          <p className="font-serif text-sm md:text-base text-gold font-medium tracking-wide mb-1">
+            Meilleur Tarif
+          </p>
+          <p className="font-sans text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-primary-foreground/50 mb-3">
+            Garanti sur notre site
+          </p>
+          <span className="inline-block bg-gold text-primary font-sans text-[10px] md:text-xs font-semibold tracking-[0.15em] uppercase px-4 py-1.5 group-hover:bg-gold-light transition-colors duration-300">
+            Réserver
+          </span>
+        </div>
+      </a>
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 opacity-0 animate-fade-up animation-delay-500">

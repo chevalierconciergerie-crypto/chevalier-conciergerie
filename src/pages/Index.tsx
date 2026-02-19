@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import serviceConciergerie from "@/assets/service-conciergerie-luxury.jpg";
 import serviceSousLocation from "@/assets/service-souslocation-luxury.jpg";
 import { ScrollAnimate } from "@/hooks/useScrollAnimation";
-import BookingWidget from "@/components/BookingWidget";
+
 
 const Index = () => {
   return (
@@ -221,7 +221,7 @@ const Index = () => {
           {/* Présentation du fondateur */}
           <FounderPresentation />
 
-          <BookingWidget />
+          
           
           <ComingSoon />
         </main>
