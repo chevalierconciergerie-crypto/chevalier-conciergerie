@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import LocalExpertise from "@/components/LocalExpertise";
-import ComingSoon from "@/components/ComingSoon";
+import PropertyListings from "@/components/PropertyListings";
 import PlatformLogos from "@/components/PlatformLogos";
 import FounderPresentation from "@/components/FounderPresentation";
 import { ArrowRight, Home, Sparkles, Instagram, Facebook, Linkedin } from "lucide-react";
@@ -223,7 +223,9 @@ const Index = () => {
 
           
           
-          <ComingSoon />
+          <div id="nos-proprietes">
+            <PropertyListings />
+          </div>
         </main>
         <Footer />
       </div>
