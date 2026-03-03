@@ -16,6 +16,7 @@ const Footer = () => {
       { label: "Contact", href: "/contact" },
       { label: "Conciergerie", href: "/conciergerie" },
       { label: "Sous-location", href: "/sous-location" },
+      { label: "Nos partenaires", href: "/partenaires" },
     ],
     legal: [
       { label: "Mentions légales", href: "/mentions-legales" },
