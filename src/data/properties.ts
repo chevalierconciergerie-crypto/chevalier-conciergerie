@@ -49,7 +49,7 @@ export const properties: Property[] = [
   },
   {
     slug: "appartement-coeur-avignon",
-    name: "La Scène – Lumineux",
+    name: "La Scène – Lumineux – Cœur d'Avignon",
     shortDescription: "Studio rénové avec poutres apparentes et vue sur les toits, en plein centre historique.",
     description: "Bienvenue dans ce charmant studio entièrement rénové au cœur d'Avignon intra-muros, alliant cachet et modernité. Poutres apparentes, belle hauteur sous plafond et grande fenêtre lumineuse avec vue sur les toits et les pierres anciennes. Situé au 2ème étage d'une rue calme intra-muros, commerces, restaurants, Les Halles, théâtres et gare SNCF sont accessibles à pied en quelques minutes.",
     location: "Avignon intra-muros",
