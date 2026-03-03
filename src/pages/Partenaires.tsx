@@ -15,8 +15,8 @@ interface Partner {
 const partners: Partner[] = [
   {
     name: "ERA Immobilier — Rachel Lindo",
-    front: partenaireEraBanner,
-    back: partenaireEraRachel,
+    front: partenaireEraRachel,
+    back: partenaireEraBanner,
   },
 ];
 
@@ -44,7 +44,7 @@ const FlipCard = ({ partner }: { partner: Partner }) => {
           <img
             src={partner.front}
             alt={`${partner.name} — recto`}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-top"
           />
         </div>
 
@@ -59,7 +59,7 @@ const FlipCard = ({ partner }: { partner: Partner }) => {
           <img
             src={partner.back}
             alt={`${partner.name} — verso`}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-right"
           />
         </div>
       </div>
