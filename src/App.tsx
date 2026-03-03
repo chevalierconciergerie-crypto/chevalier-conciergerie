@@ -16,6 +16,7 @@ import ConciergerieAvignon from "./pages/ConciergerieAvignon";
 import ConciergerieVilleneuve from "./pages/ConciergerieVilleneuve";
 import ConciergerieLesAngles from "./pages/ConciergerieLesAngles";
 import PropertyDetail from "./pages/PropertyDetail";
+import Partenaires from "./pages/Partenaires";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => (
             <Route path="/conciergerie-villeneuve-les-avignon" element={<ConciergerieVilleneuve />} />
             <Route path="/conciergerie-les-angles" element={<ConciergerieLesAngles />} />
             <Route path="/proprietes/:slug" element={<PropertyDetail />} />
+            <Route path="/partenaires" element={<Partenaires />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
