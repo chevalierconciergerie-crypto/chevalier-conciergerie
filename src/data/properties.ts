@@ -33,7 +33,7 @@ export interface Property {
 export const properties: Property[] = [
   {
     slug: "appartement-cosy-lumineux",
-    name: "Appartement Cosy & Lumineux",
+    name: "L'Atelier – Lumineux & Parking",
     shortDescription: "Studio chaleureux aux portes d'Avignon intra-muros, baigné de lumière naturelle.",
     description: "Bienvenue dans ce charmant studio, à deux pas d'Avignon intra-muros, où cachet et luminosité s'allient pour créer un espace chaleureux et accueillant. Une grande fenêtre inonde la pièce principale de lumière naturelle, offrant une sensation d'espace et de bien-être. Situé à quelques mètres des remparts, dans une résidence pleine de charme, ce studio bénéficie d'un emplacement privilégié.",
     location: "Avignon, proche remparts",
@@ -49,7 +49,7 @@ export const properties: Property[] = [
   },
   {
     slug: "appartement-coeur-avignon",
-    name: "Au Cœur d'Avignon Intramuros",
+    name: "La Scène – Lumineux",
     shortDescription: "Studio rénové avec poutres apparentes et vue sur les toits, en plein centre historique.",
     description: "Bienvenue dans ce charmant studio entièrement rénové au cœur d'Avignon intra-muros, alliant cachet et modernité. Poutres apparentes, belle hauteur sous plafond et grande fenêtre lumineuse avec vue sur les toits et les pierres anciennes. Situé au 2ème étage d'une rue calme intra-muros, commerces, restaurants, Les Halles, théâtres et gare SNCF sont accessibles à pied en quelques minutes.",
     location: "Avignon intra-muros",
@@ -65,7 +65,7 @@ export const properties: Property[] = [
   },
   {
     slug: "appartement-renove-intramuros",
-    name: "Appartement Rénové Intra-Muros",
+    name: "L'Intramuros – Charmant & Climatisé",
     shortDescription: "Studio design entièrement rénové avec climatisation, au cœur d'Avignon.",
     description: "Bienvenue dans ce studio chaleureux et fonctionnel, entièrement rénové avec soin pour vous offrir un séjour confortable et agréable. Situé dans un quartier calme et pratique, ce logement combine design moderne, équipements complets et ambiance cosy. Coin nuit douillet avec literie de qualité, cuisine entièrement équipée, salle de bain élégante avec douche à effet pluie.",
     location: "Avignon intra-muros",
