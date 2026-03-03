@@ -5,6 +5,7 @@ import { ScrollAnimate } from "@/hooks/useScrollAnimation";
 import { useState } from "react";
 import partenaireEraBanner from "@/assets/partenaire-era-banner.png";
 import partenaireEraRachel from "@/assets/partenaire-era-rachel.jpg";
+import heroPartenaires from "@/assets/hero-partenaires.jpg";
 
 interface Partner {
   front: string;
@@ -83,17 +84,16 @@ const Partenaires = () => {
         <Header />
         <main className="relative z-10">
           {/* Hero */}
-          <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-primary relative overflow-hidden">
-            <div className="absolute inset-0 opacity-5">
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundImage:
-                    "radial-gradient(circle at 1px 1px, hsl(var(--gold)) 0.5px, transparent 0)",
-                  backgroundSize: "32px 32px",
-                }}
-              />
-            </div>
+          <section className="pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden">
+            {/* Hero background image */}
+            <img
+              src={heroPartenaires}
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="eager"
+              fetchPriority="high"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/50" />
 
             <div className="container mx-auto px-6 relative z-10">
               <ScrollAnimate>
