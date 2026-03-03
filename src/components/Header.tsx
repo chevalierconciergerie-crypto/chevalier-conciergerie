@@ -37,6 +37,7 @@ const Header = () => {
   const navItems = [
     { label: "Conciergerie", href: "/conciergerie" },
     { label: "Sous-location", href: "/sous-location" },
+    { label: "Partenaires", href: "/partenaires" },
     { label: "Contact", href: "/contact" },
   ];
 
@@ -44,7 +45,8 @@ const Header = () => {
     { label: "Accueil", href: "/", number: "01" },
     { label: "Conciergerie", href: "/conciergerie", number: "02" },
     { label: "Sous-location", href: "/sous-location", number: "03" },
-    { label: "Contact", href: "/contact", number: "04" },
+    { label: "Partenaires", href: "/partenaires", number: "04" },
+    { label: "Contact", href: "/contact", number: "05" },
   ];
 
   return (
