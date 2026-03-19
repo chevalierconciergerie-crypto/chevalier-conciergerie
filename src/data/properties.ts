@@ -95,7 +95,7 @@ export const properties: Property[] = [
     beds: 2,
     bathrooms: 1,
     priceFrom: 65,
-    images: [appartProvencal4, appartProvencal2, appartProvencal3, appartProvencal1],
+    images: [appartProvencal3, appartProvencal4, appartProvencal2, appartProvencal1],
     amenities: ["WiFi gratuit", "Cuisine équipée", "Climatisation", "Linge fourni", "TV", "Machine à café", "Parking gratuit"],
     highlights: ["Lumineux", "57m² rénové", "Parking gratuit"],
     airbnbUrl: "https://www.airbnb.fr/rooms/1638378037680518333",
