@@ -45,13 +45,13 @@ const FlipCard = ({ partner }: { partner: Partner }) => {
       >
         {/* Front */}
         <div
-          className="absolute inset-0 rounded-xl overflow-hidden shadow-[var(--shadow-medium)] group-hover:shadow-[var(--shadow-gold)] transition-shadow duration-500"
+          className="absolute inset-0 rounded-xl overflow-hidden shadow-[var(--shadow-medium)] group-hover:shadow-[var(--shadow-gold)] transition-shadow duration-500 bg-white"
           style={{ backfaceVisibility: "hidden" }}
         >
           <img
             src={partner.front}
             alt={`${partner.name} — recto`}
-            className="w-full h-full object-cover object-top"
+            className={partner.back ? "w-full h-full object-cover object-top" : "w-full h-full object-contain p-6"}
           />
         </div>
 
