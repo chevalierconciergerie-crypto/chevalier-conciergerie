@@ -51,7 +51,7 @@ const FlipCard = ({ partner }: { partner: Partner }) => {
           <img
             src={partner.front}
             alt={`${partner.name} — recto`}
-            className={partner.back ? "w-full h-full object-cover object-top" : "w-full h-full object-contain p-6"}
+            className={partner.back ? "w-full h-full object-cover object-top" : "w-full h-full object-contain p-2"}
           />
         </div>
 
