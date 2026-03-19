@@ -23,7 +23,7 @@ const partners: Partner[] = [
   {
     name: "La Cave Réalpanier",
     front: partenaireLaCave,
-    back: partenaireLaCave,
+    back: "",
   },
 ];
 
