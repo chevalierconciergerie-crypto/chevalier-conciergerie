@@ -13,6 +13,11 @@ import appartRenoveIntramuros2 from "@/assets/appart-renove-intramuros-2.jpg";
 import appartRenoveIntramuros3 from "@/assets/appart-renove-intramuros-3.jpg";
 import appartRenoveIntramuros4 from "@/assets/appart-renove-intramuros-4.jpg";
 
+import appartProvencal1 from "@/assets/appart-provencal-1.png";
+import appartProvencal2 from "@/assets/appart-provencal-2.jpg";
+import appartProvencal3 from "@/assets/appart-provencal-3.jpg";
+import appartProvencal4 from "@/assets/appart-provencal-4.jpg";
+
 export interface Property {
   slug: string;
   name: string;
@@ -78,5 +83,21 @@ export const properties: Property[] = [
     amenities: ["Climatisation", "Cuisine complète", "Four", "Machine à café", "Sèche-cheveux", "Fer à repasser"],
     highlights: ["Climatisation", "Design moderne", "Douche effet pluie"],
     airbnbUrl: "https://www.airbnb.fr/rooms/1444130890507558607",
+  },
+  {
+    slug: "appartement-provencal-charme",
+    name: "Le Provençal – Charme & Authenticité",
+    shortDescription: "Appartement au charme provençal avec décoration soignée, idéalement situé à Avignon.",
+    description: "Découvrez ce magnifique appartement au charme provençal authentique, décoré avec goût et attention aux détails. Alliant le cachet de l'ancien et le confort moderne, ce logement vous offre une expérience unique au cœur d'Avignon. Profitez d'un intérieur chaleureux et lumineux, parfait pour un séjour en couple ou entre amis.",
+    location: "Avignon intra-muros",
+    guests: 4,
+    bedrooms: "2 chambres",
+    beds: 2,
+    bathrooms: 1,
+    priceFrom: 65,
+    images: [appartProvencal1, appartProvencal3, appartProvencal2, appartProvencal4],
+    amenities: ["WiFi gratuit", "Cuisine équipée", "Climatisation", "Linge fourni", "TV", "Machine à café"],
+    highlights: ["Charme provençal", "Décoration soignée", "Idéalement situé"],
+    airbnbUrl: "https://www.airbnb.fr/rooms/1638378037680518333",
   },
 ];
