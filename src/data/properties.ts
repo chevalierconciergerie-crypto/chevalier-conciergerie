@@ -13,6 +13,11 @@ import appartRenoveIntramuros2 from "@/assets/appart-renove-intramuros-2.jpg";
 import appartRenoveIntramuros3 from "@/assets/appart-renove-intramuros-3.jpg";
 import appartRenoveIntramuros4 from "@/assets/appart-renove-intramuros-4.jpg";
 
+import appartProvencal1 from "@/assets/appart-provencal-1.png";
+import appartProvencal2 from "@/assets/appart-provencal-2.jpg";
+import appartProvencal3 from "@/assets/appart-provencal-3.jpg";
+import appartProvencal4 from "@/assets/appart-provencal-4.jpg";
+
 export interface Property {
   slug: string;
   name: string;
