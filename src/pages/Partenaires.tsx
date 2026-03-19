@@ -5,6 +5,7 @@ import { ScrollAnimate } from "@/hooks/useScrollAnimation";
 import { useState } from "react";
 import partenaireEraBanner from "@/assets/partenaire-era-banner.png";
 import partenaireEraRachel from "@/assets/partenaire-era-rachel.jpg";
+import partenaireLaCave from "@/assets/partenaire-lacave-realpanier.png";
 import heroPartenaires from "@/assets/hero-partenaires.jpg";
 
 interface Partner {
@@ -18,6 +19,11 @@ const partners: Partner[] = [
     name: "ERA Immobilier — Rachel Lindo",
     front: partenaireEraRachel,
     back: partenaireEraBanner,
+  },
+  {
+    name: "La Cave Réalpanier",
+    front: partenaireLaCave,
+    back: partenaireLaCave,
   },
 ];
 
