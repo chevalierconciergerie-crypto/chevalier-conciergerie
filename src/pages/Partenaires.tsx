@@ -23,7 +23,7 @@ const partners: Partner[] = [
   {
     name: "La Cave Réalpanier",
     front: partenaireLaCave,
-    back: partenaireLaCave,
+    back: "",
   },
 ];
 
@@ -57,17 +57,23 @@ const FlipCard = ({ partner }: { partner: Partner }) => {
 
         {/* Back */}
         <div
-          className="absolute inset-0 rounded-xl overflow-hidden shadow-[var(--shadow-medium)] group-hover:shadow-[var(--shadow-gold)] transition-shadow duration-500"
+          className="absolute inset-0 rounded-xl overflow-hidden shadow-[var(--shadow-medium)] group-hover:shadow-[var(--shadow-gold)] transition-shadow duration-500 bg-white"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
           }}
         >
-          <img
-            src={partner.back}
-            alt={`${partner.name} — verso`}
-            className="w-full h-full object-cover object-right"
-          />
+          {partner.back ? (
+            <img
+              src={partner.back}
+              alt={`${partner.name} — verso`}
+              className="w-full h-full object-cover object-right"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center">
+              <span className="font-serif text-lg text-muted-foreground tracking-wide">{partner.name}</span>
+            </div>
+          )}
         </div>
       </div>
     </div>
