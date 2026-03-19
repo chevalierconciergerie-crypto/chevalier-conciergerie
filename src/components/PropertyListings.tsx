@@ -29,7 +29,7 @@ const PropertyListings = () => {
               <Link to={`/proprietes/${property.slug}`} className="group block">
                 <div className="relative grid grid-cols-1 md:grid-cols-[1.2fr_1fr] bg-card rounded-xl overflow-hidden border border-border hover:shadow-[var(--shadow-medium)] transition-all duration-500 hover:-translate-y-0.5">
                   {/* Image */}
-                  <div className="relative overflow-hidden aspect-[16/10] md:aspect-auto md:min-h-[220px]">
+                  <div className="relative overflow-hidden aspect-[16/10] md:aspect-[16/9] md:max-h-[260px]">
                     <img
                       src={property.images[0]}
                       alt={property.name}
