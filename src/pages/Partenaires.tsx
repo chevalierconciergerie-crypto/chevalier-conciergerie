@@ -70,9 +70,7 @@ const FlipCard = ({ partner }: { partner: Partner }) => {
               className="w-full h-full object-cover object-right"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center">
-              <span className="font-serif text-lg text-muted-foreground tracking-wide">{partner.name}</span>
-            </div>
+            <div className="w-full h-full" />
           )}
         </div>
       </div>
