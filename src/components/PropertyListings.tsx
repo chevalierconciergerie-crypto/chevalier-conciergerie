@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { properties } from "@/data/properties";
 import { ScrollAnimate } from "@/hooks/useScrollAnimation";
 
@@ -25,24 +24,24 @@ const PropertyListings = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
           {properties.map((property, index) => (
             <ScrollAnimate key={property.slug} delay={index * 100}>
-              <Link to={`/proprietes/${property.slug}`} className="group block">
-                <div className="relative overflow-hidden rounded-xl bg-card border border-border hover:shadow-[var(--shadow-medium)] transition-all duration-500 hover:-translate-y-1">
+              <div className="block">
+                <div className="relative overflow-hidden rounded-xl bg-card border border-border">
                   <div className="relative overflow-hidden aspect-[4/3]">
                     <img
                       src={property.images[0]}
                       alt={property.name}
                       loading="lazy"
                       decoding="async"
-                      className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
+                      className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="px-5 py-5 md:px-6 md:py-6">
-                    <h3 className="font-serif text-base md:text-lg text-foreground font-light tracking-wide text-center group-hover:text-gold transition-colors duration-300">
+                    <h3 className="font-serif text-base md:text-lg text-foreground font-light tracking-wide text-center">
                       {property.name}
                     </h3>
                   </div>
                 </div>
-              </Link>
+              </div>
             </ScrollAnimate>
           ))}
         </div>
