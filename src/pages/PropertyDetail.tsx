@@ -1,6 +1,6 @@
-import { useParams, Link, Navigate } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ArrowLeft, Users, MapPin, Bath, Bed, Check, ExternalLink, X } from "lucide-react";
+import { ArrowLeft, Users, MapPin, Bath, Bed, Check, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -8,18 +8,17 @@ import { Button } from "@/components/ui/button";
 import { properties } from "@/data/properties";
 import { ScrollAnimate } from "@/hooks/useScrollAnimation";
 
-const BOOKING_URL = "https://chevalier-locabusiness.amenitiz.io/fr/booking/room#DatesGuests-BE";
-
 const PropertyDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const [selectedImage, setSelectedImage] = useState(0);
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   const property = properties.find((p) => p.slug === slug);
 
   if (!property) {
     return <Navigate to="/" replace />;
   }
+
+  const hasAirbnb = property.airbnbUrl && property.airbnbUrl !== "#";
 
   return (
     <>
@@ -56,21 +55,23 @@ const PropertyDetail = () => {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="grid grid-cols-4 gap-2">
-                    {property.images.map((img, i) => (
-                      <button
-                        key={i}
-                        onClick={() => setSelectedImage(i)}
-                        className={`relative overflow-hidden rounded aspect-square cursor-pointer border-2 transition-all ${
-                          selectedImage === i
-                            ? "border-gold"
-                            : "border-transparent opacity-60 hover:opacity-100"
-                        }`}
-                      >
-                        <img src={img} alt="" className="w-full h-full object-cover" />
-                      </button>
-                    ))}
-                  </div>
+                  {property.images.length > 1 && (
+                    <div className="grid grid-cols-4 gap-2">
+                      {property.images.map((img, i) => (
+                        <button
+                          key={i}
+                          onClick={() => setSelectedImage(i)}
+                          className={`relative overflow-hidden rounded aspect-square cursor-pointer border-2 transition-all ${
+                            selectedImage === i
+                              ? "border-gold"
+                              : "border-transparent opacity-60 hover:opacity-100"
+                          }`}
+                        >
+                          <img src={img} alt="" className="w-full h-full object-cover" />
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 {/* Info card */}
@@ -101,35 +102,28 @@ const PropertyDetail = () => {
                       </div>
                     </div>
 
-                    {/* Price */}
-                    <div className="mb-6">
-                      <span className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground">
-                        À partir de
-                      </span>
-                      <div className="flex items-baseline gap-1 mt-1">
-                        <span className="font-serif text-4xl font-light text-foreground">{property.priceFrom}€</span>
-                        <span className="text-muted-foreground text-sm">/ nuit</span>
+                    {hasAirbnb ? (
+                      <Button
+                        variant="gold"
+                        size="xl"
+                        className="w-full"
+                        asChild
+                      >
+                        <a
+                          href={property.airbnbUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          Réserver sur Airbnb
+                        </a>
+                      </Button>
+                    ) : (
+                      <div className="text-center py-3 px-4 border border-gold/30 rounded text-sm text-muted-foreground">
+                        Bientôt disponible à la réservation
                       </div>
-                    </div>
-
-                    <Button
-                      variant="gold"
-                      size="xl"
-                      className="w-full mb-3"
-                      onClick={() => setIsBookingOpen(true)}
-                    >
-                      Réserver — Meilleur tarif
-                    </Button>
-
-                    <a
-                      href={property.airbnbUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 text-muted-foreground text-xs hover:text-foreground transition-colors py-2"
-                    >
-                      <ExternalLink className="w-3.5 h-3.5" />
-                      Voir sur Airbnb
-                    </a>
+                    )}
                   </div>
                 </div>
               </div>
@@ -191,34 +185,6 @@ const PropertyDetail = () => {
         </main>
         <Footer />
       </div>
-
-      {/* Booking Panel Overlay */}
-      {isBookingOpen && (
-        <div className="fixed inset-0 z-[9999] flex items-stretch justify-end">
-          <div
-            className="absolute inset-0 bg-primary/60 backdrop-blur-sm animate-fade-in"
-            onClick={() => setIsBookingOpen(false)}
-          />
-          <div className="relative w-full max-w-lg bg-card shadow-2xl animate-slide-in-right z-10 flex flex-col">
-            <button
-              onClick={() => setIsBookingOpen(false)}
-              className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full flex items-center justify-center hover:bg-secondary transition-colors bg-card/80"
-              aria-label="Fermer"
-            >
-              <X className="w-5 h-5 text-foreground/60" />
-            </button>
-            <div className="flex-1 overflow-hidden relative">
-              <iframe
-                src={BOOKING_URL}
-                title="Moteur de réservation Chevalier Conciergerie"
-                className="w-full border-0 absolute top-0 left-0"
-                style={{ height: "calc(100% + 280px)", marginTop: "-280px" }}
-                allow="payment"
-              />
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 };
