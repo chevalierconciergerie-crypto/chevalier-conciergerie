@@ -18,6 +18,8 @@ import appartProvencal2 from "@/assets/appart-provencal-2.jpg";
 import appartProvencal3 from "@/assets/appart-provencal-3.jpg";
 import appartProvencal4 from "@/assets/appart-provencal-4.jpg";
 
+import authentique1 from "@/assets/authentique-1.jpg";
+
 export interface Property {
   slug: string;
   name: string;
@@ -99,5 +101,21 @@ export const properties: Property[] = [
     amenities: ["WiFi gratuit", "Cuisine équipée", "Climatisation", "Linge fourni", "TV", "Machine à café", "Parking gratuit"],
     highlights: ["Lumineux", "57m² rénové", "Parking gratuit"],
     airbnbUrl: "https://www.airbnb.fr/rooms/1638378037680518333",
+  },
+  {
+    slug: "authentique-palais-des-papes",
+    name: "L'Authentique – 2 min Palais des Papes",
+    shortDescription: "Appartement de caractère à 2 minutes du Palais des Papes, en plein cœur d'Avignon.",
+    description: "Appartement authentique au cachet préservé, à seulement 2 minutes à pied du Palais des Papes. Hauts plafonds, grandes verrières lumineuses, parquet d'origine et vue dégagée sur les façades historiques d'Avignon. L'emplacement idéal pour découvrir la cité des Papes, ses ruelles, ses restaurants et son patrimoine exceptionnel.",
+    location: "Avignon intra-muros",
+    guests: 2,
+    bedrooms: "1 chambre",
+    beds: 1,
+    bathrooms: 1,
+    priceFrom: 75,
+    images: [authentique1],
+    amenities: ["WiFi gratuit", "Cuisine équipée", "Linge fourni", "TV", "Chauffage"],
+    highlights: ["2 min Palais des Papes", "Cachet authentique", "Lumineux"],
+    airbnbUrl: "#",
   },
 ];
