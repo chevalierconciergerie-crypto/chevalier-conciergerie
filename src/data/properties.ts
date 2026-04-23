@@ -19,6 +19,7 @@ import appartProvencal3 from "@/assets/appart-provencal-3.jpg";
 import appartProvencal4 from "@/assets/appart-provencal-4.jpg";
 
 import authentique1 from "@/assets/authentique-1.jpg";
+import central1 from "@/assets/central-1.jpg";
 
 export interface Property {
   slug: string;
@@ -116,6 +117,22 @@ export const properties: Property[] = [
     images: [authentique1],
     amenities: ["WiFi gratuit", "Cuisine équipée", "Linge fourni", "TV", "Chauffage"],
     highlights: ["2 min Palais des Papes", "Cachet authentique", "Lumineux"],
+    airbnbUrl: "#",
+  },
+  {
+    slug: "le-central-navette-parking",
+    name: "Le Central – Centre ville – Navette parking",
+    shortDescription: "Appartement cosy en plein centre-ville d'Avignon, avec navette parking gratuite.",
+    description: "Appartement chaleureux et fonctionnel en plein centre-ville d'Avignon, idéalement situé pour profiter de tous les commerces, restaurants et monuments à pied. Cuisine équipée, espace repas convivial et grandes fenêtres lumineuses. Service de navette parking inclus pour stationner facilement à proximité.",
+    location: "Avignon centre-ville",
+    guests: 2,
+    bedrooms: "1 chambre",
+    beds: 1,
+    bathrooms: 1,
+    priceFrom: 65,
+    images: [central1],
+    amenities: ["WiFi gratuit", "Cuisine équipée", "Micro-ondes", "Linge fourni", "Navette parking", "Chauffage"],
+    highlights: ["Centre-ville", "Navette parking", "Cuisine équipée"],
     airbnbUrl: "#",
   },
 ];
