@@ -1,11 +1,13 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
+import VillaScrollExperience from "@/components/VillaScrollExperience";
+import FixedVillaBackdrop from "@/components/FixedVillaBackdrop";
 import LocalExpertise from "@/components/LocalExpertise";
 import PropertyListings from "@/components/PropertyListings";
 import PlatformLogos from "@/components/PlatformLogos";
 import FounderPresentation from "@/components/FounderPresentation";
+import TiltCard from "@/components/TiltCard";
 import { ArrowRight, Home, Sparkles, Instagram, Facebook, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -72,16 +74,17 @@ const Index = () => {
         </script>
       </Helmet>
       
-      <div className="min-h-screen bg-background relative">
+      <div className="min-h-screen bg-primary relative">
+        <FixedVillaBackdrop hideAfterId="founder-presentation" />
         <Header />
         <main className="relative z-10">
-          <Hero />
+          <VillaScrollExperience />
 
-          {/* Social Proof Bar — colorful & compact */}
-          <section className="bg-background py-8 md:py-10">
+          {/* Social Proof Bar — colorful & compact (transparent over video) */}
+          <section className="py-8 md:py-10 relative">
             <div className="container mx-auto px-6">
               <div className="flex items-center justify-center gap-5">
-                <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-foreground/40">
+                <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-primary-foreground/60">
                   Suivez-nous
                 </span>
                 <div className="w-6 h-px bg-gold/30" />
@@ -100,19 +103,19 @@ const Index = () => {
             </div>
           </section>
 
-          {/* Services — cream background, tight spacing */}
-          <section id="formules" className="relative pt-2 pb-12 md:pt-2 md:pb-20 bg-background overflow-hidden">
+          {/* Services — transparent over video, light text */}
+          <section id="formules" className="relative pt-2 pb-12 md:pt-2 md:pb-20 overflow-hidden">
             <div className="container mx-auto px-6 relative z-10">
               <ScrollAnimate>
                 <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
-                  <div className="w-10 h-px bg-gold/40 mx-auto mb-5" />
+                  <div className="w-10 h-px bg-gold/50 mx-auto mb-5" />
                   <span className="font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase text-gold">
                     Nos Solutions
                   </span>
-                  <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light text-foreground mt-6 mb-6 tracking-wide">
+                  <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light text-primary-foreground mt-6 mb-6 tracking-wide">
                     Deux Formules
                   </h2>
-                  <p className="font-sans text-sm md:text-base text-muted-foreground tracking-wide leading-relaxed">
+                  <p className="font-sans text-sm md:text-base text-primary-foreground/65 tracking-wide leading-relaxed">
                     Que vous souhaitiez déléguer la gestion ou sécuriser vos revenus,<br className="hidden md:block" />
                     nous avons la solution adaptée.
                   </p>
@@ -122,7 +125,8 @@ const Index = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
                 {/* Conciergerie Card */}
                 <ScrollAnimate delay={100} animation="slide-right">
-                  <Link to="/conciergerie" className="group block">
+                  <TiltCard className="group" intensity={6}>
+                  <Link to="/conciergerie" className="block">
                     <div className="relative overflow-hidden aspect-[4/5] md:aspect-[3/4] rounded-lg">
                       <img 
                         src={serviceConciergerie} 
@@ -162,11 +166,13 @@ const Index = () => {
                       </div>
                     </div>
                   </Link>
+                  </TiltCard>
                 </ScrollAnimate>
 
                 {/* Sous-location Card */}
                 <ScrollAnimate delay={200} animation="slide-left">
-                  <Link to="/sous-location" className="group block">
+                  <TiltCard className="group" intensity={6}>
+                  <Link to="/sous-location" className="block">
                     <div className="relative overflow-hidden aspect-[4/5] md:aspect-[3/4] rounded-lg">
                       <img 
                         src={serviceSousLocation} 
@@ -206,20 +212,23 @@ const Index = () => {
                       </div>
                     </div>
                   </Link>
+                  </TiltCard>
                 </ScrollAnimate>
               </div>
             </div>
           </section>
 
-          {/* Platform Logos */}
-          <section className="bg-background py-8">
+          {/* Platform Logos — transparent over video */}
+          <section className="py-8 relative">
             <div className="max-w-4xl mx-auto">
               <PlatformLogos />
             </div>
           </section>
 
-          {/* Présentation du fondateur */}
-          <FounderPresentation />
+          {/* Présentation du fondateur — opaque, breaks out of immersion */}
+          <div id="founder-presentation" className="relative bg-background">
+            <FounderPresentation />
+          </div>
 
           
           

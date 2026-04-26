@@ -5,6 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import ScrollToTop from "./components/ScrollToTop";
+import SmoothScroll from "./components/SmoothScroll";
+import ScrollProgress from "./components/ScrollProgress";
 import Index from "./pages/Index";
 import Conciergerie from "./pages/Conciergerie";
 import SousLocation from "./pages/SousLocation";
@@ -28,6 +30,8 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <SmoothScroll />
+          <ScrollProgress />
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
