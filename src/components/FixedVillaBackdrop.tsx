@@ -1,58 +1,56 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import { useScroll, useMotionValueEvent } from "framer-motion";
 import villaInteriorTour from "@/assets/villa-interior-tour.mp4";
-import { LuxuryParticles } from "@/components/three/LuxuryParticles";
 
 /**
- * Full-page video backdrop. Sits behind every immersive section so the
- * Mediterranean / Provençal interior keeps playing all the way down,
- * up to the point where an opaque section (Founder / Properties) takes
- * over visually.
+ * Full-page video backdrop, *scroll-scrubbed*.
  *
- * Implementation:
- *  • position: fixed, z-0 — always covers the viewport
- *  • the video pauses once the page has scrolled past `hideAfterRef`
- *    (an IntersectionObserver sentinel) so we don't burn CPU when the
- *    video is fully covered by opaque downstream sections.
- *  • cinematic colour grade, grain and gold dust live here too so that
- *    every immersive section gets the same look without duplicating
- *    overlays.
+ *  • position: fixed, z-0 — covers the viewport for the whole page
+ *  • the video does NOT autoplay/loop. Its `currentTime` is driven
+ *    directly by `window.scrollYProgress` so the visitor genuinely
+ *    "moves through" the property as they scroll: forward when they
+ *    descend, backward when they go back up.
+ *  • a sun-drenched warm grade is applied via CSS filter, with
+ *    only a soft bottom dim so the rest of the page reads.
+ *
+ * Note on scrub fluidity: the bundled mp4 is encoded with default
+ * keyframe spacing, so seeking has slight latency between keyframes
+ * — acceptable on modern browsers, ultra smooth on Chrome/Edge.
  */
-
-interface FixedVillaBackdropProps {
-  /** Element id of the first opaque section. The backdrop pauses once
-   *  that element fully fills the viewport (saves CPU on long pages). */
-  hideAfterId?: string;
-}
-
-export const FixedVillaBackdrop = ({ hideAfterId }: FixedVillaBackdropProps) => {
+export const FixedVillaBackdrop = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [paused, setPaused] = useState(false);
+  const readyRef = useRef(false);
+  const { scrollYProgress } = useScroll();
 
-  useEffect(() => {
-    if (!hideAfterId || typeof window === "undefined") return;
-    const target = document.getElementById(hideAfterId);
-    if (!target) return;
-
-    const obs = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          // Once the opaque section is filling most of the viewport,
-          // pause the video; resume when it leaves.
-          setPaused(e.intersectionRatio > 0.6);
-        }
-      },
-      { threshold: [0, 0.6, 1] },
-    );
-    obs.observe(target);
-    return () => obs.disconnect();
-  }, [hideAfterId]);
-
+  // Pause autoplay attempts and prep the video for manual seeking.
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
-    if (paused) v.pause();
-    else void v.play().catch(() => undefined);
-  }, [paused]);
+    const onMeta = () => {
+      readyRef.current = true;
+      v.pause();
+    };
+    v.addEventListener("loadedmetadata", onMeta);
+    // Some browsers refuse to seek before any play() — kick it once.
+    void v.play().then(() => v.pause()).catch(() => undefined);
+    return () => v.removeEventListener("loadedmetadata", onMeta);
+  }, []);
+
+  // Sync currentTime to scroll progress. Throttled inside requestAnimationFrame
+  // via framer-motion's motion-value subscription.
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    const v = videoRef.current;
+    if (!v || !readyRef.current || !Number.isFinite(v.duration)) return;
+    const target = latest * v.duration;
+    // Only seek if the delta is large enough — avoids spamming the decoder.
+    if (Math.abs(v.currentTime - target) > 0.04) {
+      try {
+        v.currentTime = target;
+      } catch {
+        /* seek can throw mid-load; ignored */
+      }
+    }
+  });
 
   return (
     <div
@@ -61,37 +59,25 @@ export const FixedVillaBackdrop = ({ hideAfterId }: FixedVillaBackdropProps) => 
     >
       <video
         ref={videoRef}
-        autoPlay
         muted
-        loop
         playsInline
         preload="auto"
+        // No autoplay, no loop — the scroll drives the timeline
         className="w-full h-full object-cover"
         style={{
-          // Sun-drenched Provence — warmer & more saturated, only slightly dimmed
-          filter: "saturate(1.22) brightness(0.94) contrast(1.06) hue-rotate(-3deg)",
+          // Sun-drenched Provence: warmer, more saturated, only slightly dimmed
+          filter:
+            "saturate(1.22) brightness(0.94) contrast(1.06) hue-rotate(-3deg)",
         }}
       >
         <source src={villaInteriorTour} type="video/mp4" />
       </video>
 
-      {/* Warm Provence wash — gold/amber instead of cool dark */}
+      {/* Warm Provence wash */}
       <div className="absolute inset-0 bg-[hsl(35,55%,55%)]/12 mix-blend-soft-light" />
-      {/* Light readability dim — only at the very bottom & edges, not center */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[hsl(222,35%,12%)]/55" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_55%,rgba(8,12,24,0.45)_100%)]" />
-
-      {/* Film grain */}
-      <div
-        className="absolute inset-0 opacity-[0.07] mix-blend-overlay"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.85'/></svg>\")",
-        }}
-      />
-
-      {/* Drifting gold dust */}
-      <LuxuryParticles className="absolute inset-0" density="medium" />
+      {/* Subtle bottom dim only — keeps the centre bright & sunny */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[hsl(222,35%,12%)]/40" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_60%,rgba(8,12,24,0.35)_100%)]" />
     </div>
   );
 };

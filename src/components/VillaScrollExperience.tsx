@@ -73,6 +73,15 @@ export const VillaScrollExperience = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Scroll-driven 3D transforms on the hero headline:
+  // tilts back & lifts upward as we descend, like a cinematic title card receding into the scene
+  const titleRotateX = useTransform(scrollYProgress, [0, 0.6], [0, -22]);
+  const titleY = useTransform(scrollYProgress, [0, 0.6], [0, -80]);
+  const titleScale = useTransform(scrollYProgress, [0, 0.6], [1, 0.9]);
+  const titleBlur = useTransform(scrollYProgress, [0, 0.5, 0.7], ["0px", "0px", "8px"]);
+  // Metallic gold shimmer that drifts as you scroll — pure CSS, GPU-cheap
+  const shimmerPos = useTransform(scrollYProgress, [0, 1], ["0%", "180%"]);
+
   return (
     <section
       ref={sectionRef}
@@ -92,7 +101,17 @@ export const VillaScrollExperience = () => {
 
         {/* Original VOTRE CONCIERGERIE hero with rotating city + CTAs */}
         <Overlay progress={scrollYProgress} range={[-1, 0, 0.55, 0.85]}>
-          <div className="text-center w-full">
+          <motion.div
+            className="text-center w-full"
+            style={{
+              y: titleY,
+              scale: titleScale,
+              rotateX: titleRotateX,
+              transformPerspective: 1200,
+              transformStyle: "preserve-3d",
+              filter: useTransform(titleBlur, (b) => `blur(${b})`),
+            }}
+          >
             <motion.div
               className="w-10 h-px bg-gold/60 mx-auto mb-6"
               initial={{ scaleX: 0, opacity: 0 }}
@@ -109,10 +128,22 @@ export const VillaScrollExperience = () => {
             </motion.p>
 
             <motion.h1
-              className="font-serif text-[2.2rem] leading-tight sm:text-5xl md:text-7xl lg:text-8xl font-light text-primary-foreground tracking-[0.06em] mb-3 md:mb-4"
+              className="relative font-serif text-[2.2rem] leading-tight sm:text-5xl md:text-7xl lg:text-8xl font-light tracking-[0.06em] mb-3 md:mb-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              style={{
+                color: "transparent",
+                WebkitTextFillColor: "transparent",
+                backgroundImage:
+                  "linear-gradient(110deg, #f5e9c8 0%, #ffffff 28%, #d4af37 50%, #ffffff 72%, #f5e9c8 100%)",
+                backgroundSize: "220% 100%",
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                textShadow:
+                  "0 1px 0 hsl(0,0%,100%,0.06), 0 2px 8px hsl(43,67%,52%,0.18), 0 0 28px hsl(43,67%,52%,0.18)",
+                backgroundPositionX: shimmerPos as unknown as string,
+              }}
             >
               VOTRE CONCIERGERIE
             </motion.h1>
@@ -167,7 +198,7 @@ export const VillaScrollExperience = () => {
                 <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-gold/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
               </a>
             </motion.div>
-          </div>
+          </motion.div>
         </Overlay>
 
         {/* Scroll hint */}

@@ -226,21 +226,15 @@ const Index = () => {
             </div>
           </section>
 
-          {/* Présentation du fondateur — dark wash over the video backdrop */}
-          <div
-            id="founder-presentation"
-            className="relative bg-primary/85 backdrop-blur-md"
-          >
+          {/* Présentation du fondateur — transparent, video continues behind */}
+          <div id="founder-presentation" className="relative">
             <FounderPresentation />
           </div>
 
           {/* Money-shot 3D key reveal — between founder & properties */}
           <RotatingGoldKey />
 
-          <div
-            id="nos-proprietes"
-            className="relative bg-primary/85 backdrop-blur-md"
-          >
+          <div id="nos-proprietes" className="relative">
             <PropertyListings />
           </div>
         </main>
