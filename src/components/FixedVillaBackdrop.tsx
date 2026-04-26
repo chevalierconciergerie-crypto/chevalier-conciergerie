@@ -68,16 +68,18 @@ export const FixedVillaBackdrop = ({ hideAfterId }: FixedVillaBackdropProps) => 
         preload="auto"
         className="w-full h-full object-cover"
         style={{
-          filter: "saturate(1.12) brightness(0.78) contrast(1.1)",
+          // Sun-drenched Provence — warmer & more saturated, only slightly dimmed
+          filter: "saturate(1.22) brightness(0.94) contrast(1.06) hue-rotate(-3deg)",
         }}
       >
         <source src={villaInteriorTour} type="video/mp4" />
       </video>
 
-      {/* Cinematic dark + tone-mapping overlay */}
-      <div className="absolute inset-0 bg-[hsl(222,35%,8%)]/55 mix-blend-multiply" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(222,35%,12%)]/40 via-transparent to-[hsl(222,35%,8%)]/85" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(8,12,24,0.7)_100%)]" />
+      {/* Warm Provence wash — gold/amber instead of cool dark */}
+      <div className="absolute inset-0 bg-[hsl(35,55%,55%)]/12 mix-blend-soft-light" />
+      {/* Light readability dim — only at the very bottom & edges, not center */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[hsl(222,35%,12%)]/55" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_55%,rgba(8,12,24,0.45)_100%)]" />
 
       {/* Film grain */}
       <div

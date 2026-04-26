@@ -52,6 +52,13 @@ export const VillaScrollExperience = () => {
       aria-label="Visite immersive — Chevalier Conciergerie"
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
+        {/* Soft radial darkening behind hero text — improves legibility
+            without darkening the bright Provençal video for later sections. */}
+        <motion.div
+          className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(8,12,24,0.55)_0%,rgba(8,12,24,0.35)_45%,transparent_75%)]"
+          style={{ opacity: useTransform(scrollYProgress, [0, 0.6, 1], [1, 0.7, 0]) }}
+        />
+
         {/* Welcome — fades in immediately, fades out as we descend */}
         <Overlay progress={scrollYProgress} range={[-1, 0, 0.35, 0.55]}>
           <div className="text-primary-foreground text-center">
