@@ -6,12 +6,12 @@ import { Building2, GraduationCap, MapPin } from "lucide-react";
 
 const FounderPresentation = () => {
   return (
-    <section className="bg-background py-16 overflow-hidden">
+    <section className="py-16 overflow-hidden">
       <div className="container mx-auto px-6">
         <ScrollAnimate>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Le Fondateur</span>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-primary-foreground mt-4">
               Victor Chevalier
             </h2>
           </div>
@@ -52,49 +52,49 @@ const FounderPresentation = () => {
             <div className="space-y-6">
               {/* Points clés */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                <div className="flex items-center gap-3 bg-card rounded-xl p-4 shadow-soft">
+                <div className="flex items-center gap-3 bg-primary-foreground/[0.05] border border-gold/15 backdrop-blur-md rounded-xl p-4">
                   <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center">
                     <GraduationCap className="w-5 h-5 text-gold" />
                   </div>
                   <div>
-                    <p className="font-sans text-xs text-muted-foreground">Formation</p>
-                    <p className="font-sans text-sm font-medium text-foreground">CUPGE Maths</p>
+                    <p className="font-sans text-xs text-primary-foreground/55">Formation</p>
+                    <p className="font-sans text-sm font-medium text-primary-foreground">CUPGE Maths</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 bg-card rounded-xl p-4 shadow-soft">
+                <div className="flex items-center gap-3 bg-primary-foreground/[0.05] border border-gold/15 backdrop-blur-md rounded-xl p-4">
                   <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center">
                     <Building2 className="w-5 h-5 text-gold" />
                   </div>
                   <div>
-                    <p className="font-sans text-xs text-muted-foreground">1er achat</p>
-                    <p className="font-sans text-sm font-medium text-foreground">À 19 ans</p>
+                    <p className="font-sans text-xs text-primary-foreground/55">1er achat</p>
+                    <p className="font-sans text-sm font-medium text-primary-foreground">À 19 ans</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 bg-card rounded-xl p-4 shadow-soft">
+                <div className="flex items-center gap-3 bg-primary-foreground/[0.05] border border-gold/15 backdrop-blur-md rounded-xl p-4">
                   <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center">
                     <MapPin className="w-5 h-5 text-gold" />
                   </div>
                   <div>
-                    <p className="font-sans text-xs text-muted-foreground">Origine</p>
-                    <p className="font-sans text-sm font-medium text-foreground">Avignon</p>
+                    <p className="font-sans text-xs text-primary-foreground/55">Origine</p>
+                    <p className="font-sans text-sm font-medium text-primary-foreground">Avignon</p>
                   </div>
                 </div>
               </div>
 
               {/* Description */}
               <div className="space-y-4">
-                <p className="font-sans text-muted-foreground leading-relaxed">
+                <p className="font-sans text-primary-foreground/70 leading-relaxed">
                   Passionné par les sciences, j'ai suivi des études en mathématiques et physique 
                   à la CUPGE d'Avignon, tout en m'intéressant à l'immobilier 
                   et l'entrepreneuriat.
                 </p>
-                <p className="font-sans text-muted-foreground leading-relaxed">
+                <p className="font-sans text-primary-foreground/70 leading-relaxed">
                   Mon premier investissement immobilier à <span className="text-foreground font-medium">19 ans</span> a été le déclic. 
                   En explorant le marché avignonnais, j'ai rapidement compris le potentiel extraordinaire de la location courte durée 
                   dans notre belle région.
                 </p>
-                <p className="font-sans text-muted-foreground leading-relaxed">
-                  <span className="text-foreground font-medium">Originaire d'Avignon</span>, je connais intimement cette ville, 
+                <p className="font-sans text-primary-foreground/70 leading-relaxed">
+                  <span className="text-primary-foreground font-medium">Originaire d'Avignon</span>, je connais intimement cette ville, 
                   ses quartiers, son patrimoine et son attractivité touristique. C'est cette expertise locale, 
                   combinée à ma rigueur scientifique, qui m'a conduit à créer <span className="text-gold font-semibold">Chevalier Conciergerie</span>.
                 </p>
@@ -102,7 +102,7 @@ const FounderPresentation = () => {
 
               {/* Photos du bien */}
               <div className="mt-8">
-                <p className="font-sans text-xs text-muted-foreground uppercase tracking-widest mb-4">Mon premier investissement</p>
+                <p className="font-sans text-xs text-primary-foreground/55 uppercase tracking-widest mb-4">Mon premier investissement</p>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="rounded-xl overflow-hidden shadow-soft hover:shadow-medium transition-shadow duration-300">
                     <img 

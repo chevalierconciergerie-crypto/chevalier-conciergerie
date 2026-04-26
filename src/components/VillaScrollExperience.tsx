@@ -1,4 +1,5 @@
-import { useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 
 /* ------------------------------------------------------------------ *
@@ -6,10 +7,20 @@ import { motion, useScroll, useTransform, type MotionValue } from "framer-motion
  *                                                                    *
  * The Mediterranean interior video is rendered globally by           *
  * <FixedVillaBackdrop /> so it stays alive across many sections.     *
- * This component owns only the *hero* overlay layer: a sticky        *
- * 200 vh container with two text reveals (welcome + final CTA),      *
- * sitting on top of the backdrop.                                    *
+ * This component owns the *hero* overlay layer:                      *
+ *   • the original "VOTRE CONCIERGERIE" headline with rotating       *
+ *     cities (Avignon · Villeneuve-lès-Avignon · Aix-en-Provence ·   *
+ *     Montpellier), and the two main CTA buttons baked in.           *
+ *   • a subtle radial darkening behind the text for legibility       *
+ *     without dimming the rest of the (sun-drenched) video.          *
  * ------------------------------------------------------------------ */
+
+const cities = [
+  "Avignon",
+  "Villeneuve-lès-Avignon",
+  "Aix-en-Provence",
+  "Montpellier",
+];
 
 const Overlay = ({
   progress,
@@ -28,11 +39,15 @@ const Overlay = ({
     <motion.div
       className={
         "absolute inset-0 flex flex-col px-6 pointer-events-none " +
-        (align === "bottom" ? "justify-end pb-24 md:pb-32" : "items-center justify-center text-center")
+        (align === "bottom"
+          ? "justify-end pb-24 md:pb-32"
+          : "items-center justify-center text-center")
       }
       style={{ opacity, y }}
     >
-      <div className={align === "bottom" ? "mx-auto max-w-3xl" : "max-w-3xl"}>{children}</div>
+      <div className={align === "bottom" ? "mx-auto max-w-3xl" : "max-w-5xl"}>
+        {children}
+      </div>
     </motion.div>
   );
 };
@@ -44,6 +59,20 @@ export const VillaScrollExperience = () => {
     offset: ["start start", "end end"],
   });
 
+  // Cycling cities for the gold italic line
+  const [currentCityIndex, setCurrentCityIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentCityIndex((prev) => (prev + 1) % cities.length);
+        setIsAnimating(false);
+      }, 600);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
       ref={sectionRef}
@@ -52,45 +81,100 @@ export const VillaScrollExperience = () => {
       aria-label="Visite immersive — Chevalier Conciergerie"
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        {/* Soft radial darkening behind hero text — improves legibility
-            without darkening the bright Provençal video for later sections. */}
+        {/* Soft radial darkening behind the hero text — keeps legibility
+            without dimming the bright Provençal video for later sections. */}
         <motion.div
           className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(8,12,24,0.55)_0%,rgba(8,12,24,0.35)_45%,transparent_75%)]"
-          style={{ opacity: useTransform(scrollYProgress, [0, 0.6, 1], [1, 0.7, 0]) }}
+          style={{
+            opacity: useTransform(scrollYProgress, [0, 0.6, 1], [1, 0.7, 0]),
+          }}
         />
 
-        {/* Welcome — fades in immediately, fades out as we descend */}
-        <Overlay progress={scrollYProgress} range={[-1, 0, 0.35, 0.55]}>
-          <div className="text-primary-foreground text-center">
-            <div className="w-12 h-px bg-gold/70 mx-auto mb-6" />
-            <p className="font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase text-gold/85 mb-6">
+        {/* Original VOTRE CONCIERGERIE hero with rotating city + CTAs */}
+        <Overlay progress={scrollYProgress} range={[-1, 0, 0.55, 0.85]}>
+          <div className="text-center w-full">
+            <motion.div
+              className="w-10 h-px bg-gold/60 mx-auto mb-6"
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={{ scaleX: 1, opacity: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            />
+            <motion.p
+              className="font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase text-primary-foreground/55 mb-6 md:mb-8"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.1 }}
+            >
               Chevalier Conciergerie
-            </p>
-            <h1 className="font-serif text-4xl md:text-7xl lg:text-8xl font-light tracking-[0.04em] leading-[1.05] [text-wrap:balance]">
-              Bienvenue dans
-              <br />
-              <em className="text-gold not-italic">l'art du sur-mesure</em>
-            </h1>
-            <p className="font-sans mt-8 text-[11px] md:text-xs tracking-[0.3em] uppercase text-primary-foreground/65">
-              Faites défiler pour découvrir
-            </p>
-          </div>
-        </Overlay>
+            </motion.p>
 
-        {/* Final CTA — appears as we approach the services section */}
-        <Overlay progress={scrollYProgress} range={[0.6, 0.75, 0.95, 1]} align="bottom">
-          <div className="text-primary-foreground text-center">
-            <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light tracking-wide leading-tight [text-wrap:balance]">
-              Vous percevez,
-              <br />
-              <em className="text-gold not-italic">nous orchestrons</em>
-            </h2>
+            <motion.h1
+              className="font-serif text-[2.2rem] leading-tight sm:text-5xl md:text-7xl lg:text-8xl font-light text-primary-foreground tracking-[0.06em] mb-3 md:mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            >
+              VOTRE CONCIERGERIE
+            </motion.h1>
+
+            <motion.div
+              className="relative h-10 sm:h-14 md:h-20 overflow-hidden mb-8 md:mb-10"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.45 }}
+            >
+              <span
+                className={`font-serif text-2xl sm:text-4xl md:text-6xl text-gold italic absolute inset-0 flex items-center justify-center transition-all duration-700 ease-out [text-shadow:0_0_30px_hsl(var(--gold)/0.5)] ${
+                  isAnimating
+                    ? "opacity-0 translate-y-6"
+                    : "opacity-100 translate-y-0"
+                }`}
+              >
+                {cities[currentCityIndex]}
+              </span>
+            </motion.div>
+
+            <motion.p
+              className="font-sans text-[11px] md:text-sm text-primary-foreground/65 max-w-md mx-auto mb-8 md:mb-10 leading-relaxed tracking-[0.15em] uppercase"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.6 }}
+            >
+              Conciergerie haut de gamme &<br />
+              sous-location professionnelle
+            </motion.p>
+
+            <motion.div
+              className="flex items-center justify-center gap-3 md:gap-5 pointer-events-auto"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.8 }}
+            >
+              <a
+                href="/conciergerie"
+                className="group relative flex items-center gap-2 md:gap-3 border border-primary-foreground/30 px-5 md:px-8 py-3 md:py-4 text-primary-foreground text-[10px] md:text-xs tracking-[0.25em] uppercase backdrop-blur-sm bg-primary/10 hover:bg-primary-foreground/10 transition-all duration-300 overflow-hidden"
+              >
+                <span className="relative z-10">Conciergerie</span>
+                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 relative z-10" />
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary-foreground/15 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+              </a>
+              <a
+                href="/sous-location"
+                className="group relative flex items-center gap-2 md:gap-3 border border-gold/50 px-5 md:px-8 py-3 md:py-4 text-gold text-[10px] md:text-xs tracking-[0.25em] uppercase backdrop-blur-sm bg-gold/5 hover:bg-gold/15 hover:shadow-gold transition-all duration-300 overflow-hidden"
+              >
+                <span className="relative z-10">Sous-location</span>
+                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 relative z-10" />
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-gold/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+              </a>
+            </motion.div>
           </div>
         </Overlay>
 
         {/* Scroll hint */}
         <motion.div
-          style={{ opacity: useTransform(scrollYProgress, [0, 0.08], [1, 0]) }}
+          style={{
+            opacity: useTransform(scrollYProgress, [0, 0.08], [1, 0]),
+          }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 pointer-events-none"
         >
           <div className="w-[18px] h-7 border border-primary-foreground/35 rounded-full flex justify-center">

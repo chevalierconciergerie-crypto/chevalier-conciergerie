@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import VillaScrollExperience from "@/components/VillaScrollExperience";
 import FixedVillaBackdrop from "@/components/FixedVillaBackdrop";
+import RotatingGoldKey from "@/components/three/RotatingGoldKey";
 import LocalExpertise from "@/components/LocalExpertise";
 import PropertyListings from "@/components/PropertyListings";
 import PlatformLogos from "@/components/PlatformLogos";
@@ -75,7 +76,7 @@ const Index = () => {
       </Helmet>
       
       <div className="min-h-screen bg-primary relative">
-        <FixedVillaBackdrop hideAfterId="founder-presentation" />
+        <FixedVillaBackdrop />
         <Header />
         <main className="relative z-10">
           <VillaScrollExperience />
@@ -225,14 +226,21 @@ const Index = () => {
             </div>
           </section>
 
-          {/* Présentation du fondateur — opaque, breaks out of immersion */}
-          <div id="founder-presentation" className="relative bg-background">
+          {/* Présentation du fondateur — dark wash over the video backdrop */}
+          <div
+            id="founder-presentation"
+            className="relative bg-primary/85 backdrop-blur-md"
+          >
             <FounderPresentation />
           </div>
 
-          
-          
-          <div id="nos-proprietes">
+          {/* Money-shot 3D key reveal — between founder & properties */}
+          <RotatingGoldKey />
+
+          <div
+            id="nos-proprietes"
+            className="relative bg-primary/85 backdrop-blur-md"
+          >
             <PropertyListings />
           </div>
         </main>
