@@ -1,101 +1,153 @@
-import { properties } from "@/data/properties";
+import { useState } from "react";
+import { properties, type Property } from "@/data/properties";
 import { ScrollAnimate } from "@/hooks/useScrollAnimation";
 import { ArrowUpRight } from "lucide-react";
 
+/**
+ * La Collection — manifeste éditorial.
+ * Chaque bien est une ligne typographique : numéro / nom / lieu /
+ * capacité / prix. La photo n'apparaît qu'en fantôme au survol,
+ * flottante à droite. La typographie domine, l'image accompagne.
+ *
+ * Référence : carte des suites d'un palace, manifesto Aman, listing
+ * éditorial Loro Piana. Le luxe ne crie pas son inventaire.
+ */
+
 const PropertyListings = () => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
-    <section className="py-24 md:py-36 bg-black">
-      <div className="container mx-auto px-6">
+    <section className="relative py-24 md:py-36 bg-black overflow-hidden">
+      {/* Vignette photo flottante en arrière-plan */}
+      <div className="absolute inset-0 pointer-events-none flex items-center justify-end pr-[5%]">
+        {properties.map((p, i) => (
+          <img
+            key={p.slug}
+            src={p.images[0]}
+            alt=""
+            aria-hidden="true"
+            className={`absolute right-[6%] top-1/2 -translate-y-1/2 w-[42%] max-w-[520px] aspect-[3/4] object-cover transition-all duration-[1.4s] ease-out ${
+              hoveredIndex === i
+                ? "opacity-30 scale-100"
+                : "opacity-0 scale-105"
+            }`}
+            loading="lazy"
+            decoding="async"
+          />
+        ))}
+        <div className="absolute right-0 top-0 bottom-0 w-[55%] bg-gradient-to-l from-transparent via-black/40 to-black pointer-events-none" />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <ScrollAnimate>
-          <div className="text-center max-w-2xl mx-auto mb-20 md:mb-28">
-            <div className="w-10 h-px bg-gold/60 mx-auto mb-6" />
+          <header className="max-w-3xl mb-20 md:mb-28">
+            <div className="w-10 h-px bg-gold/60 mb-6" />
             <span className="font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase text-gold/85">
-              La sélection
+              La Collection
             </span>
             <h2
-              className="font-serif font-light text-white tracking-[-0.01em] mt-6 [text-wrap:balance]"
-              style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
+              className="font-serif font-light text-white mt-6 tracking-[-0.015em] leading-[1] [text-wrap:balance]"
+              style={{ fontSize: "clamp(2.4rem, 6vw, 5rem)" }}
             >
-              Nos biens, <em className="not-italic text-gold">en gestion.</em>
+              Huit clés. <em className="not-italic text-gold">Huit histoires.</em>
             </h2>
-            <p className="font-sans text-sm md:text-base text-white/55 leading-relaxed mt-6 max-w-md mx-auto">
-              Studios et appartements intra-muros et autour des remparts.
-              Chaque clé a été remise en personne au moins une fois.
+            <p className="font-sans text-sm md:text-base text-white/55 leading-relaxed mt-8 max-w-md">
+              Chaque bien remis en personne, chaque voyageur reçu comme
+              un ami. La photo n'a pas d'importance — la qualité du
+              passage si.
             </p>
-          </div>
+          </header>
         </ScrollAnimate>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-20 md:gap-y-28 gap-x-12 md:gap-x-16 max-w-6xl mx-auto">
-          {properties.map((property, index) => (
-            <ScrollAnimate key={property.slug} delay={(index % 2) * 100}>
-              <a
-                href={property.airbnbUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block"
-              >
-                <div className="relative overflow-hidden aspect-[4/5] bg-white/[0.03]">
-                  <img
-                    src={property.images[0]}
-                    alt={property.name}
-                    loading="lazy"
-                    decoding="async"
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.04]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent" />
-
-                  <div className="absolute top-5 left-5 right-5 flex items-start justify-between text-white/85">
-                    <span className="font-mono text-[9px] md:text-[10px] tracking-[0.3em] uppercase bg-black/35 backdrop-blur-sm px-2.5 py-1">
-                      {property.location}
-                    </span>
-                    <span className="font-mono text-[9px] md:text-[10px] tracking-[0.25em] uppercase text-gold bg-black/35 backdrop-blur-sm px-2.5 py-1">
-                      ★ Airbnb
-                    </span>
-                  </div>
-
-                  <div className="absolute bottom-5 right-5 w-11 h-11 rounded-full border border-white/30 bg-black/30 backdrop-blur-sm flex items-center justify-center text-white/85 transition-all duration-500 group-hover:bg-gold group-hover:border-gold group-hover:text-black">
-                    <ArrowUpRight className="w-4 h-4" />
-                  </div>
-                </div>
-
-                <div className="mt-6 flex items-baseline justify-between gap-4">
-                  <h3 className="font-serif text-xl md:text-2xl text-white font-light tracking-[-0.005em] leading-tight">
-                    {property.name}
-                  </h3>
-                  <div className="text-right whitespace-nowrap">
-                    <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/40">
-                      À partir de
-                    </div>
-                    <div className="font-serif text-lg md:text-xl text-gold font-light leading-none mt-1">
-                      {property.priceFrom}€<span className="text-sm text-gold/60"> / nuit</span>
-                    </div>
-                  </div>
-                </div>
-
-                <p className="mt-3 font-sans text-sm text-white/55 leading-relaxed max-w-md">
-                  {property.shortDescription}
-                </p>
-
-                <div className="mt-5 flex items-center gap-4 text-white/35">
-                  <span className="font-mono text-[10px] tracking-[0.25em] uppercase">
-                    {property.bedrooms}
-                  </span>
-                  <span className="w-1 h-1 rounded-full bg-white/20" />
-                  <span className="font-mono text-[10px] tracking-[0.25em] uppercase">
-                    {property.guests} voyageurs
-                  </span>
-                  <span className="w-1 h-1 rounded-full bg-white/20" />
-                  <span className="font-mono text-[10px] tracking-[0.25em] uppercase">
-                    {property.bathrooms} sdb
-                  </span>
-                </div>
-              </a>
-            </ScrollAnimate>
+        <div className="max-w-5xl">
+          {properties.map((p, i) => (
+            <PropertyRow
+              key={p.slug}
+              property={p}
+              index={i}
+              isHovered={hoveredIndex === i}
+              onHover={(h) => setHoveredIndex(h ? i : null)}
+            />
           ))}
         </div>
       </div>
     </section>
   );
 };
+
+const PropertyRow = ({
+  property,
+  index,
+  isHovered,
+  onHover,
+}: {
+  property: Property;
+  index: number;
+  isHovered: boolean;
+  onHover: (h: boolean) => void;
+}) => (
+  <a
+    href={property.airbnbUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    onMouseEnter={() => onHover(true)}
+    onMouseLeave={() => onHover(false)}
+    className="group block border-t border-white/10 transition-colors duration-500 hover:border-gold/50"
+  >
+    <div className="grid grid-cols-12 items-baseline gap-x-3 md:gap-x-6 py-7 md:py-9">
+      {/* Numéro */}
+      <div className="col-span-2 md:col-span-1">
+        <span className="font-mono text-[10px] md:text-xs tracking-[0.2em] text-white/35 group-hover:text-gold/80 transition-colors duration-500">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+      </div>
+
+      {/* Nom + sous-titre */}
+      <div className="col-span-10 md:col-span-5">
+        <h3
+          className="font-serif font-light text-white tracking-[-0.005em] leading-[1.05] group-hover:translate-x-1 transition-transform duration-500"
+          style={{ fontSize: "clamp(1.5rem, 3.2vw, 2.5rem)" }}
+        >
+          {property.name.split("–")[0].trim()}
+          <span className="font-serif italic text-gold/85 ml-2 text-[0.6em] align-baseline">
+            {property.name.split("–").slice(1).join("–").trim()}
+          </span>
+        </h3>
+      </div>
+
+      {/* Lieu + capacité */}
+      <div className="col-span-7 md:col-span-3 mt-3 md:mt-0">
+        <div className="font-sans text-[10px] md:text-[11px] tracking-[0.25em] uppercase text-white/45 leading-relaxed">
+          {property.location}
+        </div>
+        <div className="font-sans text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-white/30 mt-1">
+          {property.bedrooms} · {property.guests} voyageurs
+        </div>
+      </div>
+
+      {/* Prix + flèche */}
+      <div className="col-span-5 md:col-span-3 flex items-center justify-end gap-3 md:gap-5 mt-3 md:mt-0">
+        <div className="text-right">
+          <div className="font-mono text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/35">
+            À partir de
+          </div>
+          <div className="font-serif text-lg md:text-2xl text-gold font-light tabular-nums leading-none mt-1">
+            {property.priceFrom}<span className="text-base">€</span>
+          </div>
+        </div>
+        <div className="w-9 h-9 md:w-10 md:h-10 rounded-full border border-white/15 flex items-center justify-center transition-all duration-500 group-hover:border-gold group-hover:bg-gold group-hover:rotate-45 text-white/55 group-hover:text-black">
+          <ArrowUpRight className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-500 group-hover:-rotate-45" />
+        </div>
+      </div>
+    </div>
+
+    {/* Indicator hover */}
+    <div
+      className={`h-px bg-gold transition-all duration-500 ease-out ${
+        isHovered ? "w-full" : "w-0"
+      }`}
+    />
+  </a>
+);
 
 export default PropertyListings;

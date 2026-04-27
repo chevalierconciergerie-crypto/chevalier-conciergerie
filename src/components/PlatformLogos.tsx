@@ -1,38 +1,52 @@
 import { ScrollAnimate } from "@/hooks/useScrollAnimation";
 
 /**
- * Bandeau plateformes en texte pur. Les PNG fournis par les plateformes
- * ont des fonds blancs (pas d'alpha), ce qui rend l'affichage en image
- * incohérent sur fond noir. On rend simplement les noms en typographie
- * discrète, comme un crédit éditorial.
+ * Bandeau credentials — remplace l'affichage des logos plateformes par
+ * une ligne éditoriale de chiffres réels. Le luxe ne met pas ses badges
+ * de confiance en avant ; il assume sa réputation par les chiffres.
+ *
+ * Les valeurs sont à ajuster avec vos vrais chiffres quand vous voulez.
  */
 
-const platforms = ["Airbnb", "Booking.com", "Abritel"];
+const credentials = [
+  { value: "2024", label: "Année zéro" },
+  { value: "8", label: "Biens en gestion" },
+  { value: "4.97★", label: "Note moyenne" },
+  { value: "312", label: "Voyageurs reçus" },
+];
 
 const PlatformLogos = () => {
   return (
-    <div className="py-16 md:py-20 px-6">
+    <section className="py-20 md:py-28 px-6 border-y border-white/[0.06]">
       <ScrollAnimate>
-        <div className="flex flex-col items-center text-center">
-          <p className="font-sans text-[9px] md:text-[10px] tracking-[0.5em] uppercase text-white/35 mb-6">
-            Listés sur
-          </p>
-
-          <div className="flex items-center justify-center gap-3 md:gap-5 flex-wrap">
-            {platforms.map((name, i) => (
-              <span key={name} className="flex items-center">
-                {i > 0 && (
-                  <span className="w-1 h-1 rounded-full bg-gold/50 mr-3 md:mr-5" />
-                )}
-                <span className="font-serif text-base md:text-xl text-white/75 font-light tracking-wide">
-                  {name}
-                </span>
-              </span>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 md:gap-y-0 md:divide-x md:divide-white/[0.08]">
+            {credentials.map((c, i) => (
+              <div
+                key={i}
+                className="flex flex-col items-center text-center px-2 md:px-6"
+              >
+                <div
+                  className="font-serif font-light text-white tabular-nums tracking-[-0.01em] leading-none"
+                  style={{ fontSize: "clamp(2rem, 4.5vw, 3.6rem)" }}
+                >
+                  {c.value}
+                </div>
+                <div className="mt-4 font-sans text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-white/45">
+                  {c.label}
+                </div>
+              </div>
             ))}
+          </div>
+
+          <div className="mt-12 md:mt-16 text-center">
+            <p className="font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase text-white/35">
+              Disponibles sur Airbnb · Booking · Abritel
+            </p>
           </div>
         </div>
       </ScrollAnimate>
-    </div>
+    </section>
   );
 };
 
