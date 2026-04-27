@@ -2,8 +2,6 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import VillaScrollExperience from "@/components/VillaScrollExperience";
-import FixedVillaBackdrop from "@/components/FixedVillaBackdrop";
-import RotatingGoldKey from "@/components/three/RotatingGoldKey";
 import PropertyListings from "@/components/PropertyListings";
 import PlatformLogos from "@/components/PlatformLogos";
 import FounderPresentation from "@/components/FounderPresentation";
@@ -15,8 +13,8 @@ import TypoScene from "@/components/scenes/TypoScene";
 import { ArrowRight, Home, Sparkles, Instagram, Facebook, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import serviceConciergerie from "@/assets/service-conciergerie-luxury.jpg";
-import serviceSousLocation from "@/assets/service-souslocation-luxury.jpg";
+import serviceConciergerie from "@/assets/appart-renove-intramuros-2.jpg";
+import serviceSousLocation from "@/assets/appart-coeur-avignon-4.png";
 import { ScrollAnimate } from "@/hooks/useScrollAnimation";
 
 
@@ -78,8 +76,7 @@ const Index = () => {
         </script>
       </Helmet>
       
-      <div className="min-h-screen bg-primary relative">
-        <FixedVillaBackdrop />
+      <div className="min-h-screen bg-black relative">
         <Header />
         <main className="relative z-10">
           <VillaScrollExperience />
@@ -238,15 +235,12 @@ const Index = () => {
           {/* Scène 03 — Thermique : optimisation des revenus */}
           <ThermalScene />
 
-          {/* Présentation du fondateur — transparent, video continues behind */}
+          {/* Présentation du fondateur */}
           <div id="founder-presentation" className="relative">
             <FounderPresentation />
           </div>
 
-          {/* Money-shot 3D key reveal — between founder & properties */}
-          <RotatingGoldKey />
-
-          {/* Scène 05 — Territoire : Avignon en typo géante */}
+          {/* Scène 04 — Territoire : Avignon en typo géante */}
           <TypoScene />
 
           <div id="nos-proprietes" className="relative">

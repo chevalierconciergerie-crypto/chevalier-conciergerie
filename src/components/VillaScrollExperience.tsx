@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import heroVideo from "@/assets/hero-video-luxury.mp4";
 
 /* ------------------------------------------------------------------ *
  * VILLA SCROLL EXPERIENCE                                            *
@@ -89,13 +90,28 @@ export const VillaScrollExperience = () => {
       style={{ height: "200vh" }}
       aria-label="Visite immersive — Chevalier Conciergerie"
     >
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
-        {/* Soft radial darkening behind the hero text — keeps legibility
-            without dimming the bright Provençal video for later sections. */}
-        <motion.div
-          className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(8,12,24,0.55)_0%,rgba(8,12,24,0.35)_45%,transparent_75%)]"
+      <div className="sticky top-0 h-screen w-full overflow-hidden bg-primary">
+        {/* Hero video, scope au héros uniquement (pas de backdrop fixe global) */}
+        <motion.video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover will-change-transform"
           style={{
-            opacity: useTransform(scrollYProgress, [0, 0.6, 1], [1, 0.7, 0]),
+            scale: useTransform(scrollYProgress, [0, 1], [1.04, 1.18]),
+            opacity: useTransform(scrollYProgress, [0, 0.55, 1], [1, 1, 0.6]),
+          }}
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </motion.video>
+
+        {/* Dim cinématique pour lisibilité du texte */}
+        <motion.div
+          className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(8,12,24,0.6)_0%,rgba(8,12,24,0.45)_45%,rgba(8,12,24,0.2)_100%)]"
+          style={{
+            opacity: useTransform(scrollYProgress, [0, 0.6, 1], [1, 0.85, 1]),
           }}
         />
 
