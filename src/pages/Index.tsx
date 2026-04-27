@@ -10,11 +10,8 @@ import BlueprintScene from "@/components/scenes/BlueprintScene";
 import EditorialMosaic from "@/components/scenes/EditorialMosaic";
 import ThermalScene from "@/components/scenes/ThermalScene";
 import TypoScene from "@/components/scenes/TypoScene";
-import { ArrowRight, Home, Sparkles, Instagram, Facebook, Linkedin } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, Instagram, Facebook, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
-import serviceConciergerie from "@/assets/appart-renove-intramuros-2.jpg";
-import serviceSousLocation from "@/assets/appart-coeur-avignon-4.png";
 import { ScrollAnimate } from "@/hooks/useScrollAnimation";
 
 
@@ -108,112 +105,105 @@ const Index = () => {
           <section id="formules" className="relative pt-2 pb-12 md:pt-2 md:pb-20 overflow-hidden">
             <div className="container mx-auto px-6 relative z-10">
               <ScrollAnimate>
-                <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
-                  <div className="w-10 h-px bg-gold/50 mx-auto mb-5" />
-                  <span className="font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase text-gold">
-                    Nos Solutions
+                <div className="text-center max-w-2xl mx-auto mb-14 md:mb-20">
+                  <div className="w-10 h-px bg-gold/60 mx-auto mb-6" />
+                  <span className="font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase text-gold/85">
+                    Deux chemins
                   </span>
-                  <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light text-primary-foreground mt-6 mb-6 tracking-wide">
-                    Deux Formules
+                  <h2
+                    className="font-serif font-light text-white mt-6 tracking-[-0.01em] [text-wrap:balance]"
+                    style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
+                  >
+                    Confier, ou <em className="not-italic text-gold">céder.</em>
                   </h2>
-                  <p className="font-sans text-sm md:text-base text-primary-foreground/65 tracking-wide leading-relaxed">
-                    Que vous souhaitiez déléguer la gestion ou sécuriser vos revenus,<br className="hidden md:block" />
-                    nous avons la solution adaptée.
+                  <p className="font-sans text-sm md:text-base text-white/55 tracking-wide leading-relaxed mt-6 max-w-md mx-auto">
+                    Selon que vous voulez garder la main sur votre bien
+                    ou en sécuriser le rendement à long terme.
                   </p>
                 </div>
               </ScrollAnimate>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
-                {/* Conciergerie Card */}
-                <ScrollAnimate delay={100} animation="slide-right">
-                  <TiltCard className="group" intensity={6}>
-                  <Link to="/conciergerie" className="block">
-                    <div className="relative overflow-hidden aspect-[4/5] md:aspect-[3/4] rounded-lg">
-                      <img 
-                        src={serviceConciergerie} 
-                        alt="Service Conciergerie"
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent" />
-                      
-                      {/* Content overlay */}
-                      <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-10">
-                        <div className="mb-4">
-                          <div className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center mb-6">
-                            <Sparkles className="w-5 h-5 text-gold" />
-                          </div>
-                          <span className="font-sans text-[10px] tracking-[0.4em] uppercase text-gold/60 mb-3 block">
-                            01 — Service
-                          </span>
-                          <h3 className="font-serif text-3xl md:text-4xl text-primary-foreground font-light tracking-wide mb-4">
-                            Conciergerie
-                          </h3>
-                          <p className="font-sans text-sm text-primary-foreground/60 leading-relaxed mb-6 max-w-sm">
-                            Service complet de gestion locative. Accueil voyageurs, ménage professionnel, optimisation des revenus.
-                          </p>
-                        </div>
-                        
-                        <div className="flex items-center gap-3">
-                          <span className="px-4 py-1.5 border border-gold/20 text-[10px] tracking-[0.2em] text-gold/70 uppercase">
-                            À partir de 20%
-                          </span>
-                        </div>
-                        
-                        <div className="absolute bottom-8 right-8 w-12 h-12 rounded-full border border-primary-foreground/20 flex items-center justify-center group-hover:border-gold/60 group-hover:bg-gold/10 transition-all duration-500">
-                          <ArrowRight className="w-5 h-5 text-primary-foreground/40 group-hover:text-gold transition-colors" />
-                        </div>
-                      </div>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-white/8 max-w-5xl mx-auto">
+                {/* Conciergerie — formule confiance */}
+                <ScrollAnimate delay={100}>
+                  <Link
+                    to="/conciergerie"
+                    className="group relative block bg-black p-10 md:p-14 h-full transition-colors duration-500 hover:bg-white/[0.02]"
+                  >
+                    <div className="flex items-baseline justify-between mb-10">
+                      <span className="font-mono text-[10px] tracking-[0.4em] uppercase text-gold/70">
+                        Formule I
+                      </span>
+                      <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-white/30">
+                        À partir de 20 %
+                      </span>
+                    </div>
+
+                    <h3
+                      className="font-serif font-light text-white tracking-[-0.01em] mb-6 leading-[1]"
+                      style={{ fontSize: "clamp(2.4rem, 4.2vw, 3.8rem)" }}
+                    >
+                      Conciergerie
+                    </h3>
+
+                    <p className="font-serif italic text-gold/85 text-base md:text-lg mb-8 leading-relaxed">
+                      Vous restez propriétaire. On s'occupe de tout.
+                    </p>
+
+                    <p className="font-sans text-sm md:text-[15px] text-white/65 leading-relaxed max-w-md mb-12">
+                      Photos, annonces, prix, accueil voyageur, ménage, draps,
+                      linge, suivi des avis, réponses 7j/7. Vous touchez les
+                      revenus, on tient la maison.
+                    </p>
+
+                    <div className="flex items-center gap-3 text-gold/80 group-hover:text-gold transition-colors">
+                      <span className="font-sans text-[11px] md:text-xs tracking-[0.3em] uppercase">
+                        En savoir plus
+                      </span>
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
                     </div>
                   </Link>
-                  </TiltCard>
                 </ScrollAnimate>
 
-                {/* Sous-location Card */}
-                <ScrollAnimate delay={200} animation="slide-left">
-                  <TiltCard className="group" intensity={6}>
-                  <Link to="/sous-location" className="block">
-                    <div className="relative overflow-hidden aspect-[4/5] md:aspect-[3/4] rounded-lg">
-                      <img 
-                        src={serviceSousLocation} 
-                        alt="Sous-location professionnelle"
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent" />
-                      
-                      {/* Content overlay */}
-                      <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-10">
-                        <div className="mb-4">
-                          <div className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center mb-6">
-                            <Home className="w-5 h-5 text-gold" />
-                          </div>
-                          <span className="font-sans text-[10px] tracking-[0.4em] uppercase text-gold/60 mb-3 block">
-                            02 — Solution
-                          </span>
-                          <h3 className="font-serif text-3xl md:text-4xl text-primary-foreground font-light tracking-wide mb-4">
-                            Sous-Location
-                          </h3>
-                          <p className="font-sans text-sm text-primary-foreground/60 leading-relaxed mb-6 max-w-sm">
-                            Loyer garanti chaque mois, zéro vacance locative. Aucune gestion, aucun risque.
-                          </p>
-                        </div>
-                        
-                        <div className="flex items-center gap-3">
-                          <span className="px-4 py-1.5 border border-gold/20 text-[10px] tracking-[0.2em] text-gold/70 uppercase">
-                            Revenus sécurisés
-                          </span>
-                        </div>
-                        
-                        <div className="absolute bottom-8 right-8 w-12 h-12 rounded-full border border-primary-foreground/20 flex items-center justify-center group-hover:border-gold/60 group-hover:bg-gold/10 transition-all duration-500">
-                          <ArrowRight className="w-5 h-5 text-primary-foreground/40 group-hover:text-gold transition-colors" />
-                        </div>
-                      </div>
+                {/* Sous-location — formule sérénité totale */}
+                <ScrollAnimate delay={200}>
+                  <Link
+                    to="/sous-location"
+                    className="group relative block bg-black p-10 md:p-14 h-full transition-colors duration-500 hover:bg-white/[0.02]"
+                  >
+                    <div className="flex items-baseline justify-between mb-10">
+                      <span className="font-mono text-[10px] tracking-[0.4em] uppercase text-gold/70">
+                        Formule II
+                      </span>
+                      <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-white/30">
+                        Loyer garanti
+                      </span>
+                    </div>
+
+                    <h3
+                      className="font-serif font-light text-white tracking-[-0.01em] mb-6 leading-[1]"
+                      style={{ fontSize: "clamp(2.4rem, 4.2vw, 3.8rem)" }}
+                    >
+                      Sous-location
+                    </h3>
+
+                    <p className="font-serif italic text-gold/85 text-base md:text-lg mb-8 leading-relaxed">
+                      On vous loue le bien. Le reste ne vous concerne plus.
+                    </p>
+
+                    <p className="font-sans text-sm md:text-[15px] text-white/65 leading-relaxed max-w-md mb-12">
+                      Bail commercial, loyer fixe versé chaque mois, peu
+                      importe la saison ou la météo. Aucune gestion, aucune
+                      vacance, aucun message d'urgence à 23 h.
+                    </p>
+
+                    <div className="flex items-center gap-3 text-gold/80 group-hover:text-gold transition-colors">
+                      <span className="font-sans text-[11px] md:text-xs tracking-[0.3em] uppercase">
+                        En savoir plus
+                      </span>
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
                     </div>
                   </Link>
-                  </TiltCard>
                 </ScrollAnimate>
               </div>
             </div>

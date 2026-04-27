@@ -37,17 +37,24 @@ export const TypoScene = () => {
           Avignon<span className="text-gold">.</span>
         </motion.h2>
 
-        {/* Sous-texte simple, centré */}
+        {/* Sous-texte ancré dans le territoire */}
         <motion.div
-          className="relative mt-8 md:mt-12 px-6 text-center"
+          className="relative mt-10 md:mt-14 px-6 text-center max-w-2xl"
           style={{ opacity: subOpacity }}
         >
-          <div className="w-10 h-px bg-gold/50 mx-auto mb-5" />
-          <p className="font-sans text-sm md:text-base text-white/65 leading-relaxed max-w-md mx-auto tracking-wide">
-            Une équipe née ici, basée ici.
-            <br />
-            Avignon, Villeneuve-lès-Avignon, Les Angles.
+          <div className="w-10 h-px bg-gold/50 mx-auto mb-6" />
+          <p className="font-sans text-sm md:text-base text-white/70 leading-relaxed tracking-wide">
+            Né ici. Basé ici. On connaît la ruelle des Teinturiers à 6 h
+            du matin, le pic de fréquentation du Festival, et le moment
+            précis où il faut ouvrir les volets l'été.
           </p>
+          <div className="mt-8 flex items-center justify-center gap-3 md:gap-5 font-mono text-[9px] md:text-[10px] tracking-[0.35em] uppercase text-white/40">
+            <span>Avignon</span>
+            <span className="w-1 h-1 rounded-full bg-gold/60" />
+            <span>Villeneuve-lès-Avignon</span>
+            <span className="w-1 h-1 rounded-full bg-gold/60" />
+            <span>Les Angles</span>
+          </div>
         </motion.div>
       </div>
     </section>
