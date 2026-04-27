@@ -5,13 +5,12 @@ import VillaScrollExperience from "@/components/VillaScrollExperience";
 import PropertyListings from "@/components/PropertyListings";
 import PlatformLogos from "@/components/PlatformLogos";
 import FounderPresentation from "@/components/FounderPresentation";
-import TiltCard from "@/components/TiltCard";
 import BlueprintScene from "@/components/scenes/BlueprintScene";
 import EditorialMosaic from "@/components/scenes/EditorialMosaic";
 import ThermalScene from "@/components/scenes/ThermalScene";
 import TypoScene from "@/components/scenes/TypoScene";
-import { ArrowRight, Instagram, Facebook, Linkedin } from "lucide-react";
-import { Link } from "react-router-dom";
+import TwoPaths from "@/components/scenes/TwoPaths";
+import { Instagram, Facebook, Linkedin } from "lucide-react";
 import { ScrollAnimate } from "@/hooks/useScrollAnimation";
 
 
@@ -101,113 +100,10 @@ const Index = () => {
             </div>
           </section>
 
-          {/* Services — transparent over video, light text */}
-          <section id="formules" className="relative pt-2 pb-12 md:pt-2 md:pb-20 overflow-hidden">
-            <div className="container mx-auto px-6 relative z-10">
-              <ScrollAnimate>
-                <div className="text-center max-w-2xl mx-auto mb-14 md:mb-20">
-                  <div className="w-10 h-px bg-gold/60 mx-auto mb-6" />
-                  <span className="font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase text-gold/85">
-                    Deux chemins
-                  </span>
-                  <h2
-                    className="font-serif font-light text-white mt-6 tracking-[-0.01em] [text-wrap:balance]"
-                    style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
-                  >
-                    Confier, ou <em className="not-italic text-gold">céder.</em>
-                  </h2>
-                  <p className="font-sans text-sm md:text-base text-white/55 tracking-wide leading-relaxed mt-6 max-w-md mx-auto">
-                    Selon que vous voulez garder la main sur votre bien
-                    ou en sécuriser le rendement à long terme.
-                  </p>
-                </div>
-              </ScrollAnimate>
-
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-white/8 max-w-5xl mx-auto">
-                {/* Conciergerie — formule confiance */}
-                <ScrollAnimate delay={100}>
-                  <Link
-                    to="/conciergerie"
-                    className="group relative block bg-black p-10 md:p-14 h-full transition-colors duration-500 hover:bg-white/[0.02]"
-                  >
-                    <div className="flex items-baseline justify-between mb-10">
-                      <span className="font-mono text-[10px] tracking-[0.4em] uppercase text-gold/70">
-                        Formule I
-                      </span>
-                      <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-white/30">
-                        À partir de 20 %
-                      </span>
-                    </div>
-
-                    <h3
-                      className="font-serif font-light text-white tracking-[-0.01em] mb-6 leading-[1]"
-                      style={{ fontSize: "clamp(2.4rem, 4.2vw, 3.8rem)" }}
-                    >
-                      Conciergerie
-                    </h3>
-
-                    <p className="font-serif italic text-gold/85 text-base md:text-lg mb-8 leading-relaxed">
-                      Vous restez propriétaire. On s'occupe de tout.
-                    </p>
-
-                    <p className="font-sans text-sm md:text-[15px] text-white/65 leading-relaxed max-w-md mb-12">
-                      Photos, annonces, prix, accueil voyageur, ménage, draps,
-                      linge, suivi des avis, réponses 7j/7. Vous touchez les
-                      revenus, on tient la maison.
-                    </p>
-
-                    <div className="flex items-center gap-3 text-gold/80 group-hover:text-gold transition-colors">
-                      <span className="font-sans text-[11px] md:text-xs tracking-[0.3em] uppercase">
-                        En savoir plus
-                      </span>
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
-                    </div>
-                  </Link>
-                </ScrollAnimate>
-
-                {/* Sous-location — formule sérénité totale */}
-                <ScrollAnimate delay={200}>
-                  <Link
-                    to="/sous-location"
-                    className="group relative block bg-black p-10 md:p-14 h-full transition-colors duration-500 hover:bg-white/[0.02]"
-                  >
-                    <div className="flex items-baseline justify-between mb-10">
-                      <span className="font-mono text-[10px] tracking-[0.4em] uppercase text-gold/70">
-                        Formule II
-                      </span>
-                      <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-white/30">
-                        Loyer garanti
-                      </span>
-                    </div>
-
-                    <h3
-                      className="font-serif font-light text-white tracking-[-0.01em] mb-6 leading-[1]"
-                      style={{ fontSize: "clamp(2.4rem, 4.2vw, 3.8rem)" }}
-                    >
-                      Sous-location
-                    </h3>
-
-                    <p className="font-serif italic text-gold/85 text-base md:text-lg mb-8 leading-relaxed">
-                      On vous loue le bien. Le reste ne vous concerne plus.
-                    </p>
-
-                    <p className="font-sans text-sm md:text-[15px] text-white/65 leading-relaxed max-w-md mb-12">
-                      Bail commercial, loyer fixe versé chaque mois, peu
-                      importe la saison ou la météo. Aucune gestion, aucune
-                      vacance, aucun message d'urgence à 23 h.
-                    </p>
-
-                    <div className="flex items-center gap-3 text-gold/80 group-hover:text-gold transition-colors">
-                      <span className="font-sans text-[11px] md:text-xs tracking-[0.3em] uppercase">
-                        En savoir plus
-                      </span>
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
-                    </div>
-                  </Link>
-                </ScrollAnimate>
-              </div>
-            </div>
-          </section>
+          {/* Deux chemins — chapitres pleine largeur palette inversée */}
+          <div id="formules">
+            <TwoPaths />
+          </div>
 
           {/* Platform Logos — transparent over video */}
           <section className="py-8 relative">
