@@ -4,11 +4,14 @@ import Footer from "@/components/Footer";
 import VillaScrollExperience from "@/components/VillaScrollExperience";
 import FixedVillaBackdrop from "@/components/FixedVillaBackdrop";
 import RotatingGoldKey from "@/components/three/RotatingGoldKey";
-import LocalExpertise from "@/components/LocalExpertise";
 import PropertyListings from "@/components/PropertyListings";
 import PlatformLogos from "@/components/PlatformLogos";
 import FounderPresentation from "@/components/FounderPresentation";
 import TiltCard from "@/components/TiltCard";
+import BlueprintScene from "@/components/scenes/BlueprintScene";
+import EditorialMosaic from "@/components/scenes/EditorialMosaic";
+import ThermalScene from "@/components/scenes/ThermalScene";
+import TypoScene from "@/components/scenes/TypoScene";
 import { ArrowRight, Home, Sparkles, Instagram, Facebook, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -226,6 +229,15 @@ const Index = () => {
             </div>
           </section>
 
+          {/* Scène 01 — Blueprint : "ce n'est pas qu'une simple location" */}
+          <BlueprintScene />
+
+          {/* Scène 02 — Mosaïque éditoriale magazine */}
+          <EditorialMosaic />
+
+          {/* Scène 03 — Thermique : optimisation des revenus */}
+          <ThermalScene />
+
           {/* Présentation du fondateur — transparent, video continues behind */}
           <div id="founder-presentation" className="relative">
             <FounderPresentation />
@@ -233,6 +245,9 @@ const Index = () => {
 
           {/* Money-shot 3D key reveal — between founder & properties */}
           <RotatingGoldKey />
+
+          {/* Scène 05 — Territoire : Avignon en typo géante */}
+          <TypoScene />
 
           <div id="nos-proprietes" className="relative">
             <PropertyListings />
