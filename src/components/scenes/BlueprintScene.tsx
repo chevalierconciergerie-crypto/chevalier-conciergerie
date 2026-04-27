@@ -1,11 +1,12 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import propertyHero from "@/assets/authentique-1.jpg";
 
 /**
- * Scène 01 — Apple iPhone Pro style.
- * Photo plein cadre, ken-burns au scroll, une seule phrase bold qui se révèle.
- * Aucun label décoratif, aucune mire. Juste l'image, une phrase, du noir.
+ * Scène 01 — La voix du fondateur.
+ * Une citation de Victor en serif italique, sur fond noir pur. Aucune photo,
+ * aucun ornement. C'est lui qui parle directement, pas le branding.
+ *
+ * (Texte modifiable : adapter à votre voix réelle quand vous voulez.)
  */
 export const BlueprintScene = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -14,67 +15,47 @@ export const BlueprintScene = () => {
     offset: ["start end", "end start"],
   });
 
-  // Ken-Burns continu sur toute la traversée
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1.15, 1.02]);
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-3%", "3%"]);
-
-  // Vignette / dim qui s'intensifie en bas pour faire ressortir le texte
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.3, 0.6], [0.2, 0.55, 0.75]);
-
-  // Apparition retardée du titre, persistance longue, sortie élégante
-  const titleOpacity = useTransform(scrollYProgress, [0.2, 0.42, 0.78, 0.95], [0, 1, 1, 0]);
-  const titleY = useTransform(scrollYProgress, [0.2, 0.42], [60, 0]);
-
-  const lineOpacity = useTransform(scrollYProgress, [0.45, 0.55, 0.78, 0.95], [0, 1, 1, 0]);
-  const lineY = useTransform(scrollYProgress, [0.45, 0.55], [20, 0]);
+  const quoteOpacity = useTransform(scrollYProgress, [0.15, 0.32, 0.78, 0.92], [0, 1, 1, 0]);
+  const quoteY = useTransform(scrollYProgress, [0.15, 0.32], [40, 0]);
+  const signOpacity = useTransform(scrollYProgress, [0.45, 0.6, 0.78, 0.92], [0, 1, 1, 0]);
+  const signY = useTransform(scrollYProgress, [0.45, 0.6], [20, 0]);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative bg-black"
-      style={{ height: "200vh" }}
-    >
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
-        {/* Image plein cadre */}
-        <motion.div
-          className="absolute inset-0 will-change-transform"
-          style={{ scale: imageScale, y: imageY }}
-        >
-          <img
-            src={propertyHero}
-            alt=""
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
-        </motion.div>
+    <section ref={sectionRef} className="relative bg-black" style={{ height: "180vh" }}>
+      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(43,67%,52%,0.04)_0%,transparent_55%)]" />
 
-        {/* Vignettage cinématique */}
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black"
-          style={{ opacity: overlayOpacity }}
-        />
-
-        {/* Titre — une seule phrase, deux lignes */}
-        <motion.div
-          className="absolute inset-x-0 bottom-[18%] md:bottom-[20%] flex flex-col items-center text-center px-6 pointer-events-none"
-          style={{ opacity: titleOpacity, y: titleY }}
-        >
-          <h2
-            className="font-serif font-light text-white tracking-[-0.02em] leading-[0.95] [text-wrap:balance]"
-            style={{ fontSize: "clamp(2.6rem, 7vw, 6.5rem)" }}
+        <div className="relative w-full max-w-5xl mx-auto px-6 text-center">
+          <motion.blockquote
+            className="font-serif font-light text-white tracking-[-0.005em] [text-wrap:balance]"
+            style={{
+              opacity: quoteOpacity,
+              y: quoteY,
+              fontSize: "clamp(1.6rem, 4vw, 3.4rem)",
+              lineHeight: 1.25,
+            }}
           >
-            Plus qu'un logement.<br />
-            <em className="not-italic text-gold">Une expérience.</em>
-          </h2>
+            <span className="text-gold/70 mr-2 align-top">«</span>
+            Je m'occupe de chaque appartement comme s'il devait accueillir
+            mes proches —{" "}
+            <em className="not-italic text-gold">on n'apprend pas ça dans une formation</em>,
+            on l'apprend en y vivant.
+            <span className="text-gold/70 ml-2 align-top">»</span>
+          </motion.blockquote>
 
-          <motion.p
-            className="font-sans text-sm md:text-base text-white/65 mt-8 max-w-md tracking-wide leading-relaxed"
-            style={{ opacity: lineOpacity, y: lineY }}
+          <motion.div
+            className="mt-12 md:mt-16 flex flex-col items-center"
+            style={{ opacity: signOpacity, y: signY }}
           >
-            Chaque bien est curé, sublimé, et géré avec la précision
-            d'une maison hôtelière.
-          </motion.p>
-        </motion.div>
+            <div className="w-10 h-px bg-gold/50 mb-5" />
+            <p className="font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase text-white/55">
+              Victor Chevalier
+            </p>
+            <p className="font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase text-white/30 mt-2">
+              Fondateur · Avignon
+            </p>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
