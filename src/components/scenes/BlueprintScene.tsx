@@ -21,7 +21,7 @@ export const BlueprintScene = () => {
   const signY = useTransform(scrollYProgress, [0.45, 0.6], [20, 0]);
 
   return (
-    <section ref={sectionRef} className="relative bg-black" style={{ height: "180vh" }}>
+    <section ref={sectionRef} className="relative bg-primary" style={{ height: "180vh" }}>
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(43,67%,52%,0.04)_0%,transparent_55%)]" />
 

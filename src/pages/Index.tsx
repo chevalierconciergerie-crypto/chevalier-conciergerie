@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import VillaScrollExperience from "@/components/VillaScrollExperience";
-import PropertyListings from "@/components/PropertyListings";
 import PlatformLogos from "@/components/PlatformLogos";
 import FounderPresentation from "@/components/FounderPresentation";
 import BlueprintScene from "@/components/scenes/BlueprintScene";
@@ -72,7 +71,7 @@ const Index = () => {
         </script>
       </Helmet>
       
-      <div className="min-h-screen bg-black relative">
+      <div className="min-h-screen bg-primary relative">
         <Header />
         <main className="relative z-10">
           <VillaScrollExperience />
@@ -128,10 +127,6 @@ const Index = () => {
 
           {/* Scène 04 — Territoire : Avignon en typo géante */}
           <TypoScene />
-
-          <div id="nos-proprietes" className="relative">
-            <PropertyListings />
-          </div>
         </main>
         <Footer />
       </div>

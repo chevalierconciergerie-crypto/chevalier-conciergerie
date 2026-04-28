@@ -54,7 +54,7 @@ const Header = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-black/95 backdrop-blur-md shadow-medium py-1 border-b border-gold/30"
+            ? "bg-primary/95 backdrop-blur-md shadow-medium py-1 border-b border-gold/30"
             : "bg-transparent py-4"
         }`}
       >
@@ -126,7 +126,7 @@ const Header = () => {
               <source src={heroVideo} type="video/mp4" />
             </video>
             {/* Dark overlay */}
-            <div className={`absolute inset-0 bg-black/85 backdrop-blur-sm transition-opacity duration-700 ${
+            <div className={`absolute inset-0 bg-primary/85 backdrop-blur-sm transition-opacity duration-700 ${
               isMobileMenuOpen ? "opacity-100" : "opacity-0"
             }`} />
           </div>

@@ -20,7 +20,7 @@ export const TypoScene = () => {
   const subOpacity = useTransform(scrollYProgress, [0.4, 0.55, 0.78, 0.92], [0, 1, 1, 0]);
 
   return (
-    <section ref={sectionRef} className="relative bg-black" style={{ height: "200vh" }}>
+    <section ref={sectionRef} className="relative bg-primary" style={{ height: "200vh" }}>
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-center">
         {/* Halo or très discret */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(43,67%,52%,0.05)_0%,transparent_60%)]" />

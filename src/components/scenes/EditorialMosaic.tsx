@@ -21,7 +21,7 @@ export const EditorialMosaic = () => {
   const p3Op = useTransform(scrollYProgress, [0.42, 0.56, 0.78, 0.92], [0, 1, 1, 0]);
 
   return (
-    <section ref={sectionRef} className="relative bg-black" style={{ height: "240vh" }}>
+    <section ref={sectionRef} className="relative bg-primary" style={{ height: "240vh" }}>
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center">
         <div className="relative w-full max-w-7xl mx-auto px-6 md:px-12">
           <motion.div
@@ -38,17 +38,17 @@ export const EditorialMosaic = () => {
             <Pillar
               op={p1Op}
               word="Choisir."
-              body="Pas tous les biens. Ceux dont on tomberait amoureux à la place du voyageur, ceux où on aimerait passer un week-end."
+              body="Ceux dont on tomberait amoureux à la place du voyageur."
             />
             <Pillar
               op={p2Op}
               word="Accueillir."
-              body="Comme on reçoit un ami : remise des clés en personne quand c'est possible, draps frais, une bouteille au frigo, des conseils sur la rue d'à côté."
+              body="Remise des clés en personne. Draps frais. Une adresse soufflée à l'oreille."
             />
             <Pillar
               op={p3Op}
               word="Tenir."
-              body="Le vrai travail commence après le check-in. Photos qu'on retravaille, prix qu'on ajuste, ménage qu'on contrôle, message à 22h auquel on répond."
+              body="Le vrai travail commence après le check-in."
             />
           </div>
         </div>

@@ -19,7 +19,8 @@ const Path = ({
   numeral,
   variant,
   kicker,
-  title,
+  brand,
+  tagline,
   epigraph,
   inclusions,
   price,
@@ -29,7 +30,8 @@ const Path = ({
   numeral: string;
   variant: "dark" | "light";
   kicker: string;
-  title: string;
+  brand: string;
+  tagline: string;
   epigraph: string;
   inclusions: string[];
   price: string;
@@ -56,18 +58,21 @@ const Path = ({
   const kickerOp = useTransform(scrollYProgress, [0.18, 0.32, 0.78, 0.92], [0, 1, 1, 0]);
   const kickerY = useTransform(scrollYProgress, [0.18, 0.32], [30, 0]);
 
-  const titleOp = useTransform(scrollYProgress, [0.25, 0.4, 0.78, 0.92], [0, 1, 1, 0]);
-  const titleY = useTransform(scrollYProgress, [0.25, 0.4], [50, 0]);
+  const brandOp = useTransform(scrollYProgress, [0.22, 0.38, 0.78, 0.92], [0, 1, 1, 0]);
+  const brandY = useTransform(scrollYProgress, [0.22, 0.38], [60, 0]);
 
-  const epiOp = useTransform(scrollYProgress, [0.35, 0.5, 0.78, 0.92], [0, 1, 1, 0]);
-  const epiY = useTransform(scrollYProgress, [0.35, 0.5], [30, 0]);
+  const taglineOp = useTransform(scrollYProgress, [0.32, 0.46, 0.78, 0.92], [0, 1, 1, 0]);
+  const taglineY = useTransform(scrollYProgress, [0.32, 0.46], [30, 0]);
 
-  const listOp = useTransform(scrollYProgress, [0.45, 0.6, 0.78, 0.92], [0, 1, 1, 0]);
-  const ctaOp = useTransform(scrollYProgress, [0.55, 0.7, 0.78, 0.92], [0, 1, 1, 0]);
-  const ctaY = useTransform(scrollYProgress, [0.55, 0.7], [20, 0]);
+  const epiOp = useTransform(scrollYProgress, [0.4, 0.54, 0.78, 0.92], [0, 1, 1, 0]);
+  const epiY = useTransform(scrollYProgress, [0.4, 0.54], [30, 0]);
+
+  const listOp = useTransform(scrollYProgress, [0.48, 0.62, 0.78, 0.92], [0, 1, 1, 0]);
+  const ctaOp = useTransform(scrollYProgress, [0.56, 0.7, 0.78, 0.92], [0, 1, 1, 0]);
+  const ctaY = useTransform(scrollYProgress, [0.56, 0.7], [20, 0]);
 
   const dark = variant === "dark";
-  const bg = dark ? "bg-black" : "bg-[hsl(36,28%,90%)]";
+  const bg = dark ? "bg-primary" : "bg-[hsl(36,28%,90%)]";
   const text = dark ? "text-white" : "text-[hsl(222,40%,8%)]";
   const muted = dark ? "text-white/60" : "text-[hsl(222,40%,8%)]/65";
   const subtle = dark ? "text-white/30" : "text-[hsl(222,40%,8%)]/40";
@@ -118,24 +123,37 @@ const Path = ({
 
             {/* Colonne droite — corps */}
             <div className="col-span-12 md:col-span-9">
+              {/* Brand : le NOM de l'offre, héros typographique */}
               <motion.h3
-                className="font-serif font-light tracking-[-0.02em] leading-[0.92]"
+                className="font-serif font-light tracking-[-0.03em] leading-[0.88]"
                 style={{
-                  opacity: titleOp,
-                  y: titleY,
-                  fontSize: "clamp(2.8rem, 7.5vw, 6.5rem)",
+                  opacity: brandOp,
+                  y: brandY,
+                  fontSize: "clamp(3.6rem, 10vw, 9rem)",
                 }}
               >
-                {title}
+                {brand}<span className={goldText}>.</span>
               </motion.h3>
+
+              {/* Tagline — la phrase d'accroche, sous le brand */}
+              <motion.p
+                className={`font-serif font-light mt-6 md:mt-8 tracking-[-0.01em] leading-[1.1] [text-wrap:balance] ${muted}`}
+                style={{
+                  opacity: taglineOp,
+                  y: taglineY,
+                  fontSize: "clamp(1.4rem, 2.8vw, 2.4rem)",
+                }}
+              >
+                {tagline}
+              </motion.p>
 
               <motion.p
                 className={`font-serif italic mt-7 md:mt-10 tracking-[-0.005em] [text-wrap:balance] ${goldText}`}
                 style={{
                   opacity: epiOp,
                   y: epiY,
-                  fontSize: "clamp(1.2rem, 2.4vw, 2rem)",
-                  lineHeight: 1.35,
+                  fontSize: "clamp(1rem, 1.7vw, 1.4rem)",
+                  lineHeight: 1.45,
                 }}
               >
                 {epigraph}
@@ -174,7 +192,7 @@ export const TwoPaths = () => {
   return (
     <>
       {/* Header — accroche commune avant les deux chapitres */}
-      <section className="relative bg-black py-24 md:py-32">
+      <section className="relative bg-primary py-24 md:py-32">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <div className="w-10 h-px bg-gold/60 mx-auto mb-6" />
           <span className="font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase text-gold/85">
@@ -197,8 +215,9 @@ export const TwoPaths = () => {
       <Path
         numeral="I"
         variant="dark"
-        kicker="Formule I — Conciergerie"
-        title="Vous restez. On s'active."
+        kicker="Formule I"
+        brand="Conciergerie"
+        tagline="Vous restez. On s'active."
         epigraph="« Vous gardez la propriété, le bien, les revenus.
         On absorbe absolument tout le reste. »"
         inclusions={[
@@ -220,8 +239,9 @@ export const TwoPaths = () => {
       <Path
         numeral="II"
         variant="light"
-        kicker="Formule II — Sous-location"
-        title="Vous lâchez. On reprend."
+        kicker="Formule II"
+        brand="Sous-location"
+        tagline="Vous lâchez. On reprend."
         epigraph="« On vous loue le bien en bail commercial.
         Vous ne lisez plus jamais une notification Airbnb. »"
         inclusions={[
