@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import heroVideo from "@/assets/hero-video-luxury.mp4";
+import heroPoster from "@/assets/hero-video-poster.jpg";
 
 const cities = ["Avignon", "Villeneuve-lès-Avignon", "Aix-en-Provence", "Montpellier"];
 
 const Hero = () => {
   const [currentCityIndex, setCurrentCityIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -21,19 +21,10 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleVideoLoaded = () => {
-    setIsVideoLoaded(true);
-  };
-
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Video */}
+      {/* Background Video — poster instantané, vidéo prend le relais dès qu'elle peut */}
       <div className="absolute inset-0">
-        <div
-          className={`absolute inset-0 bg-primary transition-opacity duration-1000 ${
-            isVideoLoaded ? "opacity-0" : "opacity-100"
-          }`}
-        />
         <video
           ref={videoRef}
           autoPlay
@@ -41,10 +32,8 @@ const Hero = () => {
           loop
           playsInline
           preload="auto"
-          onCanPlay={handleVideoLoaded}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-            isVideoLoaded ? "opacity-100" : "opacity-0"
-          }`}
+          poster={heroPoster}
+          className="absolute inset-0 w-full h-full object-cover"
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
@@ -62,7 +51,7 @@ const Hero = () => {
         </h1>
         <div className="relative h-10 sm:h-14 md:h-18 overflow-hidden mb-8 md:mb-10 opacity-0 animate-fade-up animation-delay-150">
           <span
-            className={`font-serif text-2xl sm:text-4xl md:text-6xl text-gold italic absolute inset-0 flex items-center justify-center transition-all duration-700 ease-out ${
+            className={`font-serif text-2xl sm:text-4xl md:text-6xl text-foreground italic absolute inset-0 flex items-center justify-center [text-shadow:0_2px_12px_rgba(255,255,255,0.4)] transition-all duration-700 ease-out ${
               isAnimating ? "opacity-0 translate-y-6" : "opacity-100 translate-y-0"
             }`}
           >

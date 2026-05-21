@@ -21,6 +21,11 @@ import appartProvencal4 from "@/assets/appart-provencal-4.jpg";
 import authentique1 from "@/assets/authentique-1.jpg";
 import central1 from "@/assets/central-1.jpg";
 
+import epi from "@/assets/epi.avif";
+import laCoulisse from "@/assets/la-coulisse.avif";
+import leVernet from "@/assets/le-vernet.jpg";
+import hypercentre from "@/assets/hypercentre.avif";
+
 export interface Property {
   slug: string;
   name: string;
@@ -133,6 +138,70 @@ export const properties: Property[] = [
     images: [central1],
     amenities: ["WiFi gratuit", "Cuisine équipée", "Micro-ondes", "Linge fourni", "Navette parking", "Chauffage"],
     highlights: ["Centre-ville", "Navette parking", "Cuisine équipée"],
+    airbnbUrl: "#",
+  },
+  {
+    slug: "le-vernet-hypercentre",
+    name: "Le Vernet – Hypercentre Avignon – Climatisé",
+    shortDescription: "Appartement de caractère climatisé en hypercentre d'Avignon.",
+    description: "",
+    location: "Avignon hypercentre",
+    guests: 0,
+    bedrooms: "",
+    beds: 0,
+    bathrooms: 0,
+    priceFrom: 0,
+    images: [leVernet],
+    amenities: [],
+    highlights: [],
+    airbnbUrl: "#",
+  },
+  {
+    slug: "la-coulisse",
+    name: "La Coulisse – Lumineux – Cœur d'Avignon",
+    shortDescription: "Studio lumineux au cœur d'Avignon.",
+    description: "",
+    location: "Avignon intra-muros",
+    guests: 0,
+    bedrooms: "",
+    beds: 0,
+    bathrooms: 0,
+    priceFrom: 0,
+    images: [laCoulisse],
+    amenities: [],
+    highlights: [],
+    airbnbUrl: "#",
+  },
+  {
+    slug: "epi",
+    name: "L'Epi – Climatisé – Wifi – 10 min centre-ville",
+    shortDescription: "Logement climatisé avec Wifi à 10 minutes du centre-ville d'Avignon.",
+    description: "",
+    location: "Avignon – 10 min centre-ville",
+    guests: 0,
+    bedrooms: "",
+    beds: 0,
+    bathrooms: 0,
+    priceFrom: 0,
+    images: [epi],
+    amenities: [],
+    highlights: [],
+    airbnbUrl: "#",
+  },
+  {
+    slug: "hypercentre-local-velo",
+    name: "Hypercentre – Local à Vélo – Au calme & central !",
+    shortDescription: "Appartement central et calme avec local à vélo, en hypercentre d'Avignon.",
+    description: "",
+    location: "Avignon hypercentre",
+    guests: 0,
+    bedrooms: "",
+    beds: 0,
+    bathrooms: 0,
+    priceFrom: 0,
+    images: [hypercentre],
+    amenities: [],
+    highlights: [],
     airbnbUrl: "#",
   },
 ];
