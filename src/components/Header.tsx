@@ -38,7 +38,6 @@ const Header = () => {
     { label: "Conciergerie", href: "/conciergerie" },
     { label: "Sous-location", href: "/sous-location" },
     { label: "Partenaires", href: "/partenaires" },
-    { label: "Contact", href: "/contact" },
   ];
 
   const mobileNavItems = [
