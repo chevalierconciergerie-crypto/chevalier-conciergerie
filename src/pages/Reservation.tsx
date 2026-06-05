@@ -19,7 +19,7 @@ const Reservation = () => {
   // Pré-remplissage depuis l'encart de l'accueil (?checkin=...&checkout=...&numadult=...)
   const buildBookingUrl = () => {
     if (!BEDS24_BOOKING_URL) return BEDS24_BOOKING_URL;
-    const allowed = ["checkin", "checkout", "numadult", "numchild"];
+    const allowed = ["checkin", "checkout", "numadult", "numchild", "propid", "roomid"];
     const extra = allowed
       .filter((k) => searchParams.get(k))
       .map((k) => `${k}=${encodeURIComponent(searchParams.get(k) as string)}`)

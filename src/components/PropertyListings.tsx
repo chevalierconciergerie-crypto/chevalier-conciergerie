@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { properties, type Property } from "@/data/properties";
 
@@ -152,6 +153,14 @@ function PropertyCard({ property, index }: { property: Property; index: number }
             {subtitle}
           </p>
         )}
+
+        {/* Bouton Réserver — ouvre le moteur sur ce logement (si propid connu) */}
+        <Link
+          to={property.beds24PropId ? `/reservation?propid=${property.beds24PropId}` : "/reservation"}
+          className="mt-3 inline-flex w-full items-center justify-center rounded-md bg-gold py-3 text-primary font-semibold tracking-[0.15em] uppercase text-xs hover:bg-gold/90 transition-colors"
+        >
+          Réserver
+        </Link>
       </div>
     </motion.article>
   );

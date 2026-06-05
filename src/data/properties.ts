@@ -41,6 +41,8 @@ export interface Property {
   amenities: string[];
   highlights: string[];
   airbnbUrl: string;
+  /** ID Beds24 du logement (propid) — sert au bouton "Réserver" par bien. À renseigner. */
+  beds24PropId?: string;
 }
 
 export const properties: Property[] = [
