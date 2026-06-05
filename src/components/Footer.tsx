@@ -13,6 +13,7 @@ const Footer = () => {
     ],
     company: [
       { label: "Accueil", href: "/" },
+      { label: "À propos", href: "/a-propos" },
       { label: "Contact", href: "/contact" },
       { label: "Conciergerie", href: "/conciergerie" },
       { label: "Sous-location", href: "/sous-location" },
@@ -20,6 +21,7 @@ const Footer = () => {
     ],
     legal: [
       { label: "Mentions légales", href: "/mentions-legales" },
+      { label: "CGV", href: "/cgv" },
       { label: "Politique de confidentialité", href: "/politique-confidentialite" },
       { label: "Gestion des cookies", href: "/politique-confidentialite" },
     ],
