@@ -308,7 +308,7 @@ const Conciergerie = () => {
                               <p className="font-sans text-lg font-medium text-primary-foreground">-149€</p>
                             </div>
                             <div className="bg-primary-foreground/5 rounded-xl p-4 flex justify-between items-center">
-                              <p className="font-sans text-sm text-primary-foreground/70">Notre commission (20%)</p>
+                              <p className="font-sans text-sm text-primary-foreground/70">Notre commission (ex. 20%)</p>
                               <p className="font-sans text-lg font-medium text-primary-foreground">-168€</p>
                             </div>
                             <div className="bg-gold/20 rounded-xl p-4 flex justify-between items-center">
