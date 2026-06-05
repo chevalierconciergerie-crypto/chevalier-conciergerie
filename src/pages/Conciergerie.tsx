@@ -4,7 +4,44 @@ import Footer from "@/components/Footer";
 import heroConciergerie from "@/assets/hero-conciergerie.jpg";
 import { Check, X, Sparkles, Users, Clock, Camera, TrendingUp, Home, ArrowRight, Calendar, Wallet, Handshake, FileEdit, Package, Palette } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
+
+const faqItems = [
+  {
+    q: "Quelle est votre commission ?",
+    a: "Notre commission démarre à partir de 20% des revenus locatifs générés. Le taux exact dépend du logement et des services inclus. Aucun frais caché : tout est défini clairement dans le mandat avant de démarrer.",
+  },
+  {
+    q: "La taxe de séjour est-elle comprise dans vos honoraires ?",
+    a: "Non. La taxe de séjour est collectée auprès des voyageurs pour le compte de la collectivité et reversée intégralement : elle n'est jamais comptée comme un revenu ni dans notre commission.",
+  },
+  {
+    q: "Que comprend exactement la prestation de conciergerie ?",
+    a: "Création et optimisation de vos annonces, gestion des réservations et des voyageurs, accueil, ménage professionnel, linge hôtelier, maintenance courante et suivi de vos revenus. Vous n'avez rien à gérer.",
+  },
+  {
+    q: "Dans quelles zones intervenez-vous ?",
+    a: "Principalement à Avignon, Villeneuve-lès-Avignon, Les Angles et leurs environs immédiats. Contactez-nous pour vérifier que votre bien est dans notre zone.",
+  },
+  {
+    q: "Comment et quand suis-je payé ?",
+    a: "Vous recevez vos revenus selon la périodicité convenue dans le mandat, accompagnés d'un reporting clair détaillant les réservations, les frais et le montant qui vous revient.",
+  },
+  {
+    q: "Dois-je m'engager sur une longue durée ?",
+    a: "Le mandat précise la durée et les conditions de résiliation, avec un préavis raisonnable. Les réservations déjà confirmées au moment d'un arrêt sont menées à leur terme.",
+  },
+  {
+    q: "Faut-il une autorisation pour louer en courte durée ?",
+    a: "Selon votre commune et votre situation (résidence principale ou secondaire, copropriété), un numéro d'enregistrement et/ou un changement d'usage peuvent être nécessaires. Nous vous orientons sur les démarches à effectuer.",
+  },
+];
 
 const Conciergerie = () => {
   // Features incluses dans l'offre unique
@@ -35,6 +72,17 @@ const Conciergerie = () => {
         <meta property="og:title" content="Conciergerie Airbnb Avignon | Gestion Location Saisonnière" />
         <meta property="og:description" content="Service de conciergerie premium pour locations Airbnb à Avignon. Gestion complète de votre bien." />
         <link rel="canonical" href="https://chevalier-conciergerie.com/conciergerie" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqItems.map((item) => ({
+              "@type": "Question",
+              name: item.q,
+              acceptedAnswer: { "@type": "Answer", text: item.a },
+            })),
+          })}
+        </script>
       </Helmet>
       
       <div className="min-h-screen bg-background">
@@ -362,6 +410,33 @@ const Conciergerie = () => {
                 </div>
 
               </div>
+            </div>
+          </section>
+
+          {/* FAQ */}
+          <section className="py-20 bg-background">
+            <div className="container mx-auto px-6">
+              <div className="text-center max-w-2xl mx-auto mb-12">
+                <span className="font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase text-gold">
+                  Questions fréquentes
+                </span>
+                <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mt-4">
+                  Vos questions sur la conciergerie
+                </h2>
+              </div>
+
+              <Accordion type="single" collapsible className="max-w-3xl mx-auto">
+                {faqItems.map((item, index) => (
+                  <AccordionItem key={index} value={`faq-${index}`} className="border-border">
+                    <AccordionTrigger className="text-left font-serif text-base md:text-lg text-foreground hover:text-gold hover:no-underline">
+                      {item.q}
+                    </AccordionTrigger>
+                    <AccordionContent className="font-sans text-sm md:text-base text-muted-foreground leading-relaxed">
+                      {item.a}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </div>
           </section>
 
