@@ -48,6 +48,7 @@ export interface Property {
 export const properties: Property[] = [
   {
     slug: "appartement-cosy-lumineux",
+    beds24PropId: "322495",
     name: "L'Atelier – Lumineux & Parking",
     shortDescription: "Studio chaleureux aux portes d'Avignon intra-muros, baigné de lumière naturelle.",
     description: "Bienvenue dans ce charmant studio, à deux pas d'Avignon intra-muros, où cachet et luminosité s'allient pour créer un espace chaleureux et accueillant. Une grande fenêtre inonde la pièce principale de lumière naturelle, offrant une sensation d'espace et de bien-être. Situé à quelques mètres des remparts, dans une résidence pleine de charme, ce studio bénéficie d'un emplacement privilégié.",
@@ -64,6 +65,7 @@ export const properties: Property[] = [
   },
   {
     slug: "appartement-coeur-avignon",
+    beds24PropId: "322449",
     name: "La Scène – Lumineux – Cœur d'Avignon",
     shortDescription: "Studio rénové avec poutres apparentes et vue sur les toits, en plein centre historique.",
     description: "Bienvenue dans ce charmant studio entièrement rénové au cœur d'Avignon intra-muros, alliant cachet et modernité. Poutres apparentes, belle hauteur sous plafond et grande fenêtre lumineuse avec vue sur les toits et les pierres anciennes. Situé au 2ème étage d'une rue calme intra-muros, commerces, restaurants, Les Halles, théâtres et gare SNCF sont accessibles à pied en quelques minutes.",
@@ -80,6 +82,7 @@ export const properties: Property[] = [
   },
   {
     slug: "appartement-renove-intramuros",
+    beds24PropId: "322462",
     name: "L'Intramuros – Charmant & Climatisé",
     shortDescription: "Studio design entièrement rénové avec climatisation, au cœur d'Avignon.",
     description: "Bienvenue dans ce studio chaleureux et fonctionnel, entièrement rénové avec soin pour vous offrir un séjour confortable et agréable. Situé dans un quartier calme et pratique, ce logement combine design moderne, équipements complets et ambiance cosy. Coin nuit douillet avec literie de qualité, cuisine entièrement équipée, salle de bain élégante avec douche à effet pluie.",
@@ -96,6 +99,7 @@ export const properties: Property[] = [
   },
   {
     slug: "appartement-provencal-charme",
+    beds24PropId: "322497",
     name: "La Loge – Lumineux & Parking",
     shortDescription: "T2 entièrement rénové de 57m², lumineux et moderne, au cœur d'Avignon.",
     description: "Bienvenue dans ce charmant T2 entièrement rénové au cœur d'Avignon, alliant cachet et modernité. De grandes fenêtres lumineuses ainsi qu'une cuisine bien équipée, le tout dans un bel appartement de 57m².",
@@ -112,6 +116,7 @@ export const properties: Property[] = [
   },
   {
     slug: "authentique-palais-des-papes",
+    beds24PropId: "322500",
     name: "L'Authentique – 2 min Palais des Papes",
     shortDescription: "Appartement de caractère à 2 minutes du Palais des Papes, en plein cœur d'Avignon.",
     description: "Appartement authentique au cachet préservé, à seulement 2 minutes à pied du Palais des Papes. Hauts plafonds, grandes verrières lumineuses, parquet d'origine et vue dégagée sur les façades historiques d'Avignon. L'emplacement idéal pour découvrir la cité des Papes, ses ruelles, ses restaurants et son patrimoine exceptionnel.",
@@ -128,6 +133,7 @@ export const properties: Property[] = [
   },
   {
     slug: "le-central-navette-parking",
+    beds24PropId: "322531",
     name: "Le Central – Centre ville – Navette parking",
     shortDescription: "Appartement cosy en plein centre-ville d'Avignon, avec navette parking gratuite.",
     description: "Appartement chaleureux et fonctionnel en plein centre-ville d'Avignon, idéalement situé pour profiter de tous les commerces, restaurants et monuments à pied. Cuisine équipée, espace repas convivial et grandes fenêtres lumineuses. Service de navette parking inclus pour stationner facilement à proximité.",
@@ -144,6 +150,7 @@ export const properties: Property[] = [
   },
   {
     slug: "le-vernet-hypercentre",
+    beds24PropId: "330521",
     name: "Le Vernet – Hypercentre Avignon – Climatisé",
     shortDescription: "Appartement de caractère climatisé en hypercentre d'Avignon.",
     description: "",
@@ -160,6 +167,7 @@ export const properties: Property[] = [
   },
   {
     slug: "la-coulisse",
+    beds24PropId: "326306",
     name: "La Coulisse – Lumineux – Cœur d'Avignon",
     shortDescription: "Studio lumineux au cœur d'Avignon.",
     description: "",
@@ -176,6 +184,7 @@ export const properties: Property[] = [
   },
   {
     slug: "epi",
+    beds24PropId: "328000",
     name: "L'Epi – Climatisé – Wifi – 10 min centre-ville",
     shortDescription: "Logement climatisé avec Wifi à 10 minutes du centre-ville d'Avignon.",
     description: "",
@@ -192,6 +201,7 @@ export const properties: Property[] = [
   },
   {
     slug: "hypercentre-local-velo",
+    beds24PropId: "328217",
     name: "Hypercentre – Local à Vélo – Au calme & central !",
     shortDescription: "Appartement central et calme avec local à vélo, en hypercentre d'Avignon.",
     description: "",
