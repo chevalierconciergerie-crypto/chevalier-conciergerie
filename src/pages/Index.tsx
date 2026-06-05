@@ -157,7 +157,7 @@ const Index = () => {
                         
                         <div className="flex items-center gap-3">
                           <span className="px-4 py-1.5 border border-gold/20 text-[10px] tracking-[0.2em] text-gold/70 uppercase">
-                            À partir de 20%
+                            Commission sur-mesure
                           </span>
                         </div>
                         

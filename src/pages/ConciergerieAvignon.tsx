@@ -45,7 +45,7 @@ const ConciergerieAvignon = () => (
       "Expertise locale : nous connaissons Avignon, ses quartiers, sa saisonnalité et les attentes des voyageurs qui visitent la cité des Papes.",
       "Tarification dynamique adaptée aux événements locaux : Festival d'Avignon, Fête de la Musique, marchés de Noël. Vos revenus sont maximisés toute l'année.",
       "Un service 5 étoiles pour vos voyageurs : accueil personnalisé, linge hôtelier, recommandations locales. Résultat : des avis exceptionnels et un taux de remplissage optimal.",
-      "Transparence totale : commission à partir de 20%, aucun frais caché, reporting mensuel détaillé de vos revenus.",
+      "Transparence totale : commission sur-mesure adaptée à chaque bien, aucun frais caché, reporting mensuel détaillé de vos revenus.",
     ]}
   />
 );

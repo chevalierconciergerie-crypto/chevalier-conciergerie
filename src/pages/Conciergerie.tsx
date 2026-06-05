@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 const faqItems = [
   {
     q: "Quelle est votre commission ?",
-    a: "Notre commission démarre à partir de 20% des revenus locatifs générés. Le taux exact dépend du logement et des services inclus. Aucun frais caché : tout est défini clairement dans le mandat avant de démarrer.",
+    a: "Notre commission est personnalisée : elle dépend du logement, de son emplacement et des services choisis. Nous la définissons ensemble lors d'une estimation gratuite et sans engagement, et tout est précisé clairement dans le mandat avant de démarrer. Aucun frais caché.",
   },
   {
     q: "La taxe de séjour est-elle comprise dans vos honoraires ?",
@@ -66,7 +66,7 @@ const Conciergerie = () => {
         <title>Conciergerie Airbnb Avignon | Gestion Location Saisonnière | Chevalier</title>
         <meta 
           name="description" 
-          content="Conciergerie Airbnb premium à Avignon et Villeneuve-lès-Avignon. Accueil voyageurs, ménage professionnel, gestion des annonces. À partir de 20%. Devis gratuit." 
+          content="Conciergerie Airbnb premium à Avignon et Villeneuve-lès-Avignon. Accueil voyageurs, ménage professionnel, gestion des annonces. Commission sur-mesure selon votre bien. Devis gratuit."
         />
         <meta name="keywords" content="conciergerie Airbnb Avignon, gestion location saisonnière Avignon, accueil voyageurs Avignon, ménage Airbnb Avignon" />
         <meta property="og:title" content="Conciergerie Airbnb Avignon | Gestion Location Saisonnière" />
@@ -153,12 +153,11 @@ const Conciergerie = () => {
                       </div>
 
                       <div className="mb-6">
-                        <div className="flex items-baseline gap-1">
-                          <span className="font-serif text-7xl md:text-8xl font-bold text-gold leading-none">20</span>
-                          <span className="font-serif text-3xl font-bold text-gold">%</span>
-                        </div>
+                        <span className="font-serif text-5xl md:text-6xl font-bold text-gold leading-none block">
+                          Sur-mesure
+                        </span>
                         <p className="font-sans text-sm text-primary-foreground/60 mt-3 tracking-wide">
-                          des revenus locatifs
+                          Commission adaptée à chaque bien
                         </p>
                       </div>
 
@@ -356,7 +355,7 @@ const Conciergerie = () => {
                               <p className="font-sans text-lg font-medium text-primary-foreground">-149€</p>
                             </div>
                             <div className="bg-primary-foreground/5 rounded-xl p-4 flex justify-between items-center">
-                              <p className="font-sans text-sm text-primary-foreground/70">Notre commission (ex. 20%)</p>
+                              <p className="font-sans text-sm text-primary-foreground/70">Notre commission (exemple)</p>
                               <p className="font-sans text-lg font-medium text-primary-foreground">-168€</p>
                             </div>
                             <div className="bg-gold/20 rounded-xl p-4 flex justify-between items-center">
