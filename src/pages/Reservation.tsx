@@ -11,7 +11,7 @@ import { ShieldCheck, CalendarCheck, CreditCard } from "lucide-react";
  * Coller ici l'URL contenue dans le src="..." du code iframe fourni par Beds24.
  * Tant que cette valeur est vide, la page affiche un message d'attente.
  */
-const BEDS24_BOOKING_URL = "";
+const BEDS24_BOOKING_URL = "https://beds24.com/booking2.php?ownerid=158258&hidefooter=yes&referer=iframe";
 
 const Reservation = () => {
   const reassurance = [
@@ -70,7 +70,7 @@ const Reservation = () => {
                   title="Moteur de réservation Chevalier Conciergerie"
                   src={BEDS24_BOOKING_URL}
                   className="w-full"
-                  style={{ minHeight: "900px", border: "0" }}
+                  style={{ height: "1900px", maxWidth: "100%", border: "0", overflow: "auto" }}
                   loading="lazy"
                 />
               </div>

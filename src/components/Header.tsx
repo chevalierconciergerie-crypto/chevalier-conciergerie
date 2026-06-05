@@ -45,7 +45,8 @@ const Header = () => {
     { label: "Conciergerie", href: "/conciergerie", number: "02" },
     { label: "Sous-location", href: "/sous-location", number: "03" },
     { label: "Partenaires", href: "/partenaires", number: "04" },
-    { label: "Contact", href: "/contact", number: "05" },
+    { label: "Réserver", href: "/reservation", number: "05" },
+    { label: "Contact", href: "/contact", number: "06" },
   ];
 
   return (
@@ -86,6 +87,9 @@ const Header = () => {
             ))}
             <Button variant={isScrolled ? "default" : "outline-light"} size="sm" asChild>
               <Link to="/contact">Contact</Link>
+            </Button>
+            <Button variant="gold" size="sm" asChild>
+              <Link to="/reservation">Réserver</Link>
             </Button>
           </nav>
 
@@ -203,6 +207,11 @@ const Header = () => {
               <div className="w-16 h-px bg-gold/30 mb-2" />
               
               <Button variant="gold" className="w-full max-w-xs" size="lg" asChild>
+                <Link to="/reservation" onClick={() => setIsMobileMenuOpen(false)}>
+                  Réserver
+                </Link>
+              </Button>
+              <Button variant="outline-light" className="w-full max-w-xs" size="lg" asChild>
                 <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                   Contact
                 </Link>
