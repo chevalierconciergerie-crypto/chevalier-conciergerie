@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -37,6 +38,7 @@ interface FormData {
   email: string;
   disponibilite: string;
   commentaire: string;
+  consentement: boolean;
 }
 
 const steps = [
@@ -67,6 +69,7 @@ const EstimationSousLocation = () => {
     email: "",
     disponibilite: "",
     commentaire: "",
+    consentement: false,
   });
 
   const updateField = (field: keyof FormData, value: string | boolean) => {
@@ -86,6 +89,15 @@ const EstimationSousLocation = () => {
       toast({
         title: "Champs requis",
         description: "Veuillez remplir votre nom, email et téléphone.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!formData.consentement) {
+      toast({
+        title: "Consentement requis",
+        description: "Veuillez accepter la politique de confidentialité pour continuer.",
         variant: "destructive",
       });
       return;
@@ -445,6 +457,24 @@ Commentaire : ${formData.commentaire || "Aucun"}
                         </p>
                       </div>
                     )}
+
+                    {/* Consentement RGPD */}
+                    <div className="flex items-start gap-3 pt-2">
+                      <Checkbox
+                        id="consentement"
+                        checked={formData.consentement}
+                        onCheckedChange={(checked) => updateField("consentement", checked === true)}
+                        className="mt-1"
+                      />
+                      <Label htmlFor="consentement" className="text-sm text-muted-foreground font-normal leading-snug">
+                        J'accepte que mes données soient utilisées pour traiter ma demande d'estimation,
+                        conformément à la{" "}
+                        <Link to="/politique-confidentialite" className="text-gold hover:underline">
+                          politique de confidentialité
+                        </Link>
+                        . <span className="text-destructive">*</span>
+                      </Label>
+                    </div>
                   </div>
                 )}
 

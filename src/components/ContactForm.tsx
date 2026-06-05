@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -15,6 +16,7 @@ const ContactForm = () => {
     telephone: "",
     adresse: "",
     message: "",
+    consentement: false,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -30,6 +32,15 @@ const ContactForm = () => {
       toast({
         title: "Champs requis",
         description: "Veuillez remplir tous les champs obligatoires.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!formData.consentement) {
+      toast({
+        title: "Consentement requis",
+        description: "Veuillez accepter la politique de confidentialité pour continuer.",
         variant: "destructive",
       });
       return;
@@ -174,6 +185,26 @@ const ContactForm = () => {
                 className="bg-background border-border focus:border-gold focus:ring-gold/20 resize-none"
                 required
               />
+            </div>
+
+            {/* Consentement RGPD */}
+            <div className="flex items-start gap-3 mt-6">
+              <input
+                id="consentement"
+                name="consentement"
+                type="checkbox"
+                checked={formData.consentement}
+                onChange={(e) => setFormData(prev => ({ ...prev, consentement: e.target.checked }))}
+                className="mt-1 h-4 w-4 shrink-0 rounded border-border accent-gold"
+                required
+              />
+              <Label htmlFor="consentement" className="text-sm text-muted-foreground font-normal leading-snug">
+                J'accepte que mes données soient utilisées pour traiter ma demande, conformément à la{" "}
+                <Link to="/politique-confidentialite" className="text-gold hover:underline">
+                  politique de confidentialité
+                </Link>
+                . <span className="text-destructive">*</span>
+              </Label>
             </div>
 
             {/* Submit Button */}
