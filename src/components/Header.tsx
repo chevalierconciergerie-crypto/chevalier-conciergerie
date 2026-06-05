@@ -11,6 +11,11 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
+  // Sur l'accueil le header est transparent au-dessus du hero sombre.
+  // Sur les autres pages (fond clair), on force le header "plein" pour que le menu reste lisible.
+  const isHome = location.pathname === "/";
+  const solid = isScrolled || !isHome;
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -57,7 +62,7 @@ const Header = () => {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
+          solid
             ? "bg-background/95 backdrop-blur-md shadow-soft py-1 border-b border-border"
             : "bg-transparent py-4"
         }`}
@@ -69,7 +74,7 @@ const Header = () => {
               src={logoCc}
               alt="Chevalier Conciergerie"
               className={`w-auto object-contain [filter:brightness(0)] transition-all duration-500 ${
-                isScrolled
+                solid
                   ? "h-12 sm:h-14 md:h-16"
                   : "h-28 sm:h-32 md:h-36 drop-shadow-[0_2px_8px_rgba(255,255,255,0.5)]"
               }`}
@@ -82,8 +87,8 @@ const Header = () => {
               <Link
                 key={item.label}
                 to={item.href}
-                className={`font-sans text-sm font-medium tracking-wide transition-colors duration-300 hover:text-gold ${
-                  isScrolled ? "text-foreground/80" : "text-primary-foreground/80"
+                className={`font-sans text-base font-semibold uppercase tracking-[0.12em] transition-colors duration-300 hover:text-gold ${
+                  solid ? "text-foreground/80" : "text-primary-foreground/80"
                 }`}
               >
                 {item.label}
@@ -105,7 +110,7 @@ const Header = () => {
             aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
           >
             <span className={`block w-7 h-[1.5px] transition-all duration-500 ease-out origin-center ${
-              isScrolled && !isMobileMenuOpen ? "bg-foreground" : "bg-primary-foreground"
+              solid && !isMobileMenuOpen ? "bg-foreground" : "bg-primary-foreground"
             } ${
               isMobileMenuOpen ? "rotate-45 translate-y-[7.5px]" : ""
             }`} />
@@ -113,7 +118,7 @@ const Header = () => {
               isMobileMenuOpen ? "opacity-0 scale-x-0" : "opacity-100"
             }`} />
             <span className={`block w-7 h-[1.5px] transition-all duration-500 ease-out origin-center ${
-              isScrolled && !isMobileMenuOpen ? "bg-foreground" : "bg-primary-foreground"
+              solid && !isMobileMenuOpen ? "bg-foreground" : "bg-primary-foreground"
             } ${
               isMobileMenuOpen ? "-rotate-45 -translate-y-[7.5px]" : ""
             }`} />
