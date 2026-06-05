@@ -35,8 +35,10 @@ const Header = () => {
   }, [isMobileMenuOpen]);
 
   const navItems = [
+    { label: "Accueil", href: "/" },
     { label: "Conciergerie", href: "/conciergerie" },
     { label: "Sous-location", href: "/sous-location" },
+    { label: "Logements", href: "/logements" },
     { label: "Partenaires", href: "/partenaires" },
     { label: "Contact", href: "/contact" },
   ];
@@ -45,9 +47,10 @@ const Header = () => {
     { label: "Accueil", href: "/", number: "01" },
     { label: "Conciergerie", href: "/conciergerie", number: "02" },
     { label: "Sous-location", href: "/sous-location", number: "03" },
-    { label: "Partenaires", href: "/partenaires", number: "04" },
-    { label: "Réserver", href: "/reservation", number: "05" },
-    { label: "Contact", href: "/contact", number: "06" },
+    { label: "Logements", href: "/logements", number: "04" },
+    { label: "Partenaires", href: "/partenaires", number: "05" },
+    { label: "Réserver", href: "/reservation", number: "06" },
+    { label: "Contact", href: "/contact", number: "07" },
   ];
 
   return (

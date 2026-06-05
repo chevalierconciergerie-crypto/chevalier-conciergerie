@@ -20,6 +20,7 @@ import Partenaires from "./pages/Partenaires";
 import APropos from "./pages/APropos";
 import CGV from "./pages/CGV";
 import Reservation from "./pages/Reservation";
+import Logements from "./pages/Logements";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -48,6 +49,7 @@ const App = () => (
             <Route path="/a-propos" element={<APropos />} />
             <Route path="/cgv" element={<CGV />} />
             <Route path="/reservation" element={<Reservation />} />
+            <Route path="/logements" element={<Logements />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

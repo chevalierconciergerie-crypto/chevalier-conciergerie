@@ -8,6 +8,7 @@ const Footer = () => {
   const footerLinks = {
     services: [
       { label: "Réserver en direct", href: "/reservation" },
+      { label: "Nos logements", href: "/logements" },
       { label: "Conciergerie", href: "/conciergerie" },
       { label: "Sous-location", href: "/sous-location" },
       { label: "Estimation gratuite", href: "/contact" },
