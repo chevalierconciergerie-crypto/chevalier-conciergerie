@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
+import BookingQuickSearch from "@/components/BookingQuickSearch";
 import heroVideo from "@/assets/hero-video-luxury.mp4";
 import heroPoster from "@/assets/hero-video-poster.jpg";
 
@@ -78,6 +79,11 @@ const Hero = () => {
             <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
+      </div>
+
+      {/* Encart réservation directe — bas droite (ordinateur) */}
+      <div className="hidden lg:block absolute bottom-10 right-6 xl:right-12 z-20 opacity-0 animate-fade-up animation-delay-300">
+        <BookingQuickSearch />
       </div>
 
       {/* Scroll Indicator */}

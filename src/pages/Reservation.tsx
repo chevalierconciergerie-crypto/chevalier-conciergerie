@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ShieldCheck, CalendarCheck, CreditCard } from "lucide-react";
@@ -14,6 +14,20 @@ import { ShieldCheck, CalendarCheck, CreditCard } from "lucide-react";
 const BEDS24_BOOKING_URL = "https://beds24.com/booking2.php?ownerid=158258&hidefooter=yes&referer=iframe";
 
 const Reservation = () => {
+  const [searchParams] = useSearchParams();
+
+  // Pré-remplissage depuis l'encart de l'accueil (?checkin=...&checkout=...&numadult=...)
+  const buildBookingUrl = () => {
+    if (!BEDS24_BOOKING_URL) return BEDS24_BOOKING_URL;
+    const allowed = ["checkin", "checkout", "numadult", "numchild"];
+    const extra = allowed
+      .filter((k) => searchParams.get(k))
+      .map((k) => `${k}=${encodeURIComponent(searchParams.get(k) as string)}`)
+      .join("&");
+    return extra ? `${BEDS24_BOOKING_URL}&${extra}` : BEDS24_BOOKING_URL;
+  };
+  const bookingUrl = buildBookingUrl();
+
   const reassurance = [
     { icon: CalendarCheck, title: "Disponibilités en temps réel", text: "Le calendrier est synchronisé avec Airbnb et Booking : aucune surréservation possible." },
     { icon: CreditCard, title: "Paiement sécurisé", text: "Paiement en ligne par carte bancaire via Stripe, dans un environnement chiffré." },
@@ -68,7 +82,7 @@ const Reservation = () => {
               <div className="bg-card border border-border rounded-2xl overflow-hidden shadow-soft">
                 <iframe
                   title="Moteur de réservation Chevalier Conciergerie"
-                  src={BEDS24_BOOKING_URL}
+                  src={bookingUrl}
                   className="w-full"
                   style={{ height: "1900px", maxWidth: "100%", border: "0", overflow: "auto" }}
                   loading="lazy"

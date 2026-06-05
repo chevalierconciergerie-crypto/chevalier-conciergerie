@@ -38,6 +38,7 @@ const Header = () => {
     { label: "Conciergerie", href: "/conciergerie" },
     { label: "Sous-location", href: "/sous-location" },
     { label: "Partenaires", href: "/partenaires" },
+    { label: "Contact", href: "/contact" },
   ];
 
   const mobileNavItems = [
@@ -58,7 +59,7 @@ const Header = () => {
             : "bg-transparent py-4"
         }`}
       >
-        <div className="w-full px-2 flex items-center justify-between">
+        <div className="w-full px-2 flex items-center justify-between relative">
           {/* Logo */}
           <Link to="/" className="group flex items-center -ml-4">
             <img
@@ -72,8 +73,8 @@ const Header = () => {
             />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          {/* Desktop Navigation — centrée */}
+          <nav className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
             {navItems.map((item) => (
               <Link
                 key={item.label}
@@ -85,13 +86,14 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
-            <Button variant={isScrolled ? "default" : "outline-light"} size="sm" asChild>
-              <Link to="/contact">Contact</Link>
-            </Button>
-            <Button variant="gold" size="sm" asChild>
+          </nav>
+
+          {/* Réserver — à droite, mis en avant */}
+          <div className="hidden lg:block">
+            <Button variant="gold" size="lg" className="text-base font-semibold px-7 shadow-md" asChild>
               <Link to="/reservation">Réserver</Link>
             </Button>
-          </nav>
+          </div>
 
           {/* Mobile Menu Button — Custom animated burger */}
           <button

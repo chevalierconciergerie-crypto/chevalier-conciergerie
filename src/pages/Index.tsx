@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
+import BookingQuickSearch from "@/components/BookingQuickSearch";
 import LocalExpertise from "@/components/LocalExpertise";
 import PropertyListings from "@/components/PropertyListings";
 import PlatformLogos from "@/components/PlatformLogos";
@@ -76,6 +77,11 @@ const Index = () => {
         <Header />
         <main className="relative z-10">
           <Hero />
+
+          {/* Encart réservation directe — version mobile/tablette (sous le hero) */}
+          <section className="lg:hidden bg-background pt-8 pb-2 px-6 flex justify-center">
+            <BookingQuickSearch />
+          </section>
 
           {/* Social Proof Bar — colorful & compact */}
           <section className="bg-background py-8 md:py-10">
