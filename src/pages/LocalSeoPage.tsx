@@ -60,7 +60,7 @@ const LocalSeoPage = ({
     "@type": "LocalBusiness",
     "name": `Chevalier Conciergerie - ${city}`,
     "description": metaDescription,
-    "url": `https://chevalier-conciergerie.fr/${slug}`,
+    "url": `https://chevalier-conciergerie.com/${slug}`,
     "telephone": "+33783198341",
     "email": "chevalierconciergerie@gmail.com",
     "address": {
@@ -87,7 +87,7 @@ const LocalSeoPage = ({
         <meta name="keywords" content={metaKeywords} />
         <meta property="og:title" content={metaTitle} />
         <meta property="og:description" content={metaDescription} />
-        <link rel="canonical" href={`https://chevalier-conciergerie.fr/${slug}`} />
+        <link rel="canonical" href={`https://chevalier-conciergerie.com/${slug}`} />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
 

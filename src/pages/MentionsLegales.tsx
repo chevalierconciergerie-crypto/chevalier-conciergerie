@@ -41,7 +41,7 @@ const MentionsLegales = () => {
       title: "Publication",
       items: [
         { label: "Directeur de la publication", value: "CHEVALIER LOCABUSINESS" },
-        { label: "Site web", value: "chevalier-conciergerie.fr" },
+        { label: "Site web", value: "chevalier-conciergerie.com" },
       ],
     },
     {

@@ -34,7 +34,7 @@ const Conciergerie = () => {
         <meta name="keywords" content="conciergerie Airbnb Avignon, gestion location saisonnière Avignon, accueil voyageurs Avignon, ménage Airbnb Avignon" />
         <meta property="og:title" content="Conciergerie Airbnb Avignon | Gestion Location Saisonnière" />
         <meta property="og:description" content="Service de conciergerie premium pour locations Airbnb à Avignon. Gestion complète de votre bien." />
-        <link rel="canonical" href="https://chevalier-conciergerie.fr/conciergerie" />
+        <link rel="canonical" href="https://chevalier-conciergerie.com/conciergerie" />
       </Helmet>
       
       <div className="min-h-screen bg-background">

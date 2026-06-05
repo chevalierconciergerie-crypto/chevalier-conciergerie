@@ -99,7 +99,7 @@ const SousLocation = () => {
         <meta name="keywords" content="sous-location Avignon, loyer garanti Avignon, gestion locative Avignon, location meublée Avignon" />
         <meta property="og:title" content="Sous-location Avignon | Loyer Garanti Chaque Mois" />
         <meta property="og:description" content="Sous-location professionnelle à Avignon. Loyer garanti, zéro vacance, zéro risque." />
-        <link rel="canonical" href="https://chevalier-conciergerie.fr/sous-location" />
+        <link rel="canonical" href="https://chevalier-conciergerie.com/sous-location" />
       </Helmet>
       
       <div className="min-h-screen bg-background">

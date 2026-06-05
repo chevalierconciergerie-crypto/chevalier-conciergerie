@@ -25,7 +25,7 @@ const PropertyDetail = () => {
       <Helmet>
         <title>{property.name} | Chevalier Conciergerie — Location Avignon</title>
         <meta name="description" content={property.shortDescription} />
-        <link rel="canonical" href={`https://chevalier-conciergerie.fr/proprietes/${property.slug}`} />
+        <link rel="canonical" href={`https://chevalier-conciergerie.com/proprietes/${property.slug}`} />
       </Helmet>
 
       <div className="min-h-screen bg-background">

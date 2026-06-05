@@ -30,15 +30,15 @@ const Index = () => {
         <meta property="og:locale" content="fr_FR" />
         <meta name="geo.region" content="FR-84" />
         <meta name="geo.placename" content="Avignon" />
-        <link rel="canonical" href="https://chevalier-conciergerie.fr" />
+        <link rel="canonical" href="https://chevalier-conciergerie.com" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "@id": "https://chevalier-conciergerie.fr",
+            "@id": "https://chevalier-conciergerie.com",
             "name": "Chevalier Conciergerie",
             "description": "Conciergerie Airbnb et gestion locative saisonnière haut de gamme à Avignon. Sous-location professionnelle avec loyer garanti.",
-            "url": "https://chevalier-conciergerie.fr",
+            "url": "https://chevalier-conciergerie.com",
             "telephone": "+33783198341",
             "email": "chevalierconciergerie@gmail.com",
             "address": {
