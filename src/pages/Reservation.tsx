@@ -76,6 +76,19 @@ const Reservation = () => {
             ))}
           </div>
 
+          {/* Caution */}
+          <div className="max-w-5xl mx-auto mb-12 -mt-4">
+            <div className="flex items-start gap-3 rounded-xl border border-gold/30 bg-gold/5 px-5 py-4">
+              <ShieldCheck className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <span className="font-semibold text-foreground">Caution de 200 €.</span> Pour chaque séjour,
+                votre carte bancaire est enregistrée de façon sécurisée (via Stripe).
+                <span className="text-foreground"> Aucun montant n'est prélevé</span> : la caution n'est débitée
+                qu'en cas de dégât constaté, dans la limite de 200 €.
+              </p>
+            </div>
+          </div>
+
           {/* Booking engine */}
           <div className="max-w-5xl mx-auto">
             {BEDS24_BOOKING_URL ? (
