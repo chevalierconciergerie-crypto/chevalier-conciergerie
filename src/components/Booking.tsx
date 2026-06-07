@@ -56,8 +56,8 @@ const Booking = () => {
                     <p className="font-sans text-muted-foreground text-sm mb-2">
                       Réponse sous 24h garantie
                     </p>
-                    <a href="mailto:chevalierconciergerie@gmail.com" className="font-sans text-gold font-medium hover:underline">
-                      chevalierconciergerie@gmail.com
+                    <a href="mailto:contact@chevalier-conciergerie.com" className="font-sans text-gold font-medium hover:underline">
+                      contact@chevalier-conciergerie.com
                     </a>
                   </div>
                 </div>

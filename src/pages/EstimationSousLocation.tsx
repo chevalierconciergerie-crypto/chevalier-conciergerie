@@ -130,7 +130,7 @@ Commentaire : ${formData.commentaire || "Aucun"}
 `
     );
 
-    window.location.href = `mailto:chevalierconciergerie@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:contact@chevalier-conciergerie.com?subject=${subject}&body=${body}`;
     setIsSubmitted(true);
     
     toast({

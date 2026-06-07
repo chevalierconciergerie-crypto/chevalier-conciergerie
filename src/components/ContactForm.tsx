@@ -59,7 +59,7 @@ const ContactForm = () => {
     );
 
     // Ouvre le client mail avec les informations pré-remplies
-    window.location.href = `mailto:chevalierconciergerie@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:contact@chevalier-conciergerie.com?subject=${subject}&body=${body}`;
 
     toast({
       title: "Redirection vers votre messagerie",

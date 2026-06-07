@@ -62,7 +62,7 @@ const LocalSeoPage = ({
     "description": metaDescription,
     "url": `https://chevalier-conciergerie.com/${slug}`,
     "telephone": "+33783198341",
-    "email": "chevalierconciergerie@gmail.com",
+    "email": "contact@chevalier-conciergerie.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": city,

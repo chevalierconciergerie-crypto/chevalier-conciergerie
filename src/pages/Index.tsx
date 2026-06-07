@@ -40,7 +40,7 @@ const Index = () => {
             "description": "Conciergerie Airbnb et gestion locative saisonnière haut de gamme à Avignon. Sous-location professionnelle avec loyer garanti.",
             "url": "https://chevalier-conciergerie.com",
             "telephone": "+33783198341",
-            "email": "chevalierconciergerie@gmail.com",
+            "email": "contact@chevalier-conciergerie.com",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "5 Lotissement Les Cades",
