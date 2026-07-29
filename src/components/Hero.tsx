@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import BookingQuickSearch from "@/components/BookingQuickSearch";
 import heroVideo from "@/assets/hero-video-luxury.mp4";
 import heroPoster from "@/assets/hero-video-poster.jpg";
@@ -59,25 +61,46 @@ const Hero = () => {
             {cities[currentCityIndex]}
           </span>
         </div>
-        <p className="font-sans text-[11px] md:text-sm text-primary-foreground/50 max-w-md mx-auto mb-8 md:mb-10 leading-relaxed tracking-[0.15em] uppercase opacity-0 animate-fade-up animation-delay-200">
-          Conciergerie haut de gamme &<br />
-          sous-location professionnelle
+        <p className="font-sans text-[11px] md:text-sm text-primary-foreground/50 max-w-md mx-auto mb-6 leading-relaxed tracking-[0.15em] uppercase opacity-0 animate-fade-up animation-delay-200">
+          Gestion locative d'exception &<br />
+          revenus garantis, sans contrainte
         </p>
-        <div className="flex items-center justify-center gap-3 md:gap-5 opacity-0 animate-fade-up animation-delay-300">
-          <a
-            href="/conciergerie"
-            className="group flex items-center gap-2 md:gap-3 border border-primary-foreground/25 px-5 md:px-8 py-3 md:py-4 text-primary-foreground text-[10px] md:text-xs tracking-[0.25em] uppercase hover:bg-primary-foreground/10 transition-all duration-300"
-          >
-            Conciergerie
-            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-          </a>
-          <a
-            href="/sous-location"
-            className="group flex items-center gap-2 md:gap-3 border border-gold/40 px-5 md:px-8 py-3 md:py-4 text-gold text-[10px] md:text-xs tracking-[0.25em] uppercase hover:bg-gold/10 transition-all duration-300"
-          >
-            Sous-location
-            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-          </a>
+
+        {/* Trust bar — note Google réelle */}
+        <a
+          href="https://www.google.com/maps/place/CHEVALIER+CONCIERGERIE/@43.8680214,4.8327906,17z"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 mb-8 md:mb-10 opacity-0 animate-fade-up animation-delay-200 hover:opacity-80 transition-opacity"
+        >
+          <span className="flex gap-0.5">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} className="w-3.5 h-3.5 fill-gold text-gold" />
+            ))}
+          </span>
+          <span className="font-sans text-[10px] md:text-xs tracking-[0.15em] uppercase text-primary-foreground/60">
+            5,0 · 12 avis Google
+          </span>
+        </a>
+
+        <div className="flex flex-col items-center gap-4 opacity-0 animate-fade-up animation-delay-300">
+          <div className="flex items-center justify-center gap-3 md:gap-5">
+            <Button asChild variant="hero" size="lg" className="group">
+              <Link to="/contact">
+                Consultation Gratuite
+                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+            <Button asChild variant="outline-light" size="lg" className="group">
+              <a href="#formules">
+                Nos Solutions
+                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+              </a>
+            </Button>
+          </div>
+          <p className="font-sans text-[10px] md:text-xs text-primary-foreground/40 tracking-[0.15em] uppercase">
+            Réponse sous 24h · Sans engagement
+          </p>
         </div>
       </div>
 

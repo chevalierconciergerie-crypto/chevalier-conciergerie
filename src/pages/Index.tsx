@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import BookingQuickSearch from "@/components/BookingQuickSearch";
 import LocalExpertise from "@/components/LocalExpertise";
 import PlatformLogos from "@/components/PlatformLogos";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import FounderPresentation from "@/components/FounderPresentation";
 import { ArrowRight, Home, Sparkles, Instagram, Facebook, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -215,6 +216,9 @@ const Index = () => {
               </div>
             </div>
           </section>
+
+          {/* Témoignages — avis Google réels */}
+          <TestimonialsCarousel />
 
           {/* Platform Logos */}
           <section className="bg-background py-8">
