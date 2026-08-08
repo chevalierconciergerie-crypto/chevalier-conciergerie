@@ -145,7 +145,7 @@ const Index = () => {
                           <div className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center mb-6">
                             <Sparkles className="w-5 h-5 text-gold" />
                           </div>
-                          <span className="font-sans text-xs tracking-[0.4em] uppercase text-gold-ink mb-3 block">
+                          <span className="font-sans text-xs tracking-[0.4em] uppercase text-gold mb-3 block">
                             01 — Service
                           </span>
                           <h3 className="font-serif text-3xl md:text-4xl text-primary-foreground font-light tracking-wide mb-4">
@@ -157,7 +157,7 @@ const Index = () => {
                         </div>
                         
                         <div className="flex items-center gap-3">
-                          <span className="px-4 py-1.5 border border-gold/20 text-xs tracking-[0.2em] text-gold-ink uppercase">
+                          <span className="px-4 py-1.5 border border-gold/20 text-xs tracking-[0.2em] text-gold uppercase">
                             Commission sur-mesure
                           </span>
                         </div>
@@ -189,7 +189,7 @@ const Index = () => {
                           <div className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center mb-6">
                             <Home className="w-5 h-5 text-gold" />
                           </div>
-                          <span className="font-sans text-xs tracking-[0.4em] uppercase text-gold-ink mb-3 block">
+                          <span className="font-sans text-xs tracking-[0.4em] uppercase text-gold mb-3 block">
                             02 — Solution
                           </span>
                           <h3 className="font-serif text-3xl md:text-4xl text-primary-foreground font-light tracking-wide mb-4">
@@ -201,7 +201,7 @@ const Index = () => {
                         </div>
                         
                         <div className="flex items-center gap-3">
-                          <span className="px-4 py-1.5 border border-gold/20 text-xs tracking-[0.2em] text-gold-ink uppercase">
+                          <span className="px-4 py-1.5 border border-gold/20 text-xs tracking-[0.2em] text-gold uppercase">
                             Revenus sécurisés
                           </span>
                         </div>

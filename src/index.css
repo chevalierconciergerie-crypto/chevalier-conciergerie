@@ -56,9 +56,14 @@
       Or d'encre — même teinte, assombrie pour le texte posé sur fond clair.
       L'or nominal (#D7A833) ne donne que 2,20:1 sur blanc, très loin des 4,5:1
       exigés : les libellés de section étaient illisibles. Celui-ci monte à 4,63:1.
-      À n'utiliser que sur fond clair : sur fond sombre, garder --gold.
+      À n'utiliser que sur fond clair : sur fond sombre, garder --gold, qui y atteint
+      8,37:1 — l'or d'encre n'y donnerait que 4,08:1.
+
+      Calibré à 32 % et non 34 % : à 34 % il passait sur blanc pur (4,63:1) mais
+      retombait à 4,24:1 sur le crème --cream-dark (#F5F5F5), utilisé par plusieurs
+      sections. 32 % tient sur les deux fonds.
     */
-    --gold-ink: 43 67% 34%;
+    --gold-ink: 43 67% 32%;
     --midnight: 0 0% 8%;
     --midnight-light: 0 0% 20%;
     --cream: 0 0% 100%;
