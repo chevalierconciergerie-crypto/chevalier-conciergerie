@@ -199,12 +199,12 @@ const STATIC_ROUTES = [
     priority: "1.0",
     title: "Conciergerie Avignon | Gestion Locative & Sous-location | Chevalier Conciergerie",
     description:
-      "Conciergerie Airbnb à Avignon, Villeneuve-lès-Avignon et Les Angles. Gestion locative saisonnière haut de gamme et sous-location professionnelle avec loyer garanti. Devis gratuit.",
+      "Conciergerie Airbnb à Avignon, Villeneuve-lès-Avignon et Les Angles. Gestion locative saisonnière complète, ou sous-location avec loyer garanti chaque mois. Estimation gratuite sous 24 h.",
     keywords:
       "conciergerie Avignon, gestion locative Avignon, Airbnb Avignon, location saisonnière Avignon, sous-location Avignon, conciergerie Villeneuve-lès-Avignon, gestion Airbnb",
     ogTitle: "Conciergerie Avignon | Gestion Locative Saisonnière | Chevalier Conciergerie",
     ogDescription:
-      "Conciergerie Airbnb haut de gamme à Avignon. Gestion locative saisonnière et sous-location avec loyer garanti. Consultation gratuite.",
+      "Conciergerie Airbnb à Avignon. Gestion locative saisonnière complète, ou loyer garanti chaque mois. Estimation gratuite.",
     bodyHtml: `<main>
       <h1>Votre conciergerie à Avignon</h1>
       <p>Gestion locative saisonnière et revenus garantis, sans contrainte. Chevalier
@@ -243,12 +243,12 @@ const STATIC_ROUTES = [
     priority: "0.9",
     title: "Conciergerie Airbnb Avignon | Gestion Location Saisonnière | Chevalier",
     description:
-      "Conciergerie Airbnb premium à Avignon et Villeneuve-lès-Avignon. Accueil voyageurs, ménage professionnel, gestion des annonces. Commission sur-mesure selon votre bien. Devis gratuit.",
+      "Conciergerie Airbnb à Avignon et Villeneuve-lès-Avignon : accueil voyageurs, ménage, linge, annonces, tarification. Commission sur-mesure, sans engagement. Estimation gratuite sous 24 h.",
     keywords:
       "conciergerie Airbnb Avignon, gestion location saisonnière Avignon, accueil voyageurs Avignon, ménage Airbnb Avignon",
     ogTitle: "Conciergerie Airbnb Avignon | Gestion Location Saisonnière",
     ogDescription:
-      "Service de conciergerie premium pour locations Airbnb à Avignon. Gestion complète de votre bien.",
+      "Conciergerie Airbnb à Avignon : gestion complète de votre location saisonnière, commission sur-mesure.",
     bodyHtml: `<main>
       <nav><a href="/">Accueil</a> › Conciergerie</nav>
       <h1>Nous tenons vos appartements à Avignon, intra-muros.</h1>
@@ -484,7 +484,7 @@ const STATIC_ROUTES = [
     priority: "0.7",
     title: "Nos Partenaires | Chevalier Conciergerie Avignon",
     description:
-      "Découvrez nos partenaires de confiance à Avignon. Un réseau soigneusement sélectionné pour une expérience d'exception.",
+      "Les partenaires locaux avec qui nous travaillons à Avignon et alentours pour l'entretien et la valorisation des biens que nous gérons.",
     keywords: "partenaires conciergerie Avignon, prestataires location saisonnière Avignon",
   },
   {

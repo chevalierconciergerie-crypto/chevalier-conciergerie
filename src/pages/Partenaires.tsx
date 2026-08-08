@@ -85,7 +85,7 @@ const Partenaires = () => {
         <title>Nos Partenaires | Chevalier Conciergerie Avignon</title>
         <meta
           name="description"
-          content="Découvrez nos partenaires de confiance à Avignon. Un réseau soigneusement sélectionné pour une expérience d'exception."
+          content="Les partenaires locaux avec qui nous travaillons à Avignon et alentours pour l'entretien et la valorisation des biens que nous gérons."
         />
         <link rel="canonical" href="https://chevalier-conciergerie.com/partenaires" />
       </Helmet>

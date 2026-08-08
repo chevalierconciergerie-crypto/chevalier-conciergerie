@@ -21,11 +21,11 @@ const Index = () => {
         <title>Conciergerie Avignon | Gestion Locative & Sous-location | Chevalier Conciergerie</title>
         <meta 
           name="description" 
-          content="Conciergerie Airbnb à Avignon, Villeneuve-lès-Avignon et Les Angles. Gestion locative saisonnière haut de gamme et sous-location professionnelle avec loyer garanti. Devis gratuit." 
+          content="Conciergerie Airbnb à Avignon, Villeneuve-lès-Avignon et Les Angles. Gestion locative saisonnière complète, ou sous-location avec loyer garanti chaque mois. Estimation gratuite sous 24 h." 
         />
         <meta name="keywords" content="conciergerie Avignon, gestion locative Avignon, Airbnb Avignon, location saisonnière Avignon, sous-location Avignon, conciergerie Villeneuve-lès-Avignon, gestion Airbnb" />
         <meta property="og:title" content="Conciergerie Avignon | Gestion Locative Saisonnière | Chevalier Conciergerie" />
-        <meta property="og:description" content="Conciergerie Airbnb haut de gamme à Avignon. Gestion locative saisonnière et sous-location avec loyer garanti. Consultation gratuite." />
+        <meta property="og:description" content="Conciergerie Airbnb à Avignon. Gestion locative saisonnière complète, ou loyer garanti chaque mois. Estimation gratuite." />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="fr_FR" />
         <meta name="geo.region" content="FR-84" />
@@ -37,7 +37,7 @@ const Index = () => {
             "@type": "LocalBusiness",
             "@id": "https://chevalier-conciergerie.com",
             "name": "Chevalier Conciergerie",
-            "description": "Conciergerie Airbnb et gestion locative saisonnière haut de gamme à Avignon. Sous-location professionnelle avec loyer garanti.",
+            "description": "Conciergerie Airbnb et gestion locative saisonnière à Avignon. Sous-location professionnelle avec loyer garanti chaque mois.",
             "url": "https://chevalier-conciergerie.com",
             "telephone": "+33783198341",
             "email": "contact@chevalier-conciergerie.com",

@@ -46,9 +46,9 @@ const Footer = () => {
               <img loading="lazy" decoding="async" src={logoCc} alt="Chevalier Conciergerie" className="h-24 w-auto [filter:brightness(0)]" />
             </Link>
             <p className="font-sans text-muted-foreground text-sm leading-relaxed mb-6 max-w-sm">
-              L'excellence de la gestion locative à Avignon.
-              Conciergerie haut de gamme et sous-location professionnelle
-              pour des propriétaires exigeants.
+              Conciergerie et sous-location à Avignon, Villeneuve-lès-Avignon
+              et Les Angles. Gestion complète de votre location saisonnière,
+              ou loyer garanti chaque mois.
             </p>
 
             {/* Contact Info */}

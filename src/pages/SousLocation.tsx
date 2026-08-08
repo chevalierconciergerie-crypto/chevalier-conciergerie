@@ -85,7 +85,7 @@ const SousLocation = () => {
     },
     {
       question: "Le logement doit-il être meublé ?",
-      answer: "Pas forcément. On peut récupérer votre bien vide et l'équiper de A à Z. Le but est d'offrir un logement clé en main et haut de gamme à nos clients.",
+      answer: "Pas forcément. On peut récupérer votre bien vide et l'équiper de A à Z. Le but est d'offrir un logement clé en main, équipé et entretenu aux standards hôteliers.",
     },
   ];
   return (

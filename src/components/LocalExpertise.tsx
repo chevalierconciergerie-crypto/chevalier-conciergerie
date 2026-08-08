@@ -31,7 +31,7 @@ const LocalExpertise = () => {
             <p className="font-sans text-xl text-primary-foreground/80 leading-relaxed mb-8 max-w-3xl mx-auto">
               Née au cœur de la Cité des Papes, notre conciergerie bénéficie d'une connaissance intime 
               du marché immobilier avignonnais. Du centre historique aux quartiers résidentiels, 
-              nous maîtrisons chaque nuance de cette ville d'exception.
+              nous connaissons la saisonnalité de chaque secteur.
             </p>
           </ScrollAnimate>
         </div>

@@ -38,8 +38,16 @@ const faqItems = [
     a: "Le mandat précise la durée et les conditions de résiliation, avec un préavis raisonnable. Les réservations déjà confirmées au moment d'un arrêt sont menées à leur terme.",
   },
   {
-    q: "Faut-il une autorisation pour louer en courte durée ?",
-    a: "Selon votre commune et votre situation (résidence principale ou secondaire, copropriété), un numéro d'enregistrement et/ou un changement d'usage peuvent être nécessaires. Nous vous orientons sur les démarches à effectuer.",
+    q: "Faut-il une autorisation pour louer en courte durée à Avignon ?",
+    a: "Depuis le 1er janvier 2026, tout meublé de tourisme à Avignon doit être déclaré et enregistré, sans exception. S'y ajoute une autorisation temporaire de changement d'usage pour tout logement qui n'est pas une résidence principale, sur l'ensemble du territoire communal et pour les particuliers comme pour les sociétés. Les deux démarches passent par la plateforme changementdusage.fr/avignon. Nous vous orientons et constituons le dossier.",
+  },
+  {
+    q: "Combien de jours puis-je louer ma résidence principale à Avignon ?",
+    a: "90 jours par année civile, et non 120. Avignon a abaissé le plafond national par délibération du 22 février 2025, une faculté que le Code du tourisme laisse aux communes. En contrepartie, une résidence principale n'est pas soumise à l'autorisation de changement d'usage. Les règles évoluant, vérifiez votre situation auprès de la mairie.",
+  },
+  {
+    q: "Villeneuve-lès-Avignon et Les Angles suivent-elles les mêmes règles ?",
+    a: "Non. Le régime d'enregistrement et de changement d'usage décrit ici est propre à la commune d'Avignon. Villeneuve-lès-Avignon et Les Angles, situées dans le Gard, relèvent de dispositifs distincts. Nous vérifions le cadre applicable à votre bien avant toute mise en ligne.",
   },
 ];
 
@@ -66,11 +74,11 @@ const Conciergerie = () => {
         <title>Conciergerie Airbnb Avignon | Gestion Location Saisonnière | Chevalier</title>
         <meta 
           name="description" 
-          content="Conciergerie Airbnb premium à Avignon et Villeneuve-lès-Avignon. Accueil voyageurs, ménage professionnel, gestion des annonces. Commission sur-mesure selon votre bien. Devis gratuit."
+          content="Conciergerie Airbnb à Avignon et Villeneuve-lès-Avignon : accueil voyageurs, ménage, linge, annonces, tarification. Commission sur-mesure, sans engagement. Estimation gratuite sous 24 h."
         />
         <meta name="keywords" content="conciergerie Airbnb Avignon, gestion location saisonnière Avignon, accueil voyageurs Avignon, ménage Airbnb Avignon" />
         <meta property="og:title" content="Conciergerie Airbnb Avignon | Gestion Location Saisonnière" />
-        <meta property="og:description" content="Service de conciergerie premium pour locations Airbnb à Avignon. Gestion complète de votre bien." />
+        <meta property="og:description" content="Conciergerie Airbnb à Avignon : gestion complète de votre location saisonnière, commission sur-mesure." />
         <link rel="canonical" href="https://chevalier-conciergerie.com/conciergerie" />
         <script type="application/ld+json">
           {JSON.stringify({
