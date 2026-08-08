@@ -2,7 +2,7 @@ import { Helmet } from "@/lib/seo";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PropertyListings from "@/components/PropertyListings";
+import PropertyShowcase from "@/components/PropertyShowcase";
 
 const Logements = () => {
   return (
@@ -19,7 +19,7 @@ const Logements = () => {
       <Header />
 
       <main className="relative z-10 pt-24">
-        <PropertyListings />
+        <PropertyShowcase />
 
         {/* CTA réservation */}
         <section className="bg-background pb-24 text-center px-6">
