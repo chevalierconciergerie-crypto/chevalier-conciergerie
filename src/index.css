@@ -42,6 +42,13 @@
     /* Custom Design Tokens */
     --gold: 43 67% 52%;
     --gold-light: 43 60% 70%;
+    /*
+      Or d'encre — même teinte, assombrie pour le texte posé sur fond clair.
+      L'or nominal (#D7A833) ne donne que 2,20:1 sur blanc, très loin des 4,5:1
+      exigés : les libellés de section étaient illisibles. Celui-ci monte à 4,63:1.
+      À n'utiliser que sur fond clair : sur fond sombre, garder --gold.
+    */
+    --gold-ink: 43 67% 34%;
     --midnight: 0 0% 8%;
     --midnight-light: 0 0% 20%;
     --cream: 0 0% 100%;

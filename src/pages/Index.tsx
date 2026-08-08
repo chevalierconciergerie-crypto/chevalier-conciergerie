@@ -87,7 +87,7 @@ const Index = () => {
           <section className="bg-background py-8 md:py-10">
             <div className="container mx-auto px-6">
               <div className="flex items-center justify-center gap-5">
-                <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-foreground/40">
+                <span className="font-sans text-xs tracking-[0.3em] uppercase text-foreground/40">
                   Suivez-nous
                 </span>
                 <div className="w-6 h-px bg-gold/30" />
@@ -112,7 +112,7 @@ const Index = () => {
               <ScrollAnimate>
                 <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
                   <div className="w-10 h-px bg-gold/40 mx-auto mb-5" />
-                  <span className="font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase text-gold">
+                  <span className="font-sans text-xs md:text-xs tracking-[0.5em] uppercase text-gold-ink">
                     Nos Solutions
                   </span>
                   <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light text-foreground mt-6 mb-6 tracking-wide">
@@ -145,7 +145,7 @@ const Index = () => {
                           <div className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center mb-6">
                             <Sparkles className="w-5 h-5 text-gold" />
                           </div>
-                          <span className="font-sans text-[10px] tracking-[0.4em] uppercase text-gold/60 mb-3 block">
+                          <span className="font-sans text-xs tracking-[0.4em] uppercase text-gold-ink mb-3 block">
                             01 — Service
                           </span>
                           <h3 className="font-serif text-3xl md:text-4xl text-primary-foreground font-light tracking-wide mb-4">
@@ -157,7 +157,7 @@ const Index = () => {
                         </div>
                         
                         <div className="flex items-center gap-3">
-                          <span className="px-4 py-1.5 border border-gold/20 text-[10px] tracking-[0.2em] text-gold/70 uppercase">
+                          <span className="px-4 py-1.5 border border-gold/20 text-xs tracking-[0.2em] text-gold-ink uppercase">
                             Commission sur-mesure
                           </span>
                         </div>
@@ -189,7 +189,7 @@ const Index = () => {
                           <div className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center mb-6">
                             <Home className="w-5 h-5 text-gold" />
                           </div>
-                          <span className="font-sans text-[10px] tracking-[0.4em] uppercase text-gold/60 mb-3 block">
+                          <span className="font-sans text-xs tracking-[0.4em] uppercase text-gold-ink mb-3 block">
                             02 — Solution
                           </span>
                           <h3 className="font-serif text-3xl md:text-4xl text-primary-foreground font-light tracking-wide mb-4">
@@ -201,7 +201,7 @@ const Index = () => {
                         </div>
                         
                         <div className="flex items-center gap-3">
-                          <span className="px-4 py-1.5 border border-gold/20 text-[10px] tracking-[0.2em] text-gold/70 uppercase">
+                          <span className="px-4 py-1.5 border border-gold/20 text-xs tracking-[0.2em] text-gold-ink uppercase">
                             Revenus sécurisés
                           </span>
                         </div>

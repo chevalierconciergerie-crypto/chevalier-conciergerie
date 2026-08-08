@@ -109,7 +109,7 @@ const Partenaires = () => {
               <ScrollAnimate>
                 <div className="text-center max-w-3xl mx-auto">
                   <div className="w-10 h-px bg-gold/40 mx-auto mb-6" />
-                  <span className="font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase text-gold">
+                  <span className="font-sans text-xs md:text-xs tracking-[0.5em] uppercase text-gold-ink">
                     Notre Réseau
                   </span>
                   <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-light text-primary-foreground mt-6 mb-6 tracking-wide">

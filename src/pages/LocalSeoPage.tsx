@@ -104,7 +104,7 @@ const LocalSeoPage = ({
               <div className="max-w-3xl">
                 <div className="flex items-center gap-2 mb-4">
                   <MapPin className="w-4 h-4 text-gold" />
-                  <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">{city}</span>
+                  <span className="text-gold-ink font-sans text-sm tracking-[0.3em] uppercase">{city}</span>
                 </div>
                 <h1 className="font-serif text-4xl md:text-6xl font-semibold text-primary-foreground mb-6">
                   {intro.headline}
@@ -155,7 +155,7 @@ const LocalSeoPage = ({
                 <ScrollAnimate>
                   <div className="text-center mb-12">
                     <div className="w-10 h-px bg-gold mx-auto mb-6" />
-                    <span className="font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase text-gold">
+                    <span className="font-sans text-xs md:text-xs tracking-[0.5em] uppercase text-gold-ink">
                       Conciergerie à {city}
                     </span>
                     <h2 className="font-serif text-3xl md:text-5xl font-light text-foreground mt-6 tracking-wide">
@@ -214,7 +214,7 @@ const LocalSeoPage = ({
                 <ScrollAnimate>
                   <div className="text-center mb-12">
                     <div className="w-10 h-px bg-gold mx-auto mb-6" />
-                    <span className="font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase text-gold">Services</span>
+                    <span className="font-sans text-xs md:text-xs tracking-[0.5em] uppercase text-gold-ink">Services</span>
                     <h2 className="font-serif text-3xl md:text-5xl font-light text-foreground mt-6 tracking-wide">
                       Ce que nous proposons à {city}
                     </h2>

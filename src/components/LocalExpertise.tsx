@@ -19,7 +19,7 @@ const LocalExpertise = () => {
           <ScrollAnimate>
             <div className="flex items-center justify-center gap-4 mb-8">
               <div className="h-px w-16 bg-gold" />
-              <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Notre Ancrage</span>
+              <span className="text-gold-ink font-sans text-sm tracking-[0.3em] uppercase">Notre Ancrage</span>
               <div className="h-px w-16 bg-gold" />
             </div>
 

@@ -54,6 +54,8 @@ export default {
         gold: {
           DEFAULT: "hsl(var(--gold))",
           light: "hsl(var(--gold-light))",
+          // Pour le texte sur fond clair uniquement — voir le commentaire dans index.css.
+          ink: "hsl(var(--gold-ink))",
         },
         midnight: {
           DEFAULT: "hsl(var(--midnight))",

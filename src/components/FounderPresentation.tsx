@@ -10,7 +10,7 @@ const FounderPresentation = () => {
       <div className="container mx-auto px-6">
         <ScrollAnimate>
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Le Fondateur</span>
+            <span className="text-gold-ink font-sans text-sm tracking-[0.3em] uppercase">Le Fondateur</span>
             <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4">
               Victor Chevalier
             </h2>
@@ -96,7 +96,7 @@ const FounderPresentation = () => {
                 <p className="font-sans text-muted-foreground leading-relaxed">
                   <span className="text-foreground font-medium">Originaire d'Avignon</span>, je connais intimement cette ville, 
                   ses quartiers, son patrimoine et son attractivité touristique. C'est cette expertise locale, 
-                  combinée à ma rigueur scientifique, qui m'a conduit à créer <span className="text-gold font-semibold">Chevalier Conciergerie</span>.
+                  combinée à ma rigueur scientifique, qui m'a conduit à créer <span className="text-gold-ink font-semibold">Chevalier Conciergerie</span>.
                 </p>
               </div>
 

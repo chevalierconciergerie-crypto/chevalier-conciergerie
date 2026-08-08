@@ -34,7 +34,7 @@ const BookingQuickSearch = () => {
 
       <div className="grid grid-cols-2 gap-3 mb-3">
         <label className="block">
-          <span className="block text-[10px] uppercase tracking-[0.15em] text-primary-foreground/60 mb-1">
+          <span className="block text-xs uppercase tracking-[0.15em] text-primary-foreground/60 mb-1">
             Arrivée
           </span>
           <input
@@ -45,7 +45,7 @@ const BookingQuickSearch = () => {
           />
         </label>
         <label className="block">
-          <span className="block text-[10px] uppercase tracking-[0.15em] text-primary-foreground/60 mb-1">
+          <span className="block text-xs uppercase tracking-[0.15em] text-primary-foreground/60 mb-1">
             Départ
           </span>
           <input
@@ -59,7 +59,7 @@ const BookingQuickSearch = () => {
       </div>
 
       <div className="flex items-center justify-between rounded-lg bg-background border border-border px-3 py-2 mb-5">
-        <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
+        <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
           Adultes
         </span>
         <div className="flex items-center gap-3">

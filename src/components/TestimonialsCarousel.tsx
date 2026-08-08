@@ -70,7 +70,7 @@ const TestimonialsCarousel = () => {
     <section className="py-20 bg-secondary overflow-hidden">
       <div className="container mx-auto px-6 mb-12">
         <div className="text-center max-w-3xl mx-auto">
-          <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">
+          <span className="text-gold-ink font-sans text-sm tracking-[0.3em] uppercase">
             Témoignages
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4 mb-6">
@@ -147,7 +147,7 @@ const TestimonialsCarousel = () => {
                 <p className="font-serif font-semibold text-foreground">
                   {testimonial.name}
                 </p>
-                <div className="px-2.5 py-1 rounded text-[10px] font-medium uppercase tracking-wider bg-blue-100 text-blue-700">
+                <div className="px-2.5 py-1 rounded text-xs font-medium uppercase tracking-wider bg-blue-100 text-blue-700">
                   Avis Google public
                 </div>
               </div>

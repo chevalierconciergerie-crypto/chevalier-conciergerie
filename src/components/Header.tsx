@@ -197,7 +197,7 @@ const Header = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {/* Number */}
-                  <span className="font-sans text-[10px] tracking-[0.3em] text-gold/40 w-8">
+                  <span className="font-sans text-xs tracking-[0.3em] text-gold/40 w-8">
                     {item.number}
                   </span>
                   {/* Thin line */}

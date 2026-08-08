@@ -102,7 +102,7 @@ const Conciergerie = () => {
             </div>
             <div className="relative z-10 container mx-auto px-6">
               <div className="max-w-3xl">
-                <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Conciergerie</span>
+                <span className="text-gold-ink font-sans text-sm tracking-[0.3em] uppercase">Conciergerie</span>
                 <h1 className="font-serif text-4xl md:text-6xl font-semibold text-primary-foreground mt-4 mb-6">
                   Un Service<br />
                   <span className="text-gold">5 Étoiles</span>
@@ -131,7 +131,7 @@ const Conciergerie = () => {
                 {/* Header */}
                 <div className="text-center mb-16 md:mb-20">
                   <div className="w-10 h-px bg-gold mx-auto mb-6" />
-                  <span className="font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase text-gold">Notre Offre</span>
+                  <span className="font-sans text-xs md:text-xs tracking-[0.5em] uppercase text-gold-ink">Notre Offre</span>
                   <h2 className="font-serif text-3xl md:text-5xl font-light text-foreground mt-6 tracking-wide">
                     Service Intégral
                   </h2>
@@ -149,7 +149,7 @@ const Conciergerie = () => {
                     <div className="relative z-10">
                       <div className="inline-flex items-center gap-2 bg-gold/15 rounded-full px-4 py-1.5 mb-8">
                         <Sparkles className="w-3.5 h-3.5 text-gold" />
-                        <span className="font-sans text-[10px] font-medium text-gold uppercase tracking-widest">Formule complète</span>
+                        <span className="font-sans text-xs font-medium text-gold uppercase tracking-widest">Formule complète</span>
                       </div>
 
                       <div className="mb-6">
@@ -187,7 +187,7 @@ const Conciergerie = () => {
 
                   {/* Right: Features list */}
                   <div className="lg:col-span-3 bg-card p-8 md:p-12">
-                    <p className="font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase text-muted-foreground mb-8">
+                    <p className="font-sans text-xs md:text-xs tracking-[0.4em] uppercase text-muted-foreground mb-8">
                       Tout est inclus
                     </p>
 
@@ -236,7 +236,7 @@ const Conciergerie = () => {
                 {/* Header avec approche narrative */}
                 <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-20">
                   <div className="lg:max-w-xl">
-                    <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">En pratique</span>
+                    <span className="text-gold-ink font-sans text-sm tracking-[0.3em] uppercase">En pratique</span>
                     <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4">
                       Votre Bien Travaille<br />
                       <span className="text-gold">Pendant Vos Vacances</span>
@@ -416,7 +416,7 @@ const Conciergerie = () => {
           <section className="py-20 bg-background">
             <div className="container mx-auto px-6">
               <div className="text-center max-w-2xl mx-auto mb-12">
-                <span className="font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase text-gold">
+                <span className="font-sans text-xs md:text-xs tracking-[0.4em] uppercase text-gold-ink">
                   Questions fréquentes
                 </span>
                 <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mt-4">

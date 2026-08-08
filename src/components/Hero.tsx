@@ -46,7 +46,7 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 text-center px-6 w-full max-w-5xl mx-auto">
         <div className="w-10 h-px bg-gold/50 mx-auto mb-6 opacity-0 animate-fade-up" />
-        <p className="font-sans text-[10px] md:text-xs tracking-[0.5em] uppercase text-primary-foreground/40 mb-6 md:mb-8 opacity-0 animate-fade-up">
+        <p className="font-sans text-xs md:text-xs tracking-[0.5em] uppercase text-primary-foreground/40 mb-6 md:mb-8 opacity-0 animate-fade-up">
           Chevalier Conciergerie
         </p>
         <h1 className="font-serif text-[2.2rem] leading-tight sm:text-5xl md:text-7xl lg:text-8xl font-light text-primary-foreground tracking-[0.06em] mb-3 md:mb-4 opacity-0 animate-fade-up animation-delay-100">
@@ -78,7 +78,7 @@ const Hero = () => {
               <Star key={i} className="w-3.5 h-3.5 fill-gold text-gold" />
             ))}
           </span>
-          <span className="font-sans text-[10px] md:text-xs tracking-[0.15em] uppercase text-primary-foreground/60">
+          <span className="font-sans text-xs md:text-xs tracking-[0.15em] uppercase text-primary-foreground/60">
             5,0 · 12 avis Google
           </span>
         </a>
@@ -98,7 +98,7 @@ const Hero = () => {
               </a>
             </Button>
           </div>
-          <p className="font-sans text-[10px] md:text-xs text-primary-foreground/40 tracking-[0.15em] uppercase">
+          <p className="font-sans text-xs md:text-xs text-primary-foreground/40 tracking-[0.15em] uppercase">
             Réponse sous 24h · Sans engagement
           </p>
         </div>

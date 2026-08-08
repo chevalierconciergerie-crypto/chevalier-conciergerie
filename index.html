@@ -9,9 +9,13 @@
     <meta name="author" content="Chevalier Conciergerie" />
     <link rel="canonical" href="https://chevalier-conciergerie.com" />
 
-    <!-- Google Search Console : remplace le contenu par ton code de vérification (méthode "balise HTML") -->
-    <meta name="google-site-verification" content="REMPLACER_PAR_CODE_SEARCH_CONSOLE" />
-    
+    <!--
+      Google Search Console : la balise portait un placeholder, ce qui revient à ne pas
+      être vérifié du tout. Pour l'activer, récupère le code sur
+      https://search.google.com/search-console (méthode "balise HTML") et décommente :
+      <meta name="google-site-verification" content="TON_CODE" />
+    -->
+
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -27,24 +31,53 @@
     <meta name="twitter:description" content="Conciergerie haut de gamme et sous-location professionnelle à Avignon." />
     <meta name="twitter:image" content="https://chevalier-conciergerie.com/og-image.png" />
 
+    <!--
+      Fiche d'établissement servie sur toutes les pages. Le `@id` est identique à celui
+      déclaré dans src/pages/Index.tsx : Google fusionne alors les deux déclarations au
+      lieu de les traiter comme deux entreprises concurrentes. Toute modification ici
+      doit être répercutée là-bas, et inversement.
+    -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
+      "@id": "https://chevalier-conciergerie.com",
       "name": "Chevalier Conciergerie",
-      "image": "https://chevalier-conciergerie.com/favicon.png",
+      "image": "https://chevalier-conciergerie.com/og-image.png",
       "logo": "https://chevalier-conciergerie.com/favicon.png",
       "url": "https://chevalier-conciergerie.com",
-      "telephone": "+33 6 XX XX XX XX",
-      "description": "Conciergerie haut de gamme et sous-location professionnelle à Avignon. Loyer garanti et gestion 5 étoiles.",
+      "telephone": "+33783198341",
+      "email": "contact@chevalier-conciergerie.com",
+      "description": "Conciergerie Airbnb et gestion locative saisonnière haut de gamme à Avignon. Sous-location professionnelle avec loyer garanti.",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Avignon",
+        "streetAddress": "5 Lotissement Les Cades",
+        "addressLocality": "Villeneuve-lès-Avignon",
+        "postalCode": "30400",
         "addressRegion": "Provence-Alpes-Côte d'Azur",
         "addressCountry": "FR"
       },
-      "areaServed": ["Avignon", "Villeneuve-lès-Avignon", "Les Angles"],
-      "priceRange": "€€€"
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 43.9657,
+        "longitude": 4.7956
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Avignon" },
+        { "@type": "City", "name": "Villeneuve-lès-Avignon" },
+        { "@type": "City", "name": "Les Angles" }
+      ],
+      "serviceType": ["Conciergerie Airbnb", "Gestion locative saisonnière", "Sous-location professionnelle"],
+      "priceRange": "€€",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "sameAs": [
+        "https://www.google.com/maps/place/CHEVALIER+CONCIERGERIE/@43.8680214,4.8327906,17z"
+      ]
     }
     </script>
 
@@ -52,14 +85,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="fetch" href="/src/assets/hero-video-luxury.mp4" type="video/mp4" crossorigin>
 
-    <!-- Google Analytics 4 : remplace G-XXXXXXXXXX par ton ID de mesure (2 endroits ci-dessous) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    </script>
+    <!--
+      Google Analytics 4 : le script chargeait l'ID d'exemple G-XXXXXXXXXX. Résultat,
+      une requête externe bloquante à chaque visite et zéro donnée collectée. Retiré.
+
+      Pour l'activer, crée une propriété sur https://analytics.google.com, récupère ton
+      ID de mesure (format G-XXXXXXXXXX) et remets ce bloc en remplaçant les deux
+      occurrences :
+      <script async src="https://www.googletagmanager.com/gtag/js?id=TON_ID"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'TON_ID');
+      </script>
+    -->
   </head>
 
   <body>

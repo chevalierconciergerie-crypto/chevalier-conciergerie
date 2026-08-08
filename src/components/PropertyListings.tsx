@@ -53,7 +53,7 @@ const PropertyListings = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="font-sans text-[10px] md:text-[11px] tracking-[0.5em] uppercase text-foreground/60 inline-block"
+              className="font-sans text-xs md:text-[11px] tracking-[0.5em] uppercase text-foreground/60 inline-block"
             >
               La Collection
             </motion.span>
@@ -140,7 +140,7 @@ function PropertyCard({ property, index }: { property: Property; index: number }
           </span>
           <div className="h-px w-8 bg-foreground/20" />
           {property.location && (
-            <p className="font-sans text-[10px] md:text-[11px] tracking-[0.35em] uppercase text-muted-foreground">
+            <p className="font-sans text-xs md:text-[11px] tracking-[0.35em] uppercase text-muted-foreground">
               {property.location}
             </p>
           )}

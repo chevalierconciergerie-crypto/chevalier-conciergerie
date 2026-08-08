@@ -119,7 +119,7 @@ const SousLocation = () => {
             </div>
             <div className="relative z-10 container mx-auto px-6">
               <div className="max-w-3xl">
-                <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Sous-Location Professionnelle</span>
+                <span className="text-gold-ink font-sans text-sm tracking-[0.3em] uppercase">Sous-Location Professionnelle</span>
                 <h1 className="font-serif text-4xl md:text-6xl font-semibold text-primary-foreground mt-4 mb-6">
                   Un Loyer<br />
                   <span className="text-gold">Garanti</span>
@@ -144,7 +144,7 @@ const SousLocation = () => {
           <section id="avantages" className="py-12 md:py-24 bg-background">
             <div className="container mx-auto px-6">
               <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
-                <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Avantages</span>
+                <span className="text-gold-ink font-sans text-sm tracking-[0.3em] uppercase">Avantages</span>
                 <h2 className="font-serif text-2xl md:text-5xl font-semibold text-foreground mt-3 md:mt-4 mb-4 md:mb-6">
                   Pourquoi la Sous-Location ?
                 </h2>
@@ -213,7 +213,7 @@ const SousLocation = () => {
           <section id="fonctionnement" className="py-24 bg-secondary">
             <div className="container mx-auto px-6">
               <div className="text-center max-w-3xl mx-auto mb-16">
-                <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Fonctionnement</span>
+                <span className="text-gold-ink font-sans text-sm tracking-[0.3em] uppercase">Fonctionnement</span>
                 <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4 mb-6">
                   Comment ça Marche ?
                 </h2>
@@ -266,7 +266,7 @@ const SousLocation = () => {
           <section className="py-24 bg-background">
             <div className="container mx-auto px-6">
               <div className="text-center max-w-3xl mx-auto mb-16">
-                <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Comparaison</span>
+                <span className="text-gold-ink font-sans text-sm tracking-[0.3em] uppercase">Comparaison</span>
                 <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4 mb-6">
                   Sous-Location vs Location Classique
                 </h2>
@@ -326,7 +326,7 @@ const SousLocation = () => {
           <section className="py-24 bg-background">
             <div className="container mx-auto px-6">
               <div className="text-center max-w-3xl mx-auto mb-16">
-                <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Questions Fréquentes</span>
+                <span className="text-gold-ink font-sans text-sm tracking-[0.3em] uppercase">Questions Fréquentes</span>
                 <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4 mb-6">
                   FAQ
                 </h2>
