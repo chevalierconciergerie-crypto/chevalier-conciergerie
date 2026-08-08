@@ -4,11 +4,19 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Send, User, Mail, Phone, MessageSquare, Home } from "lucide-react";
+import { Send, User, Mail, Phone, MessageSquare, Home, Copy, Check } from "lucide-react";
+import { track } from "@vercel/analytics";
 import { useToast } from "@/hooks/use-toast";
+
+const EMAIL = "contact@chevalier-conciergerie.com";
+const TEL = "+33783198341";
 
 const ContactForm = () => {
   const { toast } = useToast();
+  // Affiché après un envoi : voir le commentaire sur handleSubmit.
+  const [envoye, setEnvoye] = useState(false);
+  const [copie, setCopie] = useState(false);
+  const [texteMessage, setTexteMessage] = useState("");
   const [formData, setFormData] = useState({
     nom: "",
     prenom: "",
@@ -46,25 +54,48 @@ const ContactForm = () => {
       return;
     }
 
-    // Création du contenu de l'email
-    const subject = encodeURIComponent(`Demande de contact - ${formData.prenom} ${formData.nom}`);
-    const body = encodeURIComponent(
+    const sujet = `Demande de contact - ${formData.prenom} ${formData.nom}`;
+    const corps =
       `Nouvelle demande de contact\n\n` +
       `Nom : ${formData.nom}\n` +
       `Prénom : ${formData.prenom}\n` +
       `Email : ${formData.email}\n` +
       `Téléphone : ${formData.telephone || "Non renseigné"}\n` +
       `Adresse du bien : ${formData.adresse || "Non renseignée"}\n\n` +
-      `Message :\n${formData.message}`
-    );
+      `Message :\n${formData.message}`;
 
-    // Ouvre le client mail avec les informations pré-remplies
-    window.location.href = `mailto:contact@chevalier-conciergerie.com?subject=${subject}&body=${body}`;
+    // Mesure de l'entonnoir. Aucune donnée personnelle n'est transmise : seulement le
+    // fait qu'un envoi a eu lieu et si un téléphone a été laissé, ce qui suffit à
+    // comparer le nombre de tentatives au nombre d'e-mails réellement reçus. Sans ça,
+    // un prospect perdu l'était sans laisser de trace.
+    track("contact_form_submit", { telephone_fourni: Boolean(formData.telephone) });
+
+    setTexteMessage(corps);
+    setEnvoye(true);
+
+    // `mailto:` reste le chemin nominal, mais il échoue en silence chez qui n'a pas de
+    // client mail configuré — cas courant sur mobile et en webmail. Le bloc de secours
+    // affiché ensuite garantit qu'aucune demande ne se perde sans que personne le sache.
+    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(sujet)}&body=${encodeURIComponent(corps)}`;
 
     toast({
-      title: "Redirection vers votre messagerie",
-      description: "Votre client mail s'ouvre avec le message pré-rempli.",
+      title: "Votre messagerie devrait s'ouvrir",
+      description: "Si rien ne se passe, utilisez les solutions de secours affichées sous le formulaire.",
     });
+  };
+
+  const copierMessage = async () => {
+    try {
+      await navigator.clipboard.writeText(`${EMAIL}\n\n${texteMessage}`);
+      setCopie(true);
+      setTimeout(() => setCopie(false), 2500);
+    } catch {
+      toast({
+        title: "Copie impossible",
+        description: `Sélectionnez le texte à la main, ou écrivez-nous à ${EMAIL}.`,
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -219,6 +250,58 @@ const ContactForm = () => {
               <span className="text-destructive">*</span> Champs obligatoires
             </p>
           </form>
+
+          {/*
+            Filet de sécurité. Le formulaire n'a pas de serveur : il ouvre le client mail
+            du visiteur. Quand celui-ci n'est pas configuré — webmail, téléphone sans
+            compte mail — rien ne part et personne ne le sait. Ce bloc n'apparaît qu'après
+            une tentative d'envoi et propose trois issues qui ne dépendent pas du client
+            mail : copier le message, téléphoner, écrire sur WhatsApp.
+          */}
+          {envoye && (
+            <div className="mx-auto mt-8 max-w-2xl rounded-2xl border border-gold/40 bg-secondary p-6 md:p-8">
+              <h3 className="font-serif text-xl text-foreground">
+                Votre messagerie ne s'est pas ouverte ?
+              </h3>
+              <p className="mt-3 font-sans text-sm leading-relaxed text-muted-foreground">
+                C'est fréquent sur téléphone et avec les messageries en ligne. Votre message
+                n'est pas perdu : copiez-le et envoyez-le nous par le moyen qui vous
+                arrange.
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Button variant="gold" onClick={copierMessage}>
+                  {copie ? <Check className="mr-2 h-4 w-4" /> : <Copy className="mr-2 h-4 w-4" />}
+                  {copie ? "Message copié" : "Copier mon message"}
+                </Button>
+                <Button variant="outline" asChild>
+                  <a href={`tel:${TEL}`} onClick={() => track("contact_tel_click")}>
+                    <Phone className="mr-2 h-4 w-4" />
+                    Appeler
+                  </a>
+                </Button>
+                <Button variant="outline" asChild>
+                  <a
+                    href={`https://wa.me/33783198341?text=${encodeURIComponent(texteMessage)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => track("contact_whatsapp_click")}
+                  >
+                    <MessageSquare className="mr-2 h-4 w-4" />
+                    WhatsApp
+                  </a>
+                </Button>
+              </div>
+
+              <p className="mt-5 font-sans text-sm text-muted-foreground">
+                Ou écrivez directement à{" "}
+                <a href={`mailto:${EMAIL}`} className="text-gold-ink underline underline-offset-4">
+                  {EMAIL}
+                </a>
+                .
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </section>
