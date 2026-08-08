@@ -302,9 +302,39 @@ for (const route of ALL_ROUTES) {
   }
 }
 
+/**
+ * Page d'erreur statique.
+ *
+ * `vercel.json` ne réécrit plus tout vers /index.html : chaque route valide a son propre
+ * fichier ci-dessus, et une URL inconnue tombe donc sur ce 404.html — que Vercel sert
+ * avec un vrai code HTTP 404. Avant, une adresse inexistante répondait 200 puis
+ * affichait le composant NotFound : un « soft 404 », explicitement pénalisé par Google.
+ *
+ * ⚠️ Corollaire : toute route ajoutée à src/App.tsx doit être déclarée dans
+ * scripts/seo-routes.mjs, sinon elle renverra un vrai 404 en production.
+ */
+const notFoundHtml = buildHtml(template, {
+  path: "/404",
+  title: "Page introuvable | Chevalier Conciergerie",
+  description: "Cette page n'existe pas ou a été déplacée.",
+  bodyHtml: `<main>
+    <h1>Cette page n'existe pas.</h1>
+    <p>Elle a peut-être été déplacée, ou l'adresse comporte une erreur.</p>
+    <ul>
+      <li><a href="/">Accueil</a></li>
+      <li><a href="/conciergerie">Conciergerie</a></li>
+      <li><a href="/sous-location">Sous-location</a></li>
+      <li><a href="/journal">Journal</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </main>`,
+}).replace("</head>", `    <meta name="robots" content="noindex, follow" />\n  </head>`);
+
+writeFileSync(path.join(dist, "404.html"), notFoundHtml, "utf8");
+
 writeSitemap(ALL_ROUTES, new Date().toISOString().slice(0, 10));
 
 console.log(
   `[prerender] ${ALL_ROUTES.length} pages générées ` +
-    `(${ROUTES.length} fixes + ${JOURNAL_ROUTES.length} journal) + sitemap.xml`,
+    `(${ROUTES.length} fixes + ${JOURNAL_ROUTES.length} journal) + 404.html + sitemap.xml`,
 );
