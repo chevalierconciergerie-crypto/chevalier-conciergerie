@@ -3,6 +3,8 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { HelmetProvider } from "@/lib/seo";
 import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
@@ -57,6 +59,21 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          {/*
+            Mesure d'audience Vercel (incluse dans l'offre Pro). Placés à l'intérieur du
+            routeur : c'est ce qui leur permet de compter les changements de page d'une
+            SPA, où aucun rechargement ne se produit.
+
+            Analytics donne les pages vues, les sources de trafic et les taux de clic.
+            SpeedInsights remonte les Core Web Vitals mesurés sur de vrais visiteurs —
+            le LCP réel, celui que Google utilise pour classer, et non une simulation.
+
+            Sans cookie ni identifiant personnel : rien à ajouter au bandeau de
+            consentement. Google Analytics reste à activer séparément dans index.html
+            une fois l'identifiant G-… créé.
+          */}
+          <Analytics />
+          <SpeedInsights />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

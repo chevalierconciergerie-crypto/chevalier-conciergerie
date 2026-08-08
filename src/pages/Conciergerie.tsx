@@ -1,6 +1,7 @@
 import { Helmet } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import heroConciergerie from "@/assets/hero-conciergerie.jpg";
 import { Check, X, Sparkles, Users, Clock, Camera, TrendingUp, Home, ArrowRight, Calendar, Wallet, Handshake, FileEdit, Package, Palette } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -387,8 +388,17 @@ const Conciergerie = () => {
                               <p className="font-sans text-sm text-primary-foreground/70">Commission Airbnb (15%)</p>
                               <p className="font-sans text-lg font-medium text-primary-foreground">-149€</p>
                             </div>
+                            {/*
+                              Le pourcentage était calculable mais jamais écrit. Un
+                              propriétaire qui compare deux conciergeries cherche ce
+                              chiffre : le lui faire déduire d'une soustraction le fait
+                              partir chez celui qui l'affiche.
+                            */}
                             <div className="bg-primary-foreground/5 rounded-xl p-4 flex justify-between items-center">
-                              <p className="font-sans text-sm text-primary-foreground/70">Notre commission (exemple)</p>
+                              <p className="font-sans text-sm text-primary-foreground/70">
+                                Notre commission (exemple)
+                                <span className="block text-xs text-primary-foreground/50">soit environ 17 % du brut</span>
+                              </p>
                               <p className="font-sans text-lg font-medium text-primary-foreground">-168€</p>
                             </div>
                             <div className="bg-gold/20 rounded-xl p-4 flex justify-between items-center">
@@ -444,6 +454,96 @@ const Conciergerie = () => {
               </div>
             </div>
           </section>
+
+          {/*
+            Cadre réglementaire. Composition asymétrique, pas de sur-titre espacé ni de
+            grille de cartes centrée : le contenu porte seul. Les chiffres proviennent de
+            la délibération du conseil municipal d'Avignon du 22 février 2025 et des
+            informations publiées par la ville — des faits vérifiables plutôt que des
+            adjectifs, et un sujet qu'aucun concurrent local ne documente.
+          */}
+          <section className="py-20 bg-secondary">
+            <div className="container mx-auto px-6">
+              <div className="grid max-w-6xl gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-20">
+                <div>
+                  <h2 className="font-serif text-3xl md:text-4xl font-light leading-tight text-foreground">
+                    Ce qui a changé à Avignon
+                    <br />
+                    au 1<sup>er</sup> janvier 2026
+                  </h2>
+                  <p className="mt-6 font-sans text-muted-foreground leading-relaxed">
+                    La ville a instauré un régime d'autorisation de changement d'usage et
+                    rendu l'enregistrement obligatoire pour tout meublé de tourisme. Elle
+                    motive la décision par ses propres chiffres : près de 4 300 logements
+                    en location saisonnière en 2023, dont 2 400 en intra-muros, soit un
+                    doublement en huit ans.
+                  </p>
+                  <p className="mt-4 font-sans text-muted-foreground leading-relaxed">
+                    Nous vérifions ce qui s'applique à votre bien et constituons le
+                    dossier avant toute mise en ligne.{" "}
+                    <Link
+                      to="/journal/declarer-location-saisonniere-avignon"
+                      className="text-gold-ink underline underline-offset-4 hover:no-underline"
+                    >
+                      Le détail des trois démarches
+                    </Link>
+                    .
+                  </p>
+                </div>
+
+                <dl className="space-y-8">
+                  <div className="border-t border-border pt-5">
+                    <dt className="font-serif text-xl text-foreground">Enregistrement</dt>
+                    <dd className="mt-2 font-sans text-sm leading-relaxed text-muted-foreground">
+                      Obligatoire pour tout meublé de tourisme, sans exception. Le numéro
+                      doit figurer sur chaque annonce : les plateformes le contrôlent et
+                      retirent celles qui n'en ont pas, y compris en pleine saison.
+                    </dd>
+                  </div>
+                  <div className="border-t border-border pt-5">
+                    <dt className="font-serif text-xl text-foreground">Changement d'usage</dt>
+                    <dd className="mt-2 font-sans text-sm leading-relaxed text-muted-foreground">
+                      Une autorisation temporaire est requise pour tout logement qui n'est
+                      pas une résidence principale, sur l'ensemble du territoire communal.
+                      Le régime vise les particuliers comme les sociétés.
+                    </dd>
+                  </div>
+                  <div className="border-t border-border pt-5">
+                    <dt className="font-serif text-xl text-foreground">90 jours</dt>
+                    <dd className="mt-2 font-sans text-sm leading-relaxed text-muted-foreground">
+                      Le plafond annuel de location d'une résidence principale, abaissé de
+                      120 à 90 jours par la ville. Si vous raisonniez encore sur 120,
+                      vous avez un mois de moins que prévu.
+                    </dd>
+                  </div>
+                  <div className="border-t border-border pt-5">
+                    <dt className="font-serif text-xl text-foreground">Taxe de séjour</dt>
+                    <dd className="mt-2 font-sans text-sm leading-relaxed text-muted-foreground">
+                      Collectée auprès du voyageur, reversée à la ville avant le 15 janvier
+                      de l'année suivante. Ce n'est jamais un revenu : la compter comme tel
+                      fausse votre rentabilité et votre déclaration.
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+
+              <p className="mt-12 max-w-3xl font-sans text-xs leading-relaxed text-muted-foreground/70">
+                Ces règles varient d'une commune à l'autre et évoluent :{" "}
+                <Link to="/conciergerie-villeneuve-les-avignon" className="underline underline-offset-2">
+                  Villeneuve-lès-Avignon
+                </Link>{" "}
+                et{" "}
+                <Link to="/conciergerie-les-angles" className="underline underline-offset-2">
+                  Les Angles
+                </Link>{" "}
+                relèvent de dispositifs distincts. Pour une situation précise, rapprochez-vous
+                de votre mairie.
+              </p>
+            </div>
+          </section>
+
+          {/* Avis clients — les mêmes que sur l'accueil, nommés et publics */}
+          <TestimonialsCarousel />
 
           {/* FAQ */}
           <section className="py-20 bg-background">

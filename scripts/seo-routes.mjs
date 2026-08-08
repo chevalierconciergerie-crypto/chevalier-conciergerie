@@ -303,11 +303,34 @@ const STATIC_ROUTES = [
       990 € bruts. Après la commission Airbnb (15 %, soit 149 €) et notre commission
       (168 € dans cet exemple), le propriétaire reçoit 673 € nets.</p>
 
+      <h2>Ce qui a changé à Avignon au 1er janvier 2026</h2>
+      <p>La ville a instauré un régime d'autorisation de changement d'usage et rendu
+      l'enregistrement obligatoire pour tout meublé de tourisme. Elle motive la décision
+      par ses propres chiffres : près de 4 300 logements en location saisonnière en 2023,
+      dont 2 400 en intra-muros, soit un doublement en huit ans.</p>
+      <ul>
+        <li><strong>Enregistrement</strong> — obligatoire pour tout meublé de tourisme,
+        sans exception. Le numéro doit figurer sur chaque annonce : les plateformes le
+        contrôlent et retirent celles qui n'en ont pas.</li>
+        <li><strong>Changement d'usage</strong> — une autorisation temporaire est requise
+        pour tout logement qui n'est pas une résidence principale, sur l'ensemble du
+        territoire communal, pour les particuliers comme pour les sociétés.</li>
+        <li><strong>90 jours</strong> — le plafond annuel de location d'une résidence
+        principale, abaissé de 120 à 90 jours par la ville.</li>
+        <li><strong>Taxe de séjour</strong> — collectée auprès du voyageur et reversée à
+        la ville avant le 15 janvier de l'année suivante. Ce n'est jamais un revenu.</li>
+      </ul>
+      <p>Nous vérifions ce qui s'applique à votre bien et constituons le dossier avant
+      toute mise en ligne. <a href="/journal/declarer-location-saisonniere-avignon">Le
+      détail des trois démarches</a>.</p>
+
       <h2>Questions fréquentes</h2>
       ${faqHtml(CONCIERGERIE_FAQ)}
 
       <p><a href="/contact">Prendre rendez-vous</a> — estimation gratuite sous 24 h ·
-      <a href="/sous-location">Voir aussi la sous-location avec loyer garanti</a></p>
+      <a href="/sous-location">Voir aussi la sous-location avec loyer garanti</a> ·
+      <a href="/journal/conciergerie-ou-sous-location-avignon">Comparer les deux
+      formules</a></p>
     </main>`,
     jsonLd: [
       breadcrumb({ name: "Conciergerie", path: "/conciergerie" }),
