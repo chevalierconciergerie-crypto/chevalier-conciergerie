@@ -25,6 +25,9 @@ const OUT = path.join(root, "public", "journal");
 const IMAGES = [
   ["place-horloge.jpg", "declarer-location-saisonniere-avignon"],
   ["hero-interior.jpg", "calculer-rentabilite-reelle-location-courte-duree"],
+  // 1400x788 : les visuels bien-immobilier-*.jpg ne font que 640 px de large, trop peu
+  // pour le bandeau 1200 px et sous le minimum recommandé pour une og:image.
+  ["hero-souslocation-realistic.jpg", "conciergerie-ou-sous-location-avignon"],
   ["palais-papes-panorama.jpg", "journal-defaut"],
 ];
 

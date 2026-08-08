@@ -87,6 +87,22 @@ const SousLocation = () => {
       question: "Le logement doit-il être meublé ?",
       answer: "Pas forcément. On peut récupérer votre bien vide et l'équiper de A à Z. Le but est d'offrir un logement clé en main, équipé et entretenu aux standards hôteliers.",
     },
+    {
+      question: "Qui s'occupe des démarches obligatoires à Avignon ?",
+      answer: "Nous. Depuis le 1er janvier 2026, tout meublé de tourisme à Avignon doit être déclaré et enregistré, et une autorisation temporaire de changement d'usage s'ajoute pour tout logement qui n'est pas une résidence principale — le régime vise explicitement les personnes morales, donc nous. C'est la différence concrète avec la conciergerie : en sous-location, ces démarches ne reposent plus sur vous.",
+    },
+    {
+      question: "Le plafond de 90 jours par an s'applique-t-il à mon bien ?",
+      answer: "Non. Ce plafond, abaissé de 120 à 90 jours par Avignon en février 2025, ne concerne que la résidence principale de celui qui loue. Un bien confié en sous-location n'est pas votre résidence principale : il n'a pas de limite de nuitées, mais il entre dans le champ de l'autorisation de changement d'usage.",
+    },
+    {
+      question: "Puis-je confier un bien dont je suis moi-même locataire ?",
+      answer: "Uniquement avec l'accord écrit de votre propriétaire. Sous-louer sans cet accord expose à la résiliation de votre bail. Si vous êtes dans ce cas, dites-le-nous d'emblée : nous vérifions ce que votre contrat autorise avant d'aller plus loin.",
+    },
+    {
+      question: "Conciergerie ou sous-location : laquelle choisir ?",
+      answer: "La conciergerie vous laisse propriétaire exploitant : vos revenus varient avec l'occupation et vous nous versez une commission. La sous-location vous verse un loyer fixe quelle que soit l'occupation, et nous portons le risque. La première rapporte davantage sur une bonne saison, la seconde ne dépend pas de la saison. Nous détaillons la comparaison chiffrée dans notre article sur le choix entre les deux formules.",
+    },
   ];
   return (
     <>
