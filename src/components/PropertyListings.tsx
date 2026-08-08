@@ -13,7 +13,6 @@ const DISPLAY_ORDER = [
   "appartement-renove-intramuros",    // L'Intramuros
   "le-central-navette-parking",
   "la-coulisse",
-  "appartement-cosy-lumineux",        // L'Atelier
   "epi",
 ];
 

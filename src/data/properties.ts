@@ -1,8 +1,3 @@
-import appartCosyLumineux from "@/assets/appart-cosy-lumineux.png";
-import appartCosyLumineux2 from "@/assets/appart-cosy-lumineux-2.png";
-import appartCosyLumineux3 from "@/assets/appart-cosy-lumineux-3.jpg";
-import appartCosyLumineux4 from "@/assets/appart-cosy-lumineux-4.jpg";
-
 import appartCoeurAvignon from "@/assets/appart-coeur-avignon.png";
 import appartCoeurAvignon2 from "@/assets/appart-coeur-avignon-2.jpg";
 import appartCoeurAvignon3 from "@/assets/appart-coeur-avignon-3.png";
@@ -46,23 +41,6 @@ export interface Property {
 }
 
 export const properties: Property[] = [
-  {
-    slug: "appartement-cosy-lumineux",
-    beds24PropId: "322495",
-    name: "L'Atelier – Lumineux & Parking",
-    shortDescription: "Studio chaleureux aux portes d'Avignon intra-muros, baigné de lumière naturelle.",
-    description: "Bienvenue dans ce charmant studio, à deux pas d'Avignon intra-muros, où cachet et luminosité s'allient pour créer un espace chaleureux et accueillant. Une grande fenêtre inonde la pièce principale de lumière naturelle, offrant une sensation d'espace et de bien-être. Situé à quelques mètres des remparts, dans une résidence pleine de charme, ce studio bénéficie d'un emplacement privilégié.",
-    location: "Avignon, proche remparts",
-    guests: 2,
-    bedrooms: "Studio",
-    beds: 1,
-    bathrooms: 1,
-    priceFrom: 45,
-    images: [appartCosyLumineux, appartCosyLumineux2, appartCosyLumineux3, appartCosyLumineux4],
-    amenities: ["Cuisine équipée", "TV", "Parking gratuit", "Linge fourni", "Micro-ondes", "Réfrigérateur"],
-    highlights: ["Lumineux", "Proche remparts", "Parking gratuit"],
-    airbnbUrl: "https://www.airbnb.fr/rooms/1621783028951716813",
-  },
   {
     slug: "appartement-coeur-avignon",
     beds24PropId: "322449",
