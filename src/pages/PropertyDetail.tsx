@@ -1,5 +1,5 @@
 import { useParams, Navigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@/lib/seo";
 import { ArrowLeft, Users, MapPin, Bath, Bed, Check, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import Header from "@/components/Header";
