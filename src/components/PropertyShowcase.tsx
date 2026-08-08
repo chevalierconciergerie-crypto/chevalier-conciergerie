@@ -24,7 +24,6 @@ const PropertyShowcase = () => {
     <section className="px-6 py-16 md:py-24">
       <div className="mx-auto max-w-6xl">
         <div className="mb-12 text-center md:mb-16">
-          <div className="mx-auto mb-6 h-px w-10 bg-gold-ink/40" />
           <p className="font-sans text-xs uppercase tracking-[0.4em] text-muted-foreground">
             La collection
           </p>

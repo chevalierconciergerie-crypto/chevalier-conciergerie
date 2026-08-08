@@ -45,7 +45,7 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 w-full max-w-5xl mx-auto">
-        <div className="w-10 h-px bg-gold/50 mx-auto mb-6 opacity-0 animate-fade-up" />
+
         <p className="font-sans text-xs md:text-xs tracking-[0.5em] uppercase text-primary-foreground/40 mb-6 md:mb-8 opacity-0 animate-fade-up">
           Chevalier Conciergerie
         </p>

@@ -231,7 +231,7 @@ const Header = () => {
             }`} style={{ transitionDelay: isMobileMenuOpen ? '650ms' : '0ms' }}>
               
               {/* Thin separator */}
-              <div className="w-16 h-px bg-gold/30 mb-2" />
+
               
               <Button variant="gold" className="w-full max-w-xs" size="lg" asChild>
                 <Link to="/reservation" onClick={() => setIsMobileMenuOpen(false)}>

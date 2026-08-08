@@ -108,8 +108,8 @@ const Partenaires = () => {
             <div className="container mx-auto px-6 relative z-10">
               <ScrollAnimate>
                 <div className="text-center max-w-3xl mx-auto">
-                  <div className="w-10 h-px bg-gold/40 mx-auto mb-6" />
-                  <span className="font-sans text-xs md:text-xs tracking-[0.5em] uppercase text-gold-ink">
+
+                  <span className="font-sans text-xs md:text-xs tracking-[0.2em] uppercase text-muted-foreground">
                     Notre Réseau
                   </span>
                   <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-light text-primary-foreground mt-6 mb-6 tracking-wide">
@@ -118,7 +118,7 @@ const Partenaires = () => {
                   <p className="font-sans text-sm md:text-base text-primary-foreground/60 tracking-wide leading-relaxed max-w-xl mx-auto">
                     Cliquez sur une carte pour la retourner.
                   </p>
-                  <div className="w-10 h-px bg-gold/40 mx-auto mt-8" />
+
                 </div>
               </ScrollAnimate>
             </div>

@@ -71,7 +71,7 @@ const ContactForm = () => {
     <section className="py-20 bg-muted/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <span className="text-gold-ink font-sans text-sm tracking-[0.3em] uppercase">Formulaire</span>
+          <span className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground">Formulaire</span>
           <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mt-4">
             Envoyez-nous un Message
           </h2>

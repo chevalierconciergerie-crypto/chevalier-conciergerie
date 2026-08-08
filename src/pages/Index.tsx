@@ -90,7 +90,7 @@ const Index = () => {
                 <span className="font-sans text-xs tracking-[0.3em] uppercase text-foreground/40">
                   Suivez-nous
                 </span>
-                <div className="w-6 h-px bg-gold/30" />
+
                 <div className="flex items-center gap-3">
                   <a href="https://www.instagram.com/chevalier_conciergerie/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full flex items-center justify-center text-white bg-gradient-to-br from-[#f09433] via-[#e6683c] to-[#bc1888] hover:scale-110 transition-transform duration-300" aria-label="Instagram">
                     <Instagram className="w-4 h-4" />
@@ -111,8 +111,8 @@ const Index = () => {
             <div className="container mx-auto px-6 relative z-10">
               <ScrollAnimate>
                 <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
-                  <div className="w-10 h-px bg-gold/40 mx-auto mb-5" />
-                  <span className="font-sans text-xs md:text-xs tracking-[0.5em] uppercase text-gold-ink">
+
+                  <span className="font-sans text-xs md:text-xs tracking-[0.2em] uppercase text-muted-foreground">
                     Nos Solutions
                   </span>
                   <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light text-foreground mt-6 mb-6 tracking-wide">

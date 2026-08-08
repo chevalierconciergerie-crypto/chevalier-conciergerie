@@ -47,9 +47,8 @@ const PlatformLogos = () => {
               { src: logoAbritel, alt: "Abritel" },
             ].map((platform, index) => (
               <div key={platform.alt} className="flex flex-col items-center w-full">
-                {index > 0 && (
-                  <div className="w-16 h-px bg-gold/40 mb-4" />
-                )}
+                {/* Séparateur entre cartes, en gris plutôt qu'en filet doré. */}
+                {index > 0 && <div className="mb-4 h-px w-8 bg-border" />}
                 <div className="group px-8 py-4 rounded-xl bg-white shadow-medium w-full flex items-center justify-center">
                   <img loading="lazy" decoding="async" 
                     src={platform.src}

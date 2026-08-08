@@ -155,8 +155,8 @@ const LocalSeoPage = ({
               <div className="max-w-4xl mx-auto">
                 <ScrollAnimate>
                   <div className="text-center mb-12">
-                    <div className="w-10 h-px bg-gold mx-auto mb-6" />
-                    <span className="font-sans text-xs md:text-xs tracking-[0.5em] uppercase text-gold-ink">
+
+                    <span className="font-sans text-xs md:text-xs tracking-[0.2em] uppercase text-muted-foreground">
                       Conciergerie à {city}
                     </span>
                     <h2 className="font-serif text-3xl md:text-5xl font-light text-foreground mt-6 tracking-wide">
@@ -214,8 +214,8 @@ const LocalSeoPage = ({
               <div className="max-w-5xl mx-auto">
                 <ScrollAnimate>
                   <div className="text-center mb-12">
-                    <div className="w-10 h-px bg-gold mx-auto mb-6" />
-                    <span className="font-sans text-xs md:text-xs tracking-[0.5em] uppercase text-gold-ink">Services</span>
+
+                    <span className="font-sans text-xs md:text-xs tracking-[0.2em] uppercase text-muted-foreground">Services</span>
                     <h2 className="font-serif text-3xl md:text-5xl font-light text-foreground mt-6 tracking-wide">
                       Ce que nous proposons à {city}
                     </h2>

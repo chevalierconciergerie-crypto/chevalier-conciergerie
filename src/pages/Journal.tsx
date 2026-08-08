@@ -45,7 +45,6 @@ const Journal = () => {
         {/* En-tête */}
         <section className="px-6 pt-16 pb-12 md:pt-24">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="mx-auto mb-6 h-px w-10 bg-gold-ink/40" />
             <p className="font-sans text-xs uppercase tracking-[0.4em] text-muted-foreground">
               Chevalier Conciergerie
             </p>

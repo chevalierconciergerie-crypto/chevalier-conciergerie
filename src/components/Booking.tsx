@@ -9,7 +9,7 @@ const Booking = () => {
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <span className="text-gold-ink font-sans text-sm tracking-[0.3em] uppercase">Contact</span>
+            <span className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground">Contact</span>
             <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4 mb-6">
               Consultation Gratuite
             </h2>

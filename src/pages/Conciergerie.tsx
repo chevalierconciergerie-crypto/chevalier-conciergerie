@@ -149,8 +149,8 @@ const Conciergerie = () => {
 
                 {/* Header */}
                 <div className="text-center mb-16 md:mb-20">
-                  <div className="w-10 h-px bg-gold mx-auto mb-6" />
-                  <span className="font-sans text-xs md:text-xs tracking-[0.5em] uppercase text-gold-ink">Notre Offre</span>
+
+                  <span className="font-sans text-xs md:text-xs tracking-[0.2em] uppercase text-muted-foreground">Notre Offre</span>
                   <h2 className="font-serif text-3xl md:text-5xl font-light text-foreground mt-6 tracking-wide">
                     Service Intégral
                   </h2>
@@ -180,7 +180,6 @@ const Conciergerie = () => {
                         </p>
                       </div>
 
-                      <div className="w-12 h-px bg-gold/30 my-6" />
 
                       <p className="font-sans text-primary-foreground/70 text-sm leading-relaxed mb-8">
                         Gestion complète de votre bien, de A à Z. Aucun frais caché, aucun engagement.
@@ -255,7 +254,7 @@ const Conciergerie = () => {
                 {/* Header avec approche narrative */}
                 <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-20">
                   <div className="lg:max-w-xl">
-                    <span className="text-gold-ink font-sans text-sm tracking-[0.3em] uppercase">En pratique</span>
+                    <span className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground">En pratique</span>
                     <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4">
                       Votre Bien Travaille<br />
                       <span className="text-gold">Pendant Vos Vacances</span>
@@ -435,7 +434,7 @@ const Conciergerie = () => {
           <section className="py-20 bg-background">
             <div className="container mx-auto px-6">
               <div className="text-center max-w-2xl mx-auto mb-12">
-                <span className="font-sans text-xs md:text-xs tracking-[0.4em] uppercase text-gold-ink">
+                <span className="font-sans text-xs md:text-xs tracking-[0.2em] uppercase text-muted-foreground">
                   Questions fréquentes
                 </span>
                 <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mt-4">

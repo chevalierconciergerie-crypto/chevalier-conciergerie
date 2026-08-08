@@ -10,7 +10,7 @@ const FounderPresentation = () => {
       <div className="container mx-auto px-6">
         <ScrollAnimate>
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-gold-ink font-sans text-sm tracking-[0.3em] uppercase">Le Fondateur</span>
+            <span className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground">Le Fondateur</span>
             <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4">
               Victor Chevalier
             </h2>

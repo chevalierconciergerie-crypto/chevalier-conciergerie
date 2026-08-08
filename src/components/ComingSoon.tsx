@@ -13,7 +13,7 @@ const ComingSoon = () => {
           </div>
 
           {/* Content */}
-          <span className="text-gold-ink font-sans text-sm tracking-[0.3em] uppercase">Bientôt Disponible</span>
+          <span className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground">Bientôt Disponible</span>
           <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mt-4 mb-6">
             Réservez Directement nos Propriétés
           </h2>

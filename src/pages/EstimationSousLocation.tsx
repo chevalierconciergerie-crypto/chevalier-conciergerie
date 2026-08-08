@@ -156,7 +156,7 @@ Commentaire : ${formData.commentaire || "Aucun"}
           <div className="container mx-auto px-6">
             {/* Header */}
             <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="text-gold-ink font-sans text-sm tracking-[0.3em] uppercase">
+              <span className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground">
                 Estimation Gratuite
               </span>
               <h1 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4 mb-4">
