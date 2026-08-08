@@ -120,9 +120,10 @@ const SousLocation = () => {
             <div className="relative z-10 container mx-auto px-6">
               <div className="max-w-3xl">
                 <span className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground">Sous-Location Professionnelle</span>
+                {/* « à Avignon » ajouté : le <h1> ne portait aucun ancrage local. */}
                 <h1 className="font-serif text-4xl md:text-6xl font-semibold text-primary-foreground mt-4 mb-6">
-                  Un Loyer<br />
-                  <span className="text-gold">Garanti</span>
+                  Un Loyer <span className="text-gold">Garanti</span><br />
+                  à Avignon
                 </h1>
                 <p className="font-sans text-xl text-primary-foreground/80 mb-8 max-w-2xl">
                   Nous louons votre bien à notre nom et vous versons un loyer fixe chaque mois. 

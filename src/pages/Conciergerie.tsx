@@ -116,10 +116,17 @@ const Conciergerie = () => {
                 le mot « luxe ».
               */}
               <div className="max-w-4xl">
+                {/*
+                  « à Avignon » ajouté dans le <h1> : la phrase ne contenait aucun mot
+                  que Google puisse rattacher à une recherche. La ville s'y glisse sans
+                  rien coûter à la formule.
+                */}
                 <h1 className="font-serif text-5xl font-light leading-[0.92] tracking-[0.01em] text-primary-foreground md:text-7xl lg:text-[5.5rem]">
                   Nous tenons vos
                   <br />
                   appartements
+                  <br />
+                  à Avignon,
                   <br />
                   <span className="italic">intra-muros.</span>
                 </h1>

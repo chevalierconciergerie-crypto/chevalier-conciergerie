@@ -2,7 +2,6 @@ import { Helmet } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
-import BookingQuickSearch from "@/components/BookingQuickSearch";
 import LocalExpertise from "@/components/LocalExpertise";
 import PlatformLogos from "@/components/PlatformLogos";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
@@ -78,10 +77,10 @@ const Index = () => {
         <main className="relative z-10">
           <Hero />
 
-          {/* Encart réservation directe — version mobile/tablette (sous le hero) */}
-          <section className="lg:hidden bg-background pt-8 pb-2 px-6 flex justify-center">
-            <BookingQuickSearch />
-          </section>
+          {/*
+            Encart de réservation directe retiré (version mobile) : il redirigeait vers
+            /reservation, route supprimée avec le moteur Beds24.
+          */}
 
           {/* Social Proof Bar — colorful & compact */}
           <section className="bg-background py-8 md:py-10">

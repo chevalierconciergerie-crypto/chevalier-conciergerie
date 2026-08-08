@@ -6,20 +6,21 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
+    // « Réserver en direct » (/reservation) et « Nos logements » (/logements) retirés :
+    // ces routes n'existent plus depuis le retrait de la réservation en direct. Le pied
+    // de page étant sur toutes les pages, elles envoyaient Google sur un 404 servi en
+    // HTTP 200 depuis chaque URL du site. À rétablir avec les routes, le cas échéant.
     services: [
-      { label: "Réserver en direct", href: "/reservation" },
-      { label: "Nos logements", href: "/logements" },
       { label: "Conciergerie", href: "/conciergerie" },
       { label: "Sous-location", href: "/sous-location" },
-      { label: "Estimation gratuite", href: "/contact" },
+      { label: "Estimation gratuite", href: "/estimation-sous-location" },
+      { label: "Journal", href: "/journal" },
     ],
     company: [
       { label: "Accueil", href: "/" },
       { label: "À propos", href: "/a-propos" },
-      { label: "Contact", href: "/contact" },
-      { label: "Conciergerie", href: "/conciergerie" },
-      { label: "Sous-location", href: "/sous-location" },
       { label: "Nos partenaires", href: "/partenaires" },
+      { label: "Contact", href: "/contact" },
     ],
     legal: [
       { label: "Mentions légales", href: "/mentions-legales" },

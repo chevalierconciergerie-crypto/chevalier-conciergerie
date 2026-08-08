@@ -2,16 +2,32 @@ import { useState, useEffect, useRef } from "react";
 import { ArrowRight, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import BookingQuickSearch from "@/components/BookingQuickSearch";
 import heroVideo from "@/assets/hero-video-luxury.mp4";
 import heroPoster from "@/assets/hero-video-poster.jpg";
 
-const cities = ["Avignon", "Villeneuve-lès-Avignon", "Aix-en-Provence", "Montpellier"];
+// Avignon est sorti de la liste : il est désormais fixe dans le <h1>, et le voir
+// défiler juste en dessous faisait doublon. Les Angles complète la zone couverte
+// par les trois pages locales du site.
+const cities = ["Villeneuve-lès-Avignon", "Les Angles", "Aix-en-Provence", "Montpellier"];
 
 const Hero = () => {
   const [currentCityIndex, setCurrentCityIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  // La vidéo du hero pèse 1,85 Mo et se chargeait sur mobile comme sur ordinateur.
+  // Google indexe en mobile-first : c'était le premier facteur de dégradation du LCP.
+  // L'état part à `false` pour qu'un téléphone ne déclenche jamais le téléchargement,
+  // même le temps d'un rendu ; le poster (127 Ko) couvre l'affichage dans tous les cas.
+  const [playVideo, setPlayVideo] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia("(min-width: 768px)");
+    const sync = () => setPlayVideo(mql.matches);
+    sync();
+    mql.addEventListener("change", sync);
+    return () => mql.removeEventListener("change", sync);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -26,7 +42,7 @@ const Hero = () => {
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Video — poster instantané, vidéo prend le relais dès qu'elle peut */}
+      {/* Background Video — poster instantané, vidéo seulement sur grand écran */}
       <div className="absolute inset-0">
         <video
           ref={videoRef}
@@ -34,12 +50,11 @@ const Hero = () => {
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
           poster={heroPoster}
+          src={playVideo ? heroVideo : undefined}
           className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src={heroVideo} type="video/mp4" />
-        </video>
+        />
         <div className="absolute inset-0 bg-primary/45" />
       </div>
 
@@ -49,8 +64,14 @@ const Hero = () => {
         <p className="font-sans text-xs md:text-xs tracking-[0.5em] uppercase text-primary-foreground/40 mb-6 md:mb-8 opacity-0 animate-fade-up">
           Chevalier Conciergerie
         </p>
-        <h1 className="font-serif text-[2.2rem] leading-tight sm:text-5xl md:text-7xl lg:text-8xl font-light text-primary-foreground tracking-[0.06em] mb-3 md:mb-4 opacity-0 animate-fade-up animation-delay-100">
-          VOTRE CONCIERGERIE
+        {/*
+          Le <h1> disait « VOTRE CONCIERGERIE » : ni service précis, ni ville. C'est le
+          signal le plus lisible de la page et il ne ciblait rien. La ville y est
+          désormais fixe — le nom qui défile en dessous ne peut pas jouer ce rôle,
+          un robot n'en capte qu'une valeur au hasard.
+        */}
+        <h1 className="font-serif text-[2rem] leading-tight sm:text-5xl md:text-6xl lg:text-7xl font-light text-primary-foreground tracking-[0.06em] mb-3 md:mb-4 opacity-0 animate-fade-up animation-delay-100">
+          VOTRE CONCIERGERIE À AVIGNON
         </h1>
         <div className="relative h-10 sm:h-14 md:h-18 overflow-hidden mb-8 md:mb-10 opacity-0 animate-fade-up animation-delay-150">
           <span
@@ -62,7 +83,7 @@ const Hero = () => {
           </span>
         </div>
         <p className="font-sans text-[11px] md:text-sm text-primary-foreground/50 max-w-md mx-auto mb-6 leading-relaxed tracking-[0.15em] uppercase opacity-0 animate-fade-up animation-delay-200">
-          Gestion locative d'exception &<br />
+          Gestion locative saisonnière &<br />
           revenus garantis, sans contrainte
         </p>
 
@@ -104,10 +125,10 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Encart réservation directe — bas droite (ordinateur) */}
-      <div className="hidden lg:block absolute bottom-10 right-6 xl:right-12 z-20 opacity-0 animate-fade-up animation-delay-300">
-        <BookingQuickSearch />
-      </div>
+      {/*
+        Encart de réservation directe retiré : il redirigeait vers /reservation, route
+        supprimée avec le moteur Beds24. À rétablir en même temps que la route.
+      */}
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 opacity-0 animate-fade-up animation-delay-500">
