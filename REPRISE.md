@@ -2,28 +2,54 @@
 
 Document de passation. À lire en premier dans une nouvelle session.
 
-## ⚠️ Problème bloquant à traiter en priorité
+## ✅ Le blocage Vercel annoncé ici n'existait pas — fausse alerte
 
-**Le site en ligne ne reflète plus les commits.** Vérifié le 8 août 2026 :
+Une version antérieure de ce document affirmait que Vercel ne déployait plus et
+soupçonnait `sharp`. **C'était faux.** Vérifié le 8 août 2026 à 18h50 :
 
 ```
-git push origin work:main  →  61d0595..656582a  (succès)
-curl https://chevalier-conciergerie.com/conciergerie
-  → "intra-muros" absent  → ancienne version servie
-  → polices encore Playfair/Inter
+vercel ls chevalier-conciergerie --scope chevalierconciergerie-6787s-projects
+  → 20 déploiements récents, tous ● Ready, aucun échec
+  → dernière Production (dpl_FQT1Q8BB…) aliasée sur chevalier-conciergerie.com
 ```
 
-Les commits sont bien sur `main`. Vercel ne déploie pas, ou son build échoue.
+Le site était à jour depuis le début. Preuve, dans le navigateur sur le site en ligne :
 
-**À vérifier dans cet ordre :**
-1. Le tableau de bord Vercel : y a-t-il des builds en échec ?
-2. `sharp` a été ajouté en devDependency (nécessaire à `vite-plugin-image-optimizer`).
-   Il compile des binaires natifs — c'est le suspect le plus probable d'un échec de
-   build côté Vercel alors que tout passe en local.
-3. Le build local passe : `npm run build` → `[prerender] 27 pages générées`.
+```
+h1        "Nous tenons vos appartements intra-muros."
+h1Font    "Cormorant Garamond", Georgia, serif
+bodyFont  Jost, system-ui, sans-serif
+nav       Accueil · Conciergerie · Sous-location · Journal · Partenaires · Contact
+          (plus d'onglet Logements → le dernier commit est bien en ligne)
+```
 
-Tant que ce point n'est pas réglé, **tout le travail ci-dessous est invisible pour le
-client**. C'est la première chose à faire.
+**Pourquoi le test précédent se trompait.** Il faisait `curl … | grep intra-muros` sur
+le HTML de `/conciergerie`. Or ce HTML est la coquille prérendue : le texte du hero
+n'y est pas, il est dans le bundle JS ; les polices ne sont pas non plus dans le HTML,
+elles sont dans le CSS. Le même `grep` échoue sur un `dist/` fraîchement construit en
+local et donc parfaitement correct — c'est le test qui était cassé, pas le déploiement.
+Le seul prérendu qui contient vraiment du texte, ce sont les articles du Journal.
+
+**Comment vérifier un déploiement sur ce site, correctement :**
+
+1. État des builds — la source de vérité, pas une déduction :
+   ```
+   vercel ls chevalier-conciergerie --scope chevalierconciergerie-6787s-projects
+   ```
+   (le scope est le nom d'équipe complet ; `--scope chevalierconciergerie-6787` est
+   refusé : « You cannot set your Personal Account as the scope »)
+2. Comparer le hash d'asset servi et celui du build local — s'ils coïncident,
+   c'est le même code : `curl -s https://chevalier-conciergerie.com/conciergerie |
+   grep -o '/assets/index-[^"]*'` puis `ls dist/assets`.
+3. Chercher une chaîne de contenu **dans le bundle**, jamais dans le HTML :
+   `curl -s https://chevalier-conciergerie.com/assets/index-XXX.js | grep -c intra-muros`
+4. Le plus simple et le plus probant : ouvrir le site en ligne dans le navigateur et
+   lire `getComputedStyle(h1).fontFamily` et le texte réel du `h1`.
+
+Le prérendu par route est bien servi malgré la règle `rewrites` attrape-tout de
+`vercel.json` : `/conciergerie` renvoie le titre de `dist/conciergerie/index.html`, pas
+celui de `dist/index.html`, et un article du Journal fait 18 960 octets avec ses
+schémas `BlogPosting` et `FAQPage`. `sharp` n'a jamais posé de problème en build.
 
 ## Contexte
 
@@ -34,7 +60,7 @@ client**. C'est la première chose à faire.
 
 ## Ce qui a été fait
 
-### SEO / GEO — terminé et vérifié en ligne (avant la panne de déploiement)
+### SEO / GEO — terminé et vérifié en ligne
 - `prerender.mjs` écrit désormais le **contenu complet** des articles dans le HTML.
   Avant : `<div id="root"></div>`, 32 caractères. Après : 7 352 caractères lisibles
   sans JavaScript. C'était rédhibitoire pour GPTBot / PerplexityBot / ClaudeBot.
@@ -86,7 +112,12 @@ Palette : **noir et blanc**, l'or réservé aux boutons d'action et aux fonds so
 
 ## Ce qui reste
 
-1. **Débloquer Vercel** (voir en haut) — priorité absolue.
+1. **Menu mobile : retirer les numéros `01`–`05`.** `Header.tsx:51` définit
+   `mobileNavItems` avec un champ `number` affiché en colonne. C'est exactement le
+   rail numéroté que le client rejette (voir les règles de design ci-dessous). Il est
+   en ligne aujourd'hui. `PropertyShowcase.tsx:60` et `PropertyListings.tsx:107`
+   utilisent le même motif — à réexaminer, la liste des logements est un cas moins
+   net que le menu.
 2. Recomposer les sections intérieures : Sous-location, Contact, Partenaires, À propos.
 3. **Routine de publication** : `trig_01BaZubPp3AbfpQbqnXDjuW2`, lundi et samedi 8h.
    Elle rédige correctement (1 894 mots au format vérifié) mais **ne peut pas pousser**
