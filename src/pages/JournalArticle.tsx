@@ -51,6 +51,19 @@ const JournalArticle = () => {
               {article.title}
             </h1>
 
+            {article.description && (
+              <p className="mt-5 font-sans text-lg font-light leading-relaxed text-muted-foreground">
+                {article.description}
+              </p>
+            )}
+
+            {/* Bandeau. `alt` vide : l'image est illustrative, le titre porte déjà le sens. */}
+            <img
+              src={article.image || "/journal/journal-defaut.jpg"}
+              alt=""
+              className="mt-10 h-64 w-full rounded-sm object-cover md:h-96"
+            />
+
             {/*
               Le HTML vient de nos propres fichiers Markdown, versionnés dans le repo :
               pas de contenu tiers, pas de saisie utilisateur.

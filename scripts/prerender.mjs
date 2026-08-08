@@ -56,6 +56,14 @@ function buildHtml(template, route) {
     `<meta property="og:description" content="${esc(ogDescription)}" />`,
   );
   html = setTag(html, /<meta\s+property="og:url"[^>]*>/, `<meta property="og:url" content="${esc(url)}" />`);
+
+  // Visuel de partage propre à la route : sans ça, chaque article afficherait l'image
+  // générique du site dans les aperçus Facebook, LinkedIn ou WhatsApp.
+  if (route.ogImage) {
+    const abs = route.ogImage.startsWith("http") ? route.ogImage : SITE + route.ogImage;
+    html = setTag(html, /<meta\s+property="og:image"[^>]*>/, `<meta property="og:image" content="${esc(abs)}" />`);
+    html = setTag(html, /<meta\s+name="twitter:image"[^>]*>/, `<meta name="twitter:image" content="${esc(abs)}" />`);
+  }
   html = setTag(
     html,
     /<meta\s+name="twitter:title"[^>]*>/,
@@ -252,6 +260,7 @@ function buildJournalRoutes() {
       ogTitle: a.title,
       ogDescription: a.description,
       keywords: a.keywords.join(", ") || undefined,
+      ogImage: a.image || "/journal/journal-defaut.jpg",
       lastmod: a.updated,
       jsonLd,
       bodyHtml: `<main><nav><a href="/">Accueil</a> › <a href="${esc(JOURNAL_BASE)}">Journal</a></nav>
