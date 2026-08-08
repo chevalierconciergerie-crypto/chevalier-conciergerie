@@ -281,10 +281,24 @@ const ALL_ROUTES = [...ROUTES, ...JOURNAL_ROUTES];
 
 const template = readFileSync(path.join(dist, "index.html"), "utf8");
 const seen = new Set();
+const titres = new Map();
 
 for (const route of ALL_ROUTES) {
   if (seen.has(route.path)) throw new Error(`Route en double dans seo-routes.mjs : ${route.path}`);
   seen.add(route.path);
+
+  // Deux pages indexées sous le même <title> se disputent la même requête : Google
+  // partage les signaux entre elles et n'en classe souvent aucune. Le cas s'est produit
+  // en août 2026 entre /conciergerie et /conciergerie-avignon, sans que rien ne le
+  // signale. Le build échoue désormais plutôt que de publier le doublon.
+  if (titres.has(route.title)) {
+    throw new Error(
+      `Titre en double : « ${route.title} »\n` +
+        `  → ${titres.get(route.path) ?? titres.get(route.title)}\n  → ${route.path}\n` +
+        `Chaque page doit viser une intention de recherche distincte.`,
+    );
+  }
+  titres.set(route.title, route.path);
 
   const html = buildHtml(template, route);
   if (route.path === "/") {

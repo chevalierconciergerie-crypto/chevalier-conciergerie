@@ -7,8 +7,12 @@ const ConciergerieAvignon = () => (
     slug="conciergerie-avignon"
     heroImage={heroImage}
     heroAlt="Vue aérienne d'Avignon avec le Palais des Papes et le Pont d'Avignon"
-    metaTitle="Conciergerie Airbnb Avignon | Gestion Location Saisonnière | Chevalier"
-    metaDescription="Conciergerie Airbnb à Avignon intra-muros : accueil voyageurs, ménage professionnel, optimisation des revenus. Enregistrement et changement d'usage pris en charge. Devis gratuit."
+    // ⚠️ Ce titre était identique à celui de /conciergerie. Deux pages indexées avec le
+    // même <title> se disputent la même requête : Google partage les signaux entre elles
+    // et n'en classe souvent aucune. Chaque page doit viser une intention distincte —
+    // /conciergerie pour le service, celle-ci pour l'ancrage local.
+    metaTitle="Conciergerie Avignon intra-muros | Quartiers et règles 2026 | Chevalier"
+    metaDescription="Conciergerie Airbnb à Avignon intra-muros : quartiers couverts, marché local et règles applicables depuis le 1er janvier 2026. Enregistrement et changement d'usage pris en charge."
     metaKeywords="conciergerie Airbnb Avignon, gestion location saisonnière Avignon, conciergerie Avignon intra-muros, location courte durée Avignon, Airbnb Avignon"
     intro={{
       headline: "Conciergerie Airbnb\nà Avignon",
