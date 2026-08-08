@@ -49,7 +49,7 @@ const PropertyDetail = () => {
                 {/* Images */}
                 <div>
                   <div className="relative overflow-hidden rounded-lg aspect-[4/3] mb-3">
-                    <img
+                    <img loading="lazy" decoding="async" 
                       src={property.images[selectedImage]}
                       alt={`${property.name} — photo ${selectedImage + 1}`}
                       className="w-full h-full object-cover"
@@ -67,7 +67,7 @@ const PropertyDetail = () => {
                               : "border-transparent opacity-60 hover:opacity-100"
                           }`}
                         >
-                          <img src={img} alt="" className="w-full h-full object-cover" />
+                          <img loading="lazy" decoding="async" src={img} alt="" className="w-full h-full object-cover" />
                         </button>
                       ))}
                     </div>

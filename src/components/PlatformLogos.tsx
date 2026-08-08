@@ -29,7 +29,7 @@ const PlatformLogos = () => {
                   <div className="w-px h-16 bg-gold/40 mx-6" />
                 )}
                 <div className="group px-10 py-6 rounded-xl bg-white shadow-medium hover:-translate-y-1 transition-all duration-300">
-                  <img
+                  <img loading="lazy" decoding="async" 
                     src={platform.src}
                     alt={platform.alt}
                     className="h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
@@ -51,7 +51,7 @@ const PlatformLogos = () => {
                   <div className="w-16 h-px bg-gold/40 mb-4" />
                 )}
                 <div className="group px-8 py-4 rounded-xl bg-white shadow-medium w-full flex items-center justify-center">
-                  <img
+                  <img loading="lazy" decoding="async" 
                     src={platform.src}
                     alt={platform.alt}
                     className="h-14 w-auto object-contain"

@@ -137,17 +137,23 @@ const Header = () => {
         >
           {/* Video background */}
           <div className="absolute inset-0">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-                isMobileMenuOpen ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <source src={heroVideo} type="video/mp4" />
-            </video>
+            {/*
+              Montée seulement quand le menu est ouvert. Auparavant la balise restait
+              dans le DOM en permanence : le navigateur téléchargeait et décodait 1,8 Mo
+              de vidéo en continu, pour un rendu invisible sous le voile à 85 % ci-dessous.
+            */}
+            {isMobileMenuOpen && (
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="none"
+                className="absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-700"
+              >
+                <source src={heroVideo} type="video/mp4" />
+              </video>
+            )}
             {/* Dark overlay */}
             <div className={`absolute inset-0 bg-primary/85 backdrop-blur-sm transition-opacity duration-700 ${
               isMobileMenuOpen ? "opacity-100" : "opacity-0"

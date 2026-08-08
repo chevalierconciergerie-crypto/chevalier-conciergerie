@@ -42,7 +42,7 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
-              <img src={logoCc} alt="Chevalier Conciergerie" className="h-24 w-auto [filter:brightness(0)]" />
+              <img loading="lazy" decoding="async" src={logoCc} alt="Chevalier Conciergerie" className="h-24 w-auto [filter:brightness(0)]" />
             </Link>
             <p className="font-sans text-muted-foreground text-sm leading-relaxed mb-6 max-w-sm">
               L'excellence de la gestion locative à Avignon.

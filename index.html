@@ -83,7 +83,13 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="fetch" href="/src/assets/hero-video-luxury.mp4" type="video/mp4" crossorigin>
+    <!--
+      Préchargement retiré. Il pointait vers /src/assets/hero-video-luxury.mp4, un chemin
+      qui n'existe qu'en développement : au build, Vite renomme le fichier avec un hash.
+      En production cette ligne déclenchait donc un 404 sur chaque page, et `as="fetch"`
+      n'aurait de toute façon pas alimenté l'élément <video>. Le poster du hero couvre
+      désormais l'affichage initial.
+    -->
 
     <!--
       Google Analytics 4 : le script chargeait l'ID d'exemple G-XXXXXXXXXX. Résultat,

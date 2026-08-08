@@ -48,7 +48,7 @@ const FlipCard = ({ partner }: { partner: Partner }) => {
           className="absolute inset-0 rounded-xl overflow-hidden shadow-[var(--shadow-medium)] group-hover:shadow-[var(--shadow-gold)] transition-shadow duration-500 bg-white"
           style={{ backfaceVisibility: "hidden" }}
         >
-          <img
+          <img loading="lazy" decoding="async" 
             src={partner.front}
             alt={`${partner.name} — recto`}
             className={partner.back ? "w-full h-full object-cover object-top" : "w-full h-full object-contain p-2"}
@@ -64,7 +64,7 @@ const FlipCard = ({ partner }: { partner: Partner }) => {
           }}
         >
           {partner.back ? (
-            <img
+            <img loading="lazy" decoding="async" 
               src={partner.back}
               alt={`${partner.name} — verso`}
               className="w-full h-full object-cover object-right"

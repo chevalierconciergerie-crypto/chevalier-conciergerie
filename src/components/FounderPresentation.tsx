@@ -105,14 +105,14 @@ const FounderPresentation = () => {
                 <p className="font-sans text-xs text-muted-foreground uppercase tracking-widest mb-4">Mon premier investissement</p>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="rounded-xl overflow-hidden shadow-soft hover:shadow-medium transition-shadow duration-300">
-                    <img 
+                    <img loading="lazy" decoding="async" 
                       src={bienPhoto1} 
                       alt="Premier bien immobilier de Victor Chevalier - Salon"
                       className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <div className="rounded-xl overflow-hidden shadow-soft hover:shadow-medium transition-shadow duration-300">
-                    <img 
+                    <img loading="lazy" decoding="async" 
                       src={bienPhoto2} 
                       alt="Premier bien immobilier de Victor Chevalier - Chambre"
                       className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-500"

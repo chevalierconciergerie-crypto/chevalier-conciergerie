@@ -23,3 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 .vercel
+
+# Rushes non utilises par le site — gardes en local, hors depot
+src/assets/hero-video.mp4
+src/assets/*-original-backup.mp4
+
