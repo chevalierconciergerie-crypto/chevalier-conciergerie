@@ -15,6 +15,7 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import { ROUTES, SITE } from "./seo-routes.mjs";
+import { loadArticles, JOURNAL_BASE } from "./journal.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(root, "dist");
@@ -76,14 +77,34 @@ function buildHtml(template, route) {
     html = html.replace(/\s*<meta\s+name="keywords"[^>]*>/, "");
   }
 
+  // Schémas propres à la route (BlogPosting, FAQPage, Blog…), en plus du LocalBusiness
+  // déjà présent dans le template.
+  if (route.jsonLd?.length) {
+    const blocks = route.jsonLd
+      .map((o) => `<script type="application/ld+json">\n${JSON.stringify(o, null, 2)}\n</script>`)
+      .join("\n    ");
+    html = html.replace("</head>", `    ${blocks}\n  </head>`);
+  }
+
+  // Contenu statique injecté dans #root. React le remplace au montage
+  // (createRoot().render() écrase les enfants du conteneur), mais les robots qui
+  // n'exécutent pas de JavaScript — GPTBot, PerplexityBot, ClaudeBot — le lisent.
+  // Sans ça, un article servirait un <body> vide à tous les moteurs IA.
+  if (route.bodyHtml) {
+    html = html.replace(
+      '<div id="root"></div>',
+      `<div id="root">${route.bodyHtml}</div>`,
+    );
+  }
+
   return html;
 }
 
-function writeSitemap(lastmod) {
-  const urls = ROUTES.map(
+function writeSitemap(routes, lastmod) {
+  const urls = routes.map(
     (r) => `  <url>
     <loc>${esc(SITE + (r.path === "/" ? "/" : r.path))}</loc>
-    <lastmod>${lastmod}</lastmod>
+    <lastmod>${r.lastmod || lastmod}</lastmod>
     <changefreq>${r.changefreq || "monthly"}</changefreq>
     <priority>${r.priority || "0.5"}</priority>
   </url>`,
@@ -97,10 +118,162 @@ ${urls}
   writeFileSync(path.join(dist, "sitemap.xml"), xml, "utf8");
 }
 
+/**
+ * Extrait les paires question/réponse du bloc « Questions fréquentes ».
+ * La trame impose la question en gras (**…**) ou en H3, la réponse juste en dessous.
+ * Alimente le schéma FAQPage, la portion la plus reprise par les assistants IA.
+ */
+function extractFaq(markdown) {
+  const section = markdown.split(/^##\s+Questions\s+fréquentes\s*$/im)[1];
+  if (!section) return [];
+
+  const stop = section.split(/^##\s+/m)[0];
+  const faq = [];
+  const re = /^(?:###\s+(.+)|\*\*(.+?)\*\*)\s*$/gm;
+  let m;
+  const marks = [];
+  while ((m = re.exec(stop)) !== null) marks.push({ q: (m[1] || m[2]).trim(), end: re.lastIndex });
+
+  for (let i = 0; i < marks.length; i++) {
+    const answer = stop
+      .slice(marks[i].end, i + 1 < marks.length ? stop.lastIndexOf(marks[i + 1].q, stop.length) : undefined)
+      .replace(/^\s*[\r\n]+/, "")
+      .split(/\n(?=###\s|\*\*)/)[0]
+      .replace(/\*\*/g, "")
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+      .trim();
+    if (answer) faq.push({ question: marks[i].q, answer });
+  }
+  return faq;
+}
+
+/** Construit les routes du Journal : la page liste + une page par article. */
+function buildJournalRoutes() {
+  const articles = loadArticles();
+  const routes = [];
+
+  const cards = articles
+    .map(
+      (a) => `<article>
+      <p>${esc(a.category)} · ${esc(a.date)} · ${a.readingTime} min</p>
+      <h2><a href="${esc(a.path)}">${esc(a.title)}</a></h2>
+      <p>${esc(a.description)}</p>
+      <a href="${esc(a.path)}">Lire l'article</a>
+    </article>`,
+    )
+    .join("\n    ");
+
+  routes.push({
+    path: JOURNAL_BASE,
+    changefreq: "weekly",
+    priority: "0.8",
+    title: "Journal | Conseils location courte durée à Avignon | Chevalier Conciergerie",
+    description:
+      "Nos guides sur la gestion locative saisonnière à Avignon : réglementation, rentabilité, conciergerie et sous-location. Publications régulières.",
+    ogTitle: "Journal | Chevalier Conciergerie",
+    ogDescription: "Guides et conseils sur la location courte durée à Avignon et alentours.",
+    bodyHtml: `<main><h1>Journal</h1>
+    <p>Nos guides sur la location courte durée à Avignon, Villeneuve-lès-Avignon et Les Angles.</p>
+    ${cards}</main>`,
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        name: "Journal — Chevalier Conciergerie",
+        url: SITE + JOURNAL_BASE,
+        inLanguage: "fr-FR",
+        publisher: { "@type": "Organization", name: "Chevalier Conciergerie", url: SITE },
+        blogPost: articles.map((a) => ({
+          "@type": "BlogPosting",
+          headline: a.title,
+          url: SITE + a.path,
+          datePublished: a.date,
+        })),
+      },
+    ],
+  });
+
+  for (const a of articles) {
+    const url = SITE + a.path;
+    const jsonLd = [
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: a.title,
+        description: a.description,
+        url,
+        mainEntityOfPage: { "@type": "WebPage", "@id": url },
+        datePublished: a.date,
+        dateModified: a.updated,
+        inLanguage: "fr-FR",
+        articleSection: a.category,
+        wordCount: a.markdown.trim().split(/\s+/).length,
+        timeRequired: `PT${a.readingTime}M`,
+        author: { "@type": "Person", name: a.author },
+        publisher: {
+          "@type": "Organization",
+          name: "Chevalier Conciergerie",
+          url: SITE,
+          logo: { "@type": "ImageObject", url: `${SITE}/favicon.png` },
+        },
+        ...(a.image ? { image: SITE + a.image } : {}),
+        ...(a.keywords.length ? { keywords: a.keywords.join(", ") } : {}),
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Accueil", item: SITE },
+          { "@type": "ListItem", position: 2, name: "Journal", item: SITE + JOURNAL_BASE },
+          { "@type": "ListItem", position: 3, name: a.title, item: url },
+        ],
+      },
+    ];
+
+    const faq = extractFaq(a.markdown);
+    if (faq.length) {
+      jsonLd.push({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faq.map((f) => ({
+          "@type": "Question",
+          name: f.question,
+          acceptedAnswer: { "@type": "Answer", text: f.answer },
+        })),
+      });
+    }
+
+    routes.push({
+      path: a.path,
+      changefreq: "monthly",
+      priority: "0.7",
+      title: `${a.title} | Chevalier Conciergerie`,
+      description: a.description,
+      ogTitle: a.title,
+      ogDescription: a.description,
+      keywords: a.keywords.join(", ") || undefined,
+      lastmod: a.updated,
+      jsonLd,
+      bodyHtml: `<main><nav><a href="/">Accueil</a> › <a href="${esc(JOURNAL_BASE)}">Journal</a></nav>
+    <article>
+      <p>${esc(a.category)} · ${esc(a.date)} · ${a.readingTime} min de lecture</p>
+      <h1>${esc(a.title)}</h1>
+      ${a.html}
+      <p><a href="/contact">Nous contacter</a> · <a href="${esc(JOURNAL_BASE)}">Retour au Journal</a></p>
+    </article></main>`,
+    });
+  }
+
+  return routes;
+}
+
+const JOURNAL_ROUTES = buildJournalRoutes();
+const ALL_ROUTES = [...ROUTES, ...JOURNAL_ROUTES];
+
 const template = readFileSync(path.join(dist, "index.html"), "utf8");
 const seen = new Set();
 
-for (const route of ROUTES) {
+for (const route of ALL_ROUTES) {
   if (seen.has(route.path)) throw new Error(`Route en double dans seo-routes.mjs : ${route.path}`);
   seen.add(route.path);
 
@@ -120,6 +293,9 @@ for (const route of ROUTES) {
   }
 }
 
-writeSitemap(new Date().toISOString().slice(0, 10));
+writeSitemap(ALL_ROUTES, new Date().toISOString().slice(0, 10));
 
-console.log(`[prerender] ${ROUTES.length} pages générées + sitemap.xml`);
+console.log(
+  `[prerender] ${ALL_ROUTES.length} pages générées ` +
+    `(${ROUTES.length} fixes + ${JOURNAL_ROUTES.length} journal) + sitemap.xml`,
+);

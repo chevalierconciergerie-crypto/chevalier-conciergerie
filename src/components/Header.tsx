@@ -44,6 +44,7 @@ const Header = () => {
     { label: "Conciergerie", href: "/conciergerie" },
     { label: "Sous-location", href: "/sous-location" },
     { label: "Logements", href: "/logements" },
+    { label: "Journal", href: "/journal" },
     { label: "Partenaires", href: "/partenaires" },
     { label: "Contact", href: "/contact" },
   ];
@@ -53,9 +54,10 @@ const Header = () => {
     { label: "Conciergerie", href: "/conciergerie", number: "02" },
     { label: "Sous-location", href: "/sous-location", number: "03" },
     { label: "Logements", href: "/logements", number: "04" },
-    { label: "Partenaires", href: "/partenaires", number: "05" },
-    { label: "Réserver", href: "/reservation", number: "06" },
-    { label: "Contact", href: "/contact", number: "07" },
+    { label: "Journal", href: "/journal", number: "05" },
+    { label: "Partenaires", href: "/partenaires", number: "06" },
+    { label: "Réserver", href: "/reservation", number: "07" },
+    { label: "Contact", href: "/contact", number: "08" },
   ];
 
   return (

@@ -21,6 +21,8 @@ import APropos from "./pages/APropos";
 import CGV from "./pages/CGV";
 import Reservation from "./pages/Reservation";
 import Logements from "./pages/Logements";
+import Journal from "./pages/Journal";
+import JournalArticle from "./pages/JournalArticle";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -50,6 +52,8 @@ const App = () => (
             <Route path="/cgv" element={<CGV />} />
             <Route path="/reservation" element={<Reservation />} />
             <Route path="/logements" element={<Logements />} />
+            <Route path="/journal" element={<Journal />} />
+            <Route path="/journal/:slug" element={<JournalArticle />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

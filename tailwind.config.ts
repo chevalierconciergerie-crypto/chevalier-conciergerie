@@ -127,5 +127,7 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  // typography était installé mais jamais branché : les classes `prose` des articles
+  // du Journal n'auraient produit aucun style sans ce plugin.
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;

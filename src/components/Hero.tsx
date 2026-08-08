@@ -84,7 +84,7 @@ const Hero = () => {
         </a>
 
         <div className="flex flex-col items-center gap-4 opacity-0 animate-fade-up animation-delay-300">
-          <div className="flex items-center justify-center gap-3 md:gap-5">
+          <div className="flex w-full flex-col sm:flex-row items-center justify-center gap-3 md:gap-5">
             <Button asChild variant="hero" size="lg" className="group">
               <Link to="/contact">
                 Consultation Gratuite
