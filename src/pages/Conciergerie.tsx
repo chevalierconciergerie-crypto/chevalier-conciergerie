@@ -100,24 +100,46 @@ const Conciergerie = () => {
                 className="w-full h-full object-cover opacity-40"
               />
             </div>
+            {/* Voile pour tenir le contraste quelle que soit la zone de la photo */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-primary/30" />
+
             <div className="relative z-10 container mx-auto px-6">
-              <div className="max-w-3xl">
-                <span className="text-gold-ink font-sans text-sm tracking-[0.3em] uppercase">Conciergerie</span>
-                <h1 className="font-serif text-4xl md:text-6xl font-semibold text-primary-foreground mt-4 mb-6">
-                  Un Service<br />
-                  <span className="text-gold">5 Étoiles</span>
-                </h1>
-                <p className="font-sans text-xl text-primary-foreground/80 mb-8 max-w-2xl">
-                  Déléguez la gestion de votre location saisonnière à des experts. 
-                  Nous offrons une expérience premium à vos voyageurs tout en maximisant vos revenus.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button variant="gold" size="xl" asChild>
-                    <Link to="/contact">Prendre rendez-vous</Link>
-                  </Button>
-                  <Button variant="outline-light" size="xl" asChild>
-                    <a href="#tarifs">Voir les tarifs</a>
-                  </Button>
+              {/*
+                Composition asymétrique : un rail vertical à gauche, le texte décalé.
+                L'ancienne version empilait sur-titre, titre et paragraphe centrés dans
+                un bloc — la structure par défaut de n'importe quel template.
+              */}
+              <div className="flex gap-8 md:gap-12">
+                <div className="hidden shrink-0 flex-col items-center pt-3 md:flex">
+                  <span className="font-sans text-xs tabular-nums tracking-[0.3em] text-gold">01</span>
+                  <div className="mt-4 w-px flex-1 bg-gradient-to-b from-gold/50 to-transparent" />
+                </div>
+
+                <div className="max-w-3xl">
+                  {/* text-gold et non gold-ink : le fond est sombre ici. */}
+                  <span className="font-sans text-xs uppercase tracking-[0.4em] text-gold">
+                    Conciergerie · Avignon
+                  </span>
+
+                  <h1 className="mt-6 font-serif text-5xl font-light leading-[0.95] tracking-[0.01em] text-primary-foreground md:text-7xl lg:text-8xl">
+                    Votre bien,
+                    <br />
+                    <span className="italic text-gold">tenu comme un hôtel</span>
+                  </h1>
+
+                  <p className="mt-8 max-w-xl font-sans text-lg font-light leading-relaxed text-primary-foreground/75">
+                    Accueil des voyageurs, ménage, linge, annonces, tarification. Vous ne
+                    touchez plus à rien — et vos revenus, eux, continuent de tomber.
+                  </p>
+
+                  <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+                    <Button variant="gold" size="xl" asChild>
+                      <Link to="/contact">Prendre rendez-vous</Link>
+                    </Button>
+                    <Button variant="outline-light" size="xl" asChild>
+                      <a href="#tarifs">Voir les tarifs</a>
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>

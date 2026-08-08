@@ -34,7 +34,8 @@ const Contact = () => {
               />
             </div>
             <div className="relative z-10 container mx-auto px-6 text-center">
-              <span className="text-gold-ink font-sans text-sm tracking-[0.3em] uppercase">Contact</span>
+              {/* Hero sur photo assombrie : --gold et non --gold-ink, réservé aux fonds clairs. */}
+              <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">Contact</span>
               <h1 className="font-serif text-4xl md:text-6xl font-semibold text-primary-foreground mt-4 mb-6">
                 Parlons de Votre Projet
               </h1>

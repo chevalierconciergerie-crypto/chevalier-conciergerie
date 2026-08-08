@@ -104,7 +104,8 @@ const LocalSeoPage = ({
               <div className="max-w-3xl">
                 <div className="flex items-center gap-2 mb-4">
                   <MapPin className="w-4 h-4 text-gold" />
-                  <span className="text-gold-ink font-sans text-sm tracking-[0.3em] uppercase">{city}</span>
+                  {/* Hero sur photo assombrie : --gold et non --gold-ink, réservé aux fonds clairs. */}
+                  <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase">{city}</span>
                 </div>
                 <h1 className="font-serif text-4xl md:text-6xl font-semibold text-primary-foreground mb-6">
                   {intro.headline}
