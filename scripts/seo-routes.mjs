@@ -209,7 +209,7 @@ const STATIC_ROUTES = [
       <h1>Votre conciergerie à Avignon</h1>
       <p>Gestion locative saisonnière et revenus garantis, sans contrainte. Chevalier
       Conciergerie intervient à Avignon, Villeneuve-lès-Avignon, Les Angles,
-      Aix-en-Provence et Montpellier.</p>
+      Aix-en-Provence et Montpellier. Réponse sous 24 h, sans engagement.</p>
 
       <h2>Deux formules</h2>
       <p>Que vous souhaitiez déléguer la gestion ou sécuriser vos revenus, nous avons la
@@ -222,17 +222,38 @@ const STATIC_ROUTES = [
       <h3><a href="/sous-location">Sous-location</a></h3>
       <p>Loyer garanti chaque mois, zéro vacance locative. Aucune gestion, aucun risque.</p>
 
-      <h2>Une conciergerie indépendante et locale</h2>
-      <p>Fondée par Victor Chevalier, Chevalier Conciergerie est installée à
-      Villeneuve-lès-Avignon et gère des locations courte durée dans l'agglomération
-      d'Avignon. Note Google de 5,0 sur 12 avis.</p>
+      <p>Vous hésitez entre les deux ? Nous les comparons chiffre en main dans
+      <a href="/journal/conciergerie-ou-sous-location-avignon">notre article dédié</a>.</p>
+
+      <h2>Ils nous font confiance</h2>
+      <p>Note de 5,0 sur 5 pour 12 avis Google. Extraits publics :</p>
+      <blockquote><p>« Je confie mon appartement en centre-ville d'Avignon à Chevalier
+      Conciergerie depuis plusieurs mois et je ne regrette pas. Communication fluide,
+      réactivité au top et mes voyageurs sont toujours très bien accueillis. Je ne
+      m'occupe plus de rien et mes revenus locatifs ont augmenté. » — Baptiste
+      Mailharrancin</p></blockquote>
+      <blockquote><p>« J'ai fait appel à Chevalier Conciergerie pour mon appartement et je
+      suis absolument ravi de la manière dont j'ai été accompagné par Victor. Je
+      recommande à 100 %. » — Clément Pailler</p></blockquote>
+      <blockquote><p>« Excellente conciergerie, très professionnelle et à l'écoute des
+      clients. Je recommande vivement pour tout projet de location courte durée sur le
+      secteur Gard et Vaucluse. » — Félicien Arnoux</p></blockquote>
+
+      <h2>Le fondateur</h2>
+      <p>Victor Chevalier a suivi des études de mathématiques et de physique à la CUPGE
+      d'Avignon avant de réaliser son premier investissement immobilier à 19 ans.
+      Originaire d'Avignon, il en connaît les quartiers, le patrimoine et la
+      saisonnalité — c'est cette connaissance locale qui l'a conduit à créer Chevalier
+      Conciergerie. <a href="/a-propos">En savoir plus</a>.</p>
 
       <h2>Aller plus loin</h2>
       <ul>
         <li><a href="/conciergerie-avignon">Conciergerie Airbnb à Avignon</a></li>
         <li><a href="/conciergerie-villeneuve-les-avignon">Conciergerie à Villeneuve-lès-Avignon</a></li>
         <li><a href="/conciergerie-les-angles">Conciergerie aux Angles</a></li>
-        <li><a href="/journal">Journal : nos guides sur la location courte durée</a></li>
+        <li><a href="/journal/declarer-location-saisonniere-avignon">Déclarer sa location saisonnière à Avignon : les 3 démarches obligatoires</a></li>
+        <li><a href="/journal/calculer-rentabilite-reelle-location-courte-duree">Calculer la rentabilité réelle de sa location courte durée</a></li>
+        <li><a href="/journal">Journal : tous nos guides</a></li>
         <li><a href="/contact">Nous contacter — estimation gratuite sous 24 h</a></li>
       </ul>
     </main>`,
