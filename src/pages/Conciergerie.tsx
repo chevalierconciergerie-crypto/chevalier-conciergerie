@@ -109,37 +109,34 @@ const Conciergerie = () => {
                 L'ancienne version empilait sur-titre, titre et paragraphe centrés dans
                 un bloc — la structure par défaut de n'importe quel template.
               */}
-              <div className="flex gap-8 md:gap-12">
-                <div className="hidden shrink-0 flex-col items-center pt-3 md:flex">
-                  <span className="font-sans text-xs tabular-nums tracking-[0.3em] text-gold">01</span>
-                  <div className="mt-4 w-px flex-1 bg-gradient-to-b from-gold/50 to-transparent" />
-                </div>
+              {/*
+                Ni sur-titre en capitales pointées, ni rail numéroté, ni filet doré :
+                ce sont les tics qui font reconnaître une page générée. Le titre porte
+                seul, et l'ancrage local passe par un fait vérifiable plutôt que par
+                le mot « luxe ».
+              */}
+              <div className="max-w-4xl">
+                <h1 className="font-serif text-5xl font-light leading-[0.92] tracking-[0.01em] text-primary-foreground md:text-7xl lg:text-[5.5rem]">
+                  Nous tenons vos
+                  <br />
+                  appartements
+                  <br />
+                  <span className="italic">intra-muros.</span>
+                </h1>
 
-                <div className="max-w-3xl">
-                  {/* text-gold et non gold-ink : le fond est sombre ici. */}
-                  <span className="font-sans text-xs uppercase tracking-[0.4em] text-gold">
-                    Conciergerie · Avignon
-                  </span>
+                <p className="mt-10 max-w-lg font-sans text-lg font-light leading-relaxed text-primary-foreground/70">
+                  Accueil des voyageurs, ménage, linge, annonces, tarification. Neuf
+                  appartements à Avignon, Villeneuve-lès-Avignon et Les Angles. Vous n'y
+                  touchez plus.
+                </p>
 
-                  <h1 className="mt-6 font-serif text-5xl font-light leading-[0.95] tracking-[0.01em] text-primary-foreground md:text-7xl lg:text-8xl">
-                    Votre bien,
-                    <br />
-                    <span className="italic text-gold">tenu comme un hôtel</span>
-                  </h1>
-
-                  <p className="mt-8 max-w-xl font-sans text-lg font-light leading-relaxed text-primary-foreground/75">
-                    Accueil des voyageurs, ménage, linge, annonces, tarification. Vous ne
-                    touchez plus à rien — et vos revenus, eux, continuent de tomber.
-                  </p>
-
-                  <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-                    <Button variant="gold" size="xl" asChild>
-                      <Link to="/contact">Prendre rendez-vous</Link>
-                    </Button>
-                    <Button variant="outline-light" size="xl" asChild>
-                      <a href="#tarifs">Voir les tarifs</a>
-                    </Button>
-                  </div>
+                <div className="mt-12 flex flex-col gap-3 sm:flex-row">
+                  <Button variant="gold" size="xl" asChild>
+                    <Link to="/contact">Prendre rendez-vous</Link>
+                  </Button>
+                  <Button variant="outline-light" size="xl" asChild>
+                    <a href="#tarifs">Voir les tarifs</a>
+                  </Button>
                 </div>
               </div>
             </div>

@@ -84,13 +84,22 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation — centrée */}
-          <nav className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+          {/*
+            whitespace-nowrap : « Sous-location » se cassait en deux lignes et déformait
+            toute la barre. Graisse ramenée de semibold à normal et taille de text-base
+            à text-xs : en capitales espacées, le gras fait lourd et bon marché. Le
+            survol passe au noir plutôt qu'à l'or — la barre reste en noir et blanc,
+            l'or est gardé pour le seul bouton Réserver.
+          */}
+          <nav className="hidden lg:flex items-center gap-7 absolute left-1/2 -translate-x-1/2">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.href}
-                className={`font-sans text-base font-semibold uppercase tracking-[0.12em] transition-colors duration-300 hover:text-gold ${
-                  solid ? "text-foreground/80" : "text-primary-foreground/80"
+                className={`whitespace-nowrap font-sans text-xs font-normal uppercase tracking-[0.18em] transition-colors duration-300 ${
+                  solid
+                    ? "text-foreground/70 hover:text-foreground"
+                    : "text-primary-foreground/70 hover:text-primary-foreground"
                 }`}
               >
                 {item.label}
