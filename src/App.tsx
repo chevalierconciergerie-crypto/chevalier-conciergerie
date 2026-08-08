@@ -15,12 +15,9 @@ import MentionsLegales from "./pages/MentionsLegales";
 import ConciergerieAvignon from "./pages/ConciergerieAvignon";
 import ConciergerieVilleneuve from "./pages/ConciergerieVilleneuve";
 import ConciergerieLesAngles from "./pages/ConciergerieLesAngles";
-import PropertyDetail from "./pages/PropertyDetail";
 import Partenaires from "./pages/Partenaires";
 import APropos from "./pages/APropos";
 import CGV from "./pages/CGV";
-import Reservation from "./pages/Reservation";
-import Logements from "./pages/Logements";
 import Journal from "./pages/Journal";
 import JournalArticle from "./pages/JournalArticle";
 import NotFound from "./pages/NotFound";
@@ -46,12 +43,15 @@ const App = () => (
             <Route path="/conciergerie-avignon" element={<ConciergerieAvignon />} />
             <Route path="/conciergerie-villeneuve-les-avignon" element={<ConciergerieVilleneuve />} />
             <Route path="/conciergerie-les-angles" element={<ConciergerieLesAngles />} />
-            <Route path="/proprietes/:slug" element={<PropertyDetail />} />
+            {/*
+              Réservation en direct retirée en attendant que le site de réservation
+              soit opérationnel. Les composants restent dans le dépôt (PropertyDetail,
+              Reservation, Logements, PropertyShowcase, BookingQuickSearch) : il
+              suffira de rétablir ces trois routes et les entrées de navigation.
+            */}
             <Route path="/partenaires" element={<Partenaires />} />
             <Route path="/a-propos" element={<APropos />} />
             <Route path="/cgv" element={<CGV />} />
-            <Route path="/reservation" element={<Reservation />} />
-            <Route path="/logements" element={<Logements />} />
             <Route path="/journal" element={<Journal />} />
             <Route path="/journal/:slug" element={<JournalArticle />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

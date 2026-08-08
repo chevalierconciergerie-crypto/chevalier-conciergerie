@@ -48,26 +48,8 @@ const STATIC_ROUTES = [
     ogDescription:
       "Sous-location professionnelle à Avignon. Loyer garanti, zéro vacance, zéro risque.",
   },
-  {
-    path: "/logements",
-    changefreq: "weekly",
-    priority: "0.9",
-    title: "Nos logements à Avignon | Chevalier Conciergerie",
-    description:
-      "Découvrez notre collection de logements d'exception à Avignon et ses alentours : appartements de charme, intra-muros, rénovés et équipés. Réservation directe en ligne.",
-    keywords:
-      "location appartement Avignon, logement meublé Avignon, appartement intra-muros Avignon, location courte durée Avignon",
-  },
-  {
-    path: "/reservation",
-    changefreq: "weekly",
-    priority: "0.9",
-    title: "Réserver en direct | Chevalier Conciergerie — Avignon",
-    description:
-      "Réservez directement votre séjour à Avignon auprès de Chevalier Conciergerie. Disponibilités en temps réel et paiement sécurisé en ligne.",
-    keywords:
-      "réservation directe Avignon, louer appartement Avignon, séjour Avignon, disponibilités Avignon",
-  },
+  // /logements et /reservation sont retirés le temps que le site de réservation soit
+  // opérationnel. Les laisser dans le sitemap enverrait Google sur deux 404.
   {
     path: "/contact",
     changefreq: "monthly",

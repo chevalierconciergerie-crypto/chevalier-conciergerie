@@ -43,7 +43,6 @@ const Header = () => {
     { label: "Accueil", href: "/" },
     { label: "Conciergerie", href: "/conciergerie" },
     { label: "Sous-location", href: "/sous-location" },
-    { label: "Logements", href: "/logements" },
     { label: "Journal", href: "/journal" },
     { label: "Partenaires", href: "/partenaires" },
     { label: "Contact", href: "/contact" },
@@ -53,11 +52,9 @@ const Header = () => {
     { label: "Accueil", href: "/", number: "01" },
     { label: "Conciergerie", href: "/conciergerie", number: "02" },
     { label: "Sous-location", href: "/sous-location", number: "03" },
-    { label: "Logements", href: "/logements", number: "04" },
-    { label: "Journal", href: "/journal", number: "05" },
-    { label: "Partenaires", href: "/partenaires", number: "06" },
-    { label: "Réserver", href: "/reservation", number: "07" },
-    { label: "Contact", href: "/contact", number: "08" },
+    { label: "Journal", href: "/journal", number: "04" },
+    { label: "Partenaires", href: "/partenaires", number: "05" },
+    { label: "Contact", href: "/contact", number: "06" },
   ];
 
   return (
@@ -107,10 +104,15 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Réserver — à droite, mis en avant */}
+          {/*
+            Le bouton Réserver pointait vers /reservation. Le moteur de réservation est
+            retiré en attendant que le site de réservation soit opérationnel : l'appel
+            à l'action renvoie donc vers le contact, qui est la vraie conversion tant
+            que la réservation en direct n'existe pas.
+          */}
           <div className="hidden lg:block">
-            <Button variant="gold" size="lg" className="text-base font-semibold px-7 shadow-md" asChild>
-              <Link to="/reservation">Réserver</Link>
+            <Button variant="gold" size="lg" className="px-7 text-sm font-medium shadow-md" asChild>
+              <Link to="/contact">Nous contacter</Link>
             </Button>
           </div>
 
@@ -234,8 +236,8 @@ const Header = () => {
 
               
               <Button variant="gold" className="w-full max-w-xs" size="lg" asChild>
-                <Link to="/reservation" onClick={() => setIsMobileMenuOpen(false)}>
-                  Réserver
+                <Link to="/estimation-sous-location" onClick={() => setIsMobileMenuOpen(false)}>
+                  Estimation gratuite
                 </Link>
               </Button>
               <Button variant="outline-light" className="w-full max-w-xs" size="lg" asChild>
