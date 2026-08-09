@@ -4,7 +4,7 @@ description: "Numéro d'enregistrement, changement d'usage, taxe de séjour : ce
 date: 2026-08-04
 updated: 2026-08-08
 category: Réglementation
-image: /journal/reel-declaration.jpg
+image: /journal/reel-declaration.svg
 author: Victor Chevalier
 keywords: [déclarer location saisonnière Avignon, numéro enregistrement meublé tourisme, changement usage Avignon, taxe de séjour Avignon, 90 jours résidence principale Avignon]
 ---

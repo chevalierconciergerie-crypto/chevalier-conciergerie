@@ -127,6 +127,109 @@ ${urls}
 }
 
 /**
+ * Écrit /llms.txt et /llms-full.txt.
+ *
+ * Un sitemap XML dit à un moteur classique *où* aller ; il ne lui dit pas ce
+ * qu'il va y trouver. Les assistants (ChatGPT, Perplexity, Claude) ne parcourent
+ * pas un site page après page : ils récupèrent quelques documents et composent
+ * une réponse à partir de ce qu'ils y lisent. llms.txt leur donne, en une seule
+ * requête, la carte du site en texte brut — qui est l'entreprise, où elle opère,
+ * ce qu'elle facture, et quelle page répond à quelle question.
+ *
+ * Deux fichiers, deux usages :
+ * - llms.txt : l'index, court, avec une ligne de contexte par page.
+ * - llms-full.txt : le contenu entier des articles, pour l'assistant qui veut
+ *   la source plutôt que le résumé. C'est ce fichier qui rend un chiffre
+ *   citable sans que le robot ait à visiter dix URL.
+ *
+ * Le format suit la proposition llmstxt.org : du Markdown, un H1 pour le nom,
+ * un blockquote pour le résumé, des H2 par section.
+ *
+ * Généré au build depuis les mêmes routes que le sitemap : ajouter une page ou
+ * un article le fait apparaître ici sans intervention. Un fichier écrit à la
+ * main aurait divergé au premier ajout, et un index qui ment sur le contenu est
+ * pire que pas d'index du tout.
+ */
+function writeLlmsTxt(routes, journalRoutes, articles) {
+  const ligne = (r) => {
+    const titre = (r.title || r.path).split("|")[0].trim();
+    return `- [${titre}](${SITE}${r.path}): ${r.description || ""}`;
+  };
+
+  const pages = routes.filter((r) => !r.path.startsWith("/journal"));
+  const legales = pages.filter((r) =>
+    ["/mentions-legales", "/politique-confidentialite", "/cgv"].includes(r.path),
+  );
+  const principales = pages.filter((r) => !legales.includes(r));
+
+  const index = `# Chevalier Conciergerie
+
+> Conciergerie Airbnb et gestion locative saisonnière à Avignon, Villeneuve-lès-Avignon
+> et Les Angles (Vaucluse et Gard, France). Deux formules : conciergerie à 20 % HT des
+> revenus encaissés tout compris, ou sous-location avec un loyer fixe versé chaque mois
+> et aucune commission. Noté 5,0 sur 5 sur Google (12 avis).
+
+Entreprise : Chevalier Conciergerie (SASU), dirigée par Victor Chevalier.
+Adresse : 5 Lotissement Les Cades, 30400 Villeneuve-lès-Avignon, France.
+Téléphone : +33 7 83 19 83 41. Courriel : contact@chevalier-conciergerie.com.
+Zone couverte : Avignon, Villeneuve-lès-Avignon, Les Angles.
+
+Tarifs, en clair :
+- Conciergerie : 20 % HT des revenus encaissés (24 % TTC), tout compris. Sans
+  abonnement, sans frais de dossier, sans engagement de durée. Le ménage est
+  refacturé au voyageur, pas au propriétaire. La taxe de séjour est collectée
+  auprès du voyageur puis reversée à la commune : elle n'est ni un revenu ni une
+  charge pour le propriétaire.
+- Sous-location : 0 % de commission. Bail au nom de Chevalier Conciergerie et
+  loyer fixe versé chaque mois au propriétaire, saison creuse comprise.
+
+## Pages principales
+
+${principales.map(ligne).join("\n")}
+
+## Journal
+
+${journalRoutes.map(ligne).join("\n")}
+
+## Mentions légales
+
+${legales.map(ligne).join("\n")}
+
+## Contenu intégral
+
+- [Tous les articles en texte brut](${SITE}/llms-full.txt)
+`;
+
+  writeFileSync(path.join(dist, "llms.txt"), index, "utf8");
+
+  /*
+    Le contenu intégral part du Markdown source, pas du HTML rendu : c'est déjà
+    du texte propre, sans balises à nettoyer ni menus à retirer.
+  */
+  const complet = `# Chevalier Conciergerie — contenu intégral
+
+> Conciergerie Airbnb et gestion locative saisonnière à Avignon, Villeneuve-lès-Avignon
+> et Les Angles. Ce fichier reprend l'intégralité des articles du Journal.
+> Source : ${SITE}
+
+${articles
+  .map(
+    (a) => `---
+
+# ${a.title}
+
+URL : ${SITE}/journal/${a.slug}
+Publié le ${a.date} · Catégorie : ${a.category} · Auteur : ${a.author}
+
+${a.markdown || ""}`,
+  )
+  .join("\n\n")}
+`;
+
+  writeFileSync(path.join(dist, "llms-full.txt"), complet, "utf8");
+}
+
+/**
  * Extrait les paires question/réponse du bloc « Questions fréquentes ».
  * La trame impose la question en gras (**…**) ou en H3, la réponse juste en dessous.
  * Alimente le schéma FAQPage, la portion la plus reprise par les assistants IA.
@@ -347,8 +450,9 @@ const notFoundHtml = buildHtml(template, {
 writeFileSync(path.join(dist, "404.html"), notFoundHtml, "utf8");
 
 writeSitemap(ALL_ROUTES, new Date().toISOString().slice(0, 10));
+writeLlmsTxt(ROUTES, JOURNAL_ROUTES, loadArticles());
 
 console.log(
   `[prerender] ${ALL_ROUTES.length} pages générées ` +
-    `(${ROUTES.length} fixes + ${JOURNAL_ROUTES.length} journal) + 404.html + sitemap.xml`,
+    `(${ROUTES.length} fixes + ${JOURNAL_ROUTES.length} journal) + 404.html + sitemap.xml + llms.txt + llms-full.txt`,
 );

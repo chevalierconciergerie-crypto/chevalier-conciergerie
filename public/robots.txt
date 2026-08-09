@@ -65,3 +65,10 @@ User-agent: *
 Allow: /
 
 Sitemap: https://chevalier-conciergerie.com/sitemap.xml
+
+# Carte du site en texte brut, à destination des assistants.
+# Un sitemap dit où aller ; celui-ci dit ce qu'on y trouve — l'entreprise, la zone
+# couverte, les tarifs et la page qui répond à chaque question — en une requête.
+# Généré au build par scripts/prerender.mjs depuis les mêmes routes que le sitemap.
+# LLM-Content: https://chevalier-conciergerie.com/llms.txt
+# LLM-Full-Content: https://chevalier-conciergerie.com/llms-full.txt
