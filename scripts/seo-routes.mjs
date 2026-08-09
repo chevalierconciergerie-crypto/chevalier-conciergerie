@@ -135,6 +135,9 @@ const LOCAL_PAGES = [
 ].map(({ file, priority }) => {
   const p = readLocalPage(file);
   const li = (items) => items.map((x) => `<li>${x}</li>`).join("\n        ");
+  // La FAQ locale est lue dans le même fichier que le reste de la page : le schéma ne
+  // peut donc pas décrire autre chose que ce qui est affiché.
+  const faq = readFaq(file, "question", "answer");
 
   return {
     path: `/${p.slug}`,
@@ -168,9 +171,13 @@ const LOCAL_PAGES = [
         ${li(p.whyUs)}
       </ul>
 
+      <h2>Vos questions sur la location courte durée à ${p.city}</h2>
+      ${faqHtml(faq)}
+
       <p><a href="/contact">Demander une estimation gratuite</a> ·
       <a href="/conciergerie">Le détail de la formule conciergerie</a> ·
-      <a href="/sous-location">La sous-location avec loyer garanti</a></p>
+      <a href="/sous-location">La sous-location avec loyer garanti</a> ·
+      <a href="/journal/declarer-location-saisonniere-avignon">Les démarches obligatoires</a></p>
     </main>`,
     jsonLd: [
       breadcrumb({ name: `Conciergerie ${p.city}`, path: `/${p.slug}` }),
@@ -179,6 +186,7 @@ const LOCAL_PAGES = [
         description: p.subheadline,
         areas: [p.city],
       }),
+      faqPage(faq),
     ],
   };
 });

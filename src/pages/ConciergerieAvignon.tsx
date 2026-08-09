@@ -52,6 +52,24 @@ const ConciergerieAvignon = () => (
       "Accueil personnalisé, linge hôtelier et recommandations locales pour vos voyageurs — ce sont les évaluations qui font remonter une annonce, et elles se jouent sur ces détails.",
       "Transparence totale : commission sur-mesure adaptée à chaque bien, aucun frais caché, reporting mensuel détaillé de vos revenus.",
     ]}
+    faq={[
+      {
+        question: "Faut-il un numéro d'enregistrement pour louer à Avignon ?",
+        answer: "Oui, depuis le 1er janvier 2026, pour tout meublé de tourisme et sans exception. La déclaration est soumise à enregistrement et passe par la plateforme changementdusage.fr/avignon. Le numéro obtenu doit figurer sur chacune de vos annonces : les plateformes le contrôlent et retirent celles qui n'en ont pas, y compris en pleine saison.",
+      },
+      {
+        question: "Combien de jours puis-je louer ma résidence principale à Avignon ?",
+        answer: "90 jours par année civile, et non 120. Avignon a abaissé le plafond national par délibération du conseil municipal du 22 février 2025, une faculté que le Code du tourisme laisse aux communes. En contrepartie, une résidence principale n'est pas soumise à l'autorisation de changement d'usage.",
+      },
+      {
+        question: "Ai-je besoin d'une autorisation de changement d'usage à Avignon ?",
+        answer: "Oui, pour tout logement qui n'est pas votre résidence principale. Le régime s'applique à l'ensemble du territoire communal, pas seulement à l'intra-muros, et vise les particuliers comme les sociétés. La ville le motive par le doublement des locations saisonnières en huit ans : près de 4 300 logements en 2023, dont 2 400 en intra-muros. Nous montons le dossier pour vous.",
+      },
+      {
+        question: "Quelle période rapporte le plus à Avignon ?",
+        answer: "Juillet, pendant le Festival d'Avignon, concentre une demande que le reste de l'année ne connaît pas. Le tourisme patrimonial autour du Palais des Papes soutient l'occupation au printemps et à l'automne. C'est cette saisonnalité marquée que notre tarification dynamique exploite, plutôt qu'un prix fixe toute l'année.",
+      },
+    ]}
   />
 );
 

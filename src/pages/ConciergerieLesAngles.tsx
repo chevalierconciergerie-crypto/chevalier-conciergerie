@@ -47,6 +47,24 @@ const ConciergerieLesAngles = () => (
       "Entretien complet des extérieurs : piscine, jardin, terrasse — nous coordonnons tous les prestataires pour que votre bien reste impeccable.",
       "Flexibilité : que vous souhaitiez louer ponctuellement en été ou toute l'année, nous adaptons notre gestion à vos objectifs.",
     ]}
+    faq={[
+      {
+        question: "Quelles démarches pour louer un meublé de tourisme aux Angles ?",
+        answer: "Comme partout en France, la mise en location d'un meublé de tourisme suppose une déclaration en mairie. Les Angles étant une commune du Gard, le cadre n'est pas celui d'Avignon. Nous vérifions auprès de la mairie ce qui s'applique précisément à votre bien avant toute mise en ligne, plutôt que de transposer les règles de la commune voisine.",
+      },
+      {
+        question: "Le régime avignonnais de changement d'usage s'applique-t-il aux Angles ?",
+        answer: "Non. L'autorisation temporaire de changement d'usage instaurée au 1er janvier 2026, comme le plafond de 90 jours pour les résidences principales, concernent le territoire de la commune d'Avignon. Les Angles relève d'un cadre distinct. C'est un point qui compte pour un propriétaire qui compare les deux rives du Rhône.",
+      },
+      {
+        question: "Une maison avec piscine se loue-t-elle bien aux Angles ?",
+        answer: "C'est le profil de bien le plus recherché sur la commune. La clientèle y vient pour l'espace et le calme tout en restant à dix minutes du centre historique d'Avignon : familles et groupes d'amis, souvent sur des séjours plus longs qu'en centre-ville. Nous coordonnons l'entretien de la piscine, du jardin et des terrasses, qui font la différence sur les évaluations.",
+      },
+      {
+        question: "Puis-je louer seulement l'été ?",
+        answer: "Oui. En conciergerie, vous restez décisionnaire du calendrier : vous ouvrez les périodes qui vous conviennent et gardez le bien le reste de l'année. C'est la différence avec la sous-location, qui suppose de confier le logement à l'année en échange d'un loyer garanti chaque mois.",
+      },
+    ]}
   />
 );
 

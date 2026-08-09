@@ -4,6 +4,12 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Check, ArrowRight, MapPin, TrendingUp, Users, Home, Star, Calendar } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { ScrollAnimate } from "@/hooks/useScrollAnimation";
 
 interface LocalSeoPageProps {
@@ -28,6 +34,13 @@ interface LocalSeoPageProps {
   attractions: string[];
   neighborhoods: string[];
   whyUs: string[];
+  /**
+   * Questions propres à la commune. Elles alimentent le schéma `FAQPage` généré au
+   * build par scripts/seo-routes.mjs, qui les lit directement dans le fichier de la
+   * page. C'est la portion la plus citée par les moteurs de réponse, et la seule
+   * façon d'obtenir des résultats enrichis sur une requête locale.
+   */
+  faq: { question: string; answer: string }[];
 }
 
 const LocalSeoPage = ({
@@ -43,6 +56,7 @@ const LocalSeoPage = ({
   attractions,
   neighborhoods,
   whyUs,
+  faq,
 }: LocalSeoPageProps) => {
   const services = [
     "Création et optimisation d'annonce",
@@ -249,6 +263,29 @@ const LocalSeoPage = ({
                     ))}
                   </div>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          {/* FAQ locale — alimente le schéma FAQPage propre à la commune */}
+          <section className="py-20 bg-secondary">
+            <div className="container mx-auto px-6">
+              <div className="mx-auto max-w-3xl">
+                <h2 className="font-serif text-3xl md:text-4xl font-light leading-tight text-foreground">
+                  Vos questions sur la location courte durée à {city}
+                </h2>
+                <Accordion type="single" collapsible className="mt-10">
+                  {faq.map((item, i) => (
+                    <AccordionItem key={i} value={`faq-locale-${i}`} className="border-border">
+                      <AccordionTrigger className="text-left font-serif text-base md:text-lg text-foreground hover:text-gold-ink hover:no-underline">
+                        {item.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="font-sans text-sm md:text-base leading-relaxed text-muted-foreground">
+                        {item.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
               </div>
             </div>
           </section>

@@ -50,6 +50,24 @@ const ConciergerieVilleneuve = () => (
       "Gestion optimisée selon la saisonnalité locale : Festival d'Avignon, Rencontres de la Chartreuse, tourisme estival et week-ends prolongés.",
       "Service de proximité : notre équipe intervient rapidement à Villeneuve pour l'accueil, le ménage et la maintenance de votre bien.",
     ]}
+    faq={[
+      {
+        question: "Quelles démarches pour louer un meublé de tourisme à Villeneuve-lès-Avignon ?",
+        answer: "La déclaration se fait auprès du service Police Administrative de la mairie, 2 rue de la République, au moyen du formulaire Cerfa 14004. Un formulaire distinct existe pour les chambres d'hôtes. La taxe de séjour reste due : elle est collectée par l'hébergeur pour chaque personne de plus de 18 ans et par nuitée.",
+      },
+      {
+        question: "Ai-je besoin d'une autorisation de changement d'usage à Villeneuve ?",
+        answer: "La commune ne publie pas de régime d'autorisation de changement d'usage, contrairement à Avignon qui en a instauré un au 1er janvier 2026. Concrètement, un propriétaire de Villeneuve échappe aujourd'hui à la démarche la plus longue. Le cadre évoluant commune par commune, nous le vérifions auprès de la mairie avant chaque mise en ligne.",
+      },
+      {
+        question: "Est-il plus simple de louer à Villeneuve qu'à Avignon ?",
+        answer: "Administrativement, oui pour l'instant. Avignon impose depuis janvier 2026 un enregistrement obligatoire, une autorisation de changement d'usage pour tout bien qui n'est pas une résidence principale, et un plafond de 90 jours pour les résidences principales. Villeneuve s'en tient à la déclaration en mairie. Pour un propriétaire hésitant entre les deux rives du Rhône, la différence est réelle.",
+      },
+      {
+        question: "Écrit-on Villeneuve-lès-Avignon ou Villeneuve lez Avignon ?",
+        answer: "Les deux se rencontrent. La commune emploie elle-même Villeneuve lez Avignon sur son site officiel, tandis que Villeneuve-lès-Avignon est la graphie la plus répandue. Il s'agit de la même ville, dans le Gard, face à Avignon.",
+      },
+    ]}
   />
 );
 
