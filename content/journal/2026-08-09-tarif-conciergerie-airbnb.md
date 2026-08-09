@@ -3,7 +3,7 @@ title: "Tarif conciergerie Airbnb : combien ça coûte vraiment en 2026"
 description: "Tarif conciergerie Airbnb : la fourchette réelle du marché, ce que chaque commission inclut ou non, et les frais annexes qui font grimper la note. Comparatif chiffré."
 date: 2026-08-09
 category: Conciergerie
-image: /journal/reel-tarif.svg
+image: /journal/reel-tarif.webp
 author: Victor Chevalier
 keywords: [tarif conciergerie Airbnb, coût conciergerie Airbnb, prix conciergerie Airbnb, commission conciergerie, combien coûte une conciergerie, tarif conciergerie Avignon]
 ---
