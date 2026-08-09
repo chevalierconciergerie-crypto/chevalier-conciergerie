@@ -13,6 +13,7 @@ const Footer = () => {
     services: [
       { label: "Conciergerie", href: "/conciergerie" },
       { label: "Sous-location", href: "/sous-location" },
+      { label: "Tarifs", href: "/tarifs" },
       { label: "Estimation gratuite", href: "/estimation-sous-location" },
       { label: "Journal", href: "/journal" },
     ],

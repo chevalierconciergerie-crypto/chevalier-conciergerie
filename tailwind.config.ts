@@ -15,8 +15,8 @@ export default {
     extend: {
       fontFamily: {
         // Voir le commentaire en tête de src/index.css sur le choix de ce couple.
-        sans: ['Jost', 'system-ui', 'sans-serif'],
-        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+        sans: ['Archivo', 'system-ui', 'sans-serif'],
+        serif: ['Libre Baskerville', 'Georgia', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",

@@ -10,6 +10,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import Conciergerie from "./pages/Conciergerie";
 import SousLocation from "./pages/SousLocation";
+import Tarifs from "./pages/Tarifs";
 import EstimationSousLocation from "./pages/EstimationSousLocation";
 import Contact from "./pages/Contact";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/conciergerie" element={<Conciergerie />} />
             <Route path="/sous-location" element={<SousLocation />} />
+            <Route path="/tarifs" element={<Tarifs />} />
             <Route path="/estimation-sous-location" element={<EstimationSousLocation />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />

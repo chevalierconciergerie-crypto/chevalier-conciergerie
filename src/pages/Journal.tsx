@@ -67,24 +67,35 @@ const Journal = () => {
             {/* Article en vedette */}
             <section className="px-6 pb-16">
               <div className="mx-auto max-w-5xl">
+                {/*
+                  Les illustrations sont désormais des photographies réelles de
+                  logements gérés, à la place d'images générées — villas en
+                  pierre parfaitement symétriques, lumière d'ambiance sans
+                  source — qui se repéraient à dix mètres.
+
+                  Le texte est aussi sorti de l'image pour passer en dessous.
+                  Posé par-dessus, il obligeait à assombrir la photo de moitié
+                  pour rester lisible : la photo devenait un fond gris et
+                  n'illustrait plus rien. Séparés, les deux gardent leur rôle.
+                */}
                 <Link to={featured.path} className="group block">
-                  <article className="relative overflow-hidden rounded-sm">
-                    <img
-                      src={featured.image || FALLBACK}
-                      alt=""
-                      className="h-[22rem] w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03] md:h-[30rem]"
-                    />
-                    {/* Voile pour garantir la lisibilité du texte quelle que soit la photo */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 p-6 md:p-10">
-                      <Meta article={featured} light />
-                      <h2 className="mt-3 max-w-3xl font-serif text-2xl font-light leading-tight text-primary-foreground md:text-4xl">
+                  <article>
+                    <div className="overflow-hidden rounded-sm">
+                      <img
+                        src={featured.image || FALLBACK}
+                        alt=""
+                        className="h-[18rem] w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03] md:h-[26rem]"
+                      />
+                    </div>
+                    <div className="pt-6">
+                      <Meta article={featured} />
+                      <h2 className="mt-3 max-w-3xl font-serif text-2xl font-light leading-tight text-foreground transition-colors group-hover:text-gold-ink md:text-4xl">
                         {featured.title}
                       </h2>
-                      <p className="mt-4 hidden max-w-2xl text-primary-foreground/80 md:block">
+                      <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
                         {featured.description}
                       </p>
-                      <span className="mt-6 inline-flex min-h-11 items-center gap-2 font-sans text-sm tracking-wide text-primary-foreground">
+                      <span className="mt-5 inline-flex min-h-11 items-center gap-2 font-sans text-sm tracking-wide text-foreground">
                         Lire l'article
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </span>

@@ -90,6 +90,7 @@ function readFaq(file, qKey, aKey) {
 
 const CONCIERGERIE_FAQ = readFaq("src/pages/Conciergerie.tsx", "q", "a");
 const SOUSLOCATION_FAQ = readFaq("src/pages/SousLocation.tsx", "question", "answer");
+const TARIFS_FAQ = readFaq("src/pages/Tarifs.tsx", "question", "answer");
 
 /**
  * Lit le contenu d'une page locale (Avignon, Villeneuve, Les Angles) dans le fichier
@@ -427,6 +428,63 @@ const STATIC_ROUTES = [
         areas: ZONE,
       }),
       faqPage(SOUSLOCATION_FAQ),
+    ],
+  },
+  /*
+    Page Tarifs. Le concurrent le mieux classé sur « conciergerie Avignon » en
+    a une, en entrée de menu — mais sans y écrire le moindre chiffre. Celle-ci
+    donne le taux : sur une requête de comparaison de prix, la page qui répond
+    à la question posée est la seule qui puisse la gagner.
+
+    Priorité 0.9 comme les deux pages de service : c'est une page de conversion,
+    pas une page annexe. Quelqu'un qui cherche un tarif est plus avancé dans sa
+    décision que quelqu'un qui découvre le métier.
+  */
+  {
+    path: "/tarifs",
+    changefreq: "monthly",
+    priority: "0.9",
+    title: "Tarifs conciergerie Avignon | 20 % HT tout compris | Chevalier Conciergerie",
+    description:
+      "Tarifs de conciergerie à Avignon : 20 % HT des revenus encaissés, tout compris, sans abonnement ni engagement. Sous-location : 0 % de commission, loyer fixe chaque mois.",
+    keywords:
+      "tarif conciergerie Avignon, prix conciergerie Avignon, commission conciergerie Airbnb, coût gestion locative Avignon, tarif sous-location Avignon",
+    bodyHtml: `<main>
+      <nav><a href="/">Accueil</a> › Tarifs</nav>
+      <h1>Tarifs de conciergerie à Avignon</h1>
+      <p>Un seul taux, annoncé avant tout rendez-vous. Pas d'abonnement, pas de frais
+      de dossier, pas d'engagement de durée.</p>
+
+      <h2>Conciergerie : 20 % HT des revenus encaissés</h2>
+      <p>Soit 24 % TTC. Ce taux couvre l'intégralité du service à Avignon,
+      Villeneuve-lès-Avignon et Les Angles :</p>
+      <ul>
+        <li>Annonces créées et diffusées sur Airbnb, Booking et Abritel</li>
+        <li>Prix ajustés en continu selon la saison et les événements</li>
+        <li>Échanges avec les voyageurs, remise des clés, assistance 7 j/7</li>
+        <li>Ménage et linge d'hôtel entre chaque séjour</li>
+        <li>Suivi des encaissements et récapitulatif mensuel</li>
+      </ul>
+      <p>Le ménage est refacturé au voyageur, pas au propriétaire. La taxe de séjour est
+      collectée auprès du voyageur puis reversée à la commune : elle ne passe jamais par
+      vos revenus.</p>
+
+      <h2>Sous-location : 0 % de commission</h2>
+      <p>Nous louons votre bien à l'année à notre nom et vous versons le même loyer
+      chaque mois, saison creuse comprise. Vous ne payez aucune commission : nos revenus
+      viennent de l'exploitation du logement. Le montant dépend du logement, du quartier
+      et de la durée du bail ; il est fixé avant signature et ne bouge plus.</p>
+
+      <h2>Questions fréquentes</h2>
+      ${faqHtml(TARIFS_FAQ)}
+
+      <p><a href="/estimation-sous-location">Estimer les revenus de mon logement</a> ·
+      <a href="/conciergerie">Le détail de la formule conciergerie</a> ·
+      <a href="/sous-location">Le détail de la sous-location</a></p>
+    </main>`,
+    jsonLd: [
+      breadcrumb({ name: "Tarifs", path: "/tarifs" }),
+      faqPage(TARIFS_FAQ),
     ],
   },
   // /logements et /reservation sont retirés le temps que le site de réservation soit

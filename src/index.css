@@ -2,13 +2,17 @@
   L'@import doit précéder toute autre règle : placé après les directives @tailwind,
   il était signalé invalide par Vite à chaque build.
 
-  Cormorant Garamond / Jost remplacent Playfair Display / Inter. Playfair est le serif
-  le plus vu du web et Inter la police par défaut de tout template SaaS — ensemble,
-  elles donnaient un rendu correct mais anonyme. Cormorant apporte un contraste et une
-  élégance française qui collent à Avignon ; Jost, géométrique et chaleureux, tient la
+  Libre Baskerville / Archivo.
+
+  Jost et Cormorant Garamond ont été retirés : ce sont deux des polices les
+  plus utilisées par les générateurs de sites, et le rendu se reconnaît au
+  premier coup d'œil. Libre Baskerville est un Baskerville de labeur, dessiné
+  pour l'écran : moins spectaculaire qu'un Cormorant, mais il a l'autorité
+  d'un livre plutôt que d'un gabarit. Archivo est une grotesque de presse,
+  neutre sans être lisse, qui ne cherche pas à faire joli.
   lecture sans ramener le site à l'esthétique générique des dashboards.
 */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Archivo:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -50,20 +54,24 @@
     --radius: 0.5rem;
 
     /* Custom Design Tokens */
-    --gold: 43 67% 52%;
-    --gold-light: 43 60% 70%;
     /*
-      Or d'encre — même teinte, assombrie pour le texte posé sur fond clair.
-      L'or nominal (#D7A833) ne donne que 2,20:1 sur blanc, très loin des 4,5:1
-      exigés : les libellés de section étaient illisibles. Celui-ci monte à 4,63:1.
-      À n'utiliser que sur fond clair : sur fond sombre, garder --gold, qui y atteint
-      8,37:1 — l'or d'encre n'y donnerait que 4,08:1.
+      Palette noir et blanc. L'or a été retiré : sur un site de conciergerie,
+      il tire vers le clinquant plutôt que vers le luxe, et il écrasait la
+      photo d'Avignon dont les pierres sont déjà chaudes. Le vrai luxe ici
+      vient du contraste et du vide, pas d'une couleur d'accent.
 
-      Calibré à 32 % et non 34 % : à 34 % il passait sur blanc pur (4,63:1) mais
-      retombait à 4,24:1 sur le crème --cream-dark (#F5F5F5), utilisé par plusieurs
-      sections. 32 % tient sur les deux fonds.
+      Les noms de variables restent inchangés : une trentaine de composants
+      s'en servent, les renommer aurait multiplié les risques de régression
+      pour un gain nul. Seules leurs valeurs changent.
     */
-    --gold-ink: 43 67% 32%;
+    --gold: 0 0% 100%;        /* accent sur fond sombre : blanc pur */
+    --gold-light: 0 0% 82%;
+    /*
+      Accent sur fond clair : presque noir. Il donne 15,3:1 sur blanc — très
+      au-delà des 4,5:1 requis — là où l'or d'encre plafonnait à 4,63:1 et
+      retombait à 4,24:1 sur le crème des sections.
+    */
+    --gold-ink: 0 0% 12%;
     --midnight: 0 0% 8%;
     --midnight-light: 0 0% 20%;
     --cream: 0 0% 100%;
@@ -72,10 +80,10 @@
     /* Shadows (kept neutral black, subtle) */
     --shadow-soft: 0 4px 20px -2px hsl(0 0% 0% / 0.08);
     --shadow-medium: 0 8px 30px -4px hsl(0 0% 0% / 0.12);
-    --shadow-gold: 0 4px 20px -2px hsl(43 67% 52% / 0.3);
+    --shadow-gold: 0 4px 24px -4px hsl(0 0% 0% / 0.28);
 
     /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(43 67% 52%), hsl(43 60% 60%));
+    --gradient-gold: linear-gradient(135deg, hsl(0 0% 100%), hsl(0 0% 88%));
     --gradient-midnight: linear-gradient(135deg, hsl(0 0% 8%), hsl(0 0% 20%));
     --gradient-hero: linear-gradient(180deg, hsl(0 0% 8% / 0.7) 0%, hsl(0 0% 8% / 0.4) 100%);
 
@@ -269,6 +277,136 @@
     opacity: 1;
     transform: scale(1);
   }
+}
+
+/*
+  Relief permanent. Le bloc pivote lentement sur deux axes et monte-descend en
+  même temps : sur douze secondes, l'écart entre les deux cartes qui penchent
+  en sens opposé se voit sans qu'on ait rien à faire.
+
+  Deux détails rendent l'effet lisible plutôt que plat :
+  - la perspective est courte (900 px) — les fuyantes sont prononcées, là où
+    une perspective longue produit une rotation qu'on devine sans la voir ;
+  - la transition passe par une position intermédiaire à 50 %, sinon le bloc
+    reviendrait par le même chemin et donnerait un simple va-et-vient.
+
+  Le @media prefers-reduced-motion global plus bas dans la feuille neutralise
+  ces animations pour qui les a désactivées.
+*/
+@keyframes flotte3d {
+  0%   { transform: perspective(900px) rotateY(9deg)  rotateX(3deg)  translateY(0); }
+  50%  { transform: perspective(900px) rotateY(-6deg) rotateX(-3deg) translateY(-16px); }
+  100% { transform: perspective(900px) rotateY(9deg)  rotateX(3deg)  translateY(0); }
+}
+
+@keyframes flotte3dInverse {
+  0%   { transform: perspective(900px) rotateY(-9deg) rotateX(3deg)  translateY(-16px); }
+  50%  { transform: perspective(900px) rotateY(6deg)  rotateX(-3deg) translateY(0); }
+  100% { transform: perspective(900px) rotateY(-9deg) rotateX(3deg)  translateY(-16px); }
+}
+
+.animate-flotte-3d {
+  animation: flotte3d 12s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+.animate-flotte-3d-inverse {
+  animation: flotte3dInverse 12s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+/*
+  Reflet qui balaie la surface. Il ne dure qu'une seconde et demie sur un cycle
+  de huit : une brillance continue ferait clignoter la page, alors qu'un passage
+  bref lit comme de la lumière glissant sur une vitre inclinée.
+*/
+@keyframes reflet {
+  0%        { transform: translateX(0) skewX(-18deg); opacity: 0; }
+  6%        { opacity: 1; }
+  18%       { transform: translateX(1000%) skewX(-18deg); opacity: 0; }
+  100%      { transform: translateX(1000%) skewX(-18deg); opacity: 0; }
+}
+
+.animate-reflet {
+  animation: reflet 8s ease-in-out infinite;
+}
+
+/*
+  Boutons vivants. Trois couches, chacune avec un rôle distinct :
+
+  1. `.btn-ressort` — le rebond au survol et au clic. La courbe
+     cubic-bezier(0.34, 1.56, 0.64, 1) dépasse volontairement la valeur
+     d'arrivée (le 1.56) puis revient : c'est ce dépassement que l'œil lit
+     comme un ressort, là où un ease-out classique donne un mouvement mou.
+     L'enfoncement au clic (`:active`) compte autant que la montée — sans lui
+     le bouton monte mais n'a jamais l'air pressé.
+
+  2. `.btn-brille` — un éclat qui traverse la surface au survol.
+
+  Une troisième couche existait : des ondes qui s'échappaient du bouton comme
+  un caillou dans l'eau. Elles attiraient bien l'œil, mais les cercles
+  débordaient largement du contour et se lisaient comme un élément à part
+  plutôt que comme le bouton lui-même. L'appel au repos est désormais porté
+  par la respiration de `.btn-ressort`, qui reste dans la forme du bouton.
+*/
+.btn-ressort {
+  transition: transform 0.42s cubic-bezier(0.34, 1.8, 0.5, 1),
+              box-shadow 0.42s cubic-bezier(0.34, 1.8, 0.5, 1);
+  will-change: transform;
+}
+
+.btn-ressort:hover {
+  transform: translateY(-7px) scale(1.07);
+}
+
+.btn-ressort:active {
+  transform: translateY(-1px) scale(0.94);
+  transition-duration: 0.08s;
+}
+
+/*
+  Respiration au repos. Le survol ne sert à rien tant que la souris n'est pas
+  déjà sur le bouton : c'est immobile que celui-ci doit appeler. Il gonfle donc
+  très légèrement toutes les deux secondes et demie — 2,5 % suffisent, au-delà
+  on lit un défaut d'affichage plutôt qu'une intention.
+
+  L'animation s'arrête net au survol pour laisser la main au ressort ; les deux
+  écrivent `transform` et se battraient pour la même propriété.
+*/
+@keyframes respire {
+  0%, 62%, 100% { transform: scale(1); }
+  76%           { transform: scale(1.025); }
+}
+
+.btn-ressort:not(:hover):not(:active) {
+  animation: respire 2.5s ease-in-out infinite;
+}
+
+@keyframes brille {
+  from { transform: translateX(-150%) skewX(-20deg); }
+  to   { transform: translateX(350%)  skewX(-20deg); }
+}
+
+.btn-brille {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.btn-brille::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 45%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: translateX(-150%) skewX(-20deg);
+}
+
+.group:hover > .btn-brille::after {
+  animation: brille 0.85s ease-out;
 }
 
 /* Marquee animation for testimonials */

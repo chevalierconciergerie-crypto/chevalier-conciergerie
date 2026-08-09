@@ -1,7 +1,7 @@
 import { Helmet } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Check, Banknote, Shield, Clock, TrendingUp, FileCheck, Home, Sparkles } from "lucide-react";
+import { Check, Banknote, Shield, Clock, TrendingUp, FileCheck, Home, Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import {
@@ -334,6 +334,52 @@ const SousLocation = () => {
                       </li>
                     ))}
                   </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/*
+            Tarifs. La page décrivait la formule sans jamais dire ce qu'elle
+            coûte, alors que la réponse est justement l'argument : rien. Le
+            propriétaire qui compare les deux formules a besoin de voir le
+            20 % de la conciergerie face au 0 % d'ici pour comprendre l'échange
+            — il renonce au potentiel des hautes saisons contre la certitude
+            d'un montant tous les mois.
+          */}
+          <section id="tarifs" className="py-16 md:py-24 bg-primary">
+            <div className="container mx-auto px-6">
+              <div className="max-w-3xl mx-auto text-center">
+                <span className="font-sans text-xs tracking-[0.2em] uppercase text-primary-foreground/50">
+                  Tarifs
+                </span>
+                <p className="font-serif text-6xl md:text-8xl font-light text-primary-foreground leading-none mt-6">
+                  0 %
+                </p>
+                <p className="font-sans text-sm md:text-base text-primary-foreground/60 mt-4">
+                  aucune commission, aucun frais de gestion
+                </p>
+
+                <p className="font-sans text-sm md:text-base text-primary-foreground/75 leading-relaxed mt-10 max-w-xl mx-auto">
+                  Vous ne nous payez rien. Nous louons votre bien à notre nom et vous
+                  versons le même loyer chaque mois — saison creuse comprise. Nos revenus
+                  viennent de l'exploitation, pas de votre poche.
+                </p>
+
+                <p className="font-sans text-sm text-primary-foreground/55 leading-relaxed mt-6 max-w-xl mx-auto">
+                  Le montant dépend du logement, du quartier et de la durée du bail.
+                  Il est fixé avant signature et ne bouge plus.
+                </p>
+
+                <div className="mt-12">
+                  <Link
+                    to="/estimation-sous-location"
+                    className="btn-ressort group relative isolate inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-white px-9 py-4 font-sans text-[15px] font-semibold tracking-wide text-[hsl(0_0%_8%)] md:text-base"
+                  >
+                    <span aria-hidden className="btn-brille" />
+                    Connaître mon loyer garanti
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
                 </div>
               </div>
             </div>

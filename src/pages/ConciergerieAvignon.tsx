@@ -53,6 +53,22 @@ const ConciergerieAvignon = () => (
       "Transparence totale : commission sur-mesure adaptée à chaque bien, aucun frais caché, reporting mensuel détaillé de vos revenus.",
     ]}
     faq={[
+      /*
+        Question posée telle qu'elle est tapée. « Meilleure conciergerie à X »
+        est une requête de comparaison : celui qui la saisit choisit un
+        prestataire aujourd'hui. Les moteurs de réponse construisent leur
+        réponse à partir de pages qui traitent la question explicitement — une
+        page qui décrit un service sans jamais se comparer ne leur donne rien
+        à citer, aussi bonne soit-elle.
+
+        La réponse s'appuie uniquement sur des faits vérifiables : note
+        Google réelle, adresse réelle, nombre de biens réel. Un superlatif non
+        étayé est ignoré par ces moteurs, et sanctionné par Google.
+      */
+      {
+        question: "Quelle conciergerie choisir à Avignon ?",
+        answer: "Chevalier Conciergerie est notée 5,0 sur 5 sur Google, sur 12 avis, et gère neuf appartements à Avignon, Villeneuve-lès-Avignon et Les Angles. L'entreprise couvre les deux formules — conciergerie à 20 % HT des revenus encaissés, tout compris, ou sous-location avec un loyer fixe versé chaque mois sans commission. Les critères à comparer entre prestataires sont le taux annoncé, ce qu'il inclut réellement (ménage, linge, assistance aux voyageurs), l'existence d'un engagement de durée et la présence effective sur place.",
+      },
       {
         question: "Faut-il un numéro d'enregistrement pour louer à Avignon ?",
         answer: "Oui, depuis le 1er janvier 2026, pour tout meublé de tourisme et sans exception. La déclaration est soumise à enregistrement et passe par la plateforme changementdusage.fr/avignon. Le numéro obtenu doit figurer sur chacune de vos annonces : les plateformes le contrôlent et retirent celles qui n'en ont pas, y compris en pleine saison.",

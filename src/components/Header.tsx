@@ -43,6 +43,7 @@ const Header = () => {
     { label: "Accueil", href: "/" },
     { label: "Conciergerie", href: "/conciergerie" },
     { label: "Sous-location", href: "/sous-location" },
+    { label: "Tarifs", href: "/tarifs" },
     { label: "Journal", href: "/journal" },
     { label: "Partenaires", href: "/partenaires" },
     { label: "Contact", href: "/contact" },
@@ -52,30 +53,59 @@ const Header = () => {
     { label: "Accueil", href: "/", number: "01" },
     { label: "Conciergerie", href: "/conciergerie", number: "02" },
     { label: "Sous-location", href: "/sous-location", number: "03" },
-    { label: "Journal", href: "/journal", number: "04" },
-    { label: "Partenaires", href: "/partenaires", number: "05" },
-    { label: "Contact", href: "/contact", number: "06" },
+    { label: "Tarifs", href: "/tarifs", number: "04" },
+    { label: "Journal", href: "/journal", number: "05" },
+    { label: "Partenaires", href: "/partenaires", number: "06" },
+    { label: "Contact", href: "/contact", number: "07" },
   ];
 
   return (
     <>
+      {/*
+        À l'ouverture, la barre était posée nue sur la photo : texte blanc à
+        70 % d'opacité sur une pierre claire et ensoleillée, donc illisible par
+        endroits et sale partout. Le réflexe habituel — un fond translucide sur
+        toute la barre — sépare le menu de l'image et casse l'effet plein écran.
+
+        À la place, un dégradé sombre part du haut et s'éteint : il donne au
+        texte le fond dont il a besoin exactement là où il se trouve, et le
+        reste de la photo est intact. C'est la solution des sites de cinéma et
+        de mode, pas un bandeau collé par-dessus.
+
+        La barre pleine, elle, prend un fond opaque et non plus 95 % : à travers
+        un fond translucide, la photo qui défile derrière faisait vibrer le
+        texte du menu.
+      */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           solid
-            ? "bg-background/95 backdrop-blur-md shadow-soft py-1 border-b border-border"
+            ? "bg-background shadow-soft py-1 border-b border-border"
             : "bg-transparent py-4"
         }`}
       >
-        <div className="w-full px-2 flex items-center justify-between relative">
+        {!solid && (
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 top-0 h-44 bg-[linear-gradient(180deg,hsl(0_0%_4%/0.78)_0%,hsl(0_0%_4%/0.45)_45%,transparent_100%)]"
+          />
+        )}
+        <div className="w-full px-2 flex items-center justify-between relative z-10">
           {/* Logo */}
           <Link to="/" className="group flex items-center -ml-4">
             <img
               src={logoCc}
               alt="Chevalier Conciergerie"
-              className={`w-auto object-contain [filter:brightness(0)] transition-all duration-500 ${
+              /*
+                Le logo était forcé en noir en toute circonstance. Sur la barre
+                blanche c'est juste ; posé sur la photo du hero, il devenait
+                invisible. Il s'inverse donc en blanc tant que la barre est
+                transparente, avec une ombre sombre pour tenir sur les zones
+                claires de l'image.
+              */
+              className={`w-auto object-contain transition-all duration-500 ${
                 solid
-                  ? "h-12 sm:h-14 md:h-16"
-                  : "h-28 sm:h-32 md:h-36 drop-shadow-[0_2px_8px_rgba(255,255,255,0.5)]"
+                  ? "h-12 sm:h-14 md:h-16 [filter:brightness(0)]"
+                  : "h-28 sm:h-32 md:h-36 [filter:brightness(0)_invert(1)] drop-shadow-[0_2px_14px_rgba(0,0,0,0.7)]"
               }`}
             />
           </Link>
@@ -88,20 +118,43 @@ const Header = () => {
             survol passe au noir plutôt qu'à l'or — la barre reste en noir et blanc,
             l'or est gardé pour le seul bouton Réserver.
           */}
-          <nav className="hidden lg:flex items-center gap-7 absolute left-1/2 -translate-x-1/2">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.href}
-                className={`whitespace-nowrap font-sans text-xs font-normal uppercase tracking-[0.18em] transition-colors duration-300 ${
-                  solid
-                    ? "text-foreground/70 hover:text-foreground"
-                    : "text-primary-foreground/70 hover:text-primary-foreground"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
+          {/*
+            Les libellés étaient en capitales espacées à 12 px et à 70 %
+            d'opacité : trop petits pour être lus d'un coup d'œil, trop pâles
+            pour donner envie d'être cliqués, et l'espacement large empêchait
+            l'œil de saisir un mot d'un seul bloc. Ils passent en minuscules,
+            à 15 px, en pleine opacité.
+
+            Chaque entrée reçoit un trait qui se déploie du centre au survol,
+            et la page courante garde ce trait affiché : on sait en permanence
+            où l'on se trouve, ce que la barre ne disait nulle part.
+          */}
+          <nav className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
+            {navItems.map((item) => {
+              const actif = location.pathname === item.href;
+              return (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  aria-current={actif ? "page" : undefined}
+                  className={`group relative whitespace-nowrap px-3 py-2 font-sans text-[15px] font-medium tracking-[0.01em] transition-colors duration-300 ${
+                    solid
+                      ? actif ? "text-foreground" : "text-foreground/60 hover:text-foreground"
+                      : actif
+                        ? "text-white [text-shadow:0_1px_10px_rgba(0,0,0,0.55)]"
+                        : "text-white/85 hover:text-white [text-shadow:0_1px_10px_rgba(0,0,0,0.55)]"
+                  }`}
+                >
+                  {item.label}
+                  <span
+                    aria-hidden
+                    className={`pointer-events-none absolute bottom-0.5 left-3 right-3 h-px origin-center transition-transform duration-300 ease-out ${
+                      solid ? "bg-foreground" : "bg-primary-foreground"
+                    } ${actif ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`}
+                  />
+                </Link>
+              );
+            })}
           </nav>
 
           {/*
@@ -110,10 +163,25 @@ const Header = () => {
             à l'action renvoie donc vers le contact, qui est la vraie conversion tant
             que la réservation en direct n'existe pas.
           */}
+          {/*
+            Le bouton de la barre renvoyait vers /contact, un formulaire libre.
+            Il pointe désormais vers le questionnaire logement, comme celui du
+            hero : c'est la seule page où un propriétaire laisse assez
+            d'informations pour qu'on lui réponde avec un chiffre. Deux actions
+            différentes en haut d'écran ne faisaient qu'éparpiller les visiteurs.
+          */}
           <div className="hidden lg:block">
-            <Button variant="gold" size="lg" className="px-7 text-sm font-medium shadow-md" asChild>
-              <Link to="/contact">Nous contacter</Link>
-            </Button>
+            <Link
+              to="/estimation-sous-location"
+              className={`btn-ressort group relative isolate inline-flex items-center gap-2 rounded-full px-6 py-3 font-sans text-sm font-semibold tracking-wide ${
+                solid
+                  ? "bg-[hsl(0_0%_8%)] text-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.5)]"
+                  : "bg-white text-[hsl(0_0%_8%)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.6)]"
+              }`}
+            >
+              <span aria-hidden className="btn-brille" />
+              Estimation gratuite
+            </Link>
           </div>
 
           {/* Mobile Menu Button — Custom animated burger */}

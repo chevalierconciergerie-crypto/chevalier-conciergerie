@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Tilt from "@/components/Tilt";
 import { ArrowRight, Users, BedDouble, MapPin } from "lucide-react";
 import { properties } from "@/data/properties";
 
@@ -79,8 +80,10 @@ const PropertyShowcase = () => {
           </ol>
 
           {/* Visuel en vedette */}
-          <div className="order-1 lg:order-2">
-            <div className="relative overflow-hidden rounded-sm bg-secondary">
+          <div className="order-1 lg:order-2 [perspective:1400px]">
+            {/* Le visuel du bien prend du relief au survol — c'est la pièce
+                que le visiteur regarde le plus longtemps sur cette section. */}
+            <Tilt max={5} className="relative overflow-hidden rounded-sm bg-secondary">
               {/*
                 Toutes les images sont montées et empilées : basculer l'opacité évite le
                 flash blanc d'un <img> dont on change le src, et le navigateur ne
@@ -141,7 +144,7 @@ const PropertyShowcase = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Tilt>
           </div>
         </div>
       </div>

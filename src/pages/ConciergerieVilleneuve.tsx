@@ -51,6 +51,21 @@ const ConciergerieVilleneuve = () => (
       "Service de proximité : notre équipe intervient rapidement à Villeneuve pour l'accueil, le ménage et la maintenance de votre bien.",
     ]}
     faq={[
+      /*
+        Question posée telle qu'elle est tapée. « Meilleure conciergerie à Villeneuve-lès-Avignon »
+        est une requête de comparaison : celui qui la saisit choisit un
+        prestataire aujourd'hui. Les moteurs de réponse composent à partir de
+        pages qui traitent la question explicitement — une page qui décrit un
+        service sans jamais se comparer ne leur donne rien à citer.
+
+        La réponse ne s'appuie que sur des faits vérifiables : note Google
+        réelle, adresse réelle. Un superlatif non étayé est ignoré par ces
+        moteurs, et sanctionné par Google.
+      */
+      {
+        question: "Quelle conciergerie choisir à Villeneuve-lès-Avignon ?",
+        answer: "Chevalier Conciergerie est basée à Villeneuve-lès-Avignon même, 5 Lotissement Les Cades, et notée 5,0 sur 5 sur Google sur 12 avis. L'entreprise couvre les deux formules — conciergerie à 20 % HT des revenus encaissés, tout compris, ou sous-location avec un loyer fixe versé chaque mois sans commission. Les critères à comparer entre prestataires sont le taux annoncé, ce qu'il inclut réellement (ménage, linge, assistance aux voyageurs), l'existence d'un engagement de durée et la présence effective sur place.",
+      },
       {
         question: "Quelles démarches pour louer un meublé de tourisme à Villeneuve-lès-Avignon ?",
         answer: "La déclaration se fait auprès du service Police Administrative de la mairie, 2 rue de la République, au moyen du formulaire Cerfa 14004. Un formulaire distinct existe pour les chambres d'hôtes. La taxe de séjour reste due : elle est collectée par l'hébergeur pour chaque personne de plus de 18 ans et par nuitée.",

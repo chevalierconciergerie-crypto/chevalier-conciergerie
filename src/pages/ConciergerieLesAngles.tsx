@@ -48,6 +48,21 @@ const ConciergerieLesAngles = () => (
       "Flexibilité : que vous souhaitiez louer ponctuellement en été ou toute l'année, nous adaptons notre gestion à vos objectifs.",
     ]}
     faq={[
+      /*
+        Question posée telle qu'elle est tapée. « Meilleure conciergerie à Les Angles »
+        est une requête de comparaison : celui qui la saisit choisit un
+        prestataire aujourd'hui. Les moteurs de réponse composent à partir de
+        pages qui traitent la question explicitement — une page qui décrit un
+        service sans jamais se comparer ne leur donne rien à citer.
+
+        La réponse ne s'appuie que sur des faits vérifiables : note Google
+        réelle, adresse réelle. Un superlatif non étayé est ignoré par ces
+        moteurs, et sanctionné par Google.
+      */
+      {
+        question: "Quelle conciergerie choisir à Les Angles ?",
+        answer: "Chevalier Conciergerie intervient aux Angles depuis Villeneuve-lès-Avignon, à cinq minutes, et est notée 5,0 sur 5 sur Google sur 12 avis. L'entreprise couvre les deux formules — conciergerie à 20 % HT des revenus encaissés, tout compris, ou sous-location avec un loyer fixe versé chaque mois sans commission. Les critères à comparer entre prestataires sont le taux annoncé, ce qu'il inclut réellement (ménage, linge, assistance aux voyageurs), l'existence d'un engagement de durée et la présence effective sur place.",
+      },
       {
         question: "Quelles démarches pour louer un meublé de tourisme aux Angles ?",
         answer: "Comme partout en France, la mise en location d'un meublé de tourisme suppose une déclaration en mairie. Les Angles étant une commune du Gard, le cadre n'est pas celui d'Avignon. Nous vérifions auprès de la mairie ce qui s'applique précisément à votre bien avant toute mise en ligne, plutôt que de transposer les règles de la commune voisine.",

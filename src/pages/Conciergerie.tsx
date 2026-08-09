@@ -2,7 +2,7 @@ import { Helmet } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
-import heroConciergerie from "@/assets/hero-conciergerie.jpg";
+import heroConciergerie from "@/assets/le-vernet.jpg";
 import { Check, X, Sparkles, Users, Clock, Camera, TrendingUp, Home, ArrowRight, Calendar, Wallet, Handshake, FileEdit, Package, Palette } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -100,17 +100,28 @@ const Conciergerie = () => {
         <main>
           {/* Hero Section */}
           <section className="relative pt-32 pb-20 bg-primary overflow-hidden">
+            {/*
+              Photo réelle du logement qui illustre déjà la conciergerie sur
+              l'accueil. La précédente était une villa de synthèse en travertin,
+              affichée à 40 % d'opacité sous un aplat noir couvrant : à ce
+              régime aucune image ne tient — on ne voyait qu'une tache sombre,
+              et la page donnait l'impression d'un fond raté plutôt que d'une
+              photo.
+
+              Elle est donc rendue à pleine opacité, et le contraste du texte
+              est obtenu par un dégradé qui ne fonce que la moitié gauche, là où
+              il y a du texte. La droite reste lisible comme une photographie.
+            */}
             <div className="absolute inset-0">
-              <img 
-                src={heroConciergerie} 
-                alt="Villa provençale en pierre de travertin" 
+              <img
+                src={heroConciergerie}
+                alt="Séjour d'un appartement géré à Avignon : cheminée en marbre, moulures et fenêtres ouvertes sur les toits de la vieille ville"
                 loading="eager"
-                fetchPriority="high"
-                className="w-full h-full object-cover opacity-40"
+                fetchpriority="high"
+                className="w-full h-full object-cover"
               />
             </div>
-            {/* Voile pour tenir le contraste quelle que soit la zone de la photo */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-primary/30" />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,hsl(0_0%_4%/0.93)_0%,hsl(0_0%_4%/0.82)_38%,hsl(0_0%_4%/0.45)_70%,hsl(0_0%_4%/0.30)_100%)]" />
 
             <div className="relative z-10 container mx-auto px-6">
               {/*
@@ -130,17 +141,20 @@ const Conciergerie = () => {
                   que Google puisse rattacher à une recherche. La ville s'y glisse sans
                   rien coûter à la formule.
                 */}
-                <h1 className="font-serif text-5xl font-light leading-[0.92] tracking-[0.01em] text-primary-foreground md:text-7xl lg:text-[5.5rem]">
-                  Nous tenons vos
+                {/*
+                  Le titre montait à 5,5 rem sur quatre lignes : il occupait
+                  l'écran entier et le reste de la page passait sous la ligne de
+                  flottaison. Libre Baskerville a un œil large — à taille égale
+                  il pèse bien plus qu'un Cormorant, et l'échelle héritée de
+                  l'ancienne police était devenue démesurée.
+                */}
+                <h1 className="font-serif text-3xl font-light leading-[1.08] tracking-[0.01em] text-primary-foreground md:text-5xl">
+                  Nous tenons vos appartements
                   <br />
-                  appartements
-                  <br />
-                  à Avignon,
-                  <br />
-                  <span className="italic">intra-muros.</span>
+                  à Avignon, <span className="italic">intra-muros.</span>
                 </h1>
 
-                <p className="mt-10 max-w-lg font-sans text-lg font-light leading-relaxed text-primary-foreground/70">
+                <p className="mt-7 max-w-lg font-sans text-base font-light leading-relaxed text-primary-foreground/70">
                   Accueil des voyageurs, ménage, linge, annonces, tarification. Neuf
                   appartements à Avignon, Villeneuve-lès-Avignon et Les Angles. Vous n'y
                   touchez plus.
@@ -176,46 +190,62 @@ const Conciergerie = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-0 rounded-3xl overflow-hidden shadow-medium border border-border/30">
                   
                   {/* Left: Price highlight */}
+                  {/*
+                    Le taux était annoncé « Sur-mesure ». Sur une page de vente,
+                    un prix qu'on ne donne pas est lu comme un prix qu'on cache :
+                    le visiteur suppose le pire, ou va le chercher chez un
+                    concurrent qui l'affiche. Il est unique, donc il s'écrit.
+
+                    Le taux est annoncé hors taxes, comme le veut l'usage entre
+                    professionnels. La SASU étant assujettie, la TVA à 20 % s'y
+                    ajoute — la mention sous le chiffre le dit explicitement pour
+                    qu'un propriétaire particulier, qui ne la récupère pas, ne
+                    découvre pas la différence sur sa première facture.
+
+                    Les deux cercles décoratifs et les pictogrammes en étoile
+                    sont retirés : rien ne signale plus sûrement un gabarit
+                    générique que des formes posées là pour meubler.
+                  */}
                   <div className="lg:col-span-2 bg-primary p-8 md:p-12 flex flex-col justify-between relative overflow-hidden">
-                    {/* Decorative circles */}
-                    <div className="absolute -bottom-20 -right-20 w-64 h-64 rounded-full border border-gold/10" />
-                    <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full border border-gold/10" />
-                    
                     <div className="relative z-10">
-                      <div className="inline-flex items-center gap-2 bg-gold/15 rounded-full px-4 py-1.5 mb-8">
-                        <Sparkles className="w-3.5 h-3.5 text-gold" />
-                        <span className="font-sans text-xs font-medium text-gold uppercase tracking-widest">Formule complète</span>
-                      </div>
+                      <span className="font-sans text-xs tracking-[0.2em] uppercase text-primary-foreground/50 mb-8 block">
+                        Formule complète
+                      </span>
 
                       <div className="mb-6">
-                        <span className="font-serif text-5xl md:text-6xl font-bold text-gold leading-none block">
-                          Sur-mesure
+                        <span className="font-serif text-6xl md:text-7xl font-light text-primary-foreground leading-none block">
+                          20 %
                         </span>
                         <p className="font-sans text-sm text-primary-foreground/60 mt-3 tracking-wide">
-                          Commission adaptée à chaque bien
+                          HT des revenus encaissés — soit 24 % TTC
                         </p>
                       </div>
 
-
                       <p className="font-sans text-primary-foreground/70 text-sm leading-relaxed mb-8">
-                        Gestion complète de votre bien, de A à Z. Aucun frais caché, aucun engagement.
+                        Pas d'abonnement, pas de frais de dossier, pas d'engagement de durée.
+                        Nous ne sommes payés que lorsque vous l'êtes.
                       </p>
 
-                      <div className="bg-primary-foreground/5 rounded-xl p-4 flex items-center gap-3">
-                        <Sparkles className="w-4 h-4 text-gold flex-shrink-0" />
-                        <p className="font-sans text-xs text-primary-foreground/70">
-                          <span className="text-gold font-medium">Ménage professionnel</span> — payé par le voyageur
+                      <div className="border-t border-primary-foreground/15 pt-5 space-y-2">
+                        <p className="font-sans text-xs text-primary-foreground/70 leading-relaxed">
+                          Le ménage est refacturé au voyageur, pas à vous.
+                        </p>
+                        <p className="font-sans text-xs text-primary-foreground/70 leading-relaxed">
+                          La taxe de séjour est collectée puis reversée à la commune :
+                          elle ne passe jamais par vos revenus.
                         </p>
                       </div>
                     </div>
 
                     <div className="relative z-10 mt-8">
-                      <Button variant="gold" size="lg" asChild className="w-full">
-                        <Link to="/contact" className="flex items-center justify-center gap-2">
-                          Choisir cette formule
-                          <ArrowRight className="w-4 h-4" />
-                        </Link>
-                      </Button>
+                      <Link
+                        to="/estimation-sous-location"
+                        className="btn-ressort group relative isolate flex w-full items-center justify-center gap-2 rounded-full bg-white px-7 py-4 font-sans text-[15px] font-semibold text-[hsl(0_0%_8%)]"
+                      >
+                        <span aria-hidden className="btn-brille" />
+                        Estimer mes revenus
+                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      </Link>
                     </div>
                   </div>
 

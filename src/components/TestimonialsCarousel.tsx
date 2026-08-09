@@ -51,8 +51,25 @@ const testimonials: Testimonial[] = [
 
 const GOOGLE_REVIEWS_URL = "https://www.google.com/maps/place/CHEVALIER+CONCIERGERIE/@43.8680214,4.8327906,17z";
 
-const GoogleLogo = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4" aria-label="Google">
+/*
+  Lien pour déposer un avis. Il pointe pour l'instant sur la fiche elle-même,
+  où le bouton « Rédiger un avis » de Google prend le relais.
+
+  Le lien direct vers le formulaire existe et évite ce détour, mais il contient
+  l'identifiant de l'établissement : il se récupère dans le profil Google
+  Business (Demander des avis), sous la forme https://g.page/r/…/review. Le
+  fabriquer de tête enverrait les clients sur une fiche qui n'est pas la bonne.
+*/
+const GOOGLE_WRITE_REVIEW_URL = GOOGLE_REVIEWS_URL;
+
+/*
+  Logo Google dessiné aux couleurs officielles. Ce sont elles qui font la
+  reconnaissance : redessiné en noir et blanc pour « coller à la charte », il
+  cesserait d'être une preuve extérieure et redeviendrait une décoration du
+  site — c'est-à-dire l'inverse de ce qu'un avis est censé apporter.
+*/
+const GoogleLogo = ({ className = "w-5 h-5" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} aria-label="Google">
     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
     <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
     <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
@@ -60,102 +77,176 @@ const GoogleLogo = () => (
   </svg>
 );
 
-const TestimonialsCarousel = () => {
-  const [isPaused, setIsPaused] = useState(false);
+const Etoiles = ({ nombre }: { nombre: number }) => (
+  <span className="flex gap-0.5" aria-label={`${nombre} étoiles sur 5`}>
+    {Array.from({ length: nombre }).map((_, i) => (
+      /* Le doré vient de Google, pas de la palette du site : c'est un repère
+         universel, le décolorer en noir et blanc le rendrait méconnaissable. */
+      <Star key={i} className="w-3.5 h-3.5 fill-[#FBBC04] text-[#FBBC04]" />
+    ))}
+  </span>
+);
 
-  // Duplicate testimonials for infinite scroll effect
-  const duplicatedTestimonials = [...testimonials, ...testimonials];
+/*
+  Pastille d'initiale, telle que Google la génère pour un compte sans photo :
+  un aplat de couleur tiré de sa palette, l'initiale en blanc au centre.
+
+  Les couleurs sont volontairement hors de la charte noir et blanc du site.
+  C'est le même raisonnement que pour le logo et les étoiles : cette pastille
+  doit ressembler à ce qu'on voit sur Google, pas au site. Repeinte en noir,
+  elle deviendrait un élément de décoration parmi d'autres et perdrait ce
+  qu'elle apporte — l'air de venir d'ailleurs.
+
+  La couleur est déduite du nom, donc stable : le même auteur garde la même
+  pastille d'une visite à l'autre, comme sur une vraie fiche.
+*/
+const COULEURS_AVATAR = [
+  "#DB4437", "#0F9D58", "#4285F4", "#AB47BC",
+  "#00796B", "#C2185B", "#5C6BC0", "#EF6C00",
+];
+
+const couleurPour = (nom: string) => {
+  let somme = 0;
+  for (let i = 0; i < nom.length; i += 1) somme += nom.charCodeAt(i);
+  return COULEURS_AVATAR[somme % COULEURS_AVATAR.length];
+};
+
+const Initiale = ({ nom }: { nom: string }) => (
+  <span
+    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-sans text-base font-medium text-white"
+    style={{ backgroundColor: couleurPour(nom) }}
+  >
+    {nom.trim().charAt(0).toUpperCase()}
+  </span>
+);
+
+const SEUIL_REPLI = 150;
+
+const CarteAvis = ({ avis }: { avis: Testimonial }) => {
+  const [deplie, setDeplie] = useState(false);
+  const longue = avis.text.length > SEUIL_REPLI;
 
   return (
-    <section className="py-20 bg-secondary overflow-hidden">
-      <div className="container mx-auto px-6 mb-12">
-        <div className="text-center max-w-3xl mx-auto">
-          <span className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground">
-            Témoignages
-          </span>
-          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4 mb-6">
-            Ils Nous Font Confiance
-          </h2>
-          <p className="font-sans text-muted-foreground text-lg mb-4">
-            Propriétaires et voyageurs partagent leur expérience avec Chevalier Conciergerie.
+    <article className="w-[340px] shrink-0 rounded-lg border border-border bg-card p-6">
+      <header className="flex items-center gap-3">
+        <Initiale nom={avis.name} />
+        <div className="min-w-0">
+          <p className="truncate font-sans text-[15px] font-semibold text-foreground">
+            {avis.name}
           </p>
+          <Etoiles nombre={avis.rating} />
+        </div>
+        <GoogleLogo className="ml-auto h-5 w-5 shrink-0" />
+      </header>
+
+      {/*
+        Le texte est replié au-delà de 150 caractères et se déplie sur place.
+        Les avis longs sont les plus convaincants — ce sont ceux qui racontent —
+        mais alignés en entier ils donnent des cartes de hauteurs très
+        différentes, et le bloc se met à ressembler à un mur de texte.
+
+        Les guillemets qui encadraient chaque avis sont retirés : sur une fiche
+        Google il n'y en a pas, et leur présence signalait une citation mise en
+        scène par le site plutôt qu'un avis rapporté tel quel.
+      */}
+      <p className="mt-4 font-sans text-sm leading-relaxed text-foreground/75">
+        {deplie || !longue ? avis.text : `${avis.text.slice(0, SEUIL_REPLI).trimEnd()}…`}
+      </p>
+
+      {longue && (
+        <button
+          type="button"
+          onClick={() => setDeplie((v) => !v)}
+          className="mt-3 font-sans text-[13px] font-medium text-foreground underline-offset-4 hover:underline"
+        >
+          {deplie ? "Réduire" : "Lire la suite"}
+        </button>
+      )}
+    </article>
+  );
+};
+
+const TestimonialsCarousel = () => {
+  const [enPause, setEnPause] = useState(false);
+
+  // Piste dupliquée : le défilement infini se fait en translatant de -50 %,
+  // ce qui suppose que la seconde moitié reprenne la première à l'identique.
+  const piste = [...testimonials, ...testimonials];
+
+  return (
+    <section className="overflow-hidden bg-secondary py-16 md:py-20">
+      <div className="container mx-auto px-6">
+        {/*
+          En-tête repris de la présentation d'une fiche Google : la note en
+          gros, les étoiles, le nombre d'avis entre parenthèses. Un visiteur
+          l'a déjà vue cent fois — c'est précisément ce qui la rend crédible,
+          là où un habillage inventé demande qu'on le croie sur parole.
+
+          Le titre « Ils Nous Font Confiance » a sauté : c'est le site qui se
+          félicite lui-même, juste au-dessus d'avis qui, eux, viennent de
+          l'extérieur. La note fait le même travail sans se vanter.
+        */}
+        <div className="mx-auto mb-10 flex max-w-5xl flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center gap-4">
+            <GoogleLogo className="h-8 w-8" />
+            <div>
+              <p className="font-sans text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                Avis Google
+              </p>
+              <div className="mt-1.5 flex items-center gap-2">
+                <span className="font-serif text-2xl leading-none text-foreground">5,0</span>
+                <Etoiles nombre={5} />
+                <a
+                  href={GOOGLE_REVIEWS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-sans text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+                >
+                  12 avis
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/*
+            Une seule action, et sans pastille de couleur à l'intérieur. Deux
+            gélules côte à côte se disputaient l'attention alors qu'une seule
+            compte ici, et l'étoile dorée posée dans le bouton noir ramenait le
+            clinquant que la palette noir et blanc cherche justement à éviter.
+
+            « Voir les avis » n'a plus besoin d'un bouton : le nombre affiché
+            juste au-dessus est lui-même cliquable, comme sur une fiche Google.
+          */}
           <a
-            href={GOOGLE_REVIEWS_URL}
+            href={GOOGLE_WRITE_REVIEW_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 hover:opacity-80 transition-opacity"
+            className="btn-ressort group relative isolate inline-flex items-center rounded-full bg-[hsl(0_0%_8%)] px-7 py-3.5 font-sans text-sm font-semibold text-white"
           >
-            <span className="flex gap-0.5">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-              ))}
-            </span>
-            <span className="font-sans text-sm font-medium text-foreground">
-              5,0 sur 5 · 12 avis Google
-            </span>
+            <span aria-hidden className="btn-brille" />
+            Laisser un avis
           </a>
         </div>
       </div>
 
-      {/* Marquee container */}
-      <div 
+      <div
         className="relative"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
+        onMouseEnter={() => setEnPause(true)}
+        onMouseLeave={() => setEnPause(false)}
       >
-        {/* Gradient overlays for fade effect */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-secondary to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-secondary to-transparent z-10 pointer-events-none" />
-        
-        {/* Scrolling track */}
-        <div 
-          className={cn(
-            "flex gap-6 animate-marquee",
-            isPaused && "pause-animation"
-          )}
-          style={{
-            width: "max-content",
-          }}
+        {/* Les bords s'estompent : sans cela les cartes apparaissent et
+            disparaissent net au ras de l'écran, ce qui rend la boucle visible. */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-secondary to-transparent md:w-40" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-secondary to-transparent md:w-40" />
+
+        <div
+          className={cn("flex w-max gap-5 animate-marquee", enPause && "pause-animation")}
         >
-            {duplicatedTestimonials.map((testimonial, index) => (
-            <div
-              key={`${testimonial.id}-${index}`}
-              className="w-[380px] flex-shrink-0 bg-card rounded-2xl p-6 shadow-soft border border-border/30 hover:shadow-medium transition-shadow duration-300"
-            >
-              {/* Header with Google logo and stars */}
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50">
-                  <GoogleLogo />
-                  <span className="font-sans text-xs font-medium text-blue-700">
-                    Google
-                  </span>
-                </div>
-                <div className="flex gap-0.5">
-                  {Array.from({ length: testimonial.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current text-amber-400" />
-                  ))}
-                </div>
-              </div>
-
-              {/* Testimonial text */}
-              <p className="font-sans text-foreground/80 text-sm leading-relaxed mb-6 min-h-[80px]">
-                "{testimonial.text}"
-              </p>
-
-              {/* Author info */}
-              <div className="flex items-center justify-between pt-4 border-t border-border/50">
-                <p className="font-serif font-semibold text-foreground">
-                  {testimonial.name}
-                </p>
-                <div className="px-2.5 py-1 rounded text-xs font-medium uppercase tracking-wider bg-blue-100 text-blue-700">
-                  Avis Google public
-                </div>
-              </div>
-            </div>
+          {piste.map((avis, index) => (
+            <CarteAvis key={`${avis.id}-${index}`} avis={avis} />
           ))}
         </div>
       </div>
-
     </section>
   );
 };
