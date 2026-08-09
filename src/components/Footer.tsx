@@ -53,10 +53,20 @@ const Footer = () => {
 
             {/* Contact Info */}
             <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <MapPin className="w-4 h-4 text-gold" />
+              {/*
+                Cette ligne affichait « Avignon, 84000 France », alors que les mentions
+                légales et les données structurées déclarent 5 Lotissement Les Cades,
+                30400 Villeneuve-lès-Avignon. Google recoupe le trio nom / adresse /
+                téléphone entre le site, la fiche d'établissement et les annuaires : une
+                adresse qui se contredit sur le site lui-même affaiblit le référencement
+                local. Elle doit rester identique partout, au caractère près.
+              */}
+              <div className="flex items-start gap-3">
+                <MapPin className="mt-0.5 w-4 h-4 shrink-0 text-gold" />
                 <span className="font-sans text-sm text-muted-foreground">
-                  Avignon, 84000 France
+                  5 Lotissement Les Cades
+                  <br />
+                  30400 Villeneuve-lès-Avignon
                 </span>
               </div>
               <div className="flex items-center gap-3">
