@@ -3,7 +3,7 @@ title: "Classement meublé de tourisme : ce que rapportent vraiment les étoiles
 description: "Classement meublé de tourisme : barème, coût, durée, et le vrai calcul de rentabilité — dont l'abattement fiscal qui passe de 30 % à 50 % à Avignon."
 date: 2026-08-09
 category: Réglementation
-image: /journal/reel-classement.svg
+image: /journal/reel-classement.webp
 author: Victor Chevalier
 keywords: [classement meublé de tourisme, meublé de tourisme classé, étoiles meublé de tourisme, classement Airbnb, abattement meublé classé, meublé de tourisme Avignon]
 ---

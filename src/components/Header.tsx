@@ -137,12 +137,12 @@ const Header = () => {
                   key={item.label}
                   to={item.href}
                   aria-current={actif ? "page" : undefined}
-                  className={`group relative whitespace-nowrap px-3 py-2 font-sans text-[15px] font-medium tracking-[0.01em] transition-colors duration-300 ${
+                  className={`group relative whitespace-nowrap px-3 py-2 font-sans text-[15px] font-semibold tracking-[0.01em] transition-colors duration-300 ${
                     solid
-                      ? actif ? "text-foreground" : "text-foreground/60 hover:text-foreground"
+                      ? actif ? "text-foreground" : "text-foreground/75 hover:text-foreground"
                       : actif
-                        ? "text-white [text-shadow:0_1px_10px_rgba(0,0,0,0.55)]"
-                        : "text-white/85 hover:text-white [text-shadow:0_1px_10px_rgba(0,0,0,0.55)]"
+                        ? "text-white [text-shadow:0_1px_10px_rgba(0,0,0,0.6)]"
+                        : "text-white/90 hover:text-white [text-shadow:0_1px_10px_rgba(0,0,0,0.6)]"
                   }`}
                 >
                   {item.label}

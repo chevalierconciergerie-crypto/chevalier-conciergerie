@@ -7,9 +7,14 @@ import { articles, formatDate, type Article } from "@/lib/journal";
 
 const FALLBACK = "/journal/journal-defaut.jpg";
 
-/** La liste utilise la variante -card (800px) ; l'article garde le bandeau 1200px. */
+/**
+ * La liste utilise la variante -card (800 px) ; l'article garde le bandeau 1600 px.
+ *
+ * La règle porte sur .jpg et .webp. Les couvertures .svg n'ont pas de variante et
+ * n'en ont pas besoin : elles pèsent un kilo-octet et se redimensionnent sans perte.
+ */
 const cardImage = (a: Article) =>
-  a.image ? a.image.replace(/\.jpg$/, "-card.jpg") : FALLBACK;
+  a.image ? a.image.replace(/\.(jpg|webp)$/, "-card.$1") : FALLBACK;
 
 const Meta = ({ article, light = false }: { article: Article; light?: boolean }) => (
   <p
