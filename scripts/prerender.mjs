@@ -407,15 +407,18 @@ for (const route of ALL_ROUTES) {
   if (route.path === "/") {
     writeFileSync(path.join(dist, "index.html"), html, "utf8");
   } else {
-    // Les deux formes que Vercel sait servir sur une URL sans extension. Écrire les
-    // deux évite de dépendre de l'ordre de résolution du filesystem.
+    // Une seule forme, volontairement.
+    //
+    // On écrivait aussi dist/<route>.html « au cas où ». Résultat : chaque page était
+    // servie en HTTP 200 sous /route, /route.html ET /route/ — une cinquantaine d'URLs
+    // pour dix-sept pages. Le canonical évitait le contenu dupliqué, mais Google
+    // dépensait son budget d'exploration à re-parcourir des doublons. Sur un domaine
+    // récent, ce budget est minuscule : au 8 août 2026, 3 pages seulement étaient
+    // indexées sur 11 connues, avec « Autre page avec balise canonique correcte » en
+    // motif. Les anciennes URLs en .html sont redirigées depuis vercel.json.
     const dir = path.join(dist, route.path);
     mkdirSync(dir, { recursive: true });
     writeFileSync(path.join(dir, "index.html"), html, "utf8");
-
-    const flat = path.join(dist, `${route.path}.html`);
-    mkdirSync(path.dirname(flat), { recursive: true });
-    writeFileSync(flat, html, "utf8");
   }
 }
 

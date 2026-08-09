@@ -2,5 +2,9 @@
   "framework": "vite",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "installCommand": "npm install"
+  "installCommand": "npm install",
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/(.*)\\.html", "destination": "/$1", "permanent": true }
+  ]
 }
