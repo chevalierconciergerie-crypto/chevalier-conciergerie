@@ -85,11 +85,21 @@ const Footer = () => {
             </div>
           </div>
 
+          {/*
+            Les titres de colonnes sont des <h2>, pas des <h4>.
+
+            Le pied de page apparaît sur toutes les pages, après le dernier titre du
+            contenu. Un <h4> qui suit un <h2> saute le niveau 3 : PageSpeed le signalait
+            en « Heading elements are not in a sequentially-descending order », et un
+            lecteur d'écran y perd le fil. On peut remonter de plusieurs niveaux d'un
+            coup, jamais en descendre plus d'un — un <h2> est donc valide quel que soit
+            le dernier titre de la page. L'apparence, elle, ne dépend que des classes.
+          */}
           {/* Services Links */}
           <div>
-            <h4 className="font-serif text-lg font-semibold text-foreground mb-6">
+            <h2 className="font-serif text-lg font-semibold text-foreground mb-6">
               Services
-            </h4>
+            </h2>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
@@ -106,9 +116,9 @@ const Footer = () => {
 
           {/* Company Links */}
           <div>
-            <h4 className="font-serif text-lg font-semibold text-foreground mb-6">
+            <h2 className="font-serif text-lg font-semibold text-foreground mb-6">
               Navigation
-            </h4>
+            </h2>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
@@ -125,9 +135,9 @@ const Footer = () => {
 
           {/* Legal Links */}
           <div>
-            <h4 className="font-serif text-lg font-semibold text-foreground mb-6">
+            <h2 className="font-serif text-lg font-semibold text-foreground mb-6">
               Légal
-            </h4>
+            </h2>
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>

@@ -1,7 +1,4 @@
 /*
-  L'@import doit précéder toute autre règle : placé après les directives @tailwind,
-  il était signalé invalide par Vite à chaque build.
-
   Libre Baskerville / Archivo.
 
   Jost et Cormorant Garamond ont été retirés : ce sont deux des polices les
@@ -10,9 +7,19 @@
   pour l'écran : moins spectaculaire qu'un Cormorant, mais il a l'autorité
   d'un livre plutôt que d'un gabarit. Archivo est une grotesque de presse,
   neutre sans être lisse, qui ne cherche pas à faire joli.
-  lecture sans ramener le site à l'esthétique générique des dashboards.
+
+  ⚠️ Les polices ne sont plus chargées ici.
+
+  Elles l'étaient par un @import en tête de ce fichier. C'est la pire façon de
+  charger une police : le navigateur doit télécharger ce CSS, le lire, y
+  découvrir l'import, aller chercher le CSS de Google, puis seulement les
+  fichiers de police — trois allers-retours en file indienne, pendant lesquels
+  la page ne s'affiche pas. PageSpeed le signalait comme « Render-blocking
+  requests », 320 ms.
+
+  Le chargement se fait désormais dans index.html, en parallèle du reste et
+  sans bloquer le rendu. Toute police ajoutée doit l'être là-bas, pas ici.
 */
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Archivo:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;

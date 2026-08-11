@@ -133,8 +133,28 @@
     }
     </script>
 
+    <!--
+      Polices, chargées sans bloquer le rendu.
+
+      Elles venaient d'un @import placé en tête de src/index.css : le navigateur devait
+      télécharger ce CSS, y découvrir l'import, aller chercher le CSS de Google, puis les
+      fichiers de police. Trois allers-retours en série pendant lesquels la page reste
+      blanche — 320 ms signalés par PageSpeed en « Render-blocking requests ».
+
+      Le `media="print"` fait charger la feuille sans qu'elle bloque l'affichage ; le
+      `onload` la réactive dès qu'elle est arrivée. Le `preload` la met en file d'attente
+      immédiatement, en parallèle du reste. `display=swap` affiche le texte dans une
+      police de repli en attendant, plutôt que de le masquer.
+
+      Toute police ajoutée au site doit l'être ici, pas dans le CSS.
+    -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Archivo:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Archivo:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Archivo:wght@300;400;500;600&display=swap">
+    </noscript>
     <!--
       Préchargement retiré. Il pointait vers /src/assets/hero-video-luxury.mp4, un chemin
       qui n'existe qu'en développement : au build, Vite renomme le fichier avec un hash.
