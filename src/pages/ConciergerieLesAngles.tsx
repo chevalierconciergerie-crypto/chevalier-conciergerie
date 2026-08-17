@@ -7,7 +7,7 @@ const ConciergerieLesAngles = () => (
     slug="conciergerie-les-angles"
     heroImage={heroImage}
     heroAlt="Village provençal de Les Angles avec maisons en pierre et cyprès"
-    metaTitle="Conciergerie Airbnb Les Angles | Gestion Location Saisonnière | Chevalier"
+    metaTitle="Conciergerie Airbnb Les Angles | Chevalier"
     metaDescription="Conciergerie Airbnb aux Angles, près d'Avignon. Gestion locative complète pour propriétaires : accueil voyageurs, ménage professionnel, revenus optimisés. Estimation gratuite."
     metaKeywords="conciergerie Les Angles, Airbnb Les Angles Avignon, gestion locative Les Angles, location saisonnière Les Angles, conciergerie Gard"
     intro={{
