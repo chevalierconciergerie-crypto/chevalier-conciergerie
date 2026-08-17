@@ -651,6 +651,86 @@ const STATIC_ROUTES = [
   },
   {
     path: "/politique-confidentialite",
+    bodyHtml: `<main>
+<nav><a href="/">Accueil</a> › Politique de Confidentialité</nav>
+<h1>Protection des données</h1>
+<p>Transparence et sécurité au cœur de notre engagement</p>
+
+<h2>Donnée personnelle</h2>
+<p>Définition</p>
+<p>Une donnée personnelle est toute information permettant d'identifier directement ou indirectement une personne physique. Il peut s'agir de votre nom, prénom, adresse email, numéro de téléphone, adresse postale, ou encore de votre adresse IP.</p>
+
+<h2>Données collectées</h2>
+<p>Ce que nous recueillons</p>
+<ul>
+<li>Données d'identification : nom, prénom, adresse email, numéro de téléphone</li>
+<li>Données relatives à votre bien : adresse, type de bien, caractéristiques</li>
+<li>Données de navigation : adresse IP, type de navigateur, pages visitées</li>
+<li>Données de correspondance : messages envoyés via le formulaire de contact</li>
+</ul>
+
+<h2>Responsable</h2>
+<p>Qui traite vos données</p>
+<p>CHEVALIER LOCABUSINESS (SASU)
+Nom commercial : Chevalier Conciergerie
+Siège social : Avignon, 84000 France
+Email : contact@chevalier-conciergerie.com
+Téléphone : +33 7 83 19 83 41</p>
+
+<h2>Finalités</h2>
+<p>Pourquoi nous collectons</p>
+<h3>Traitements contractuels</h3>
+<ul>
+<li>Gestion des demandes de contact et de devis</li>
+<li>Gestion de la relation client et de nos prestations</li>
+<li>Communication relative à nos services</li>
+</ul>
+<h3>Traitements avec consentement</h3>
+<ul>
+<li>Communications marketing</li>
+<li>Amélioration de votre expérience utilisateur</li>
+</ul>
+<p>Retrait du consentement : contact@chevalier-conciergerie.com</p>
+
+<h2>Stockage</h2>
+<p>Où sont vos données</p>
+<p>Vos données sont stockées sur des serveurs sécurisés situés dans l'Union Européenne. Nous mettons en œuvre toutes les mesures techniques et organisationnelles appropriées pour protéger vos données.</p>
+
+<h2>Conservation</h2>
+<p>Durées de rétention</p>
+<ul>
+<li>Données clients : durée de la relation + 3 ans</li>
+<li>Données de prospection : 3 ans après dernier contact</li>
+<li>Données de facturation : 10 ans (obligations légales)</li>
+<li>Données de navigation : 13 mois maximum</li>
+</ul>
+
+<h2>Vos droits</h2>
+<p>RGPD</p>
+<ul>
+<li>Droit d'accès : obtenir une copie de vos données</li>
+<li>Droit de rectification : corriger des données inexactes</li>
+<li>Droit à l'effacement : demander la suppression</li>
+<li>Droit à la limitation : limiter le traitement</li>
+<li>Droit à la portabilité : recevoir vos données</li>
+<li>Droit d'opposition : vous opposer au traitement</li>
+</ul>
+<p>Contact : contact@chevalier-conciergerie.com
+Réclamation CNIL : www.cnil.fr</p>
+
+<h2>Cookies</h2>
+<p>Navigation</p>
+<h3>Types de cookies utilisés</h3>
+<ul>
+<li>Cookies essentiels : nécessaires au fonctionnement</li>
+<li>Cookies analytiques : comprendre votre utilisation</li>
+</ul>
+<p>Vous pouvez configurer votre navigateur pour refuser les cookies.</p>
+
+<p>Sélectionnez une catégorie pour en savoir plus</p>
+
+<p>Mise à jour : Janvier 2026 · Questions ?</p>
+</main>`,
     changefreq: "yearly",
     priority: "0.3",
     title: "Politique de Confidentialité | Chevalier Conciergerie",
