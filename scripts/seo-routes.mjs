@@ -599,6 +599,30 @@ const STATIC_ROUTES = [
   },
   {
     path: "/estimation-sous-location",
+    bodyHtml: `<main>
+<nav><a href="/">Accueil</a> › Estimation Sous-Location</nav>
+<h1>Estimez votre Loyer Garanti</h1>
+<p>Décrivez votre bien, nous vous proposons une offre sous 48h.</p>
+
+<h2>Localisation</h2>
+<p>Où se situe votre bien ?</p>
+
+<h2>Caractéristiques</h2>
+<p>Décrivez votre logement</p>
+<ul>
+<li>Meublé</li>
+<li>Parking</li>
+<li>Extérieur (balcon, terrasse...)</li>
+</ul>
+
+<h2>Vos coordonnées</h2>
+<p>Pour vous recontacter avec notre proposition</p>
+<p>Quand êtes-vous disponible pour un appel ?</p>
+<p>Une question ? Un commentaire ?</p>
+<p>J'accepte que mes données soient utilisées pour traiter ma demande d'estimation, conformément à la <a href="/politique-confidentialite">politique de confidentialité</a>.</p>
+
+<p>Merci ! Nous vous recontacterons sous 48h avec votre estimation.</p>
+</main>`,
     changefreq: "monthly",
     priority: "0.7",
     title: "Estimation Sous-Location | Chevalier Conciergerie",
