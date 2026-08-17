@@ -524,7 +524,7 @@ const STATIC_ROUTES = [
     path: "/a-propos",
     changefreq: "monthly",
     priority: "0.8",
-    title: "À propos | Chevalier Conciergerie — Conciergerie & gestion locative à Avignon",
+    title: "Qui sommes-nous | Conciergerie Avignon | Chevalier",
     description:
       "Découvrez Chevalier Conciergerie : une conciergerie indépendante et locale à Avignon, fondée par Victor Chevalier, spécialiste de la location courte durée et de la sous-location avec loyer garanti.",
     keywords: "Victor Chevalier, conciergerie indépendante Avignon, qui sommes-nous conciergerie Avignon",
