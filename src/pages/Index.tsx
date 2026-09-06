@@ -1,7 +1,7 @@
 import { Helmet } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
+import CinematicIntro from "@/components/CinematicIntro";
 import LocalExpertise from "@/components/LocalExpertise";
 import PlatformLogos from "@/components/PlatformLogos";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
@@ -143,7 +143,7 @@ const Index = () => {
       <div className="min-h-screen bg-background relative">
         <Header />
         <main className="relative z-10">
-          <Hero />
+          <CinematicIntro />
 
           {/*
             Encart de réservation directe retiré (version mobile) : il redirigeait vers

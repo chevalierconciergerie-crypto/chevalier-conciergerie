@@ -74,6 +74,18 @@
     --gold: 0 0% 100%;        /* accent sur fond sombre : blanc pur */
     --gold-light: 0 0% 82%;
     /*
+      Matières provençales — la palette de la séquence d'ouverture et des
+      touches d'accent. 90 % de la page reste noir et blanc ; ces teintes
+      n'apparaissent que par petites surfaces : une légende, un trait, un
+      survol. Aucune n'est un doré.
+    */
+    --calcaire: 40 22% 90%;    /* pierre calcaire, blanc cassé chaud */
+    --gris-chaud: 30 6% 45%;
+    --bois: 28 30% 50%;
+    --olive: 75 16% 40%;
+    --terracotta: 16 40% 55%;
+    --bronze: 34 28% 42%;
+    /*
       Accent sur fond clair : presque noir. Il donne 15,3:1 sur blanc — très
       au-delà des 4,5:1 requis — là où l'or d'encre plafonnait à 4,63:1 et
       retombait à 4,24:1 sur le crème des sections.

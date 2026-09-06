@@ -60,6 +60,24 @@ schémas `BlogPosting` et `FAQPage`. `sharp` n'a jamais posé de problème en bu
 
 ## Ce qui a été fait
 
+### Séquence d'ouverture cinématique (6 septembre 2026) — en preview, pas en prod
+Demande du client : une expérience immersive type era.estate (référence qu'il a
+fournie) — écran noir → CHEVALIER → la ville → une ruelle → on passe une porte →
+l'appartement. Réalisé sans WebGL : photos réelles + transformations pilotées
+par le scroll (framer-motion), profondeur à la souris, fondu au noir pour la
+traversée de porte. Fichiers :
+- `src/components/CinematicIntro.tsx` (nouveau) — remplace `<Hero />` sur
+  l'accueil uniquement ; `prefers-reduced-motion` retombe sur l'ancien Hero,
+  qui reste intact et utilisé comme repli.
+- `Header.tsx` — le seuil de passage en header plein est désormais la hauteur
+  réelle de `#intro-cinematique`, plus 50 px en dur.
+- `index.css` — jetons « matières provençales » (`--calcaire`, `--olive`,
+  `--terracotta`, `--bronze`…), réservés aux petites surfaces.
+Le h1, la note Google et le bouton d'estimation sont repris mot pour mot de
+l'ancien hero en dernière scène. Bouton « Passer » toujours visible.
+⚠️ Poussé sur la branche `work` (preview Vercel) — ne passer en prod
+(`git push origin work:main`) qu'après validation du client.
+
 ### SEO / GEO — terminé et vérifié en ligne
 - `prerender.mjs` écrit désormais le **contenu complet** des articles dans le HTML.
   Avant : `<div id="root"></div>`, 32 caractères. Après : 7 352 caractères lisibles

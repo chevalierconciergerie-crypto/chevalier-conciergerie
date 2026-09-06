@@ -18,11 +18,22 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      /*
+        Sur l'accueil, la séquence d'ouverture occupe plusieurs écrans de
+        noir : un bandeau blanc posé dessus après 50 px la crèverait. Le
+        header ne devient donc plein qu'une fois la séquence traversée —
+        le seuil est la hauteur réelle du conteneur, pas un chiffre en dur.
+      */
+      const intro = document.getElementById("intro-cinematique");
+      const seuil = intro
+        ? intro.offsetTop + intro.offsetHeight - window.innerHeight - 10
+        : 50;
+      setIsScrolled(window.scrollY > seuil);
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [location]);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
