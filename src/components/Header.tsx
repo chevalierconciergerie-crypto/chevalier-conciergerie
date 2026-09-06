@@ -19,15 +19,13 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       /*
-        Sur l'accueil, la séquence d'ouverture occupe plusieurs écrans de
-        noir : un bandeau blanc posé dessus après 50 px la crèverait. Le
-        header ne devient donc plein qu'une fois la séquence traversée —
-        le seuil est la hauteur réelle du conteneur, pas un chiffre en dur.
+        Sur l'accueil, le hero façon era.estate est un écran sombre : un
+        bandeau blanc posé dessus après 50 px le crèverait. Le header ne
+        devient plein qu'aux deux tiers du hero, quand le fond clair de
+        la suite approche — seuil mesuré sur l'élément, pas en dur.
       */
       const intro = document.getElementById("intro-cinematique");
-      const seuil = intro
-        ? intro.offsetTop + intro.offsetHeight - window.innerHeight - 10
-        : 50;
+      const seuil = intro ? intro.offsetHeight * 0.66 : 50;
       setIsScrolled(window.scrollY > seuil);
     };
     handleScroll();
@@ -69,6 +67,14 @@ const Header = () => {
     { label: "Partenaires", href: "/partenaires", number: "06" },
     { label: "Contact", href: "/contact", number: "07" },
   ];
+
+  /*
+    Sur l'accueil, le hero façon era.estate embarque sa propre barre en
+    pastilles (MENU, logo centré, « Être rappelé ») : afficher ce header
+    par-dessus ferait deux navigations superposées. Il ne réapparaît
+    qu'une fois le hero dépassé, en version pleine.
+  */
+  if (isHome && !solid) return null;
 
   return (
     <>
