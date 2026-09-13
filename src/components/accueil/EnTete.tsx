@@ -1,11 +1,24 @@
 import { useCallback, useEffect, useState, type CSSProperties } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Phone } from "lucide-react";
 import { COURRIEL, RESEAUX, RUBRIQUES, TELEPHONE } from "@/data/accueil";
 import { allerA } from "./effets";
 import "./chevalier.css";
 
 const LOGO = "/accueil/logo-chevalier-blanc.png";
+const ESTIMATION = "/estimation-sous-location";
+
+/* Les trois réseaux, en icônes cliquables. */
+function Reseaux({ tabIndex }: { tabIndex?: number }) {
+  return (
+    <div className="chv-reseaux">
+      {RESEAUX.map((r) => (
+        <a key={r.nom} href={r.lien} target="_blank" rel="noopener noreferrer" title={r.nom} tabIndex={tabIndex}>
+          <img src={r.logo} alt={r.nom} width={26} height={26} />
+        </a>
+      ))}
+    </div>
+  );
+}
 const PHOTO_TAMBOUR = "/accueil/hero-pont-avignon.webp";
 
 /*
@@ -47,7 +60,7 @@ function Tambour() {
 
 /**
   La barre du haut, commune à toutes les pages : pastille MENU, mot-symbole
-  CHEVALIER au centre, « Être rappelé » à droite. Le menu s'ouvre en plein
+  CHEVALIER au centre, réseaux et « Estimation gratuite » à droite. Le menu s'ouvre en plein
   écran ; chaque rubrique est une ancre de l'accueil.
 */
 const EnTete = () => {
@@ -111,16 +124,11 @@ const EnTete = () => {
         <img src={LOGO} alt="CHEVALIER" width={996} height={129} />
       </Link>
       <div className="chv-entete__droite">
-        <a
-          href="/#contact"
-          className="chv-pastille chv-entete__appel-long"
-          onClick={(e) => { e.preventDefault(); aller("contact"); }}
-        >
-          Être rappelé
-        </a>
-        <a href={TELEPHONE.lien} className="chv-pastille chv-pastille--rond chv-entete__appel-court" aria-label={`Appeler le ${TELEPHONE.affiche}`}>
-          <Phone size={15} strokeWidth={1.8} />
-        </a>
+        <Reseaux tabIndex={dansMenu && !ouvert ? -1 : undefined} />
+        <Link to={ESTIMATION} className="chv-pastille" tabIndex={dansMenu && !ouvert ? -1 : undefined}>
+          <span className="chv-entete__appel-long">Estimation gratuite</span>
+          <span className="chv-entete__appel-court">Estimation</span>
+        </Link>
       </div>
     </div>
   );
@@ -153,9 +161,7 @@ const EnTete = () => {
         <div className="chv-menu__pied">
           <a href={TELEPHONE.lien} tabIndex={ouvert ? 0 : -1}>{TELEPHONE.affiche}</a>
           <a href={COURRIEL.lien} tabIndex={ouvert ? 0 : -1}>{COURRIEL.affiche}</a>
-          {RESEAUX.map((r) => (
-            <a key={r.nom} href={r.lien} target="_blank" rel="noopener noreferrer" tabIndex={ouvert ? 0 : -1}>{r.nom}</a>
-          ))}
+          <Reseaux tabIndex={ouvert ? 0 : -1} />
         </div>
       </div>
     </>

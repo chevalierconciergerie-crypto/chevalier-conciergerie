@@ -7,6 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { HelmetProvider } from "@/lib/seo";
 import ScrollToTop from "./components/ScrollToTop";
+import BandeauCookies from "./components/accueil/BandeauCookies";
 import Index from "./pages/Index";
 import Conciergerie from "./pages/Conciergerie";
 import SousLocation from "./pages/SousLocation";
@@ -74,6 +75,7 @@ const App = () => (
             consentement. Google Analytics reste à activer séparément dans index.html
             une fois l'identifiant G-… créé.
           */}
+          <BandeauCookies />
           <Analytics />
           <SpeedInsights />
         </BrowserRouter>

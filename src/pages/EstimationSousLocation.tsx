@@ -1,25 +1,29 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "@/lib/seo";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Check, Home, User, ChevronRight, Send } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import EnTete from "@/components/accueil/EnTete";
+import PiedDePage from "@/components/accueil/PiedDePage";
+import { Etiquette, TitreAnime } from "@/components/accueil/Primitives";
+import { COURRIEL, TELEPHONE } from "@/data/accueil";
 
-interface FormData {
-  // Étape 1 - Le bien
+/*
+  Estimation gratuite, conciergerie comme sous-location. Même URL que
+  l'ancienne page (déjà indexée et liée depuis tout le site), nouveau design.
+
+  Envoi : l'ancienne version ouvrait la messagerie du visiteur (mailto:) — la
+  demande n'arrivait que s'il appuyait lui-même sur « Envoyer », et jamais
+  depuis un téléphone sans messagerie configurée. Le formulaire part désormais
+  directement vers contact@chevalier-conciergerie.com via FormSubmit, sans
+  clé ni serveur. ⚠️ Au tout premier envoi, FormSubmit adresse à cette boîte
+  un courriel « Activate Form » : il faut cliquer le lien une fois, ensuite
+  chaque demande arrive directement.
+*/
+const ENVOI = "https://formsubmit.co/ajax/contact@chevalier-conciergerie.com";
+
+type Formule = "Conciergerie" | "Sous-location" | "Je ne sais pas encore";
+
+interface Donnees {
+  formule: Formule;
   adresse: string;
   codePostal: string;
   ville: string;
@@ -32,487 +36,298 @@ interface FormData {
   parking: boolean;
   exterieur: boolean;
   equipements: string;
-  // Étape 2 - Contact
   nomComplet: string;
   telephone: string;
   email: string;
   disponibilite: string;
   commentaire: string;
   consentement: boolean;
+  piege: string;
 }
 
-const steps = [
-  { id: 1, title: "Le Bien", icon: Home },
-  { id: 2, title: "Vous Contacter", icon: User },
-];
+const VIDE: Donnees = {
+  formule: "Je ne sais pas encore",
+  adresse: "",
+  codePostal: "",
+  ville: "",
+  typeLogement: "",
+  superficie: "",
+  nombrePieces: "",
+  nombreChambres: "",
+  nombreSdb: "",
+  meuble: false,
+  parking: false,
+  exterieur: false,
+  equipements: "",
+  nomComplet: "",
+  telephone: "",
+  email: "",
+  disponibilite: "",
+  commentaire: "",
+  consentement: false,
+  piege: "",
+};
 
-const EstimationSousLocation = () => {
-  const [step, setStep] = useState(1);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const { toast } = useToast();
-  
-  const [formData, setFormData] = useState<FormData>({
-    adresse: "",
-    codePostal: "",
-    ville: "",
-    typeLogement: "",
-    superficie: "",
-    nombrePieces: "",
-    nombreChambres: "",
-    nombreSdb: "",
-    meuble: false,
-    parking: false,
-    exterieur: false,
-    equipements: "",
-    nomComplet: "",
-    telephone: "",
-    email: "",
-    disponibilite: "",
-    commentaire: "",
-    consentement: false,
-  });
+const FORMULES: Formule[] = ["Conciergerie", "Sous-location", "Je ne sais pas encore"];
 
-  const updateField = (field: keyof FormData, value: string | boolean) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-  };
+const oui = (b: boolean) => (b ? "Oui" : "Non");
 
-  const handleNext = () => {
-    if (step < 2) setStep(step + 1);
-  };
+const Estimation = () => {
+  const [etape, setEtape] = useState<1 | 2>(1);
+  const [d, setD] = useState<Donnees>(VIDE);
+  const [etat, setEtat] = useState<"saisie" | "envoi" | "envoye" | "erreur">("saisie");
+  const [message, setMessage] = useState("");
 
-  const handlePrev = () => {
-    if (step > 1) setStep(step - 1);
-  };
+  const champ = <K extends keyof Donnees>(cle: K, valeur: Donnees[K]) => setD((p) => ({ ...p, [cle]: valeur }));
 
-  const handleSubmit = () => {
-    if (!formData.nomComplet || !formData.email || !formData.telephone) {
-      toast({
-        title: "Champs requis",
-        description: "Veuillez remplir votre nom, email et téléphone.",
-        variant: "destructive",
-      });
+  const envoyer = async (e: FormEvent) => {
+    e.preventDefault();
+    if (!d.nomComplet.trim() || !d.telephone.trim() || !d.email.trim()) {
+      setMessage("Merci d'indiquer votre nom, votre téléphone et votre e-mail.");
+      return;
+    }
+    if (!d.consentement) {
+      setMessage("Merci d'accepter l'utilisation de vos données pour traiter la demande.");
+      return;
+    }
+    // Champ invisible rempli : c'est un robot, on fait comme si tout s'était bien passé.
+    if (d.piege) {
+      setEtat("envoye");
       return;
     }
 
-    if (!formData.consentement) {
-      toast({
-        title: "Consentement requis",
-        description: "Veuillez accepter la politique de confidentialité pour continuer.",
-        variant: "destructive",
+    setMessage("");
+    setEtat("envoi");
+    try {
+      const reponse = await fetch(ENVOI, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: `Estimation gratuite (${d.formule}) — ${d.nomComplet}`,
+          _template: "table",
+          _replyto: d.email,
+          "Formule souhaitée": d.formule,
+          Nom: d.nomComplet,
+          Téléphone: d.telephone,
+          "E-mail": d.email,
+          "Disponibilité pour un appel": d.disponibilite || "Non précisé",
+          Adresse: d.adresse || "Non précisé",
+          "Code postal": d.codePostal || "Non précisé",
+          Ville: d.ville || "Non précisé",
+          Type: d.typeLogement || "Non précisé",
+          "Surface (m²)": d.superficie || "Non précisé",
+          Pièces: d.nombrePieces || "Non précisé",
+          ...(d.typeLogement === "Maison" ? { Chambres: d.nombreChambres || "Non précisé", "Salles de bain": d.nombreSdb || "Non précisé" } : {}),
+          Meublé: oui(d.meuble),
+          Parking: oui(d.parking),
+          Extérieur: oui(d.exterieur),
+          "Équipements, points forts": d.equipements || "Non précisé",
+          Commentaire: d.commentaire || "Aucun",
+        }),
       });
-      return;
+      const resultat = await reponse.json().catch(() => ({}));
+      if (reponse.ok && String(resultat.success) === "true") {
+        setEtat("envoye");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        setEtat("erreur");
+        setMessage(resultat.message || "L'envoi n'a pas abouti.");
+      }
+    } catch {
+      setEtat("erreur");
+      setMessage("L'envoi n'a pas abouti. Vérifiez votre connexion et réessayez.");
     }
-
-    const subject = encodeURIComponent(`Nouvelle demande sous-location - ${formData.nomComplet}`);
-    const body = encodeURIComponent(
-`LE BIEN
--------
-Adresse : ${formData.adresse}
-Code postal : ${formData.codePostal}
-Ville : ${formData.ville}
-Type : ${formData.typeLogement}
-Superficie : ${formData.superficie} m²
-Nombre de pièces : ${formData.nombrePieces}${formData.typeLogement === "maison" ? `
-Nombre de chambres : ${formData.nombreChambres}
-Nombre de salles de bain : ${formData.nombreSdb}` : ""}
-Meublé : ${formData.meuble ? "Oui" : "Non"}
-Parking : ${formData.parking ? "Oui" : "Non"}
-Extérieur : ${formData.exterieur ? "Oui" : "Non"}
-Équipements particuliers : ${formData.equipements || "Non précisé"}
-
-CONTACT
--------
-Nom : ${formData.nomComplet}
-Téléphone : ${formData.telephone}
-Email : ${formData.email}
-Disponibilité : ${formData.disponibilite}
-Commentaire : ${formData.commentaire || "Aucun"}
-`
-    );
-
-    window.location.href = `mailto:contact@chevalier-conciergerie.com?subject=${subject}&body=${body}`;
-    setIsSubmitted(true);
-    
-    toast({
-      title: "Demande envoyée !",
-      description: "Nous vous recontacterons sous 48h.",
-    });
   };
 
   return (
     <>
       <Helmet>
-        <title>Estimation Sous-Location | Chevalier Conciergerie</title>
+        <title>Estimation gratuite | Conciergerie et sous-location à Avignon | Chevalier</title>
         <meta
           name="description"
-          content="Obtenez une estimation gratuite pour la sous-location de votre bien à Avignon. Formulaire simple et rapide."
+          content="Estimation gratuite et sans engagement de votre bien à Avignon, Villeneuve-lès-Avignon et Les Angles, en conciergerie comme en sous-location. Réponse sous 48 h."
         />
+        <link rel="canonical" href="https://chevalier-conciergerie.com/estimation-sous-location" />
       </Helmet>
 
-      <div className="min-h-screen bg-background">
-        <Header />
-
-        <main className="pt-32 pb-20">
-          <div className="container mx-auto px-6">
-            {/* Header */}
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground">
-                Estimation Gratuite
-              </span>
-              <h1 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-4 mb-4">
-                Estimez votre Loyer Garanti
-              </h1>
-              <p className="font-sans text-muted-foreground text-lg">
-                Décrivez votre bien, nous vous proposons une offre sous 48h.
-              </p>
-            </div>
-
-            <div className="max-w-3xl mx-auto">
-              {/* Steps indicator */}
-              <div className="flex items-center justify-center gap-4 mb-10">
-                {steps.map((s, index) => (
-                  <div key={s.id} className="flex items-center">
-                    <button
-                      onClick={() => s.id <= step && setStep(s.id)}
-                      disabled={s.id > step}
-                      className={`flex items-center gap-3 px-5 py-3 rounded-full transition-all ${
-                        step === s.id
-                          ? "bg-primary text-primary-foreground shadow-lg"
-                          : s.id < step
-                          ? "bg-gold/20 text-gold cursor-pointer hover:bg-gold/30"
-                          : "bg-muted text-muted-foreground cursor-not-allowed"
-                      }`}
-                    >
-                      <div
-                        className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold ${
-                          step === s.id
-                            ? "bg-gold text-primary"
-                            : s.id < step
-                            ? "bg-gold text-primary"
-                            : "bg-muted-foreground/20 text-muted-foreground"
-                        }`}
-                      >
-                        {s.id < step ? <Check className="w-4 h-4" /> : s.id}
-                      </div>
-                      <span className="font-medium hidden sm:inline">{s.title}</span>
-                    </button>
-                    {index < steps.length - 1 && (
-                      <div className={`w-12 h-0.5 mx-2 ${step > s.id ? "bg-gold" : "bg-border"}`} />
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              {/* Form Card */}
-              <div className="bg-card rounded-2xl shadow-soft p-6 md:p-10 border border-border/50">
-                
-                {/* Étape 1 - Le bien */}
-                {step === 1 && (
-                  <div className="space-y-8 animate-fade-in">
-                    <div>
-                      <h2 className="font-serif text-xl font-semibold text-foreground mb-1">
-                        Localisation
-                      </h2>
-                      <p className="text-sm text-muted-foreground mb-4">Où se situe votre bien ?</p>
-                      
-                      <div className="space-y-4">
-                        <Input
-                          placeholder="Adresse (numéro et rue)"
-                          value={formData.adresse}
-                          onChange={(e) => updateField("adresse", e.target.value)}
-                          className="border-border focus:border-gold"
-                        />
-                        <div className="grid grid-cols-2 gap-4">
-                          <Input
-                            placeholder="Code postal"
-                            value={formData.codePostal}
-                            onChange={(e) => updateField("codePostal", e.target.value)}
-                            className="border-border focus:border-gold"
-                          />
-                          <Input
-                            placeholder="Ville"
-                            value={formData.ville}
-                            onChange={(e) => updateField("ville", e.target.value)}
-                            className="border-border focus:border-gold"
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h2 className="font-serif text-xl font-semibold text-foreground mb-1">
-                        Caractéristiques
-                      </h2>
-                      <p className="text-sm text-muted-foreground mb-4">Décrivez votre logement</p>
-                      
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                        <div>
-                          <Label className="text-sm text-muted-foreground mb-2 block">Type</Label>
-                          <Select
-                            value={formData.typeLogement}
-                            onValueChange={(value) => updateField("typeLogement", value)}
-                          >
-                            <SelectTrigger className="border-border focus:border-gold bg-background">
-                              <SelectValue placeholder="Choisir" />
-                            </SelectTrigger>
-                            <SelectContent className="bg-card border-border">
-                              <SelectItem value="studio">Studio</SelectItem>
-                              <SelectItem value="t1">T1</SelectItem>
-                              <SelectItem value="t2">T2</SelectItem>
-                              <SelectItem value="t3">T3</SelectItem>
-                              <SelectItem value="t4+">T4 et plus</SelectItem>
-                              <SelectItem value="maison">Maison</SelectItem>
-                            </SelectContent>
-                          </Select>
-                        </div>
-                        <div>
-                          <Label className="text-sm text-muted-foreground mb-2 block">Surface (m²)</Label>
-                          <Input
-                            placeholder="Ex: 45"
-                            value={formData.superficie}
-                            onChange={(e) => updateField("superficie", e.target.value)}
-                            className="border-border focus:border-gold"
-                          />
-                        </div>
-                        <div>
-                          <Label className="text-sm text-muted-foreground mb-2 block">Pièces</Label>
-                          <Input
-                            placeholder="Ex: 3"
-                            value={formData.nombrePieces}
-                            onChange={(e) => updateField("nombrePieces", e.target.value)}
-                            className="border-border focus:border-gold"
-                          />
-                        </div>
-                      </div>
-
-                      {/* Champs supplémentaires pour les maisons */}
-                      {formData.typeLogement === "maison" && (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                          <div>
-                            <Label className="text-sm text-muted-foreground mb-2 block">Chambres</Label>
-                            <Select
-                              value={formData.nombreChambres}
-                              onValueChange={(value) => updateField("nombreChambres", value)}
-                            >
-                              <SelectTrigger className="border-border focus:border-gold bg-background">
-                                <SelectValue placeholder="Nombre" />
-                              </SelectTrigger>
-                              <SelectContent className="bg-card border-border">
-                                {[1, 2, 3, 4, 5, "6+"].map((num) => (
-                                  <SelectItem key={num} value={num.toString()}>
-                                    {num}
-                                  </SelectItem>
-                                ))}
-                              </SelectContent>
-                            </Select>
-                          </div>
-                          <div>
-                            <Label className="text-sm text-muted-foreground mb-2 block">Salles de bain</Label>
-                            <Select
-                              value={formData.nombreSdb}
-                              onValueChange={(value) => updateField("nombreSdb", value)}
-                            >
-                              <SelectTrigger className="border-border focus:border-gold bg-background">
-                                <SelectValue placeholder="Nombre" />
-                              </SelectTrigger>
-                              <SelectContent className="bg-card border-border">
-                                {[1, 2, 3, "4+"].map((num) => (
-                                  <SelectItem key={num} value={num.toString()}>
-                                    {num}
-                                  </SelectItem>
-                                ))}
-                              </SelectContent>
-                            </Select>
-                          </div>
-                        </div>
-                      )}
-
-                      <div className="flex flex-wrap gap-6">
-                        <label className="flex items-center gap-3 cursor-pointer group">
-                          <Checkbox
-                            checked={formData.meuble}
-                            onCheckedChange={(checked) => updateField("meuble", checked as boolean)}
-                            className="border-gold data-[state=checked]:bg-gold data-[state=checked]:border-gold"
-                          />
-                          <span className="text-foreground group-hover:text-gold transition-colors">Meublé</span>
-                        </label>
-                        <label className="flex items-center gap-3 cursor-pointer group">
-                          <Checkbox
-                            checked={formData.parking}
-                            onCheckedChange={(checked) => updateField("parking", checked as boolean)}
-                            className="border-gold data-[state=checked]:bg-gold data-[state=checked]:border-gold"
-                          />
-                          <span className="text-foreground group-hover:text-gold transition-colors">Parking</span>
-                        </label>
-                        <label className="flex items-center gap-3 cursor-pointer group">
-                          <Checkbox
-                            checked={formData.exterieur}
-                            onCheckedChange={(checked) => updateField("exterieur", checked as boolean)}
-                            className="border-gold data-[state=checked]:bg-gold data-[state=checked]:border-gold"
-                          />
-                          <span className="text-foreground group-hover:text-gold transition-colors">Extérieur (balcon, terrasse...)</span>
-                        </label>
-                      </div>
-                    </div>
-
-                    <div>
-                      <Label className="text-sm text-muted-foreground mb-2 block">
-                        Équipements ou points forts (optionnel)
-                      </Label>
-                      <Input
-                        placeholder="Climatisation, vue, parking privé..."
-                        value={formData.equipements}
-                        onChange={(e) => updateField("equipements", e.target.value)}
-                        className="border-border focus:border-gold"
-                      />
-                    </div>
-                  </div>
-                )}
-
-                {/* Étape 2 - Contact */}
-                {step === 2 && (
-                  <div className="space-y-6 animate-fade-in">
-                    <div>
-                      <h2 className="font-serif text-xl font-semibold text-foreground mb-1">
-                        Vos coordonnées
-                      </h2>
-                      <p className="text-sm text-muted-foreground mb-6">Pour vous recontacter avec notre proposition</p>
-                      
-                      <div className="space-y-4">
-                        <div>
-                          <Label className="text-foreground font-medium mb-2 block">
-                            Nom complet <span className="text-gold">*</span>
-                          </Label>
-                          <Input
-                            placeholder="Jean Dupont"
-                            value={formData.nomComplet}
-                            onChange={(e) => updateField("nomComplet", e.target.value)}
-                            className="border-border focus:border-gold"
-                            required
-                          />
-                        </div>
-
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          <div>
-                            <Label className="text-foreground font-medium mb-2 block">
-                              Téléphone <span className="text-gold">*</span>
-                            </Label>
-                            <Input
-                              type="tel"
-                              placeholder="06 12 34 56 78"
-                              value={formData.telephone}
-                              onChange={(e) => updateField("telephone", e.target.value)}
-                              className="border-border focus:border-gold"
-                              required
-                            />
-                          </div>
-                          <div>
-                            <Label className="text-foreground font-medium mb-2 block">
-                              E-mail <span className="text-gold">*</span>
-                            </Label>
-                            <Input
-                              type="email"
-                              placeholder="jean.dupont@email.com"
-                              value={formData.email}
-                              onChange={(e) => updateField("email", e.target.value)}
-                              className="border-border focus:border-gold"
-                              required
-                            />
-                          </div>
-                        </div>
-
-                        <div>
-                          <Label className="text-foreground font-medium mb-2 block">
-                            Quand êtes-vous disponible pour un appel ?
-                          </Label>
-                          <Input
-                            placeholder="En semaine après 18h, le week-end..."
-                            value={formData.disponibilite}
-                            onChange={(e) => updateField("disponibilite", e.target.value)}
-                            className="border-border focus:border-gold"
-                          />
-                        </div>
-
-                        <div>
-                          <Label className="text-foreground font-medium mb-2 block">
-                            Une question ? Un commentaire ?
-                          </Label>
-                          <Textarea
-                            placeholder="Dites-nous en plus sur votre projet..."
-                            value={formData.commentaire}
-                            onChange={(e) => updateField("commentaire", e.target.value)}
-                            className="border-border focus:border-gold min-h-[100px]"
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    {isSubmitted && (
-                      <div className="p-4 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
-                          <Check className="w-5 h-5 text-green-600" />
-                        </div>
-                        <p className="text-green-700 font-sans text-sm">
-                          Merci ! Nous vous recontacterons sous 48h avec votre estimation.
-                        </p>
-                      </div>
-                    )}
-
-                    {/* Consentement RGPD */}
-                    <div className="flex items-start gap-3 pt-2">
-                      <Checkbox
-                        id="consentement"
-                        checked={formData.consentement}
-                        onCheckedChange={(checked) => updateField("consentement", checked === true)}
-                        className="mt-1"
-                      />
-                      <Label htmlFor="consentement" className="text-sm text-muted-foreground font-normal leading-snug">
-                        J'accepte que mes données soient utilisées pour traiter ma demande d'estimation,
-                        conformément à la{" "}
-                        <Link to="/politique-confidentialite" className="text-gold hover:underline">
-                          politique de confidentialité
-                        </Link>
-                        . <span className="text-destructive">*</span>
-                      </Label>
-                    </div>
-                  </div>
-                )}
-
-                {/* Navigation */}
-                <div className="flex justify-between mt-10 pt-6 border-t border-border/50">
-                  {step > 1 ? (
-                    <Button
-                      variant="ghost"
-                      onClick={handlePrev}
-                      className="text-muted-foreground hover:text-foreground"
-                    >
-                      Retour
-                    </Button>
-                  ) : (
-                    <div />
-                  )}
-
-                  {step < 2 ? (
-                    <Button variant="gold" onClick={handleNext} className="group">
-                      Continuer
-                      <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  ) : (
-                    <Button variant="gold" onClick={handleSubmit} className="group">
-                      Envoyer ma demande
-                      <Send className="w-4 h-4 ml-2" />
-                    </Button>
-                  )}
-                </div>
-              </div>
-            </div>
+      <div className="chv">
+        <EnTete />
+        <main className="chv-section chv-estimation">
+          <div className="chv-entete-section">
+            <Etiquette>Estimation gratuite</Etiquette>
+            <TitreAnime as="h1" lignes={["Estimons", "votre bien"]} />
+            <p className="chv-estimation__intro">
+              Décrivez votre logement : nous vous disons ce qu'il peut rapporter, en conciergerie comme en sous-location.
+              Réponse sous 48 h, sans engagement.
+            </p>
           </div>
-        </main>
 
-        <Footer />
+          {etat === "envoye" ? (
+            <div className="chv-formulaire chv-formulaire--merci">
+              <h2>Merci, votre demande est bien arrivée.</h2>
+              <p>
+                Nous étudions votre bien et revenons vers vous sous 48 h. Pour aller plus vite, appelez-nous au{" "}
+                <a href={TELEPHONE.lien}>{TELEPHONE.affiche}</a>.
+              </p>
+              <Link to="/" className="chv-pastille">Retour à l'accueil</Link>
+            </div>
+          ) : (
+            <form className="chv-formulaire" onSubmit={envoyer} noValidate>
+              <ol className="chv-etapes-form" aria-label="Étapes">
+                <li className={etape === 1 ? "est-active" : "est-faite"}>
+                  <button type="button" onClick={() => setEtape(1)}>1 · Le bien</button>
+                </li>
+                <li className={etape === 2 ? "est-active" : ""}>
+                  <button type="button" onClick={() => setEtape(2)}>2 · Vos coordonnées</button>
+                </li>
+              </ol>
+
+              {/* Champ piège pour les robots, invisible pour les visiteurs */}
+              <input
+                type="text"
+                name="_honey"
+                tabIndex={-1}
+                autoComplete="off"
+                className="chv-piege"
+                value={d.piege}
+                onChange={(e) => champ("piege", e.target.value)}
+                aria-hidden="true"
+              />
+
+              {etape === 1 && (
+                <div className="chv-formulaire__etape">
+                  <fieldset>
+                    <legend>Quelle formule vous intéresse ?</legend>
+                    <div className="chv-choix">
+                      {FORMULES.map((f) => (
+                        <label key={f} className={d.formule === f ? "est-choisi" : ""}>
+                          <input type="radio" name="formule" checked={d.formule === f} onChange={() => champ("formule", f)} />
+                          {f}
+                        </label>
+                      ))}
+                    </div>
+                  </fieldset>
+
+                  <fieldset>
+                    <legend>Où se situe votre bien ?</legend>
+                    <input className="chv-champ" placeholder="Adresse (numéro et rue)" value={d.adresse} onChange={(e) => champ("adresse", e.target.value)} autoComplete="street-address" />
+                    <div className="chv-grille-2">
+                      <input className="chv-champ" placeholder="Code postal" inputMode="numeric" value={d.codePostal} onChange={(e) => champ("codePostal", e.target.value)} autoComplete="postal-code" />
+                      <input className="chv-champ" placeholder="Ville" value={d.ville} onChange={(e) => champ("ville", e.target.value)} autoComplete="address-level2" />
+                    </div>
+                  </fieldset>
+
+                  <fieldset>
+                    <legend>Votre logement</legend>
+                    <div className="chv-grille-3">
+                      <label className="chv-libelle">
+                        Type
+                        <select className="chv-champ" value={d.typeLogement} onChange={(e) => champ("typeLogement", e.target.value)}>
+                          <option value="">Choisir</option>
+                          {["Studio", "T1", "T2", "T3", "T4 et plus", "Maison"].map((t) => <option key={t}>{t}</option>)}
+                        </select>
+                      </label>
+                      <label className="chv-libelle">
+                        Surface (m²)
+                        <input className="chv-champ" inputMode="numeric" placeholder="Ex : 45" value={d.superficie} onChange={(e) => champ("superficie", e.target.value)} />
+                      </label>
+                      <label className="chv-libelle">
+                        Pièces
+                        <input className="chv-champ" inputMode="numeric" placeholder="Ex : 3" value={d.nombrePieces} onChange={(e) => champ("nombrePieces", e.target.value)} />
+                      </label>
+                    </div>
+                    {d.typeLogement === "Maison" && (
+                      <div className="chv-grille-2">
+                        <label className="chv-libelle">
+                          Chambres
+                          <input className="chv-champ" inputMode="numeric" value={d.nombreChambres} onChange={(e) => champ("nombreChambres", e.target.value)} />
+                        </label>
+                        <label className="chv-libelle">
+                          Salles de bain
+                          <input className="chv-champ" inputMode="numeric" value={d.nombreSdb} onChange={(e) => champ("nombreSdb", e.target.value)} />
+                        </label>
+                      </div>
+                    )}
+                    <div className="chv-cases">
+                      {([["meuble", "Meublé"], ["parking", "Parking"], ["exterieur", "Extérieur (balcon, terrasse…)"]] as const).map(([cle, libelle]) => (
+                        <label key={cle}>
+                          <input type="checkbox" checked={d[cle]} onChange={(e) => champ(cle, e.target.checked)} />
+                          {libelle}
+                        </label>
+                      ))}
+                    </div>
+                    <input className="chv-champ" placeholder="Équipements ou points forts (climatisation, vue, parking privé…)" value={d.equipements} onChange={(e) => champ("equipements", e.target.value)} />
+                  </fieldset>
+
+                  <div className="chv-formulaire__actions">
+                    <span />
+                    <button type="button" className="chv-pastille" onClick={() => { setEtape(2); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
+                      Continuer
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {etape === 2 && (
+                <div className="chv-formulaire__etape">
+                  <fieldset>
+                    <legend>Vos coordonnées</legend>
+                    <label className="chv-libelle">
+                      Nom complet *
+                      <input className="chv-champ" value={d.nomComplet} onChange={(e) => champ("nomComplet", e.target.value)} autoComplete="name" required />
+                    </label>
+                    <div className="chv-grille-2">
+                      <label className="chv-libelle">
+                        Téléphone *
+                        <input className="chv-champ" type="tel" value={d.telephone} onChange={(e) => champ("telephone", e.target.value)} autoComplete="tel" required />
+                      </label>
+                      <label className="chv-libelle">
+                        E-mail *
+                        <input className="chv-champ" type="email" value={d.email} onChange={(e) => champ("email", e.target.value)} autoComplete="email" required />
+                      </label>
+                    </div>
+                    <label className="chv-libelle">
+                      Quand êtes-vous disponible pour un appel ?
+                      <input className="chv-champ" placeholder="En semaine après 18 h, le week-end…" value={d.disponibilite} onChange={(e) => champ("disponibilite", e.target.value)} />
+                    </label>
+                    <label className="chv-libelle">
+                      Une question, un commentaire ?
+                      <textarea className="chv-champ" rows={4} value={d.commentaire} onChange={(e) => champ("commentaire", e.target.value)} />
+                    </label>
+                  </fieldset>
+
+                  <label className="chv-consentement">
+                    <input type="checkbox" checked={d.consentement} onChange={(e) => champ("consentement", e.target.checked)} />
+                    <span>
+                      J'accepte que mes données soient utilisées pour traiter ma demande d'estimation, conformément à la{" "}
+                      <Link to="/politique-confidentialite">politique de confidentialité</Link>. *
+                    </span>
+                  </label>
+
+                  {message && (
+                    <p className="chv-formulaire__message" role="alert">
+                      {message}
+                      {etat === "erreur" && (
+                        <> Vous pouvez aussi nous écrire à <a href={COURRIEL.lien}>{COURRIEL.affiche}</a> ou appeler le <a href={TELEPHONE.lien}>{TELEPHONE.affiche}</a>.</>
+                      )}
+                    </p>
+                  )}
+
+                  <div className="chv-formulaire__actions">
+                    <button type="button" className="chv-lien-retour" onClick={() => setEtape(1)}>Retour</button>
+                    <button type="submit" className="chv-pastille" disabled={etat === "envoi"}>
+                      {etat === "envoi" ? "Envoi…" : "Envoyer ma demande"}
+                    </button>
+                  </div>
+                </div>
+              )}
+            </form>
+          )}
+        </main>
+        <PiedDePage />
       </div>
     </>
   );
 };
 
-export default EstimationSousLocation;
+export default Estimation;

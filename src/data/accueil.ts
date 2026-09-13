@@ -18,10 +18,11 @@ export const RUBRIQUES = [
 export const TELEPHONE = { affiche: "07 83 19 83 41", international: "+33 7 83 19 83 41", lien: "tel:+33783198341" };
 export const COURRIEL = { affiche: "contact@chevalier-conciergerie.com", lien: "mailto:contact@chevalier-conciergerie.com" };
 
+/* Logos officiels fournis par Victor, en couleurs (public/accueil/reseau-*.png). */
 export const RESEAUX = [
-  { nom: "Instagram", lien: "https://www.instagram.com/chevalier_conciergerie/" },
-  { nom: "LinkedIn", lien: "https://www.linkedin.com/in/chevalier-conciergerie-7559b03a4/" },
-  { nom: "Facebook", lien: "https://www.facebook.com/share/1GCBBTtP2R/" },
+  { nom: "Instagram", lien: "https://www.instagram.com/chevalier_conciergerie/", logo: "/accueil/reseau-instagram.png" },
+  { nom: "LinkedIn", lien: "https://www.linkedin.com/in/chevalier-conciergerie-7559b03a4/", logo: "/accueil/reseau-linkedin.png" },
+  { nom: "Facebook", lien: "https://www.facebook.com/share/1GCBBTtP2R/", logo: "/accueil/reseau-facebook.png" },
 ];
 
 /* Premier paragraphe de l'article de TV Sud Magazine du 23 juillet 2026. */
