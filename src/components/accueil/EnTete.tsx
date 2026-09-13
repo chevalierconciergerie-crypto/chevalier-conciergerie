@@ -8,10 +8,10 @@ import "./chevalier.css";
 const LOGO = "/accueil/logo-chevalier-blanc.png";
 const PHOTO_TAMBOUR = "/accueil/hero-pont-avignon.webp";
 
-/* Géométrie du tambour : 18 facettes de 96 px forment un cercle de rayon 272 px. */
+/* Géométrie du tambour : 18 facettes de 78 px forment un cercle de rayon 221 px. */
 const FACETTES = 18;
-const LARGEUR_FACETTE = 96;
-const HAUTEUR_TAMBOUR = 340;
+const LARGEUR_FACETTE = 78;
+const HAUTEUR_TAMBOUR = 290;
 const RAYON = LARGEUR_FACETTE / (2 * Math.tan(Math.PI / FACETTES));
 
 function Tambour() {

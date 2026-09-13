@@ -170,14 +170,17 @@
   position: absolute;
   inset: var(--chv-barre) 0 0 0;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr) minmax(0, 0.5fr);
-  align-items: center;
+  /* La colonne des rubriques prend la largeur de sa plus longue entrée : elles ne doivent jamais être coupées par le tambour. */
+  grid-template-columns: max-content minmax(0, 1fr) auto;
+  column-gap: 3vw;
+  align-items: start;
   padding: 0 var(--chv-marge) 6vh;
 }
-.chv-menu__liens { list-style: none; margin: 0; padding: 0; align-self: center; }
+.chv-menu__liens { list-style: none; margin: 8vh 0 0; padding: 0; }
 .chv-menu__liens li { overflow: hidden; }
 .chv-menu__liens a {
   display: inline-block;
+  white-space: nowrap;
   font-family: var(--chv-titre);
   font-size: clamp(30px, 3.4vw, 54px);
   line-height: 1.18;
@@ -200,7 +203,8 @@
 /* Le tambour : la photo d'Avignon enroulée sur un cylindre qui tourne. */
 .chv-tambour {
   position: relative;
-  height: min(62vh, 520px);
+  height: min(66vh, 560px);
+  align-self: center;
   display: grid;
   place-items: center;
   perspective: 1600px;
@@ -218,7 +222,8 @@
 }
 .chv-tambour__face {
   position: absolute;
-  inset: 0;
+  /* Un pixel de recouvrement entre facettes : sans lui, un fil sombre apparaît à chaque jointure. */
+  inset: 0 -1px;
   background-repeat: no-repeat;
   backface-visibility: hidden;
   filter: brightness(0.92);
@@ -259,7 +264,7 @@
 .chv-rond {
   justify-self: end;
   align-self: start;
-  margin-top: 6vh;
+  margin-top: 8vh;
   position: relative;
   width: 150px;
   height: 150px;
