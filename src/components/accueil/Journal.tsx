@@ -7,15 +7,22 @@ import { Etiquette, Revele, TitreAnime } from "./Primitives";
 
 const dateCourte = (iso: string) => iso.split("-").reverse().join("/");
 
+/*
+  Les cinq articles de la maquette, avec leurs couvertures : la routine de
+  publication ajoute des articles au Journal, mais l'accueil garde cette
+  sélection tant que Victor ne la change pas.
+*/
+const ARTICLES_ACCUEIL = articles.filter((a) => a.slug in COUVERTURES_BLOG);
+
 function CarteArticle({ rang }: { rang: number }) {
-  const article = articles[rang];
+  const article = ARTICLES_ACCUEIL[rang];
   const carte = usePivot<HTMLAnchorElement>(rang % 2 ? -1 : 1);
   return (
     <Revele as="article" effet="volume" delai={rang * 120} className={`chv-article ${rang % 2 ? "chv-article--decale" : ""}`}>
       <Link ref={carte} to={article.path} className="chv-article__carte">
         <div className="chv-article__interieur">
           <div className="chv-article__couverture">
-            <img src={COUVERTURES_BLOG[article.slug] || article.image} alt="" loading="lazy" />
+            <img src={COUVERTURES_BLOG[article.slug]} alt="" loading="lazy" />
           </div>
           <div className="chv-article__texte">
             <p className="chv-article__meta">
@@ -39,7 +46,7 @@ export function BlogAccueil() {
         Réglementation, rentabilité, fiscalité : ce qu'il faut savoir avant de louer en courte durée à Avignon.
       </p>
       <div className="chv-blog__grille">
-        {articles.slice(0, 6).map((a, i) => (
+        {ARTICLES_ACCUEIL.map((a, i) => (
           <CarteArticle key={a.slug} rang={i} />
         ))}
       </div>

@@ -12,8 +12,7 @@ export interface QuestionFaq {
 /*
   Première réponse alignée sur le tarif annoncé par Victor le 13 septembre
   2026 : 25 % HT, sur le net du propriétaire. L'ancienne réponse (« commission
-  personnalisée ») contredisait le bloc tarif de l'accueil. Le TTC est indiqué
-  parce que la plupart des propriétaires sont des particuliers.
+  personnalisée ») contredisait le bloc tarif de l'accueil.
 
   Chaque réponse doit rester sur une ligne "q" puis "a" : scripts/seo-routes.mjs
   les lit telles quelles pour le balisage FAQPage.
@@ -21,7 +20,7 @@ export interface QuestionFaq {
 export const faqConciergerie: QuestionFaq[] = [
   {
     q: "Quelle est votre commission ?",
-    a:"25 % HT, soit 30 % TTC, prélevés uniquement sur ce que vous touchez vraiment. Les commissions des plateformes, le ménage et la taxe de séjour sont déduits d'abord : notre commission ne s'applique qu'au net qui reste, jamais au chiffre d'affaires brut. Le ménage est payé par le voyageur, pas par vous. Aucun frais caché.",
+    a: "25 % HT, prélevés uniquement sur ce que vous touchez vraiment. Les commissions des plateformes, le ménage et la taxe de séjour sont déduits d'abord : notre commission ne s'applique qu'au net qui reste, jamais au chiffre d'affaires brut. Le ménage est payé par le voyageur, pas par vous. Aucun frais caché.",
   },
   {
     q: "La taxe de séjour est-elle comprise dans vos honoraires ?",

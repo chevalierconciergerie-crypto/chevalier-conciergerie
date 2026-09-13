@@ -81,7 +81,6 @@ function Tarif() {
       <p className="chv-tarif__chiffre">
         25 %<span> HT</span>
       </p>
-      <p className="chv-tarif__ttc">soit 30 % TTC</p>
       <p className="chv-tarif__accroche">de commission, prélevée uniquement sur ce que vous touchez vraiment.</p>
       <p className="chv-tarif__explication">
         Les commissions des plateformes, le ménage et la taxe de séjour sont déduits d'abord. Notre commission ne

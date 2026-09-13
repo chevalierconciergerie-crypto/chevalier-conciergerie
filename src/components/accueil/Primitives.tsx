@@ -74,7 +74,7 @@ export function Chevron({ couleur = "currentColor", taille = 18 }: { couleur?: s
   s'ouvrent depuis un point bas, comme les ferronneries des façades
   avignonnaises de l'entre-deux-guerres. Tracé ici, pas repris d'ailleurs.
 */
-export function MotifEventail({ className = "", couleur = "rgba(192,120,99,0.32)" }: { className?: string; couleur?: string }) {
+export function MotifEventail({ className = "", couleur = "rgba(192,120,99,0.16)" }: { className?: string; couleur?: string }) {
   const cx = 600;
   const cy = 760;
   const branches = [-5, -3.4, -2, -1, 0, 1, 2, 3.4, 5];

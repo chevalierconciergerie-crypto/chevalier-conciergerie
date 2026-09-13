@@ -2,21 +2,7 @@ import { Link } from "react-router-dom";
 import { COURRIEL, LEGAL, RESEAUX, TELEPHONE } from "@/data/accueil";
 import "./chevalier.css";
 
-/*
-  Les pages intérieures restent liées depuis le pied de page : l'accueil tient
-  sur une seule page, mais Google continue d'indexer /conciergerie-avignon,
-  /tarifs ou le Journal, et ces liens sont ce qui les lui fait trouver.
-*/
-const PAGES = [
-  { libelle: "Conciergerie à Avignon", lien: "/conciergerie-avignon" },
-  { libelle: "Villeneuve-lès-Avignon", lien: "/conciergerie-villeneuve-les-avignon" },
-  { libelle: "Les Angles", lien: "/conciergerie-les-angles" },
-  { libelle: "Tarifs", lien: "/tarifs" },
-  { libelle: "Estimation gratuite", lien: "/estimation-sous-location" },
-  { libelle: "Journal", lien: "/journal" },
-  { libelle: "Partenaires", lien: "/partenaires" },
-];
-
+/* Le pied de page de la maquette : marque, coordonnées, adresse, réseaux, puis les mentions légales. */
 const PiedDePage = () => (
   <footer className="chv-pied">
     <div className="chv-pied__haut">
@@ -27,22 +13,14 @@ const PiedDePage = () => (
         </p>
       </div>
 
-      <div className="chv-pied__colonne">
-        <h4>Contact</h4>
+      <div className="chv-pied__colonne" style={{ flexBasis: 240 }}>
         <a href={TELEPHONE.lien}>{TELEPHONE.international}</a>
         <a href={COURRIEL.lien}>{COURRIEL.affiche}</a>
-        <address>{LEGAL.adresse}</address>
       </div>
 
-      <nav className="chv-pied__colonne" aria-label="Pages du site">
-        <h4>Le site</h4>
-        {PAGES.map((p) => (
-          <Link key={p.lien} to={p.lien}>{p.libelle}</Link>
-        ))}
-      </nav>
+      <address style={{ flex: "0 1 240px" }}>{LEGAL.adresse}</address>
 
       <div className="chv-pied__colonne chv-pied__reseaux">
-        <h4>Suivez-nous</h4>
         {RESEAUX.map((r) => (
           <a key={r.nom} href={r.lien} target="_blank" rel="noopener noreferrer">{r.nom}</a>
         ))}
