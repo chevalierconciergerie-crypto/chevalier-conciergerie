@@ -75,8 +75,14 @@ const ZONE = ["Avignon", "Villeneuve-lès-Avignon", "Les Angles"];
  * Google. On la lit donc à la source. Si le format de la page change, le build échoue
  * bruyamment plutôt que de publier un schéma faux.
  */
-function readFaq(file, qKey, aKey) {
-  const src = readFileSync(path.join(root, file), "utf8");
+function readFaq(file, qKey, aKey, liste) {
+  let src = readFileSync(path.join(root, file), "utf8");
+  // src/data/faq.ts porte plusieurs listes : on ne lit que celle demandée.
+  if (liste) {
+    const debut = src.indexOf(`export const ${liste}`);
+    const fin = src.indexOf("export const", debut + 1);
+    src = debut < 0 ? "" : src.slice(debut, fin < 0 ? undefined : fin);
+  }
   const re = new RegExp(`${qKey}:\\s*"([^"]+)"\\s*,\\s*${aKey}:\\s*"([^"]+)"`, "g");
   const pairs = [...src.matchAll(re)].map((m) => [m[1], m[2]]);
   if (!pairs.length) {
@@ -88,8 +94,9 @@ function readFaq(file, qKey, aKey) {
   return pairs;
 }
 
-const CONCIERGERIE_FAQ = readFaq("src/pages/Conciergerie.tsx", "q", "a");
-const SOUSLOCATION_FAQ = readFaq("src/pages/SousLocation.tsx", "question", "answer");
+// Les FAQ de /conciergerie et /sous-location vivent dans src/data/faq.ts, partagées avec l'accueil.
+const CONCIERGERIE_FAQ = readFaq("src/data/faq.ts", "q", "a", "faqConciergerie");
+const SOUSLOCATION_FAQ = readFaq("src/data/faq.ts", "q", "a", "faqSousLocation");
 const TARIFS_FAQ = readFaq("src/pages/Tarifs.tsx", "question", "answer");
 
 /**

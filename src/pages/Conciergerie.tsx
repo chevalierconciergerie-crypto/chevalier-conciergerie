@@ -12,45 +12,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
+import { faqConciergerie } from "@/data/faq";
 
-const faqItems = [
-  {
-    q: "Quelle est votre commission ?",
-    a: "Notre commission est personnalisée : elle dépend du logement, de son emplacement et des services choisis. Nous la définissons ensemble lors d'une estimation gratuite et sans engagement, et tout est précisé clairement dans le mandat avant de démarrer. Aucun frais caché.",
-  },
-  {
-    q: "La taxe de séjour est-elle comprise dans vos honoraires ?",
-    a: "Non. La taxe de séjour est collectée auprès des voyageurs pour le compte de la collectivité et reversée intégralement : elle n'est jamais comptée comme un revenu ni dans notre commission.",
-  },
-  {
-    q: "Que comprend exactement la prestation de conciergerie ?",
-    a: "Création et optimisation de vos annonces, gestion des réservations et des voyageurs, accueil, ménage professionnel, linge hôtelier, maintenance courante et suivi de vos revenus. Vous n'avez rien à gérer.",
-  },
-  {
-    q: "Dans quelles zones intervenez-vous ?",
-    a: "Principalement à Avignon, Villeneuve-lès-Avignon, Les Angles et leurs environs immédiats. Contactez-nous pour vérifier que votre bien est dans notre zone.",
-  },
-  {
-    q: "Comment et quand suis-je payé ?",
-    a: "Vous recevez vos revenus selon la périodicité convenue dans le mandat, accompagnés d'un reporting clair détaillant les réservations, les frais et le montant qui vous revient.",
-  },
-  {
-    q: "Dois-je m'engager sur une longue durée ?",
-    a: "Le mandat précise la durée et les conditions de résiliation, avec un préavis raisonnable. Les réservations déjà confirmées au moment d'un arrêt sont menées à leur terme.",
-  },
-  {
-    q: "Faut-il une autorisation pour louer en courte durée à Avignon ?",
-    a: "Depuis le 1er janvier 2026, tout meublé de tourisme à Avignon doit être déclaré et enregistré, sans exception. S'y ajoute une autorisation temporaire de changement d'usage pour tout logement qui n'est pas une résidence principale, sur l'ensemble du territoire communal et pour les particuliers comme pour les sociétés. Les deux démarches passent par la plateforme changementdusage.fr/avignon. Nous vous orientons et constituons le dossier.",
-  },
-  {
-    q: "Combien de jours puis-je louer ma résidence principale à Avignon ?",
-    a: "90 jours par année civile, et non 120. Avignon a abaissé le plafond national par délibération du 22 février 2025, une faculté que le Code du tourisme laisse aux communes. En contrepartie, une résidence principale n'est pas soumise à l'autorisation de changement d'usage. Les règles évoluant, vérifiez votre situation auprès de la mairie.",
-  },
-  {
-    q: "Villeneuve-lès-Avignon et Les Angles suivent-elles les mêmes règles ?",
-    a: "Non. Le régime d'enregistrement et de changement d'usage décrit ici est propre à la commune d'Avignon. Villeneuve-lès-Avignon et Les Angles, situées dans le Gard, relèvent de dispositifs distincts. Nous vérifions le cadre applicable à votre bien avant toute mise en ligne.",
-  },
-];
+// Les questions vivent dans src/data/faq.ts, partagées avec la FAQ de l'accueil.
+const faqItems = faqConciergerie;
 
 const Conciergerie = () => {
   // Features incluses dans l'offre unique
