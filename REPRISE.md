@@ -60,7 +60,7 @@ schémas `BlogPosting` et `FAQPage`. `sharp` n'a jamais posé de problème en bu
 
 ## Ce qui a été fait
 
-### Accueil en une page, reconstruit depuis la maquette (13 septembre 2026) — en preview
+### Accueil en une page, reconstruit depuis la maquette (13 septembre 2026) — EN PRODUCTION
 Victor a mis au point la direction sur une copie locale d'era.estate
 (`Downloads\era.estate-copie`, servie sur localhost:8090) : c'est une **maquette**,
 jamais à publier (code, moteur et polices Decart/Gilroy appartiennent à ERA).
@@ -75,12 +75,12 @@ Le design a été réécrit ici avec notre propre code :
   toutes les pages les ont. Le corps des pages intérieures n'a pas changé.
 - Données partagées : `src/data/faq.ts` (lu aussi par `seo-routes.mjs` pour le
   FAQPage), `src/data/avis.ts`, `src/data/accueil.ts`. Images dans `public/accueil/`.
-- Commission : **25 % HT (30 % TTC) sur le net** (FAQ + JSON-LD). ⚠️ `/tarifs` et
+- Commission : **25 % HT sur le net** (FAQ + JSON-LD). Victor veut l'accueil identique à la maquette : pas de mention TTC, pied de page d'origine, blog limité aux 5 articles de la maquette (). ⚠️ `/tarifs` et
   l'article « tarif conciergerie » annoncent encore 20 % HT : à trancher avec Victor.
 - Règles de Victor sur cette direction : hero noir puis **tout en crème** (pas
   d'alternance), titre du hero à l'emplacement exact de la maquette (seule la police
   change), aucune photo de personne en noir et blanc, aucune image générée.
-Poussé sur `work` ; alias de branche Vercel stable :
+Publié sur `main` le 13 septembre 2026 à la demande de Victor. Alias de la branche `work` :
 https://chevalier-conci-git-6fe3b2-chevalierconciergerie-6787s-projects.vercel.app
 
 ### Séquence d'ouverture cinématique (6 septembre 2026) — en preview, pas en prod
