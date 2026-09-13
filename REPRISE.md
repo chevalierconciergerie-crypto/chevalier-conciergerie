@@ -75,7 +75,7 @@ Le design a été réécrit ici avec notre propre code :
   toutes les pages les ont. Le corps des pages intérieures n'a pas changé.
 - Données partagées : `src/data/faq.ts` (lu aussi par `seo-routes.mjs` pour le
   FAQPage), `src/data/avis.ts`, `src/data/accueil.ts`. Images dans `public/accueil/`.
-- Commission : **25 % HT sur le net** (FAQ + JSON-LD). Victor veut l'accueil identique à la maquette : pas de mention TTC, pied de page d'origine, blog limité aux 5 articles de la maquette (). ⚠️ `/tarifs` et
+- Commission : **25 % HT sur le net** (FAQ + JSON-LD). Victor veut l'accueil identique à la maquette : pas de mention TTC, pied de page d'origine, blog limité aux 5 articles de la maquette (`COUVERTURES_BLOG` dans `src/data/accueil.ts`). ⚠️ `/tarifs` et
   l'article « tarif conciergerie » annoncent encore 20 % HT : à trancher avec Victor.
 - Règles de Victor sur cette direction : hero noir puis **tout en crème** (pas
   d'alternance), titre du hero à l'emplacement exact de la maquette (seule la police
