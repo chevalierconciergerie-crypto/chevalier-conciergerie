@@ -8,16 +8,20 @@ import "./chevalier.css";
 const LOGO = "/accueil/logo-chevalier-blanc.png";
 const PHOTO_TAMBOUR = "/accueil/hero-pont-avignon.webp";
 
-/* Géométrie du tambour : 18 facettes de 78 px forment un cercle de rayon 221 px. */
+/*
+  Géométrie du tambour : 18 facettes. Leur largeur suit celle de l'écran
+  (96 px sur un portable, jusqu'à 150 px sur un grand écran) pour que le
+  tambour garde la même présence partout. Monté à l'ouverture du menu, il
+  prend la mesure de l'écran à ce moment-là.
+*/
 const FACETTES = 18;
-const LARGEUR_FACETTE = 78;
-const HAUTEUR_TAMBOUR = 290;
-const RAYON = LARGEUR_FACETTE / (2 * Math.tan(Math.PI / FACETTES));
 
 function Tambour() {
+  const LARGEUR_FACETTE = Math.round(Math.min(150, Math.max(96, window.innerWidth * 0.075)));
+  const HAUTEUR_TAMBOUR = Math.round(LARGEUR_FACETTE * 3.55);
+  const RAYON = LARGEUR_FACETTE / (2 * Math.tan(Math.PI / FACETTES));
   return (
     <div className="chv-tambour" aria-hidden="true">
-      <div className="chv-anneau chv-anneau--arriere" />
       <div className="chv-tambour__scene">
         <div
           className="chv-tambour__rotor"
@@ -37,24 +41,7 @@ function Tambour() {
           ))}
         </div>
       </div>
-      <div className="chv-anneau chv-anneau--avant" />
     </div>
-  );
-}
-
-function RondEstimation({ onClick }: { onClick: () => void }) {
-  return (
-    <a href="/#contact" className="chv-rond" onClick={(e) => { e.preventDefault(); onClick(); }}>
-      <svg viewBox="0 0 200 200" aria-hidden="true">
-        <defs>
-          <path id="chv-cercle" d="M 100,100 m -88,0 a 88,88 0 1,1 176,0 a 88,88 0 1,1 -176,0" />
-        </defs>
-        <text>
-          <textPath href="#chv-cercle">CHEVALIER · CONCIERGERIE · AVIGNON · </textPath>
-        </text>
-      </svg>
-      <span>Estimation<br />gratuite</span>
-    </a>
   );
 }
 
@@ -162,7 +149,6 @@ const EnTete = () => {
             </ul>
           </nav>
           {ouvert && <Tambour />}
-          <RondEstimation onClick={() => aller("contact")} />
         </div>
         <div className="chv-menu__pied">
           <a href={TELEPHONE.lien} tabIndex={ouvert ? 0 : -1}>{TELEPHONE.affiche}</a>

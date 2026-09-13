@@ -171,7 +171,7 @@
   inset: var(--chv-barre) 0 0 0;
   display: grid;
   /* La colonne des rubriques prend la largeur de sa plus longue entrée : elles ne doivent jamais être coupées par le tambour. */
-  grid-template-columns: max-content minmax(0, 1fr) auto;
+  grid-template-columns: max-content minmax(0, 1fr);
   column-gap: 3vw;
   align-items: start;
   padding: 0 var(--chv-marge) 6vh;
@@ -203,7 +203,7 @@
 /* Le tambour : la photo d'Avignon enroulée sur un cylindre qui tourne. */
 .chv-tambour {
   position: relative;
-  height: min(66vh, 560px);
+  height: min(76vh, 780px);
   align-self: center;
   display: grid;
   place-items: center;
@@ -230,61 +230,9 @@
 }
 @keyframes chv-tourne { from { transform: rotateY(0deg); } to { transform: rotateY(-360deg); } }
 
-.chv-anneau {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 150%;
-  height: 34%;
-  border-radius: 50%;
-  translate: -50% -50%;
-  rotate: -14deg;
-  pointer-events: none;
-}
-.chv-anneau::before,
-.chv-anneau::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 2px solid #ffc49a;
-  box-shadow: 0 0 22px 3px rgba(255, 132, 50, 0.75), inset 0 0 22px 3px rgba(255, 132, 50, 0.55);
-  -webkit-mask-image: conic-gradient(from var(--depart, 0deg), transparent 0deg, #000 70deg, #000 150deg, transparent 230deg, transparent 360deg);
-  mask-image: conic-gradient(from var(--depart, 0deg), transparent 0deg, #000 70deg, #000 150deg, transparent 230deg, transparent 360deg);
-  animation: chv-orbite 7s linear infinite;
-}
-.chv-anneau::after { inset: -9% -4%; opacity: 0.55; animation-duration: 11s; animation-direction: reverse; }
-@property --depart { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
-@keyframes chv-orbite { to { --depart: 360deg; } }
-/* L'anneau passe derrière le tambour en haut, devant en bas. */
-.chv-anneau--arriere { z-index: 0; clip-path: inset(0 0 50% 0); }
-.chv-anneau--avant { z-index: 2; clip-path: inset(50% 0 0 0); }
-.chv-tambour__scene { z-index: 1; }
 
-.chv-rond {
-  justify-self: end;
-  align-self: start;
-  margin-top: 8vh;
-  position: relative;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 1px solid rgba(192, 120, 99, 0.7);
-  display: grid;
-  place-items: center;
-  text-align: center;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--chv-creme);
-  text-decoration: none;
-  line-height: 1.5;
-  transition: background 0.4s ease, color 0.4s ease;
-}
-.chv-rond:hover { background: rgba(192, 120, 99, 0.16); }
-.chv-rond svg { position: absolute; inset: -18px; width: calc(100% + 36px); height: calc(100% + 36px); animation: chv-tourne-plat 24s linear infinite; }
-.chv-rond text { font-size: 9.5px; letter-spacing: 0.32em; fill: rgba(248, 240, 232, 0.55); }
-@keyframes chv-tourne-plat { to { transform: rotate(360deg); } }
+
+
 .chv-menu__pied {
   position: absolute;
   left: var(--chv-marge);
@@ -300,7 +248,7 @@
 .chv-menu__pied a:hover { color: var(--chv-creme); }
 @media (max-width: 900px) {
   .chv-menu__corps { grid-template-columns: 1fr; align-content: center; padding-bottom: 90px; }
-  .chv-tambour, .chv-rond { display: none; }
+  .chv-tambour { display: none; }
 }
 
 /* ============ Hero ============ */
@@ -319,27 +267,27 @@
 .chv-hero__titre {
   position: absolute;
   z-index: 2;
-  left: var(--chv-marge);
-  top: calc(var(--chv-barre) + 4vh);
+  /* Centré, et posé sur la photo : le bas de « AVIGNON » mord sur le haut de
+     l'image (58 % de l'écran), qui glisse ensuite sous le titre au défilement. */
+  left: 50%;
+  bottom: calc(42% - 0.3em);
   margin: 0;
   font-family: var(--chv-titre);
   font-weight: 400;
-  /* Même emplacement que la maquette : « CONCIERGERIE » part de la marge gauche
-     et va jusqu'au bord droit de l'écran (le mot mesure 7,13 fois la taille
-     de la police en Federo, d'où 13 vw). */
-  font-size: min(13vw, 21vh, 250px);
+  /* « CONCIERGERIE » mesure 7,13 fois la taille de la police en Federo :
+     12,3 vw lui fait occuper 88 % de la largeur, 6 % de marge de chaque côté. */
+  font-size: min(12.3vw, 24vh, 300px);
   line-height: 0.94;
   letter-spacing: -0.03em;
   text-transform: uppercase;
   color: var(--chv-creme);
   opacity: calc(1 - 1.6 * var(--p));
-  transform: translateY(calc(-60px * var(--p)));
+  transform: translate(-50%, calc(-60px * var(--p)));
   will-change: transform, opacity;
 }
 .chv-hero__titre > span { display: block; }
-/* Comme sur la maquette, « AVIGNON » ne s'aligne pas à droite : il commence au tiers de l'écran. */
-.chv-hero__ligne2 { position: relative; }
-.chv-hero__avignon { position: absolute; top: 0; left: 29.8vw; white-space: nowrap; }
+/* « À » sous le C, « AVIGNON » calé sur la fin de « CONCIERGERIE » : les deux lignes ont la même largeur, le bloc est centré. */
+.chv-hero__ligne2 { display: flex !important; justify-content: space-between; }
 .chv-hero__avignon {
   background: var(--chv-degrade-cuivre);
   -webkit-background-clip: text;
@@ -349,8 +297,9 @@
 .chv-hero__photo {
   position: absolute;
   z-index: 1;
-  left: calc(var(--chv-marge) * (1 - var(--p)));
-  right: calc(var(--chv-marge) * (1 - var(--p)));
+  /* 6 % de chaque côté, comme la maquette : les bords de la photo tombent sous ceux du titre (88 % de large). */
+  left: calc(6% * (1 - var(--p)));
+  right: calc(6% * (1 - var(--p)));
   top: calc(58% * (1 - var(--p)));
   bottom: 0;
   overflow: hidden;
@@ -360,13 +309,13 @@
 .chv-hero__suite {
   position: absolute;
   z-index: 3;
-  left: var(--chv-marge);
+  left: 6%;
   bottom: 34px;
   opacity: calc(1 - 2 * var(--p));
 }
 @media (max-width: 700px) {
   .chv-hero { height: 150vh; }
-  .chv-hero__titre { font-size: 11.6vw; top: calc(var(--chv-barre) + 6vh); }
+  .chv-hero__titre { font-size: 12.3vw; bottom: calc(54% - 0.3em); }
   .chv-hero__photo { top: calc(46% * (1 - var(--p))); }
 }
 
@@ -552,6 +501,6 @@
 @media (prefers-reduced-motion: reduce) {
   .chv-monte, .chv-volume, .chv-titre .chv-ligne, .chv-menu__liens a { opacity: 1 !important; transform: none !important; transition: none !important; }
   .chv-ruban { animation: none; flex-wrap: wrap; width: auto; justify-content: center; }
-  .chv-tambour__rotor, .chv-anneau::before, .chv-anneau::after, .chv-rond svg { animation: none; }
+  .chv-tambour__rotor { animation: none; }
   .chv-capture { transform: none; }
 }
