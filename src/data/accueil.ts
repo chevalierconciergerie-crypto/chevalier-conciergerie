@@ -21,8 +21,8 @@ export const COURRIEL = { affiche: "contact@chevalier-conciergerie.com", lien: "
 /* Logos officiels fournis par Victor, en couleurs (public/accueil/reseau-*.png). */
 export const RESEAUX = [
   { nom: "Instagram", lien: "https://www.instagram.com/chevalier_conciergerie/", logo: "/accueil/reseau-instagram.png" },
-  { nom: "LinkedIn", lien: "https://www.linkedin.com/in/chevalier-conciergerie-7559b03a4/", logo: "/accueil/reseau-linkedin.png" },
-  { nom: "Facebook", lien: "https://www.facebook.com/share/1GCBBTtP2R/", logo: "/accueil/reseau-facebook.png" },
+  { nom: "LinkedIn", lien: "https://www.linkedin.com/in/victor-chevalier-bba282356/", logo: "/accueil/reseau-linkedin.png" },
+  { nom: "Facebook", lien: "https://www.facebook.com/share/1Eio3qasaM/", logo: "/accueil/reseau-facebook.png" },
 ];
 
 /* Premier paragraphe de l'article de TV Sud Magazine du 23 juillet 2026. */

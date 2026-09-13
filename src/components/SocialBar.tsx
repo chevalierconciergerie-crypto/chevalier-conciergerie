@@ -11,7 +11,7 @@ const SocialBar = () => {
     },
     { 
       icon: Facebook, 
-      href: "https://www.facebook.com/share/1GCBBTtP2R/", 
+      href: "https://www.facebook.com/share/1Eio3qasaM/", 
       label: "Facebook",
       bgColor: "bg-[#1877F2]",
       hoverColor: "hover:bg-[#166FE5]"

@@ -122,7 +122,7 @@ const Index = () => {
             "sameAs": [
               "https://www.google.com/maps/place/CHEVALIER+CONCIERGERIE/@43.8680214,4.8327906,17z",
               "https://www.instagram.com/chevalier_conciergerie/",
-              "https://www.facebook.com/share/1GCBBTtP2R/",
+              "https://www.facebook.com/share/1Eio3qasaM/",
               "https://www.linkedin.com/in/victor-chevalier-bba282356/"
             ]
           })}
