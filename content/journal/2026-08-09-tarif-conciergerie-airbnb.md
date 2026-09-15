@@ -62,7 +62,7 @@ Le repère est simple : **une conciergerie qui refuse de donner son taux avant u
 
 ## Ce que nous facturons, et pourquoi
 
-Chez Chevalier Conciergerie, à Avignon, Villeneuve-lès-Avignon et Les Angles : **20 % HT des revenus encaissés, soit 24 % TTC.** Un seul taux, aucun palier.
+Chez Chevalier Conciergerie, à Avignon, Villeneuve-lès-Avignon et Les Angles : **25 % HT du net perçu par le propriétaire.** Les commissions des plateformes, le ménage et la taxe de séjour sont déduits d'abord : la commission ne s'applique qu'au net qui reste. Un seul taux, aucun palier.
 
 Ce que ce taux couvre, sans supplément :
 
@@ -95,7 +95,7 @@ Le calcul n'est pas le même : la conciergerie rapporte davantage sur une bonne 
 ## Questions fréquentes
 
 **Combien coûte une conciergerie Airbnb ?**
-Entre 15 % et 30 % des revenus encaissés selon le prestataire et l'étendue du service. Chevalier Conciergerie applique 20 % HT, soit 24 % TTC, tout compris : annonces, tarification, accueil des voyageurs, ménage, linge et suivi des encaissements, sans abonnement ni frais de dossier.
+Entre 15 % et 30 % des revenus encaissés selon le prestataire et l'étendue du service. Chevalier Conciergerie applique 25 % HT du net perçu par le propriétaire, tout compris : annonces, tarification, accueil des voyageurs, ménage, linge et suivi des encaissements, sans abonnement ni frais de dossier.
 
 **Le ménage est-il compris dans la commission d'une conciergerie ?**
 Cela dépend du prestataire, et c'est le poste qui change le plus la facture. Chez nous, le ménage est refacturé au voyageur comme le veut l'usage sur Airbnb et Booking : il n'entame pas vos revenus. Certaines conciergeries le prélèvent sur les vôtres — demandez-le explicitement.

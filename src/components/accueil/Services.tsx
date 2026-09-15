@@ -7,6 +7,7 @@ import {
   LOGOS_PLATEFORMES,
   type BlocService,
 } from "@/data/accueil";
+import { Messagerie } from "./Messagerie";
 import { Chevron, IconeCoche, Revele, TitreAnime } from "./Primitives";
 
 /*
@@ -39,13 +40,18 @@ function Bloc({ bloc, rang }: { bloc: BlocService; rang: number }) {
   const inverse = rang % 2 === 1;
   return (
     <div className={`chv-bloc ${inverse ? "chv-bloc--inverse" : ""}`}>
-      <Revele effet="volume" className="chv-bloc__image">
-        {/* La capture présentée de biais, avec un liseré qui capte la lumière ; elle se redresse au survol. */}
-        <div className="chv-capture" style={{ "--inclinaison": `${inverse ? -8 : 8}deg` } as CSSProperties}>
-          <div className="chv-capture__interieur">
-            <img src={bloc.image} alt={bloc.alt} width={bloc.largeur} height={bloc.hauteur} loading="lazy" />
+      <Revele effet={bloc.demo ? "monte" : "volume"} className="chv-bloc__image">
+        {bloc.demo === "messagerie" ? (
+          /* Une démonstration vivante vaut mieux qu'une capture : la carte reste droite. */
+          <Messagerie />
+        ) : (
+          /* La capture présentée de biais, avec un liseré qui capte la lumière ; elle se redresse au survol. */
+          <div className="chv-capture" style={{ "--inclinaison": `${inverse ? -8 : 8}deg` } as CSSProperties}>
+            <div className="chv-capture__interieur">
+              <img src={bloc.image} alt={bloc.alt} width={bloc.largeur} height={bloc.hauteur} loading="lazy" />
+            </div>
           </div>
-        </div>
+        )}
       </Revele>
       <Revele className="chv-bloc__texte" delai={120}>
         <span className="chv-badge">{bloc.badge}</span>

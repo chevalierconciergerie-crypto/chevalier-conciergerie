@@ -34,6 +34,8 @@ export const CITATION_FONDATEUR =
 
 export interface BlocService {
   badge: string;
+  /** Remplace la capture par une démonstration animée. */
+  demo?: "messagerie";
   ligne1: string;
   accent: string;
   image: string;
@@ -111,6 +113,7 @@ export const BLOCS_SERVICES: BlocService[] = [
   },
   {
     badge: "Les voyageurs",
+    demo: "messagerie",
     ligne1: "Vos voyageurs,",
     accent: "jour et nuit.",
     image: "/accueil/reponses-voyageurs.webp",

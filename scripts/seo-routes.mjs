@@ -451,9 +451,9 @@ const STATIC_ROUTES = [
     path: "/tarifs",
     changefreq: "monthly",
     priority: "0.9",
-    title: "Tarifs conciergerie Avignon | 20 % HT tout compris | Chevalier Conciergerie",
+    title: "Tarifs conciergerie Avignon | 25 % HT tout compris | Chevalier Conciergerie",
     description:
-      "Tarifs de conciergerie à Avignon : 20 % HT des revenus encaissés, tout compris, sans abonnement ni engagement. Sous-location : 0 % de commission, loyer fixe chaque mois.",
+      "Tarifs de conciergerie à Avignon : 25 % HT du net perçu par le propriétaire, tout compris, sans abonnement ni engagement. Sous-location : 0 % de commission, loyer fixe chaque mois.",
     keywords:
       "tarif conciergerie Avignon, prix conciergerie Avignon, commission conciergerie Airbnb, coût gestion locative Avignon, tarif sous-location Avignon",
     bodyHtml: `<main>
@@ -462,8 +462,10 @@ const STATIC_ROUTES = [
       <p>Un seul taux, annoncé avant tout rendez-vous. Pas d'abonnement, pas de frais
       de dossier, pas d'engagement de durée.</p>
 
-      <h2>Conciergerie : 20 % HT des revenus encaissés</h2>
-      <p>Soit 24 % TTC. Ce taux couvre l'intégralité du service à Avignon,
+      <h2>Conciergerie : 25 % HT du net perçu par le propriétaire</h2>
+      <p>Les commissions des plateformes, le ménage et la taxe de séjour sont déduits
+      d'abord : la commission ne s'applique qu'au net qui reste. Ce taux couvre
+      l'intégralité du service à Avignon,
       Villeneuve-lès-Avignon et Les Angles :</p>
       <ul>
         <li>Annonces créées et diffusées sur Airbnb, Booking et Abritel</li>

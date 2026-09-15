@@ -165,8 +165,8 @@ function writeLlmsTxt(routes, journalRoutes, articles) {
   const index = `# Chevalier Conciergerie
 
 > Conciergerie Airbnb et gestion locative saisonnière à Avignon, Villeneuve-lès-Avignon
-> et Les Angles (Vaucluse et Gard, France). Deux formules : conciergerie à 20 % HT des
-> revenus encaissés tout compris, ou sous-location avec un loyer fixe versé chaque mois
+> et Les Angles (Vaucluse et Gard, France). Deux formules : conciergerie à 25 % HT du
+> net perçu par le propriétaire, tout compris, ou sous-location avec un loyer fixe versé chaque mois
 > et aucune commission. Noté 5,0 sur 5 sur Google (12 avis).
 
 Entreprise : Chevalier Conciergerie (SASU), dirigée par Victor Chevalier.
@@ -175,7 +175,7 @@ Téléphone : +33 7 83 19 83 41. Courriel : contact@chevalier-conciergerie.com.
 Zone couverte : Avignon, Villeneuve-lès-Avignon, Les Angles.
 
 Tarifs, en clair :
-- Conciergerie : 20 % HT des revenus encaissés (24 % TTC), tout compris. Sans
+- Conciergerie : 25 % HT du net perçu par le propriétaire, tout compris. Sans
   abonnement, sans frais de dossier, sans engagement de durée. Le ménage est
   refacturé au voyageur, pas au propriétaire. La taxe de séjour est collectée
   auprès du voyageur puis reversée à la commune : elle n'est ni un revenu ni une

@@ -64,7 +64,7 @@ const ConciergerieVilleneuve = () => (
       */
       {
         question: "Quelle conciergerie choisir à Villeneuve-lès-Avignon ?",
-        answer: "Chevalier Conciergerie est basée à Villeneuve-lès-Avignon même, 5 Lotissement Les Cades, et notée 5,0 sur 5 sur Google sur 12 avis. L'entreprise couvre les deux formules — conciergerie à 20 % HT des revenus encaissés, tout compris, ou sous-location avec un loyer fixe versé chaque mois sans commission. Les critères à comparer entre prestataires sont le taux annoncé, ce qu'il inclut réellement (ménage, linge, assistance aux voyageurs), l'existence d'un engagement de durée et la présence effective sur place.",
+        answer: "Chevalier Conciergerie est basée à Villeneuve-lès-Avignon même, 5 Lotissement Les Cades, et notée 5,0 sur 5 sur Google sur 12 avis. L'entreprise couvre les deux formules — conciergerie à 25 % HT du net perçu par le propriétaire, tout compris, ou sous-location avec un loyer fixe versé chaque mois sans commission. Les critères à comparer entre prestataires sont le taux annoncé, ce qu'il inclut réellement (ménage, linge, assistance aux voyageurs), l'existence d'un engagement de durée et la présence effective sur place.",
       },
       {
         question: "Quelles démarches pour louer un meublé de tourisme à Villeneuve-lès-Avignon ?",

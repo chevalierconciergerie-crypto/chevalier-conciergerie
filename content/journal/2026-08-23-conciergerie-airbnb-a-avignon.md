@@ -1,6 +1,6 @@
 ---
 title: "Conciergerie Airbnb à Avignon : ce qu'il faut savoir avant de confier votre bien"
-description: "Conciergerie Airbnb à Avignon : gestion complète, 20% HT tout inclus et conformité réglementaire pour votre location courte durée."
+description: "Conciergerie Airbnb à Avignon : gestion complète, 25% HT tout inclus et conformité réglementaire pour votre location courte durée."
 date: 2026-08-23
 category: Conciergerie
 image: /journal/journal-defaut.jpg
@@ -10,9 +10,9 @@ keywords: ["conciergerie airbnb avignon", "conciergerie location courte durée a
 
 Une conciergerie Airbnb à Avignon gère pour vous les annonces, l'accueil des voyageurs, le ménage et les démarches réglementaires liées à la location courte durée. À Avignon, la particularité tient à la réglementation en zone tendue : sans déclaration en mairie ni respect des quotas, votre bien peut tout simplement être bloqué avant même la première réservation.
 
-## Ce que couvrent réellement les 20% HT chez Chevalier Conciergerie
+## Ce que couvrent réellement les 25% HT chez Chevalier Conciergerie
 
-Nos 20% HT couvrent l'intégralité de la gestion opérationnelle, sans ligne de frais qui apparaît après coup. C'est le point sur lequel la plupart des propriétaires nous interrogent en premier, souvent échaudés par un devis flou reçu ailleurs.
+Nos 25% HT couvrent l'intégralité de la gestion opérationnelle, sans ligne de frais qui apparaît après coup. C'est le point sur lequel la plupart des propriétaires nous interrogent en premier, souvent échaudés par un devis flou reçu ailleurs.
 
 Concrètement, ce pourcentage inclut :
 

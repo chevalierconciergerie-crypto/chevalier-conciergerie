@@ -84,7 +84,7 @@ Oui, et c'est même là que le rapport est le plus net. La dépense est fixe et 
 
 ## Ce que nous faisons pour nos propriétaires
 
-Chez Chevalier Conciergerie, la démarche de classement fait partie de la prise en charge : nous préparons le bien selon la grille officielle, nous prenons le rendez-vous avec l'organisme, et nous suivons le dossier jusqu'au certificat. C'est inclus dans la formule conciergerie à 20 % HT, sans facturation séparée.
+Chez Chevalier Conciergerie, la démarche de classement fait partie de la prise en charge : nous préparons le bien selon la grille officielle, nous prenons le rendez-vous avec l'organisme, et nous suivons le dossier jusqu'au certificat. C'est inclus dans la formule conciergerie à 25 % HT, sans facturation séparée.
 
 [Estimer les revenus de mon logement](/estimation-sous-location) — deux minutes, réponse sous 24 h, sans engagement.
 
@@ -93,7 +93,7 @@ Chez Chevalier Conciergerie, la démarche de classement fait partie de la prise 
 - [Rentabilité d'une location courte durée à Avignon : le calcul complet](/journal/calculer-rentabilite-reelle-location-courte-duree) — la méthode pour savoir ce que rapporte vraiment votre bien, charges et taxe de séjour déduites.
 - [Déclarer sa location saisonnière à Avignon : les 3 démarches obligatoires](/journal/declarer-location-saisonniere-avignon) — le préalable indispensable au classement.
 - [Conciergerie ou sous-location à Avignon : comment trancher](/journal/conciergerie-ou-sous-location-avignon) — comparatif chiffré des deux formules.
-- [Nos tarifs](/tarifs) — 20 % HT tout compris, ou 0 % en sous-location.
+- [Nos tarifs](/tarifs) — 25 % HT tout compris, ou 0 % en sous-location.
 
 ## Questions fréquentes
 

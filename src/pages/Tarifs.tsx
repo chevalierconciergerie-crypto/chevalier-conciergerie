@@ -28,7 +28,7 @@ const TARIFS_FAQ = [
   {
     question: "Quel est le tarif d'une conciergerie à Avignon ?",
     answer:
-      "Chez Chevalier Conciergerie, la gestion complète est facturée 20 % HT des revenus encaissés, soit 24 % TTC. Ce taux couvre l'intégralité du service : annonces, tarification, accueil des voyageurs, ménage, linge et suivi des encaissements. Il n'y a ni abonnement, ni frais de dossier, ni engagement de durée.",
+      "Chez Chevalier Conciergerie, la gestion complète est facturée 25 % HT du net perçu par le propriétaire : les commissions des plateformes, le ménage et la taxe de séjour sont déduits d'abord, la commission ne s'applique qu'au net qui reste. Ce taux couvre l'intégralité du service : annonces, tarification, accueil des voyageurs, ménage, linge et suivi des encaissements. Il n'y a ni abonnement, ni frais de dossier, ni engagement de durée.",
   },
   {
     question: "Y a-t-il des frais en plus de la commission ?",
@@ -51,14 +51,14 @@ const Tarifs = () => {
   return (
     <>
       <Helmet>
-        <title>Tarifs conciergerie Avignon | 20 % HT tout compris | Chevalier Conciergerie</title>
+        <title>Tarifs conciergerie Avignon | 25 % HT tout compris | Chevalier Conciergerie</title>
         <meta
           name="description"
-          content="Tarifs de conciergerie à Avignon : 20 % HT des revenus encaissés, tout compris, sans abonnement ni engagement. Sous-location : 0 % de commission, loyer fixe chaque mois."
+          content="Tarifs de conciergerie à Avignon : 25 % HT du net perçu par le propriétaire, tout compris, sans abonnement ni engagement. Sous-location : 0 % de commission, loyer fixe chaque mois."
         />
         <meta name="keywords" content="tarif conciergerie Avignon, prix conciergerie Avignon, commission conciergerie Airbnb, coût gestion locative Avignon, tarif sous-location Avignon" />
-        <meta property="og:title" content="Tarifs conciergerie Avignon | 20 % HT tout compris" />
-        <meta property="og:description" content="20 % HT des revenus encaissés, tout compris. Sous-location : 0 % de commission, loyer fixe chaque mois." />
+        <meta property="og:title" content="Tarifs conciergerie Avignon | 25 % HT tout compris" />
+        <meta property="og:description" content="25 % HT du net perçu par le propriétaire, tout compris. Sous-location : 0 % de commission, loyer fixe chaque mois." />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="fr_FR" />
         <link rel="canonical" href="https://chevalier-conciergerie.com/tarifs" />
@@ -95,10 +95,10 @@ const Tarifs = () => {
             offers: {
               "@type": "Offer",
               priceCurrency: "EUR",
-              description: "20 % HT des revenus encaissés, tout compris, sans abonnement ni engagement",
+              description: "25 % HT du net perçu par le propriétaire, tout compris, sans abonnement ni engagement",
               priceSpecification: {
                 "@type": "PriceSpecification",
-                price: "20",
+                price: "25",
                 priceCurrency: "EUR",
                 valueAddedTaxIncluded: false,
               },
@@ -154,10 +154,10 @@ const Tarifs = () => {
                       Conciergerie
                     </h2>
                     <p className="font-serif text-6xl md:text-7xl font-light text-white leading-none">
-                      20 %
+                      25 %
                     </p>
                     <p className="font-sans text-sm text-white/55 mt-3 mb-8">
-                      HT des revenus encaissés — soit 24 % TTC
+                      HT du net perçu par le propriétaire
                     </p>
                     <ul className="space-y-3 font-sans text-sm text-white/75">
                       <li>Annonces créées et diffusées sur Airbnb, Booking et Abritel</li>

@@ -592,3 +592,171 @@ select.chv-champ { appearance: none; background-image: url("data:image/svg+xml,%
 .chv-cookies .chv-pastille { height: 32px; font-size: 11px; padding: 0 16px; }
 .chv-cookies__refuser { background: none; border: 0; color: rgba(248, 240, 232, 0.7); font-family: var(--chv-texte); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 0 10px; height: 32px; cursor: pointer; }
 .chv-cookies__refuser:hover { color: var(--chv-creme); }
+
+/* ------------------------------------------------------------------ *
+   Messagerie voyageurs — la démonstration animée du bloc « Les voyageurs ».
+   Une carte claire posée droite (pas de biais comme les captures), une
+   rangée d'heures qui sert d'onglets, deux bulles et une ligne de preuve.
+ * ------------------------------------------------------------------ */
+
+.chv-messagerie {
+  background: #fffdfb;
+  border: 1px solid rgba(10, 10, 10, 0.07);
+  border-radius: 22px;
+  padding: 20px 20px 22px;
+  box-shadow: 0 30px 70px -42px rgba(70, 40, 28, 0.55);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  max-width: 520px;
+  margin-inline: auto;
+}
+
+.chv-messagerie__barre {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.chv-messagerie__heures {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.chv-messagerie__heure {
+  font-family: var(--chv-texte);
+  font-size: 11px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+  padding: 5px 11px;
+  border-radius: 99px;
+  border: 0;
+  cursor: pointer;
+  color: #7d7268;
+  background: rgba(10, 10, 10, 0.05);
+  transition: background 0.35s var(--chv-ease), color 0.35s var(--chv-ease);
+}
+
+.chv-messagerie__heure:hover {
+  color: var(--chv-noir);
+  background: rgba(10, 10, 10, 0.09);
+}
+
+.chv-messagerie__heure.est-active {
+  background: var(--chv-noir);
+  color: var(--chv-creme);
+}
+
+.chv-messagerie__heure:focus-visible {
+  outline: 2px solid var(--chv-cuivre-fonce);
+  outline-offset: 2px;
+}
+
+.chv-messagerie__nuit {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9a8f85;
+}
+
+.chv-messagerie__fil {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* Réserve la hauteur du plus long échange : la carte ne saute pas d'une heure à l'autre. */
+  min-height: 210px;
+}
+
+.chv-bulle {
+  max-width: 88%;
+  border-radius: 16px;
+  padding: 11px 15px;
+  opacity: 0;
+  transform: translateY(9px);
+  transition:
+    opacity 0.5s var(--chv-ease),
+    transform 0.5s var(--chv-ease);
+}
+
+.chv-bulle.est-posee {
+  opacity: 1;
+  transform: none;
+}
+
+.chv-bulle p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.chv-bulle--voyageur {
+  align-self: flex-start;
+  background: #f2ebe3;
+  color: #2a231e;
+  border-bottom-left-radius: 6px;
+}
+
+.chv-bulle__canal {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9a8f85;
+  margin-bottom: 4px;
+}
+
+.chv-bulle--nous {
+  align-self: flex-end;
+  background: var(--chv-cuivre-fonce);
+  color: var(--chv-creme);
+  border-bottom-right-radius: 6px;
+}
+
+.chv-messagerie__preuve {
+  align-self: flex-end;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 2px 2px 0;
+  font-size: 12px;
+  color: #9a8f85;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.45s var(--chv-ease),
+    transform 0.45s var(--chv-ease);
+}
+
+.chv-messagerie__preuve.est-posee {
+  opacity: 1;
+  transform: none;
+}
+
+.chv-messagerie__preuve svg {
+  color: var(--chv-cuivre-fonce);
+  flex: none;
+}
+
+@media (max-width: 560px) {
+  .chv-messagerie { padding: 16px 15px 18px; border-radius: 18px; }
+  .chv-messagerie__fil { min-height: 250px; }
+  .chv-bulle { max-width: 94%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chv-bulle,
+  .chv-messagerie__preuve {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

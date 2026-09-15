@@ -312,7 +312,7 @@ const SousLocation = () => {
             Tarifs. La page décrivait la formule sans jamais dire ce qu'elle
             coûte, alors que la réponse est justement l'argument : rien. Le
             propriétaire qui compare les deux formules a besoin de voir le
-            20 % de la conciergerie face au 0 % d'ici pour comprendre l'échange
+            25 % de la conciergerie face au 0 % d'ici pour comprendre l'échange
             — il renonce au potentiel des hautes saisons contre la certitude
             d'un montant tous les mois.
           */}

@@ -179,10 +179,10 @@ const Conciergerie = () => {
 
                       <div className="mb-6">
                         <span className="font-serif text-6xl md:text-7xl font-light text-primary-foreground leading-none block">
-                          20 %
+                          25 %
                         </span>
                         <p className="font-sans text-sm text-primary-foreground/60 mt-3 tracking-wide">
-                          HT des revenus encaissés — soit 24 % TTC
+                          HT du net perçu par le propriétaire
                         </p>
                       </div>
 
