@@ -3,6 +3,7 @@ import EnTete from "@/components/accueil/EnTete";
 import HeroAvignon from "@/components/accueil/HeroAvignon";
 import Fondateur from "@/components/accueil/Fondateur";
 import { ServiceConciergerie, ServiceSousLocation } from "@/components/accueil/Services";
+import Franchise from "@/components/accueil/Franchise";
 import { BlogAccueil, ContactAccueil, Temoignages } from "@/components/accueil/Journal";
 import PiedDePage from "@/components/accueil/PiedDePage";
 
@@ -136,6 +137,7 @@ const Index = () => {
           <Fondateur />
           <ServiceConciergerie />
           <ServiceSousLocation />
+          <Franchise />
           <BlogAccueil />
           <Temoignages />
           <ContactAccueil />

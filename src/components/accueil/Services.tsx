@@ -17,7 +17,7 @@ import { Chevron, IconeCoche, Revele, TitreAnime } from "./Primitives";
   dans la page. Balisage FAQPage : il est déjà porté par /conciergerie et
   /sous-location, qui lisent les mêmes questions.
 */
-function Faq({ questions }: { questions: QuestionFaq[] }) {
+export function Faq({ questions }: { questions: QuestionFaq[] }) {
   return (
     <div className="chv-faq">
       <h3>

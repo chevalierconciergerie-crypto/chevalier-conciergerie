@@ -90,3 +90,35 @@ export const faqSousLocation: QuestionFaq[] = [
     a: "La conciergerie vous laisse propriétaire exploitant : vos revenus varient avec l'occupation et vous nous versez une commission. La sous-location vous verse un loyer fixe quelle que soit l'occupation, et nous portons le risque. La première rapporte davantage sur une bonne saison, la seconde ne dépend pas de la saison. Nous détaillons la comparaison chiffrée dans notre article sur le choix entre les deux formules.",
   },
 ];
+
+/*
+  Franchise. Décision de Victor (24 septembre 2026) : aucun chiffre public —
+  ni droit d'entrée, ni redevance. Le modèle se détaille à l'appel. La page
+  vend ce qui est compris, pas un prix.
+*/
+export const faqFranchise: QuestionFaq[] = [
+  {
+    q: "Faut-il de l'expérience en conciergerie ?",
+    a: "Non. La formation part du début : trouver ses premiers propriétaires, fixer ses prix, monter son équipe de ménage, tenir la relation voyageur, suivre sa comptabilité. Ce qui compte n'est pas le diplôme, c'est d'être présent sur sa ville et de répondre quand on vous appelle.",
+  },
+  {
+    q: "Combien coûte l'entrée dans le réseau ?",
+    a: "Le droit d'entrée et la redevance sont détaillés lors du premier appel, avec le contrat et le modèle économique complet. Nous préférons en parler une fois que votre ville et votre situation sont sur la table, parce que ce qui compte est ce que ça rapporte chez vous, pas le montant seul.",
+  },
+  {
+    q: "Comment est définie ma zone ?",
+    a: "Votre territoire vous est réservé : aucun autre membre du réseau ne peut s'y implanter. Le découpage tient compte de la taille de la ville et du nombre de logements saisonniers qu'elle compte, pour qu'une zone reste exploitable par une seule personne.",
+  },
+  {
+    q: "Combien de temps avant mon premier mandat ?",
+    a: "La formation se suit à votre rythme, la plupart la bouclent en trois à quatre semaines. La prospection commence pendant, pas après : l'objectif est d'avoir signé votre premier propriétaire avant la fin du parcours.",
+  },
+  {
+    q: "Peut-on démarrer en gardant son emploi ?",
+    a: "Les premiers mois, oui, beaucoup le font. La conciergerie demande de la disponibilité aux entrées et aux sorties, mais le reste se pilote depuis un téléphone. Le passage à temps plein vient en général avec le cinquième ou le sixième mandat.",
+  },
+  {
+    q: "Le logiciel est-il vraiment compris ?",
+    a: "Oui, l'accès à Chevalier PMS est inclus pendant toute la durée du contrat, sans abonnement séparé. C'est le logiciel que nous utilisons nous-mêmes tous les jours : calendrier multicanal, suivi des ménages, messagerie voyageurs, CRM propriétaires.",
+  },
+];
