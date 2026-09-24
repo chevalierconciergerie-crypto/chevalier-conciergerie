@@ -11,6 +11,7 @@ import BandeauCookies from "./components/accueil/BandeauCookies";
 import Index from "./pages/Index";
 import Conciergerie from "./pages/Conciergerie";
 import SousLocation from "./pages/SousLocation";
+import Franchise from "./pages/Franchise";
 import Tarifs from "./pages/Tarifs";
 import EstimationSousLocation from "./pages/EstimationSousLocation";
 import Contact from "./pages/Contact";
@@ -40,6 +41,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/conciergerie" element={<Conciergerie />} />
             <Route path="/sous-location" element={<SousLocation />} />
+            <Route path="/franchise" element={<Franchise />} />
             <Route path="/tarifs" element={<Tarifs />} />
             <Route path="/estimation-sous-location" element={<EstimationSousLocation />} />
             <Route path="/contact" element={<Contact />} />

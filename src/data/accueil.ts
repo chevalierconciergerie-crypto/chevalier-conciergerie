@@ -10,6 +10,7 @@ export const RUBRIQUES = [
   { libelle: "Qui sommes-nous", ancre: "qui-sommes-nous" },
   { libelle: "Conciergerie", ancre: "notre-service" },
   { libelle: "Sous-location", ancre: "sous-location" },
+  { libelle: "Devenir franchisé", ancre: "franchise" },
   { libelle: "Blog", ancre: "blog" },
   { libelle: "Témoignages", ancre: "avis" },
   { libelle: "Contact", ancre: "contact" },

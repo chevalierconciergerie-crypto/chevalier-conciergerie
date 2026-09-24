@@ -760,3 +760,12 @@ select.chv-champ { appearance: none; background-image: url("data:image/svg+xml,%
     transition: none;
   }
 }
+
+/* ------------------------------------------------------------------ *
+   Franchise. Six cartes se rangent mal en 4 + 2 : on borne la rangée
+   pour obtenir 3 + 3. Et deux .chv-section qui se suivent cumulent leurs
+   marges verticales — on rabote celle du haut à partir de la deuxième.
+ * ------------------------------------------------------------------ */
+.chv-avantages--trois { max-width: 900px; }
+
+.chv-franchise .chv-section + .chv-section { padding-top: min(5vw, 56px); }

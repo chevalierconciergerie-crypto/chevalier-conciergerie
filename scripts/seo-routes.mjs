@@ -96,6 +96,7 @@ function readFaq(file, qKey, aKey, liste) {
 
 // Les FAQ de /conciergerie et /sous-location vivent dans src/data/faq.ts, partagées avec l'accueil.
 const CONCIERGERIE_FAQ = readFaq("src/data/faq.ts", "q", "a", "faqConciergerie");
+const FRANCHISE_FAQ = readFaq("src/data/faq.ts", "q", "a", "faqFranchise");
 const SOUSLOCATION_FAQ = readFaq("src/data/faq.ts", "q", "a", "faqSousLocation");
 const TARIFS_FAQ = readFaq("src/pages/Tarifs.tsx", "question", "answer");
 
@@ -595,6 +596,49 @@ const STATIC_ROUTES = [
           areaServed: ZONE.map((a) => ({ "@type": "City", name: a })),
         },
       },
+    ],
+  },
+  {
+    path: "/franchise",
+    changefreq: "monthly",
+    priority: "0.8",
+    title: "Devenir franchisé | Ouvrir sa conciergerie | Chevalier Conciergerie",
+    description:
+      "Ouvrez votre conciergerie avec le réseau Chevalier Conciergerie : marque et territoire réservé, plus de 40 h de formation, logiciel PMS et CRM compris, site web et référencement, kit marketing, accompagnement continu.",
+    keywords:
+      "franchise conciergerie, devenir franchisé conciergerie, ouvrir une conciergerie, réseau conciergerie Airbnb, franchise gestion locative, monter sa conciergerie",
+    bodyHtml: `<main>
+      <nav><a href="/">Accueil</a> › Devenir franchisé</nav>
+      <h1>Ouvrez votre conciergerie avec le réseau Chevalier</h1>
+      <p>Monter une conciergerie seul demande deux ans d'apprentissage par l'erreur. Le réseau
+      Chevalier Conciergerie transmet la marque, la méthode et les outils que nous utilisons
+      chaque jour sur nos propres logements.</p>
+
+      <h2>Ce qui est compris</h2>
+      <ul>
+        <li>La marque Chevalier Conciergerie sur votre ville, avec un territoire réservé</li>
+        <li>Plus de quarante heures de formation, de la prospection à la comptabilité</li>
+        <li>Le logiciel Chevalier PMS : calendrier multicanal, ménages, messagerie, CRM</li>
+        <li>Votre site web et la stratégie de référencement qui va avec</li>
+        <li>Un kit marketing complet : logo, cartes de visite, flyers, modèles de publications</li>
+        <li>Un accompagnement continu et un séminaire annuel de trois jours</li>
+      </ul>
+
+      <h2>À qui ça s'adresse</h2>
+      <p>À ceux qui partent de zéro, à ceux qui gèrent déjà quelques biens sans méthode ni outil,
+      et aux professionnels de l'immobilier qui veulent prolonger leur activité. Aucun diplôme
+      n'est requis : ce qui compte est d'habiter la ville que vous voulez couvrir.</p>
+
+      <h2>Comment ça se passe</h2>
+      <p>Un premier appel sur votre ville et votre situation, puis le dossier complet avec le
+      modèle économique et le contrat, puis la formation, puis l'ouverture. Le droit d'entrée et
+      la redevance se détaillent lors de l'appel.</p>
+
+      ${faqHtml(FRANCHISE_FAQ)}
+    </main>`,
+    jsonLd: [
+      breadcrumb({ name: "Devenir franchisé", path: "/franchise" }),
+      faqPage(FRANCHISE_FAQ),
     ],
   },
   {
