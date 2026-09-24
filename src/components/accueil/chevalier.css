@@ -914,3 +914,15 @@ select.chv-champ { appearance: none; background-image: url("data:image/svg+xml,%
   .chv-chrono__corps { opacity: 1; transform: none; transition: none; }
   .chv-chrono__rail-plein { transition: none; }
 }
+
+/* Titres de troisième niveau dans le contenu franchise : ils ont le même
+   dessin que les h3 d'origine, seul le niveau sémantique change (la page a
+   déjà son h1 et ses h3 de section). */
+.chv-liste__item h4 {
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 8px;
+  text-wrap: balance;
+}
+.chv-profil h4 { font-size: 18px; font-weight: 600; margin: 0 0 10px; line-height: 1.3; }
