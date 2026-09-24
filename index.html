@@ -178,9 +178,28 @@
         gtag('config', 'TON_ID');
       </script>
     -->
+    <!--
+      Premier rendu. Le prérendu SEO est injecté dans #root par
+      scripts/prerender.mjs ; sans ce bloc, le navigateur l'affichait brut sur
+      fond blanc pendant la demi-seconde qui précède le montage de React.
+
+      On pose donc la crème du site dès le premier pixel, et on masque la
+      coquille tant que le JavaScript est disponible — React la remplace de
+      toute façon. Le <noscript> la rend visible quand il n'y a pas de JS, et
+      les robots qui lisent le HTML sans interpréter le CSS la voient toujours.
+    -->
+    <style>
+      html { background: #f8f0e8; }
+      #root > .prerendu { display: none; }
+    </style>
+    <noscript>
+      <style>
+        #root > .prerendu { display: block; }
+      </style>
+    </noscript>
   </head>
 
-  <body>
+  <body style="background:#f8f0e8">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

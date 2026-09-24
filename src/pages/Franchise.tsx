@@ -2,21 +2,24 @@ import { Link } from "react-router-dom";
 import { Helmet } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Chronologie from "@/components/accueil/Chronologie";
 import { Revele, TitreAnime } from "@/components/accueil/Primitives";
 import { Faq } from "@/components/accueil/Services";
 import { faqFranchise } from "@/data/faq";
-import { ETAPES_FRANCHISE, INCLUS, LIEN_APPEL, PROFILS } from "@/data/franchise";
+import { INCLUS, LIEN_APPEL, PROFILS } from "@/data/franchise";
 
 /*
   /franchise — la page de recrutement du réseau.
 
-  Écrite dans le registre de l'accueil (classes chv-, Federo et Outfit) plutôt
-  que dans celui des anciennes pages intérieures : c'est la direction en cours,
-  et la page doit donner envie avant de convaincre.
+  Écrite dans le registre de l'accueil (classes chv-, Federo et Outfit). Aucun
+  chiffre publié : droit d'entrée, redevance et durée du contrat se détaillent
+  à l'appel.
 
-  Aucun chiffre publié — décision de Victor du 24 septembre 2026. Le droit
-  d'entrée, la redevance et la durée du contrat se détaillent à l'appel. La
-  page vend ce qui est compris et la personne qui l'accompagne.
+  Deuxième passe, après retour de Victor : le grand titre dit « Devenir
+  franchisé » et non plus « Ouvrez votre conciergerie » ; les trois grilles de
+  cartes identiques sont remplacées par des formes distinctes — une liste
+  numérotée à filets, trois colonnes de texte, une chronologie verticale — pour
+  sortir de l'empilement de blocs interchangeables.
 */
 const Franchise = () => {
   return (
@@ -25,13 +28,13 @@ const Franchise = () => {
         <title>Devenir franchisé | Ouvrir sa conciergerie | Chevalier Conciergerie</title>
         <meta
           name="description"
-          content="Ouvrez votre conciergerie avec le réseau Chevalier Conciergerie : marque, territoire réservé, plus de 40 h de formation, logiciel PMS et CRM compris, site web et référencement, kit marketing, accompagnement continu."
+          content="Devenez franchisé Chevalier Conciergerie : marque et territoire réservé, plus de 40 h de formation, logiciel PMS et CRM compris, site web et référencement, kit marketing, accompagnement continu. Du premier appel à l'ouverture."
         />
         <meta
           name="keywords"
-          content="franchise conciergerie, devenir franchisé conciergerie, ouvrir une conciergerie, réseau conciergerie Airbnb, franchise gestion locative"
+          content="devenir franchisé conciergerie, franchise conciergerie, ouvrir une conciergerie, réseau conciergerie Airbnb, franchise gestion locative, monter sa conciergerie"
         />
-        <meta property="og:title" content="Devenir franchisé | Ouvrir sa conciergerie avec Chevalier" />
+        <meta property="og:title" content="Devenir franchisé Chevalier Conciergerie" />
         <meta
           property="og:description"
           content="La marque, un territoire réservé, plus de 40 h de formation, le logiciel, le site et le kit marketing. Réservez un appel."
@@ -46,7 +49,7 @@ const Franchise = () => {
       <main className="chv chv-franchise">
         {/* Ouverture */}
         <section className="chv-section" aria-label="Devenir franchisé">
-          <TitreAnime lignes={["Ouvrez votre", "conciergerie."]} />
+          <TitreAnime lignes={["Devenir", "franchisé."]} />
 
           <Revele className="chv-entree">
             <span className="chv-badge">Le réseau Chevalier</span>
@@ -68,7 +71,7 @@ const Franchise = () => {
           </Revele>
         </section>
 
-        {/* Ce qui est compris */}
+        {/* Ce qui est compris — liste numérotée à filets */}
         <section className="chv-section" aria-label="Ce qui est compris dans le réseau">
           <Revele className="chv-entete-section">
             <span className="chv-badge">Ce qui est compris</span>
@@ -79,17 +82,18 @@ const Franchise = () => {
             </h2>
           </Revele>
 
-          <div className="chv-avantages chv-avantages--trois" style={{ marginTop: "min(6vw, 56px)" }}>
+          <ol className="chv-liste">
             {INCLUS.map((item, i) => (
-              <Revele key={item.nom} effet="volume" delai={i * 90} className="chv-avantage">
+              <Revele as="li" key={item.nom} delai={i * 70} className="chv-liste__item">
+                <span className="chv-liste__numero">{String(i + 1).padStart(2, "0")}</span>
                 <h3>{item.nom}</h3>
                 <p>{item.texte}</p>
               </Revele>
             ))}
-          </div>
+          </ol>
         </section>
 
-        {/* À qui ça s'adresse */}
+        {/* À qui ça s'adresse — trois colonnes de texte */}
         <section className="chv-section" aria-label="À qui s'adresse la franchise">
           <Revele className="chv-entete-section">
             <span className="chv-badge">À qui ça s'adresse</span>
@@ -100,9 +104,9 @@ const Franchise = () => {
             </h2>
           </Revele>
 
-          <div className="chv-avantages" style={{ marginTop: "min(6vw, 56px)" }}>
+          <div className="chv-profils">
             {PROFILS.map((profil, i) => (
-              <Revele key={profil.nom} effet="volume" delai={i * 110} className="chv-avantage">
+              <Revele key={profil.nom} delai={i * 110} className="chv-profil">
                 <h3>{profil.nom}</h3>
                 <p>{profil.texte}</p>
               </Revele>
@@ -117,26 +121,18 @@ const Franchise = () => {
           </Revele>
         </section>
 
-        {/* Comment ça se passe */}
-        <section className="chv-section" aria-label="Comment se déroule l'entrée dans le réseau">
+        {/* Le parcours, du premier appel à l'ouverture */}
+        <section className="chv-section" aria-label="Le parcours, du premier appel à l'ouverture">
           <Revele className="chv-entete-section">
-            <span className="chv-badge">Le déroulé</span>
+            <span className="chv-badge">Le parcours</span>
             <h2 className="chv-sous-titre">
-              De l'appel
+              Du premier appel
               <br />
-              <em>au premier mandat.</em>
+              <em>à votre première remise de clés.</em>
             </h2>
           </Revele>
 
-          <div className="chv-etapes" style={{ marginTop: "min(6vw, 56px)" }}>
-            {ETAPES_FRANCHISE.map((etape, i) => (
-              <Revele key={etape.numero} delai={i * 90} className="chv-etape">
-                <p className="chv-etape__numero">{etape.numero}</p>
-                <h3>{etape.nom}</h3>
-                <p>{etape.texte}</p>
-              </Revele>
-            ))}
-          </div>
+          <Chronologie />
 
           <Revele className="chv-entete-section" delai={160} style={{ marginTop: "min(7vw, 64px)" }}>
             <Link className="chv-pastille" to={LIEN_APPEL}>

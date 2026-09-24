@@ -121,4 +121,24 @@ export const faqFranchise: QuestionFaq[] = [
     q: "Le logiciel est-il vraiment compris ?",
     a: "Oui, l'accès à Chevalier PMS est inclus pendant toute la durée du contrat, sans abonnement séparé. C'est le logiciel que nous utilisons nous-mêmes tous les jours : calendrier multicanal, suivi des ménages, messagerie voyageurs, CRM propriétaires.",
   },
+  {
+    q: "Quel statut juridique faut-il créer ?",
+    a: "Une société ou une entreprise individuelle à votre nom : vous restez chef d'entreprise, la franchise n'est pas un contrat de travail. Nous vous indiquons le montage qui convient à votre situation lors du dossier, mais le choix et sa validation par votre comptable vous appartiennent.",
+  },
+  {
+    q: "Qui recrute et paie l'équipe de ménage ?",
+    a: "Vous. La formation couvre exactement ça : où trouver des prestataires fiables dans votre ville, comment les rémunérer, comment contrôler la qualité sans repasser derrière eux. Le ménage est refacturé au voyageur, donc il ne pèse pas sur votre trésorerie.",
+  },
+  {
+    q: "Que se passe-t-il si je veux arrêter ?",
+    a: "Le contrat prévoit ses conditions de sortie, et elles sont dans le dossier que vous recevez avant toute signature, pas découvertes en cours de route. Vous conservez votre société et vos relations commerciales ; ce que vous rendez, c'est l'usage de la marque, du logiciel et du territoire.",
+  },
+  {
+    q: "Combien de franchisés comptez-vous ouvrir ?",
+    a: "Peu, et lentement. Un réseau qui recrute vite recrute mal, et chaque franchisé mal accompagné abîme le nom de tous les autres. Les premiers entrants bénéficient de conditions que nous ne reconduirons pas, précisément parce qu'ils prennent le risque d'arriver les premiers.",
+  },
+  {
+    q: "Pourquoi ouvrir un réseau plutôt que de grandir seul ?",
+    a: "Parce que la conciergerie est un métier de présence. On ne gère pas Bordeaux depuis Avignon : il faut quelqu'un qui connaisse la ville, qui puisse être sur place en vingt minutes et que les propriétaires croisent au marché. Une agence à distance ne tient pas cette promesse, un franchisé local si.",
+  },
 ];

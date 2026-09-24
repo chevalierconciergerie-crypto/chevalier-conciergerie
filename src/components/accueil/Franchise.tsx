@@ -5,15 +5,15 @@ import { Revele, TitreAnime } from "./Primitives";
 /*
   Section « Devenir franchisé » de l'accueil : l'aperçu, pas la page entière.
   Elle annonce ce qui est compris dans le réseau et renvoie vers /franchise,
-  où le sujet est traité en entier. Aucun chiffre ici non plus.
+  où le parcours est détaillé. Aucun chiffre ici non plus.
 
   Le public de l'accueil reste le propriétaire : cette section vient après les
-  deux formules et le blog, une fois la conciergerie démontrée.
+  deux formules, une fois la conciergerie démontrée.
 */
 export default function Franchise() {
   return (
     <section id="franchise" className="chv-section" aria-label="Devenir franchisé Chevalier Conciergerie">
-      <TitreAnime lignes={["Ouvrez votre", "conciergerie."]} />
+      <TitreAnime lignes={["Devenir", "franchisé."]} />
 
       <Revele className="chv-entree">
         <span className="chv-badge">Le réseau</span>
@@ -29,18 +29,19 @@ export default function Franchise() {
         </p>
       </Revele>
 
-      <div className="chv-avantages chv-avantages--trois">
+      <ol className="chv-liste">
         {INCLUS.map((item, i) => (
-          <Revele key={item.nom} effet="volume" delai={i * 90} className="chv-avantage">
+          <Revele as="li" key={item.nom} delai={i * 70} className="chv-liste__item">
+            <span className="chv-liste__numero">{String(i + 1).padStart(2, "0")}</span>
             <h3>{item.nom}</h3>
             <p>{item.texte}</p>
           </Revele>
         ))}
-      </div>
+      </ol>
 
       <Revele className="chv-entete-section" delai={120} style={{ marginTop: "min(7vw, 64px)" }}>
         <Link className="chv-pastille" to="/franchise">
-          Découvrir le réseau
+          Le parcours en entier
         </Link>
       </Revele>
     </section>

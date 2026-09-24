@@ -101,7 +101,7 @@ function buildHtml(template, route) {
   if (route.bodyHtml) {
     html = html.replace(
       '<div id="root"></div>',
-      `<div id="root">${route.bodyHtml}</div>`,
+      `<div id="root"><div class="prerendu">${route.bodyHtml}</div></div>`,
     );
   }
 

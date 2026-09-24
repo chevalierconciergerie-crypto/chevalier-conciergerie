@@ -609,7 +609,7 @@ const STATIC_ROUTES = [
       "franchise conciergerie, devenir franchisé conciergerie, ouvrir une conciergerie, réseau conciergerie Airbnb, franchise gestion locative, monter sa conciergerie",
     bodyHtml: `<main>
       <nav><a href="/">Accueil</a> › Devenir franchisé</nav>
-      <h1>Ouvrez votre conciergerie avec le réseau Chevalier</h1>
+      <h1>Devenir franchisé Chevalier Conciergerie</h1>
       <p>Monter une conciergerie seul demande deux ans d'apprentissage par l'erreur. Le réseau
       Chevalier Conciergerie transmet la marque, la méthode et les outils que nous utilisons
       chaque jour sur nos propres logements.</p>
@@ -629,10 +629,15 @@ const STATIC_ROUTES = [
       et aux professionnels de l'immobilier qui veulent prolonger leur activité. Aucun diplôme
       n'est requis : ce qui compte est d'habiter la ville que vous voulez couvrir.</p>
 
-      <h2>Comment ça se passe</h2>
-      <p>Un premier appel sur votre ville et votre situation, puis le dossier complet avec le
-      modèle économique et le contrat, puis la formation, puis l'ouverture. Le droit d'entrée et
-      la redevance se détaillent lors de l'appel.</p>
+      <h2>Le parcours, du premier appel à l'ouverture</h2>
+      <ol>
+        <li>Le premier appel, 45 minutes : votre ville, votre situation, le territoire disponible</li>
+        <li>Le dossier complet sous 48 heures : modèle économique, contrat, droit d'entrée, redevance</li>
+        <li>Vingt jours de réflexion au minimum, comme l'impose la loi Doubin avant toute signature</li>
+        <li>La signature : contrat, territoire acté, accès au logiciel ouverts</li>
+        <li>La formation, plus de quarante heures, la prospection commençant pendant</li>
+        <li>L'ouverture : site en ligne, premiers mandats, points réguliers et séminaire annuel</li>
+      </ol>
 
       ${faqHtml(FRANCHISE_FAQ)}
     </main>`,

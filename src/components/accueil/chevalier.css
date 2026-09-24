@@ -761,11 +761,156 @@ select.chv-champ { appearance: none; background-image: url("data:image/svg+xml,%
   }
 }
 
-/* ------------------------------------------------------------------ *
-   Franchise. Six cartes se rangent mal en 4 + 2 : on borne la rangée
-   pour obtenir 3 + 3. Et deux .chv-section qui se suivent cumulent leurs
-   marges verticales — on rabote celle du haut à partir de la deuxième.
- * ------------------------------------------------------------------ */
-.chv-avantages--trois { max-width: 900px; }
-
+/* ================================================================== *
+   Franchise
+   Deux .chv-section qui se suivent cumulent leurs marges : on rabote
+   celle du haut à partir de la deuxième.
+ * ================================================================== */
 .chv-franchise .chv-section + .chv-section { padding-top: min(5vw, 56px); }
+
+/* ---- Liste numérotée à filets : ce qui est compris ----
+   Pas de cartes. Un filet, un numéro en cuivre, un titre, un paragraphe.
+   Deux colonnes sur grand écran, une seule dès que ça serre. */
+.chv-liste {
+  list-style: none;
+  margin: min(6vw, 56px) auto 0;
+  padding: 0;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 min(6vw, 64px);
+}
+.chv-liste__item {
+  padding: 26px 0 28px;
+  border-top: 1px solid rgba(10, 10, 10, 0.12);
+}
+.chv-liste__numero {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--chv-cuivre-fonce);
+  font-variant-numeric: tabular-nums;
+  margin: 0 0 10px;
+}
+.chv-liste__item h3 {
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 8px;
+  text-wrap: balance;
+}
+.chv-liste__item p {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: rgba(10, 10, 10, 0.62);
+  margin: 0;
+}
+
+/* ---- Profils : trois colonnes de texte, séparées par un filet ---- */
+.chv-profils {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: min(5vw, 48px);
+  max-width: 1040px;
+  margin: min(6vw, 56px) auto 0;
+}
+.chv-profil { border-top: 2px solid var(--chv-noir); padding-top: 20px; }
+.chv-profil h3 { font-size: 18px; font-weight: 600; margin: 0 0 10px; line-height: 1.3; }
+.chv-profil p { font-size: 14.5px; line-height: 1.65; color: rgba(10, 10, 10, 0.62); margin: 0; }
+
+/* ---- Chronologie du parcours ---- */
+.chv-chrono {
+  list-style: none;
+  position: relative;
+  max-width: 760px;
+  margin: min(7vw, 64px) auto 0;
+  padding: 0 0 0 46px;
+}
+.chv-chrono__rail {
+  position: absolute;
+  left: 11px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: rgba(10, 10, 10, 0.1);
+  border-radius: 2px;
+}
+.chv-chrono__rail-plein {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: calc(var(--avancee, 0) * 100%);
+  background: var(--chv-cuivre-fonce);
+  border-radius: 2px;
+  transition: height 0.25s linear;
+}
+.chv-chrono__etape { position: relative; padding: 0 0 min(5vw, 46px); }
+.chv-chrono__etape:last-child { padding-bottom: 0; }
+
+.chv-chrono__point {
+  position: absolute;
+  left: -46px;
+  top: 6px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--chv-creme);
+  border: 2px solid rgba(10, 10, 10, 0.14);
+  transition: border-color 0.5s var(--chv-ease), background 0.5s var(--chv-ease);
+}
+.chv-chrono__point::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  background: var(--chv-cuivre-fonce);
+  opacity: 0;
+  transform: scale(0.4);
+  transition: opacity 0.45s var(--chv-ease), transform 0.45s var(--chv-ease);
+}
+.chv-chrono__etape.est-atteinte .chv-chrono__point { border-color: var(--chv-cuivre-fonce); }
+.chv-chrono__etape.est-atteinte .chv-chrono__point::after { opacity: 1; transform: none; }
+
+.chv-chrono__corps {
+  opacity: 0.55;
+  transform: translateY(8px);
+  transition: opacity 0.6s var(--chv-ease), transform 0.6s var(--chv-ease);
+}
+.chv-chrono__etape.est-atteinte .chv-chrono__corps { opacity: 1; transform: none; }
+
+.chv-chrono__haut {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 0 0 6px;
+}
+.chv-chrono__numero {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--chv-cuivre-fonce);
+  font-variant-numeric: tabular-nums;
+}
+.chv-chrono__duree {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(10, 10, 10, 0.4);
+}
+.chv-chrono__etape h3 { font-size: 21px; font-weight: 600; margin: 0 0 8px; line-height: 1.25; }
+.chv-chrono__texte { font-size: 15px; line-height: 1.7; color: rgba(10, 10, 10, 0.62); margin: 0; }
+
+@media (max-width: 860px) {
+  .chv-liste { grid-template-columns: 1fr; }
+  .chv-profils { grid-template-columns: 1fr; gap: 28px; }
+}
+@media (max-width: 560px) {
+  .chv-chrono { padding-left: 34px; }
+  .chv-chrono__rail { left: 7px; }
+  .chv-chrono__point { left: -34px; width: 18px; height: 18px; top: 4px; }
+  .chv-chrono__etape h3 { font-size: 19px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chv-chrono__corps { opacity: 1; transform: none; transition: none; }
+  .chv-chrono__rail-plein { transition: none; }
+}
