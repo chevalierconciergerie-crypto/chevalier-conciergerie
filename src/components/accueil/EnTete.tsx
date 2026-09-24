@@ -74,8 +74,13 @@ const EnTete = () => {
   }, []);
 
   const aller = useCallback(
-    (ancre: string) => {
+    (ancre: string, page?: string) => {
       fermer();
+      // Une rubrique qui porte une page n'est pas une ancre : on y navigue.
+      if (page) {
+        naviguer(page);
+        return;
+      }
       if (pathname === "/") {
         // Le verrou de défilement vient d'être levé : on laisse le navigateur
         // en prendre acte avant de lancer le défilement.
@@ -145,10 +150,10 @@ const EnTete = () => {
               {RUBRIQUES.map((r, i) => (
                 <li key={r.ancre}>
                   <a
-                    href={r.ancre === "accueil" ? "/" : `/#${r.ancre}`}
+                    href={"page" in r && r.page ? r.page : r.ancre === "accueil" ? "/" : `/#${r.ancre}`}
                     style={{ "--i": i } as CSSProperties}
                     tabIndex={ouvert ? 0 : -1}
-                    onClick={(e) => { e.preventDefault(); aller(r.ancre); }}
+                    onClick={(e) => { e.preventDefault(); aller(r.ancre, "page" in r ? r.page : undefined); }}
                   >
                     {r.libelle}
                   </a>

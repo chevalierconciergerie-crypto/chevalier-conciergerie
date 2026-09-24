@@ -10,7 +10,8 @@ export const RUBRIQUES = [
   { libelle: "Qui sommes-nous", ancre: "qui-sommes-nous" },
   { libelle: "Conciergerie", ancre: "notre-service" },
   { libelle: "Sous-location", ancre: "sous-location" },
-  { libelle: "Devenir franchisé", ancre: "franchise" },
+  // Seule rubrique qui n'est pas une ancre de l'accueil : elle ouvre une vraie page.
+  { libelle: "Devenir franchisé", ancre: "franchise", page: "/franchise" },
   { libelle: "Blog", ancre: "blog" },
   { libelle: "Témoignages", ancre: "avis" },
   { libelle: "Contact", ancre: "contact" },
