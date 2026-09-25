@@ -979,15 +979,22 @@ select.chv-champ { appearance: none; background-image: url("data:image/svg+xml,%
 .chv-demo__preuve svg { color: var(--chv-cuivre-fonce); flex: none; margin-top: 2px; }
 
 /* Teintes de canal, communes aux démonstrations */
-/* Les couleurs officielles des deux plateformes : le rose d'Airbnb et le bleu
-   de Booking se reconnaissent d'un coup d'oeil, ce qu'aucune teinte maison ne
-   ferait. « Direct », c'est nous : il prend le noir de la marque. */
-.chv-canaux__part--airbnb, .chv-canaux__puce--airbnb { background: #ff5a5f; }
-.chv-canaux__part--booking, .chv-canaux__puce--booking { background: #0071c2; }
-.chv-canaux__part--direct, .chv-canaux__puce--direct { background: var(--chv-noir); }
-.chv-cal__jour.chv-cal__jour--airbnb { background: #ff5a5f; }
-.chv-cal__jour.chv-cal__jour--booking { background: #0071c2; }
-.chv-cal__jour.chv-cal__jour--direct { background: var(--chv-noir); }
+/* Les vraies couleurs, prises à la source et non approchées : le rose est
+   échantillonné dans logo-airbnb.png, le bleu dans logo-booking.png — la case
+   du calendrier est donc exactement de la teinte du logo posé dessus. Le vert
+   est celui de chevalier-pms.com, puisque la réservation directe passe par le
+   site de réservation du PMS. */
+:root {
+  --canal-airbnb: #ff5d58;
+  --canal-booking: #273b7d;
+  --canal-direct: #166534;
+}
+.chv-canaux__part--airbnb, .chv-canaux__puce--airbnb { background: var(--canal-airbnb); }
+.chv-canaux__part--booking, .chv-canaux__puce--booking { background: var(--canal-booking); }
+.chv-canaux__part--direct, .chv-canaux__puce--direct { background: var(--canal-direct); }
+.chv-cal__jour.chv-cal__jour--airbnb { background: var(--canal-airbnb); }
+.chv-cal__jour.chv-cal__jour--booking { background: var(--canal-booking); }
+.chv-cal__jour.chv-cal__jour--direct { background: var(--canal-direct); }
 
 /* ---- Calendrier ---- */
 .chv-cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; min-height: 168px; }
