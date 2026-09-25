@@ -1,3 +1,4 @@
+import { useLangue, useT } from "@/i18n/langue";
 import { useCallback, useEffect, useState, type CSSProperties } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { COURRIEL, RESEAUX, RUBRIQUES, TELEPHONE } from "@/data/accueil";
@@ -73,6 +74,9 @@ const EnTete = () => {
     document.documentElement.style.overflow = "";
   }, []);
 
+  const t = useT();
+  const { lien } = useLangue();
+
   const aller = useCallback(
     (ancre: string, page?: string) => {
       fermer();
@@ -112,20 +116,20 @@ const EnTete = () => {
           plein écran reprend la main.
         */}
         {!dansMenu && (
-          <nav className="chv-entete__nav" aria-label="Rubriques">
+          <nav className="chv-entete__nav" aria-label={t("Rubriques")}>
             {RUBRIQUES.filter((r) => r.ancre !== "accueil").map((r) => (
               <a
                 key={r.ancre}
                 href={"page" in r && r.page ? r.page : `/#${r.ancre}`}
                 onClick={(e) => { e.preventDefault(); aller(r.ancre, "page" in r ? r.page : undefined); }}
               >
-                {r.libelle}
+                {t(r.libelle)}
               </a>
             ))}
           </nav>
         )}
         {dansMenu ? (
-          <button type="button" className="chv-pastille chv-pastille--rond" onClick={fermer} aria-label="Fermer le menu">
+          <button type="button" className="chv-pastille chv-pastille--rond" onClick={fermer} aria-label={t("Fermer le menu")}>
             <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
               <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </svg>
@@ -137,21 +141,24 @@ const EnTete = () => {
             onClick={() => setOuvert(true)}
             aria-expanded={ouvert}
             aria-controls="chv-menu"
-            aria-label="Ouvrir le menu"
+            aria-label={t("Ouvrir le menu")}
           >
             <span className="chv-burger" aria-hidden="true"><span /><span /></span>
-            <span className="chv-pastille__texte">Menu</span>
+            <span className="chv-pastille__texte">{t("Menu")}</span>
           </button>
         )}
       </div>
-      <Link to="/" className="chv-logo" onClick={(e) => { if (pathname === "/") { e.preventDefault(); aller("accueil"); } }} aria-label="Chevalier Conciergerie, accueil">
+      <Link to={lien("/")} className="chv-logo" onClick={(e) => { if (pathname === "/") { e.preventDefault(); aller("accueil"); } }} aria-label={t("Chevalier Conciergerie, accueil")}>
         <img src={LOGO} alt="CHEVALIER" width={996} height={129} />
       </Link>
       <div className="chv-entete__droite">
+        {/* Les drapeaux apparaîtront ici le jour où la version anglaise est
+            complète : un sélecteur qui ne traduit rien est pire que pas de
+            sélecteur. Le système, lui, est déjà en place. */}
         <Reseaux tabIndex={dansMenu && !ouvert ? -1 : undefined} />
-        <Link to={ESTIMATION} className="chv-pastille" tabIndex={dansMenu && !ouvert ? -1 : undefined}>
-          <span className="chv-entete__appel-long">Estimation gratuite</span>
-          <span className="chv-entete__appel-court">Estimation</span>
+        <Link to={lien(ESTIMATION)} className="chv-pastille" tabIndex={dansMenu && !ouvert ? -1 : undefined}>
+          <span className="chv-entete__appel-long">{t("Estimation gratuite")}</span>
+          <span className="chv-entete__appel-court">{t("Estimation")}</span>
         </Link>
       </div>
     </div>
@@ -164,7 +171,7 @@ const EnTete = () => {
       <div id="chv-menu" className={`chv-menu ${ouvert ? "est-ouvert" : ""}`} aria-hidden={!ouvert} role="dialog" aria-label="Menu">
         {barre(true)}
         <div className="chv-menu__corps">
-          <nav aria-label="Rubriques">
+          <nav aria-label={t("Rubriques")}>
             <ul className="chv-menu__liens">
               {RUBRIQUES.map((r, i) => (
                 <li key={r.ancre}>
@@ -174,7 +181,7 @@ const EnTete = () => {
                     tabIndex={ouvert ? 0 : -1}
                     onClick={(e) => { e.preventDefault(); aller(r.ancre, "page" in r ? r.page : undefined); }}
                   >
-                    {r.libelle}
+                    {t(r.libelle)}
                   </a>
                 </li>
               ))}

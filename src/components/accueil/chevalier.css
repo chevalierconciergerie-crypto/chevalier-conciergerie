@@ -1143,41 +1143,63 @@ select.chv-champ { appearance: none; background-image: url("data:image/svg+xml,%
   .chv-logo { order: -1; flex: none; }
   .chv-logo img { height: 22px; width: auto; }
 
-  .chv-entete__gauche { min-width: 0; flex: 1 1 auto; }
+  /* Victor : « trop petit, trop à gauche, trop fin, ça ne fait pas haut de
+     gamme ». Les rubriques sont donc centrées dans l'espace qui reste entre le
+     logo et le bloc de droite, posées plus grandes, en demi-gras, et sur une
+     crème pleine plutôt qu'un gris translucide. Le soulignement au survol
+     laisse place à un filet cuivre qui se déploie depuis le centre. */
+  .chv-entete__gauche { min-width: 0; flex: 1 1 auto; display: flex; justify-content: center; }
   .chv-entete__nav {
     display: flex;
     align-items: center;
-    gap: clamp(12px, 1.3vw, 24px);
+    gap: clamp(20px, 2.2vw, 40px);
   }
   .chv-entete__nav a {
-    font-size: 12.5px;
-    letter-spacing: 0.01em;
-    color: rgba(248, 240, 232, 0.72);
+    position: relative;
+    font-size: 13.5px;
+    font-weight: 500;
+    letter-spacing: 0.015em;
+    color: rgba(248, 240, 232, 0.92);
     text-decoration: none;
     white-space: nowrap;
-    padding: 6px 0;
-    border-bottom: 1px solid transparent;
-    transition: color 0.3s var(--chv-ease), border-color 0.3s var(--chv-ease);
+    padding: 8px 0;
+    transition: color 0.3s var(--chv-ease);
   }
-  .chv-entete__nav a:hover { color: var(--chv-creme); border-bottom-color: var(--chv-cuivre); }
+  .chv-entete__nav a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    bottom: 2px;
+    height: 1px;
+    background: var(--chv-cuivre);
+    transition: left 0.35s var(--chv-ease), right 0.35s var(--chv-ease);
+  }
+  .chv-entete__nav a:hover { color: var(--chv-creme); }
+  .chv-entete__nav a:hover::after { left: 0; right: 0; }
   .chv-entete__nav a:focus-visible { outline: 2px solid var(--chv-cuivre); outline-offset: 3px; }
 
   .chv-entete .chv-pastille--menu { display: none; }
   .chv-entete__droite { flex: none; margin-left: auto; gap: 16px; }
 }
 
-/* Entre 1100 et 1400 px, les réseaux sont ce qu'on sacrifie en premier :
-   ils sont repris en entier dans le pied de page, les rubriques non. */
-@media (min-width: 1100px) and (max-width: 1400px) {
+/* Dès que les rubriques sont dans la barre, les réseaux en sortent : ils sont
+   repris en entier dans le pied de page, les rubriques non, et leurs trois
+   pastilles de couleur tiraient l'oeil plus que la navigation. */
+@media (min-width: 1100px) {
   .chv-entete__droite .chv-reseaux { display: none; }
 }
 
 /* Entre 1100 et 1400 px, « Contact » se faisait rogner par le bouton : on
    resserre les rubriques et le bouton prend son libellé court. */
-@media (min-width: 1100px) and (max-width: 1400px) {
-  .chv-entete { gap: 18px; }
-  .chv-entete__nav { gap: 13px; }
-  .chv-entete__nav a { font-size: 12px; }
+@media (min-width: 1600px) {
+  .chv-entete__nav a { font-size: 14.5px; }
+}
+
+@media (min-width: 1100px) and (max-width: 1340px) {
+  .chv-entete { gap: 16px; }
+  .chv-entete__nav { gap: 18px; }
+  .chv-entete__nav a { font-size: 12.5px; }
   .chv-entete__droite .chv-entete__appel-long { display: none; }
   .chv-entete__droite .chv-entete__appel-court { display: inline; }
 }
@@ -1196,3 +1218,26 @@ select.chv-champ { appearance: none; background-image: url("data:image/svg+xml,%
 .chv-franchise .chv-profil h4 { font-size: 20px; }
 .chv-franchise .chv-chrono__etape h3 { font-size: 23px; }
 .chv-franchise .chv-chrono__texte { font-size: 16px; }
+
+/* ---- Sélecteur de langue ----
+   Deux drapeaux dans la barre : celui de la langue en cours est plein, l'autre
+   s'éteint jusqu'au survol. Pas de libellé : les deux dessins se reconnaissent
+   et la barre est déjà chargée. */
+.chv-langues { display: inline-flex; align-items: center; gap: 6px; }
+.chv-langue {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  line-height: 0;
+  opacity: 0.38;
+  transition: opacity 0.3s var(--chv-ease);
+}
+.chv-langue:hover { opacity: 0.8; }
+.chv-langue.est-active { opacity: 1; cursor: default; }
+.chv-langue svg { border-radius: 2px; box-shadow: 0 0 0 1px rgba(248, 240, 232, 0.25); }
+.chv-langue:focus-visible { outline: 2px solid var(--chv-cuivre); outline-offset: 2px; }
+.chv-langues--menu { margin-top: 18px; }

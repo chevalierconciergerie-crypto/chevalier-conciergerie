@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { HelmetProvider } from "@/lib/seo";
+import { LangueProvider } from "@/i18n/langue";
 import ScrollToTop from "./components/ScrollToTop";
 import BandeauCookies from "./components/accueil/BandeauCookies";
 import Index from "./pages/Index";
@@ -37,33 +38,52 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <ScrollToTop />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/conciergerie" element={<Conciergerie />} />
-            <Route path="/sous-location" element={<SousLocation />} />
-            <Route path="/franchise" element={<Franchise />} />
-            <Route path="/tarifs" element={<Tarifs />} />
-            <Route path="/estimation-sous-location" element={<EstimationSousLocation />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
-            <Route path="/mentions-legales" element={<MentionsLegales />} />
-            <Route path="/conciergerie-avignon" element={<ConciergerieAvignon />} />
-            <Route path="/conciergerie-villeneuve-les-avignon" element={<ConciergerieVilleneuve />} />
-            <Route path="/conciergerie-les-angles" element={<ConciergerieLesAngles />} />
+          <LangueProvider>
             {/*
-              Réservation en direct retirée en attendant que le site de réservation
-              soit opérationnel. Les composants restent dans le dépôt (PropertyDetail,
-              Reservation, Logements, PropertyShowcase, BookingQuickSearch) : il
-              suffira de rétablir ces trois routes et les entrées de navigation.
+              Chaque route est montée deux fois : nue en français, préfixée /en
+              en anglais. La langue vit donc dans l'adresse — /tarifs et
+              /en/tarifs — ce que Google attend pour indexer les deux versions
+              et ce qui rend chaque page partageable dans sa langue.
             */}
-            <Route path="/partenaires" element={<Partenaires />} />
-            <Route path="/a-propos" element={<APropos />} />
-            <Route path="/cgv" element={<CGV />} />
-            <Route path="/journal" element={<Journal />} />
-            <Route path="/journal/:slug" element={<JournalArticle />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/conciergerie" element={<Conciergerie />} />
+              <Route path="/sous-location" element={<SousLocation />} />
+              <Route path="/franchise" element={<Franchise />} />
+              <Route path="/tarifs" element={<Tarifs />} />
+              <Route path="/estimation-sous-location" element={<EstimationSousLocation />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
+              <Route path="/mentions-legales" element={<MentionsLegales />} />
+              <Route path="/conciergerie-avignon" element={<ConciergerieAvignon />} />
+              <Route path="/conciergerie-villeneuve-les-avignon" element={<ConciergerieVilleneuve />} />
+              <Route path="/conciergerie-les-angles" element={<ConciergerieLesAngles />} />
+              <Route path="/partenaires" element={<Partenaires />} />
+              <Route path="/a-propos" element={<APropos />} />
+              <Route path="/cgv" element={<CGV />} />
+              <Route path="/journal" element={<Journal />} />
+              <Route path="/journal/:slug" element={<JournalArticle />} />
+              <Route path="/en" element={<Index />} />
+              <Route path="/en/conciergerie" element={<Conciergerie />} />
+              <Route path="/en/sous-location" element={<SousLocation />} />
+              <Route path="/en/franchise" element={<Franchise />} />
+              <Route path="/en/tarifs" element={<Tarifs />} />
+              <Route path="/en/estimation-sous-location" element={<EstimationSousLocation />} />
+              <Route path="/en/contact" element={<Contact />} />
+              <Route path="/en/politique-confidentialite" element={<PolitiqueConfidentialite />} />
+              <Route path="/en/mentions-legales" element={<MentionsLegales />} />
+              <Route path="/en/conciergerie-avignon" element={<ConciergerieAvignon />} />
+              <Route path="/en/conciergerie-villeneuve-les-avignon" element={<ConciergerieVilleneuve />} />
+              <Route path="/en/conciergerie-les-angles" element={<ConciergerieLesAngles />} />
+              <Route path="/en/partenaires" element={<Partenaires />} />
+              <Route path="/en/a-propos" element={<APropos />} />
+              <Route path="/en/cgv" element={<CGV />} />
+              <Route path="/en/journal" element={<Journal />} />
+              <Route path="/en/journal/:slug" element={<JournalArticle />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </LangueProvider>
           {/*
             Mesure d'audience Vercel (incluse dans l'offre Pro). Placés à l'intérieur du
             routeur : c'est ce qui leur permet de compter les changements de page d'une
