@@ -19,7 +19,6 @@ export const RUBRIQUES = [
   // Seule rubrique qui n'est pas une ancre de l'accueil : elle ouvre une vraie page.
   { libelle: "Devenir franchisé", ancre: "franchise", page: "/franchise", barre: true },
   { libelle: "Blog", ancre: "blog" },
-  { libelle: "Témoignages", ancre: "avis" },
   { libelle: "Contact", ancre: "contact", barre: true },
 ] as const;
 

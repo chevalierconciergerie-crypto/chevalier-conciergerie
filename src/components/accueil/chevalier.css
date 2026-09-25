@@ -4,8 +4,12 @@
   alterner sections noires et claires faisait patchwork.
 
   Polices libres les plus proches de la maquette (qui utilisait Decart et
-  Gilroy, deux polices payantes sous licence d'ERA) : Federo pour les grands
+  Gilroy, deux polices payantes sous licence d'ERA) : Fraunces pour les grands
   titres, Outfit pour le texte. Chargées dans index.html.
+
+  Fraunces remplace Federo (sept. 2026) : Victor trouvait l'ancienne trop
+  neutre. C'est un serif à contraste, chaleureux en capitales, qui tient le
+  registre d'une conciergerie de standing sans copier personne.
 
   Tout est préfixé chv- : ces styles cohabitent avec ceux des pages
   intérieures (Tailwind, shadcn) sans les toucher.
@@ -18,7 +22,7 @@
   /* Sur fond clair, le cuivre manque de contraste pour du texte : on le fonce. */
   --chv-cuivre-fonce: #96523c;
   --chv-degrade-cuivre: linear-gradient(180deg, #eab6a0 1%, #cf8f7d 84%);
-  --chv-titre: "Federo", "Josefin Sans", system-ui, sans-serif;
+  --chv-titre: "Fraunces", "Libre Baskerville", Georgia, serif;
   --chv-texte: "Outfit", system-ui, sans-serif;
   --chv-marge: clamp(20px, 6.67vw, 110px);
   --chv-barre: 76px;
@@ -32,8 +36,12 @@
   -webkit-font-smoothing: antialiased;
 }
 .chv ::selection { background: #eab6a0; color: var(--chv-noir); }
-/* Le site applique Libre Baskerville à tous les titres (index.css) : ici, les petits titres sont en Outfit, comme sur la maquette. */
-.chv-sous-titre, .chv-avantage h3, .chv-etape h3, .chv-article__texte h3, .chv-pied__colonne h2 { font-family: var(--chv-texte); letter-spacing: normal; }
+/* Les sous-titres reprennent le serif des grands titres : un display à
+   empattements au-dessus d'une grasse sans empattement, ça se voyait. Les
+   petits intertitres et le pied de page restent en Outfit, qui tient mieux
+   les petites tailles. */
+.chv-sous-titre { font-family: var(--chv-titre); font-weight: 400; letter-spacing: -0.015em; }
+.chv-avantage h3, .chv-etape h3, .chv-article__texte h3, .chv-pied__colonne h2 { font-family: var(--chv-texte); letter-spacing: normal; }
 
 /* ============ Apparitions ============ */
 .chv-monte {
@@ -90,7 +98,7 @@
   background: rgba(150, 82, 60, 0.12);
 }
 .chv-sous-titre {
-  font-size: min(5vw, 34px);
+  font-size: min(5.6vw, 42px);
   font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.15;
@@ -897,7 +905,7 @@ select.chv-champ { appearance: none; background-image: url("data:image/svg+xml,%
   text-transform: uppercase;
   color: rgba(10, 10, 10, 0.4);
 }
-.chv-chrono__etape h3 { font-size: 21px; font-weight: 600; margin: 0 0 8px; line-height: 1.25; }
+.chv-chrono__etape h3 { font-family: var(--chv-titre); font-size: 23px; font-weight: 500; margin: 0 0 8px; line-height: 1.25; }
 .chv-chrono__texte { font-size: 15px; line-height: 1.7; color: rgba(10, 10, 10, 0.62); margin: 0; }
 
 @media (max-width: 860px) {
@@ -1173,3 +1181,18 @@ select.chv-champ { appearance: none; background-image: url("data:image/svg+xml,%
   .chv-entete__droite .chv-entete__appel-long { display: none; }
   .chv-entete__droite .chv-entete__appel-court { display: inline; }
 }
+
+/* ---- Franchise : sections centrées, respiration plus large ----
+   Victor : « centre-les bien, mets en plus gros ». Les en-têtes de section
+   étaient centrés mais l'ouverture et les listes restaient calées à gauche,
+   ce qui donnait une page qui hésite. Tout est aligné sur le même axe. */
+.chv-franchise .chv-entree { text-align: center; }
+.chv-franchise .chv-entree .chv-paragraphe { margin-inline: auto; }
+.chv-franchise .chv-sous-titre { font-size: min(6vw, 46px); }
+.chv-franchise .chv-liste { gap: 0 min(7vw, 76px); }
+.chv-franchise .chv-liste__item h4 { font-size: 21px; }
+.chv-franchise .chv-liste__item p,
+.chv-franchise .chv-profil p { font-size: 15.5px; }
+.chv-franchise .chv-profil h4 { font-size: 20px; }
+.chv-franchise .chv-chrono__etape h3 { font-size: 23px; }
+.chv-franchise .chv-chrono__texte { font-size: 16px; }
