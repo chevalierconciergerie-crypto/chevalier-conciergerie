@@ -75,6 +75,24 @@ const SEJOURS = [
   { canal: "Airbnb", debut: 18, duree: 2, teinte: "airbnb" },
 ];
 
+/*
+  Les logos officiels plutôt que le nom écrit : on les reconnaît plus vite, et
+  la couleur de la case suffit ensuite à suivre le séjour. Le bélo d'Airbnb est
+  presque carré, le mot-symbole de Booking six fois plus large : chacun reçoit
+  la hauteur qui lui donne le même poids. « Direct », c'est nous : pas de logo,
+  le mot suffit.
+*/
+const LOGOS: Record<string, { fichier: string; hauteur: number }> = {
+  Airbnb: { fichier: "/accueil/logo-airbnb.png", hauteur: 13 },
+  Booking: { fichier: "/accueil/logo-booking.png", hauteur: 9 },
+};
+
+function Canal({ nom }: { nom: string }) {
+  const logo = LOGOS[nom];
+  if (!logo) return <>{nom}</>;
+  return <img src={logo.fichier} alt={nom} style={{ height: logo.hauteur, width: "auto" }} loading="lazy" />;
+}
+
 export function DemoCalendrier() {
   const [ref, cran] = useSequence(SEJOURS.length, 900, 2800);
   const poses = SEJOURS.slice(0, cran);
@@ -100,7 +118,11 @@ export function DemoCalendrier() {
               className={`chv-cal__jour ${sejour ? `est-prise chv-cal__jour--${sejour.teinte}` : ""}`}
             >
               <span className="chv-cal__chiffre">{i + 1}</span>
-              {premier && <span className="chv-cal__canal">{premier.canal}</span>}
+              {premier && (
+                <span className="chv-cal__canal">
+                  <Canal nom={premier.canal} />
+                </span>
+              )}
             </div>
           );
         })}
@@ -206,41 +228,39 @@ export function DemoTarification() {
 
 /* ------------------------------------------------------------------ *
    4. Le ménage
-   Les puces annoncent une chaîne : ménage, linge et consommables déclenchés
-   par la réservation, l'équipe prévenue sur WhatsApp, une vidéo à chaque
-   passage. On la déroule dans l'ordre.
+   Correction de Victor : le suivi passe par le logiciel, et ce qu'il veut
+   montrer est la preuve — la vidéo prise à chaque passage et le commentaire
+   de l'équipe — plutôt qu'une liste de tâches cochées.
  * ------------------------------------------------------------------ */
-const MISSIONS = [
-  "Départ à 11 h 00 — ménage programmé à 11 h 30",
-  "Kit linge et consommables prévus au réassort",
-  "Fabienne prévenue sur WhatsApp",
-  "Vidéo du passage déposée — logement conforme",
-];
-
 export function DemoMenage() {
-  const [ref, cran] = useSequence(MISSIONS.length, 950, 2800);
+  const [ref, cran] = useSequence(3, 1250, 3000);
 
   return (
     <div className="chv-demo" ref={ref}>
       <div className="chv-demo__barre">
-        <span className="chv-demo__titre">L'Intramuros · jeudi</span>
-        <span className="chv-demo__note">Réservation suivante 16 h 00</span>
+        <span className="chv-demo__titre">L'Intramuros · jeudi 11 h 30</span>
+        <span className="chv-demo__note">Ménage terminé</span>
       </div>
 
-      <ul className="chv-mission">
-        {MISSIONS.map((m, i) => (
-          <li key={m} className={`chv-mission__pas ${i < cran ? "est-posee" : ""}`}>
-            <span className="chv-mission__case">
-              <Coche />
-            </span>
-            <span>{m}</span>
-          </li>
-        ))}
-      </ul>
+      <div className={`chv-video ${cran >= 1 ? "est-posee" : ""}`}>
+        <span className="chv-video__lecture" aria-hidden="true" />
+        <span className="chv-video__mention">Vidéo du passage</span>
+        <span className="chv-video__duree">0:48</span>
+      </div>
 
-      <p className={`chv-demo__preuve ${cran >= MISSIONS.length ? "est-posee" : ""}`}>
+      <div className={`chv-commentaire ${cran >= 2 ? "est-posee" : ""}`}>
+        <span className="chv-commentaire__initiale">F</span>
+        <div>
+          <p className="chv-commentaire__auteur">Fabienne</p>
+          <p className="chv-commentaire__texte">
+            Tout est en ordre. Linge changé, consommables réassortis, rien à signaler sur le logement.
+          </p>
+        </div>
+      </div>
+
+      <p className={`chv-demo__preuve ${cran >= 3 ? "est-posee" : ""}`}>
         <Coche />
-        Déclenché par la réservation, sans que vous ayez à y penser.
+        Déposé dans Chevalier PMS — le propriétaire peut le consulter quand il veut.
       </p>
     </div>
   );
@@ -294,7 +314,8 @@ export function DemoTableau() {
           {CANAUX.map((c) => (
             <li key={c.nom}>
               <span className={`chv-canaux__puce chv-canaux__puce--${c.teinte}`} />
-              {c.nom} <b>{c.part} %</b>
+              <Canal nom={c.nom} />
+              <b>{c.part} %</b>
             </li>
           ))}
         </ul>

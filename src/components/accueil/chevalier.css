@@ -979,12 +979,15 @@ select.chv-champ { appearance: none; background-image: url("data:image/svg+xml,%
 .chv-demo__preuve svg { color: var(--chv-cuivre-fonce); flex: none; margin-top: 2px; }
 
 /* Teintes de canal, communes aux démonstrations */
-.chv-canaux__part--airbnb, .chv-canaux__puce--airbnb { background: #c07863; }
-.chv-canaux__part--booking, .chv-canaux__puce--booking { background: #6f7f92; }
-.chv-canaux__part--direct, .chv-canaux__puce--direct { background: #7d8a6a; }
-.chv-cal__jour.chv-cal__jour--airbnb { background: #c07863; }
-.chv-cal__jour.chv-cal__jour--booking { background: #6f7f92; }
-.chv-cal__jour.chv-cal__jour--direct { background: #7d8a6a; }
+/* Les couleurs officielles des deux plateformes : le rose d'Airbnb et le bleu
+   de Booking se reconnaissent d'un coup d'oeil, ce qu'aucune teinte maison ne
+   ferait. « Direct », c'est nous : il prend le noir de la marque. */
+.chv-canaux__part--airbnb, .chv-canaux__puce--airbnb { background: #ff5a5f; }
+.chv-canaux__part--booking, .chv-canaux__puce--booking { background: #0071c2; }
+.chv-canaux__part--direct, .chv-canaux__puce--direct { background: var(--chv-noir); }
+.chv-cal__jour.chv-cal__jour--airbnb { background: #ff5a5f; }
+.chv-cal__jour.chv-cal__jour--booking { background: #0071c2; }
+.chv-cal__jour.chv-cal__jour--direct { background: var(--chv-noir); }
 
 /* ---- Calendrier ---- */
 .chv-cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; min-height: 168px; }
@@ -996,11 +999,13 @@ select.chv-champ { appearance: none; background-image: url("data:image/svg+xml,%
 .chv-cal__chiffre { font-size: 11px; color: #9a8f85; font-variant-numeric: tabular-nums; }
 .chv-cal__jour.est-prise .chv-cal__chiffre { color: #fffdfb; font-weight: 600; }
 .chv-cal__canal {
-  position: absolute; top: -7px; left: 0; font-size: 8.5px; font-weight: 600;
+  position: absolute; top: -8px; left: 0; font-size: 8.5px; font-weight: 600;
   letter-spacing: .08em; text-transform: uppercase; color: var(--chv-noir);
-  background: #fffdfb; border: 1px solid rgba(10,10,10,.1); border-radius: 99px; padding: 1px 6px;
-  white-space: nowrap; z-index: 2;
+  background: #fffdfb; border: 1px solid rgba(10,10,10,.1); border-radius: 99px;
+  padding: 2px 7px; white-space: nowrap; z-index: 2;
+  display: inline-flex; align-items: center; min-height: 17px;
 }
+.chv-cal__canal img { display: block; }
 
 /* ---- Comparaison plateforme / direct ---- */
 .chv-compare {
@@ -1031,24 +1036,48 @@ select.chv-champ { appearance: none; background-image: url("data:image/svg+xml,%
 }
 .chv-prix__jour { font-size: 10px; color: #9a8f85; }
 
-/* ---- Ménage ---- */
-.chv-mission { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; min-height: 150px; }
-.chv-mission__pas {
-  display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; line-height: 1.45;
-  color: rgba(10,10,10,.45);
-  opacity: .5; transform: translateY(6px);
-  transition: opacity .5s var(--chv-ease), transform .5s var(--chv-ease), color .5s var(--chv-ease);
+/* ---- Ménage : la preuve, pas la liste ---- */
+.chv-video {
+  position: relative; aspect-ratio: 16 / 9; border-radius: 14px;
+  background: linear-gradient(140deg, #efe6dc, #e2d5c7);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transform: translateY(8px) scale(.985);
+  transition: opacity .55s var(--chv-ease), transform .55s var(--chv-ease);
 }
-.chv-mission__pas.est-posee { opacity: 1; transform: none; color: var(--chv-noir); }
-.chv-mission__case {
-  flex: none; width: 19px; height: 19px; border-radius: 6px; margin-top: 1px;
-  border: 1.5px solid rgba(10,10,10,.16); color: transparent;
+.chv-video.est-posee { opacity: 1; transform: none; }
+.chv-video__lecture {
+  width: 44px; height: 44px; border-radius: 50%; background: rgba(255,253,251,.92);
   display: inline-flex; align-items: center; justify-content: center;
-  transition: background .4s var(--chv-ease), border-color .4s var(--chv-ease), color .4s var(--chv-ease);
+  box-shadow: 0 8px 22px -10px rgba(70,40,28,.6);
 }
-.chv-mission__pas.est-posee .chv-mission__case {
-  background: var(--chv-cuivre-fonce); border-color: var(--chv-cuivre-fonce); color: var(--chv-creme);
+.chv-video__lecture::after {
+  content: ""; width: 0; height: 0; margin-left: 3px;
+  border-left: 13px solid var(--chv-cuivre-fonce);
+  border-top: 8px solid transparent; border-bottom: 8px solid transparent;
 }
+.chv-video__mention {
+  position: absolute; left: 12px; bottom: 11px; font-size: 10.5px; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase; color: rgba(10,10,10,.5);
+}
+.chv-video__duree {
+  position: absolute; right: 12px; bottom: 10px; font-size: 11px; font-variant-numeric: tabular-nums;
+  color: var(--chv-creme); background: rgba(10,10,10,.6); border-radius: 5px; padding: 2px 6px;
+}
+
+.chv-commentaire {
+  display: flex; gap: 11px; align-items: flex-start;
+  opacity: 0; transform: translateY(8px);
+  transition: opacity .5s var(--chv-ease), transform .5s var(--chv-ease);
+}
+.chv-commentaire.est-posee { opacity: 1; transform: none; }
+.chv-commentaire__initiale {
+  flex: none; width: 30px; height: 30px; border-radius: 50%;
+  background: var(--chv-cuivre-fonce); color: var(--chv-creme);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 600;
+}
+.chv-commentaire__auteur { margin: 0 0 3px; font-size: 12px; font-weight: 600; }
+.chv-commentaire__texte { margin: 0; font-size: 13.5px; line-height: 1.5; color: rgba(10,10,10,.65); }
 
 /* ---- Tableau de bord ---- */
 .chv-bilan { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
@@ -1067,6 +1096,7 @@ select.chv-champ { appearance: none; background-image: url("data:image/svg+xml,%
   font-size: 11.5px; color: #6f635a;
 }
 .chv-canaux__legende li { display: inline-flex; align-items: center; gap: 6px; }
+.chv-canaux__legende img { display: block; }
 .chv-canaux__legende b { color: var(--chv-noir); font-variant-numeric: tabular-nums; }
 .chv-canaux__puce { width: 9px; height: 9px; border-radius: 3px; }
 
@@ -1076,7 +1106,7 @@ select.chv-champ { appearance: none; background-image: url("data:image/svg+xml,%
   .chv-compare__montant { font-size: 23px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .chv-demo__preuve, .chv-demo__alerte, .chv-compare, .chv-mission__pas, .chv-canaux {
+  .chv-demo__preuve, .chv-demo__alerte, .chv-compare, .chv-video, .chv-commentaire, .chv-canaux {
     opacity: 1; transform: none; transition: none;
   }
 }
