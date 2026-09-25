@@ -1241,3 +1241,53 @@ select.chv-champ { appearance: none; background-image: url("data:image/svg+xml,%
 .chv-langue svg { border-radius: 2px; box-shadow: 0 0 0 1px rgba(248, 240, 232, 0.25); }
 .chv-langue:focus-visible { outline: 2px solid var(--chv-cuivre); outline-offset: 2px; }
 .chv-langues--menu { margin-top: 18px; }
+
+/* ---- Réseaux, mis en valeur dans la section Contact ----
+   Ils ont quitté la barre du haut où ils parasitaient la navigation. Ici, le
+   visiteur est convaincu et cherche à vérifier qui nous sommes : le logo est
+   à taille lisible et le nom du compte est écrit, pour que le lien soit
+   vérifiable avant d'être cliqué. */
+.chv-suivre { margin-top: min(7vw, 72px); text-align: center; }
+.chv-suivre__titre {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--chv-cuivre-fonce);
+  margin: 0 0 20px;
+}
+.chv-suivre__liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.chv-suivre__liste a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px 12px 14px;
+  border-radius: 99px;
+  border: 1px solid rgba(10, 10, 10, 0.12);
+  background: rgba(255, 253, 251, 0.6);
+  text-decoration: none;
+  color: var(--chv-noir);
+  transition: border-color 0.3s var(--chv-ease), background 0.3s var(--chv-ease), transform 0.3s var(--chv-ease);
+}
+.chv-suivre__liste a:hover {
+  border-color: var(--chv-cuivre-fonce);
+  background: #fffdfb;
+  transform: translateY(-2px);
+}
+.chv-suivre__liste a:focus-visible { outline: 2px solid var(--chv-cuivre-fonce); outline-offset: 3px; }
+.chv-suivre__liste img { display: block; flex: none; }
+.chv-suivre__liste span { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.3; }
+.chv-suivre__liste b { font-size: 14px; font-weight: 600; }
+.chv-suivre__liste em { font-style: normal; font-size: 12px; color: rgba(10, 10, 10, 0.5); }
+
+@media (max-width: 560px) {
+  .chv-suivre__liste { flex-direction: column; align-items: stretch; }
+  .chv-suivre__liste a { justify-content: flex-start; }
+}

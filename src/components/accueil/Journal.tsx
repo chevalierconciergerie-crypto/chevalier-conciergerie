@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
 import { articles } from "@/lib/journal";
 import { avis, AVIS_TOTAL_GOOGLE, GOOGLE_REVIEWS_URL, type Avis } from "@/data/avis";
-import { COUVERTURES_BLOG, COURRIEL, TELEPHONE } from "@/data/accueil";
+import { COUVERTURES_BLOG, COURRIEL, RESEAUX, TELEPHONE } from "@/data/accueil";
+
+/* Les comptes affichés sous chaque réseau, pour que le lien soit vérifiable. */
+const COMPTES: Record<string, string> = {
+  Instagram: "@chevalier_conciergerie",
+  LinkedIn: "Victor Chevalier",
+  Facebook: "Chevalier Conciergerie",
+};
 import { usePivot } from "./effets";
 import { Etiquette, Revele, TitreAnime } from "./Primitives";
 
@@ -118,6 +125,29 @@ export function ContactAccueil() {
           <p>Courriel</p>
           <a href={COURRIEL.lien}>{COURRIEL.affiche}</a>
         </div>
+      </Revele>
+
+      {/*
+        Les réseaux ont quitté la barre du haut, où leurs trois pastilles de
+        couleur tiraient l'oeil plus que la navigation. Ils reviennent ici, à
+        leur taille, avec le nom du compte : à cet endroit de la page le
+        visiteur est convaincu et cherche à vérifier qui nous sommes.
+      */}
+      <Revele className="chv-suivre" delai={180}>
+        <p className="chv-suivre__titre">Suivez le quotidien de la conciergerie</p>
+        <ul className="chv-suivre__liste">
+          {RESEAUX.map((r) => (
+            <li key={r.nom}>
+              <a href={r.lien} target="_blank" rel="noopener noreferrer">
+                <img src={r.logo} alt="" width={30} height={30} loading="lazy" />
+                <span>
+                  <b>{r.nom}</b>
+                  {COMPTES[r.nom] ? <em>{COMPTES[r.nom]}</em> : null}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </Revele>
     </section>
   );
