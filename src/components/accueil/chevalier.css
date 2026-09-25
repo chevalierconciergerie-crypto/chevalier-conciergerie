@@ -1117,3 +1117,34 @@ select.chv-champ { appearance: none; background-image: url("data:image/svg+xml,%
     opacity: 1; transform: none; transition: none;
   }
 }
+
+/* ---- Rubriques dans la barre, sur grand écran ----
+   En dessous de 1100 px elles ne tiennent pas : la pastille MENU et le
+   tambour plein écran reprennent la main, comme avant. */
+.chv-entete__nav { display: none; }
+
+@media (min-width: 1100px) {
+  .chv-entete__nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 1.5vw, 26px);
+  }
+  .chv-entete__nav a {
+    font-size: 12.5px;
+    letter-spacing: 0.01em;
+    color: rgba(248, 240, 232, 0.72);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 6px 0;
+    border-bottom: 1px solid transparent;
+    transition: color 0.3s var(--chv-ease), border-color 0.3s var(--chv-ease);
+  }
+  .chv-entete__nav a:hover { color: var(--chv-creme); border-bottom-color: var(--chv-cuivre); }
+  .chv-entete__nav a:focus-visible { outline: 2px solid var(--chv-cuivre); outline-offset: 3px; }
+
+  /* La pastille MENU s'efface : les quatre rubriques principales sont dans la
+     barre, et le pied de page porte la liste complète. La garder ici faisait
+     déborder la colonne sur le mot-symbole centré. */
+  .chv-entete .chv-pastille--menu { display: none; }
+  .chv-entete__gauche { min-width: 0; }
+}

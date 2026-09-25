@@ -5,16 +5,22 @@
 */
 
 /* Les rubriques du menu : toutes des ancres de l'accueil. */
+/*
+  `barre: true` marque les rubriques posées dans la barre du haut sur grand
+  écran. Les sept ne tiennent pas à côté du mot-symbole centré : au-delà de
+  quatre, « Contact » passe sous CHEVALIER. Les autres restent dans le tambour
+  plein écran, qui garde la liste complète.
+*/
 export const RUBRIQUES = [
   { libelle: "Accueil", ancre: "accueil" },
   { libelle: "Qui sommes-nous", ancre: "qui-sommes-nous" },
-  { libelle: "Conciergerie", ancre: "notre-service" },
-  { libelle: "Sous-location", ancre: "sous-location" },
+  { libelle: "Conciergerie", ancre: "notre-service", barre: true },
+  { libelle: "Sous-location", ancre: "sous-location", barre: true },
   // Seule rubrique qui n'est pas une ancre de l'accueil : elle ouvre une vraie page.
-  { libelle: "Devenir franchisé", ancre: "franchise", page: "/franchise" },
+  { libelle: "Devenir franchisé", ancre: "franchise", page: "/franchise", barre: true },
   { libelle: "Blog", ancre: "blog" },
   { libelle: "Témoignages", ancre: "avis" },
-  { libelle: "Contact", ancre: "contact" },
+  { libelle: "Contact", ancre: "contact", barre: true },
 ] as const;
 
 export const TELEPHONE = { affiche: "07 83 19 83 41", international: "+33 7 83 19 83 41", lien: "tel:+33783198341" };

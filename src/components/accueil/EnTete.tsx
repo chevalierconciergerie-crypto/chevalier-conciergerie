@@ -105,6 +105,25 @@ const EnTete = () => {
   const barre = (dansMenu: boolean) => (
     <div className="chv-entete" role={dansMenu ? undefined : "banner"}>
       <div className="chv-entete__gauche">
+        {/*
+          Sur grand écran les rubriques sont posées dans la barre : cacher la
+          navigation derrière un bouton coûte un clic et une intention à chaque
+          visiteur. En dessous de 1100 px elles ne tiennent plus, et le tambour
+          plein écran reprend la main.
+        */}
+        {!dansMenu && (
+          <nav className="chv-entete__nav" aria-label="Rubriques">
+            {RUBRIQUES.filter((r) => "barre" in r && r.barre).map((r) => (
+              <a
+                key={r.ancre}
+                href={"page" in r && r.page ? r.page : `/#${r.ancre}`}
+                onClick={(e) => { e.preventDefault(); aller(r.ancre, "page" in r ? r.page : undefined); }}
+              >
+                {r.libelle}
+              </a>
+            ))}
+          </nav>
+        )}
         {dansMenu ? (
           <button type="button" className="chv-pastille chv-pastille--rond" onClick={fermer} aria-label="Fermer le menu">
             <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
