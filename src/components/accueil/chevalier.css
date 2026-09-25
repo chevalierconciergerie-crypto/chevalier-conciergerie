@@ -1119,15 +1119,27 @@ select.chv-champ { appearance: none; background-image: url("data:image/svg+xml,%
 }
 
 /* ---- Rubriques dans la barre, sur grand écran ----
-   En dessous de 1100 px elles ne tiennent pas : la pastille MENU et le
-   tambour plein écran reprennent la main, comme avant. */
+   Les sept ne tiennent pas à côté d'un mot-symbole centré. Plutôt que d'en
+   retirer, la barre change de composition au-delà de 1100 px : le logo passe
+   à gauche, les rubriques se déroulent à sa suite, et le bloc de droite garde
+   les réseaux et l'estimation. C'est la composition de chevalier-pms.com.
+   En dessous, on retrouve la pastille MENU, le logo centré et le tambour. */
 .chv-entete__nav { display: none; }
 
 @media (min-width: 1100px) {
+  .chv-entete {
+    display: flex;
+    align-items: center;
+    gap: clamp(18px, 2vw, 36px);
+  }
+  .chv-logo { order: -1; flex: none; }
+  .chv-logo img { height: 22px; width: auto; }
+
+  .chv-entete__gauche { min-width: 0; flex: 1 1 auto; }
   .chv-entete__nav {
     display: flex;
     align-items: center;
-    gap: clamp(14px, 1.5vw, 26px);
+    gap: clamp(12px, 1.3vw, 24px);
   }
   .chv-entete__nav a {
     font-size: 12.5px;
@@ -1142,9 +1154,22 @@ select.chv-champ { appearance: none; background-image: url("data:image/svg+xml,%
   .chv-entete__nav a:hover { color: var(--chv-creme); border-bottom-color: var(--chv-cuivre); }
   .chv-entete__nav a:focus-visible { outline: 2px solid var(--chv-cuivre); outline-offset: 3px; }
 
-  /* La pastille MENU s'efface : les quatre rubriques principales sont dans la
-     barre, et le pied de page porte la liste complète. La garder ici faisait
-     déborder la colonne sur le mot-symbole centré. */
   .chv-entete .chv-pastille--menu { display: none; }
-  .chv-entete__gauche { min-width: 0; }
+  .chv-entete__droite { flex: none; margin-left: auto; gap: 16px; }
+}
+
+/* Entre 1100 et 1400 px, les réseaux sont ce qu'on sacrifie en premier :
+   ils sont repris en entier dans le pied de page, les rubriques non. */
+@media (min-width: 1100px) and (max-width: 1400px) {
+  .chv-entete__droite .chv-reseaux { display: none; }
+}
+
+/* Entre 1100 et 1400 px, « Contact » se faisait rogner par le bouton : on
+   resserre les rubriques et le bouton prend son libellé court. */
+@media (min-width: 1100px) and (max-width: 1400px) {
+  .chv-entete { gap: 18px; }
+  .chv-entete__nav { gap: 13px; }
+  .chv-entete__nav a { font-size: 12px; }
+  .chv-entete__droite .chv-entete__appel-long { display: none; }
+  .chv-entete__droite .chv-entete__appel-court { display: inline; }
 }

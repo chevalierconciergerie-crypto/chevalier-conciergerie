@@ -113,7 +113,7 @@ const EnTete = () => {
         */}
         {!dansMenu && (
           <nav className="chv-entete__nav" aria-label="Rubriques">
-            {RUBRIQUES.filter((r) => "barre" in r && r.barre).map((r) => (
+            {RUBRIQUES.filter((r) => r.ancre !== "accueil").map((r) => (
               <a
                 key={r.ancre}
                 href={"page" in r && r.page ? r.page : `/#${r.ancre}`}
