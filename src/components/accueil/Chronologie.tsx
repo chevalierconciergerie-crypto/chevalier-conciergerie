@@ -1,3 +1,4 @@
+import { useT } from "@/i18n/langue";
 import { useEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import { CHRONOLOGIE } from "@/data/franchise";
@@ -12,6 +13,7 @@ import { CHRONOLOGIE } from "@/data/franchise";
   le rail est plein d'emblée.
 */
 export default function Chronologie() {
+  const t = useT();
   const ref = useRef<HTMLOListElement>(null);
   const [progression, setProgression] = useState(0);
   const [atteintes, setAtteintes] = useState(0);
@@ -66,10 +68,10 @@ export default function Chronologie() {
           <div className="chv-chrono__corps">
             <p className="chv-chrono__haut">
               <span className="chv-chrono__numero">{etape.numero}</span>
-              <span className="chv-chrono__duree">{etape.duree}</span>
+              <span className="chv-chrono__duree">{t(etape.duree)}</span>
             </p>
-            <h3>{etape.nom}</h3>
-            <p className="chv-chrono__texte">{etape.texte}</p>
+            <h3>{t(etape.nom)}</h3>
+            <p className="chv-chrono__texte">{t(etape.texte)}</p>
           </div>
         </li>
       ))}

@@ -1,3 +1,4 @@
+import { useT } from "@/i18n/langue";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./chevalier.css";
@@ -13,6 +14,7 @@ export const EVENEMENT_COOKIES = "chv-cookies-ouvrir";
   informe et recueille le choix, il ne bloque rien.
 */
 const BandeauCookies = () => {
+  const t = useT();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -38,16 +40,16 @@ const BandeauCookies = () => {
   if (!visible) return null;
 
   return (
-    <div className="chv-cookies" role="region" aria-label="Cookies">
+    <div className="chv-cookies" role="region" aria-label={t("Cookies")}>
       <p>
-        Ce site utilise des <Link to="/politique-confidentialite">cookies</Link>
+        {t("Ce site utilise des")} <Link to="/politique-confidentialite">{t("cookies")}</Link>
       </p>
       <div className="chv-cookies__boutons">
         <button type="button" className="chv-cookies__refuser" onClick={() => choisir("refuses")}>
-          Refuser
+          {t("Refuser")}
         </button>
         <button type="button" className="chv-pastille" onClick={() => choisir("acceptes")}>
-          Accepter
+          {t("Accepter")}
         </button>
       </div>
     </div>

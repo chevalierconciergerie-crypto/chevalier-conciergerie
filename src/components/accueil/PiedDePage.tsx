@@ -1,3 +1,4 @@
+import { useT, useLangue } from "@/i18n/langue";
 import { Link } from "react-router-dom";
 import { COURRIEL, LEGAL, RESEAUX, TELEPHONE } from "@/data/accueil";
 import { EVENEMENT_COOKIES } from "./BandeauCookies";
@@ -48,13 +49,16 @@ const COLONNES = [
   },
 ];
 
-const PiedDePage = () => (
+const PiedDePage = () => {
+  const t = useT();
+  const { lien } = useLangue();
+  return (
   <footer className="chv-pied">
     <div className="chv-pied__haut">
       <div className="chv-pied__marque">
         <img src="/accueil/logo-chevalier-blanc.png" alt="CHEVALIER" width={996} height={129} loading="lazy" />
         <p style={{ maxWidth: 330 }}>
-          Conciergerie et sous-location de meublés de tourisme à Avignon, Villeneuve-lès-Avignon et Les Angles.
+          {t("Conciergerie et sous-location de meublés de tourisme à Avignon, Villeneuve-lès-Avignon et Les Angles.")}
         </p>
         <div className="chv-pied__contact">
           <a href={TELEPHONE.lien}>{TELEPHONE.international}</a>
@@ -71,14 +75,14 @@ const PiedDePage = () => (
       </div>
 
       {COLONNES.map((colonne) => (
-        <nav key={colonne.titre} className="chv-pied__colonne" aria-label={colonne.titre}>
-          <h2>{colonne.titre}</h2>
+        <nav key={colonne.titre} className="chv-pied__colonne" aria-label={t(colonne.titre)}>
+          <h2>{t(colonne.titre)}</h2>
           {colonne.liens.map((l) => (
-            <Link key={l.lien} to={l.lien}>{l.libelle}</Link>
+            <Link key={l.lien} to={lien(l.lien)}>{t(l.libelle)}</Link>
           ))}
           {colonne.titre === "Informations légales" && (
             <button type="button" className="chv-pied__cookies" onClick={() => window.dispatchEvent(new Event(EVENEMENT_COOKIES))}>
-              Gestion des cookies
+              {t("Gestion des cookies")}
             </button>
           )}
         </nav>
@@ -90,11 +94,11 @@ const PiedDePage = () => (
     </p>
     <p className="chv-pied__bas">
       <span>
-        © {new Date().getFullYear()} Chevalier Conciergerie. Tous droits réservés — Taxe de séjour collectée pour le
-        compte de la collectivité et reversée intégralement.
+        © {new Date().getFullYear()} Chevalier Conciergerie. {t("Tous droits réservés — Taxe de séjour collectée pour le compte de la collectivité et reversée intégralement.")}
       </span>
     </p>
   </footer>
-);
+  );
+};
 
 export default PiedDePage;

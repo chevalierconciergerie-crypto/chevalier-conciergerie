@@ -1,3 +1,4 @@
+import { useT } from "@/i18n/langue";
 import { useEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import { useRevele } from "./effets";
@@ -94,6 +95,7 @@ function Canal({ nom }: { nom: string }) {
 }
 
 export function DemoCalendrier() {
+  const t = useT();
   const [ref, cran] = useSequence(SEJOURS.length, 900, 2800);
   const poses = SEJOURS.slice(0, cran);
   const nuits = poses.reduce((n, s) => n + s.duree, 0);
@@ -102,9 +104,9 @@ export function DemoCalendrier() {
   return (
     <div className="chv-demo" ref={ref}>
       <div className="chv-demo__barre">
-        <span className="chv-demo__titre">Septembre</span>
+        <span className="chv-demo__titre">{t("Septembre")}</span>
         <span className="chv-demo__note">
-          <b>{compte}</b> nuits réservées
+          <b>{compte}</b> {t("nuits réservées")}
         </span>
       </div>
 
@@ -130,7 +132,7 @@ export function DemoCalendrier() {
 
       <p className={`chv-demo__preuve ${cran >= SEJOURS.length ? "est-posee" : ""}`}>
         <Coche />
-        Trois canaux, un seul calendrier — aucune double réservation possible.
+        {t("Trois canaux, un seul calendrier — aucune double réservation possible.")}
       </p>
     </div>
   );
@@ -142,6 +144,7 @@ export function DemoCalendrier() {
    passé par la plateforme puis en direct, et ce que le propriétaire garde.
  * ------------------------------------------------------------------ */
 export function DemoDirect() {
+  const t = useT();
   const [ref, cran] = useSequence(3, 1300, 3000);
   const plateforme = useCompteur(527, cran >= 1, 700);
   const direct = useCompteur(620, cran >= 2, 900);
@@ -149,25 +152,25 @@ export function DemoDirect() {
   return (
     <div className="chv-demo" ref={ref}>
       <div className="chv-demo__barre">
-        <span className="chv-demo__titre">Le Central · 4 nuits</span>
-        <span className="chv-demo__etiquette">Exemple</span>
+        <span className="chv-demo__titre">{t("Le Central · 4 nuits")}</span>
+        <span className="chv-demo__etiquette">{t("Exemple")}</span>
       </div>
 
       <div className={`chv-compare ${cran >= 1 ? "est-posee" : ""}`}>
-        <p className="chv-compare__canal">Via la plateforme</p>
-        <p className="chv-compare__detail">620 € encaissés — 93 € de commission</p>
+        <p className="chv-compare__canal">{t("Via la plateforme")}</p>
+        <p className="chv-compare__detail">{t("620 € encaissés — 93 € de commission")}</p>
         <p className="chv-compare__montant">{euros(plateforme)}</p>
       </div>
 
       <div className={`chv-compare chv-compare--direct ${cran >= 2 ? "est-posee" : ""}`}>
-        <p className="chv-compare__canal">En direct, sur votre site</p>
-        <p className="chv-compare__detail">620 € encaissés — aucune commission</p>
+        <p className="chv-compare__canal">{t("En direct, sur votre site")}</p>
+        <p className="chv-compare__detail">{t("620 € encaissés — aucune commission")}</p>
         <p className="chv-compare__montant">{euros(direct)}</p>
       </div>
 
       <p className={`chv-demo__preuve ${cran >= 3 ? "est-posee" : ""}`}>
         <Coche />
-        93 € de plus sur ce seul séjour, paiement et caution sécurisés.
+        {t("93 € de plus sur ce seul séjour, paiement et caution sécurisés.")}
       </p>
     </div>
   );
@@ -190,14 +193,15 @@ const SEMAINE = [
 ];
 
 export function DemoTarification() {
+  const t = useT();
   const [ref, cran] = useSequence(3, 1400, 3000);
   const haut = Math.max(...SEMAINE.map((j) => j.apres));
 
   return (
     <div className="chv-demo" ref={ref}>
       <div className="chv-demo__barre">
-        <span className="chv-demo__titre">Semaine du 6 juillet</span>
-        <span className={`chv-demo__alerte ${cran >= 1 ? "est-posee" : ""}`}>Festival d'Avignon</span>
+        <span className="chv-demo__titre">{t("Semaine du 6 juillet")}</span>
+        <span className={`chv-demo__alerte ${cran >= 1 ? "est-posee" : ""}`}>{t("Festival d'Avignon")}</span>
       </div>
 
       <div className="chv-prix">
@@ -220,7 +224,7 @@ export function DemoTarification() {
 
       <p className={`chv-demo__preuve ${cran >= 3 ? "est-posee" : ""}`}>
         <Coche />
-        Révisé chaque semaine par une équipe, durée minimale portée à 3 nuits.
+        {t("Révisé chaque semaine par une équipe, durée minimale portée à 3 nuits.")}
       </p>
     </div>
   );
@@ -233,18 +237,19 @@ export function DemoTarification() {
    de l'équipe — plutôt qu'une liste de tâches cochées.
  * ------------------------------------------------------------------ */
 export function DemoMenage() {
+  const t = useT();
   const [ref, cran] = useSequence(3, 1250, 3000);
 
   return (
     <div className="chv-demo" ref={ref}>
       <div className="chv-demo__barre">
-        <span className="chv-demo__titre">L'Intramuros · jeudi 11 h 30</span>
-        <span className="chv-demo__note">Ménage terminé</span>
+        <span className="chv-demo__titre">{t("L'Intramuros · jeudi 11 h 30")}</span>
+        <span className="chv-demo__note">{t("Ménage terminé")}</span>
       </div>
 
       <div className={`chv-video ${cran >= 1 ? "est-posee" : ""}`}>
         <span className="chv-video__lecture" aria-hidden="true" />
-        <span className="chv-video__mention">Vidéo du passage</span>
+        <span className="chv-video__mention">{t("Vidéo du passage")}</span>
         <span className="chv-video__duree">0:48</span>
       </div>
 
@@ -253,14 +258,14 @@ export function DemoMenage() {
         <div>
           <p className="chv-commentaire__auteur">Fabienne</p>
           <p className="chv-commentaire__texte">
-            Tout est en ordre. Linge changé, consommables réassortis, rien à signaler sur le logement.
+            {t("Tout est en ordre. Linge changé, consommables réassortis, rien à signaler sur le logement.")}
           </p>
         </div>
       </div>
 
       <p className={`chv-demo__preuve ${cran >= 3 ? "est-posee" : ""}`}>
         <Coche />
-        Déposé dans Chevalier PMS — le propriétaire peut le consulter quand il veut.
+        {t("Déposé dans Chevalier PMS — le propriétaire peut le consulter quand il veut.")}
       </p>
     </div>
   );
@@ -278,6 +283,7 @@ const CANAUX = [
 ];
 
 export function DemoTableau() {
+  const t = useT();
   const [ref, cran] = useSequence(3, 1200, 3000);
   const ca = useCompteur(4380, cran >= 1, 1000);
   const occ = useCompteur(87, cran >= 1, 1000);
@@ -285,18 +291,18 @@ export function DemoTableau() {
   return (
     <div className="chv-demo" ref={ref}>
       <div className="chv-demo__barre">
-        <span className="chv-demo__titre">Rapport d'août</span>
+        <span className="chv-demo__titre">{t("Rapport d'août")}</span>
         <span className="chv-demo__note">Le Central</span>
       </div>
 
       <div className="chv-bilan">
         <div>
           <p className="chv-bilan__valeur">{euros(ca)}</p>
-          <p className="chv-bilan__legende">Chiffre d'affaires</p>
+          <p className="chv-bilan__legende">{t("Chiffre d'affaires")}</p>
         </div>
         <div>
           <p className="chv-bilan__valeur">{occ} %</p>
-          <p className="chv-bilan__legende">Taux d'occupation</p>
+          <p className="chv-bilan__legende">{t("Taux d'occupation")}</p>
         </div>
       </div>
 
@@ -323,7 +329,7 @@ export function DemoTableau() {
 
       <p className={`chv-demo__preuve ${cran >= 3 ? "est-posee" : ""}`}>
         <Coche />
-        Envoyé chaque mois, et consultable à tout moment dans Chevalier PMS.
+        {t("Envoyé chaque mois, et consultable à tout moment dans Chevalier PMS.")}
       </p>
     </div>
   );

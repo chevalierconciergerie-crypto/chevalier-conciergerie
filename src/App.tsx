@@ -39,6 +39,7 @@ const App = () => (
         <BrowserRouter>
           <ScrollToTop />
           <LangueProvider>
+            <BandeauCookies />
             {/*
               Chaque route est montée deux fois : nue en français, préfixée /en
               en anglais. La langue vit donc dans l'adresse — /tarifs et
@@ -97,7 +98,6 @@ const App = () => (
             consentement. Google Analytics reste à activer séparément dans index.html
             une fois l'identifiant G-… créé.
           */}
-          <BandeauCookies />
           <Analytics />
           <SpeedInsights />
         </BrowserRouter>

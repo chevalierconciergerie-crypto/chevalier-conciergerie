@@ -1,3 +1,4 @@
+import { useT } from "@/i18n/langue";
 import type { CSSProperties } from "react";
 import { faqConciergerie, faqSousLocation, type QuestionFaq } from "@/data/faq";
 import {
@@ -19,18 +20,19 @@ import { Chevron, IconeCoche, Revele, TitreAnime } from "./Primitives";
   /sous-location, qui lisent les mêmes questions.
 */
 export function Faq({ questions }: { questions: QuestionFaq[] }) {
+  const t = useT();
   return (
     <div className="chv-faq">
       <h3>
-        Les questions <em>qu'on nous pose.</em>
+        {t("Les questions")} <em>{t("qu'on nous pose.")}</em>
       </h3>
       {questions.map((item, i) => (
         <Revele as="details" key={item.q} delai={i * 55}>
           <summary>
-            <span>{item.q}</span>
+            <span>{t(item.q)}</span>
             <Chevron couleur="var(--chv-cuivre-fonce)" />
           </summary>
-          <p>{item.a}</p>
+          <p>{t(item.a)}</p>
         </Revele>
       ))}
     </div>
@@ -48,6 +50,7 @@ const DEMOS: Record<NonNullable<BlocService["demo"]>, JSX.Element> = {
 };
 
 function Bloc({ bloc, rang }: { bloc: BlocService; rang: number }) {
+  const t = useT();
   const inverse = rang % 2 === 1;
   return (
     <div className={`chv-bloc ${inverse ? "chv-bloc--inverse" : ""}`}>
@@ -65,18 +68,18 @@ function Bloc({ bloc, rang }: { bloc: BlocService; rang: number }) {
         )}
       </Revele>
       <Revele className="chv-bloc__texte" delai={120}>
-        <span className="chv-badge">{bloc.badge}</span>
+        <span className="chv-badge">{t(bloc.badge)}</span>
         <h3 className="chv-sous-titre">
-          {bloc.ligne1}
+          {t(bloc.ligne1)}
           <br />
-          <em>{bloc.accent}</em>
+          <em>{t(bloc.accent)}</em>
         </h3>
-        <p className="chv-paragraphe">{bloc.texte}</p>
+        <p className="chv-paragraphe">{t(bloc.texte)}</p>
         <ul className="chv-puces">
           {bloc.puces.map((puce) => (
             <li key={puce}>
               <IconeCoche />
-              <span>{puce}</span>
+              <span>{t(puce)}</span>
             </li>
           ))}
         </ul>
@@ -109,26 +112,26 @@ function Tarif() {
 }
 
 export function ServiceConciergerie() {
+  const t = useT();
   return (
     <section id="notre-service" className="chv-section" aria-label="Notre service de conciergerie">
-      <TitreAnime lignes={["Notre service", "de conciergerie"]} />
+      <TitreAnime lignes={[t("Notre service"), t("de conciergerie")]} />
 
       <Revele className="chv-entree">
-        <span className="chv-badge">La mise en ligne</span>
+        <span className="chv-badge">{t("La mise en ligne")}</span>
         <h3 className="chv-sous-titre">
-          Votre annonce créée,
+          {t("Votre annonce créée,")}
           <br />
-          <em>publiée partout.</em>
+          <em>{t("publiée partout.")}</em>
         </h3>
         <p className="chv-paragraphe">
-          Tout commence par l'annonce : rédaction, mise en valeur du logement, réglage des règles de séjour et des
-          tarifs, puis mise en ligne simultanée sur les plateformes.
+          {t("Tout commence par l'annonce : rédaction, mise en valeur du logement, réglage des règles de séjour et des tarifs, puis mise en ligne simultanée sur les plateformes.")}
         </p>
       </Revele>
 
       <div className="chv-services">
         <Revele className="chv-logos">
-          <p>Diffusé et synchronisé sur</p>
+          <p>{t("Diffusé et synchronisé sur")}</p>
           <div className="chv-logos__rangee">
             {LOGOS_PLATEFORMES.map((logo) => (
               <img key={logo.nom} src={logo.fichier} alt={logo.nom} style={{ height: logo.hauteur }} loading="lazy" />
@@ -148,28 +151,28 @@ export function ServiceConciergerie() {
 
 /* La seconde formule, bâtie sur le contenu réel de la page /sous-location. */
 export function ServiceSousLocation() {
+  const t = useT();
   return (
     <section id="sous-location" className="chv-section" aria-label="Notre service de sous-location">
-      <TitreAnime lignes={["Notre service", "de sous-location"]} />
+      <TitreAnime lignes={[t("Notre service"), t("de sous-location")]} />
 
       <Revele className="chv-entree">
-        <span className="chv-badge">L'autre formule</span>
+        <span className="chv-badge">{t("L'autre formule")}</span>
         <h3 className="chv-sous-titre">
-          Vous ne gérez plus rien,
+          {t("Vous ne gérez plus rien,")}
           <br />
-          <em>vous encaissez un loyer fixe.</em>
+          <em>{t("vous encaissez un loyer fixe.")}</em>
         </h3>
         <p className="chv-paragraphe" style={{ maxWidth: 600 }}>
-          Nous devenons votre locataire principal : nous louons votre bien à l'année pour y accueillir des voyageurs de
-          passage. Vous touchez votre loyer, nous gérons l'exploitation et portons le risque.
+          {t("Nous devenons votre locataire principal : nous louons votre bien à l'année pour y accueillir des voyageurs de passage. Vous touchez votre loyer, nous gérons l'exploitation et portons le risque.")}
         </p>
       </Revele>
 
       <div className="chv-avantages">
         {AVANTAGES_SOUS_LOCATION.map((a, i) => (
           <Revele key={a.nom} effet="volume" delai={i * 110} className="chv-avantage">
-            <h3>{a.nom}</h3>
-            <p>{a.texte}</p>
+            <h3>{t(a.nom)}</h3>
+            <p>{t(a.texte)}</p>
           </Revele>
         ))}
       </div>
@@ -178,8 +181,8 @@ export function ServiceSousLocation() {
         {ETAPES_SOUS_LOCATION.map((e, i) => (
           <Revele key={e.numero} delai={i * 90} className="chv-etape">
             <p className="chv-etape__numero">{e.numero}</p>
-            <h3>{e.nom}</h3>
-            <p>{e.texte}</p>
+            <h3>{t(e.nom)}</h3>
+            <p>{t(e.texte)}</p>
           </Revele>
         ))}
       </div>

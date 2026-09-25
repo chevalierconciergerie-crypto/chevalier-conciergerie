@@ -1,4 +1,4 @@
-import { useLangue, useT } from "@/i18n/langue";
+import { Drapeaux, useLangue, useT } from "@/i18n/langue";
 import { useCallback, useEffect, useState, type CSSProperties } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { COURRIEL, RESEAUX, RUBRIQUES, TELEPHONE } from "@/data/accueil";
@@ -152,9 +152,7 @@ const EnTete = () => {
         <img src={LOGO} alt="CHEVALIER" width={996} height={129} />
       </Link>
       <div className="chv-entete__droite">
-        {/* Les drapeaux apparaîtront ici le jour où la version anglaise est
-            complète : un sélecteur qui ne traduit rien est pire que pas de
-            sélecteur. Le système, lui, est déjà en place. */}
+        <Drapeaux />
         <Reseaux tabIndex={dansMenu && !ouvert ? -1 : undefined} />
         <Link to={lien(ESTIMATION)} className="chv-pastille" tabIndex={dansMenu && !ouvert ? -1 : undefined}>
           <span className="chv-entete__appel-long">{t("Estimation gratuite")}</span>

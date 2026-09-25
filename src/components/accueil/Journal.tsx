@@ -1,14 +1,8 @@
+import { useT } from "@/i18n/langue";
 import { Link } from "react-router-dom";
 import { articles } from "@/lib/journal";
 import { avis, AVIS_TOTAL_GOOGLE, GOOGLE_REVIEWS_URL, type Avis } from "@/data/avis";
-import { COUVERTURES_BLOG, COURRIEL, RESEAUX, TELEPHONE } from "@/data/accueil";
-
-/* Les comptes affichés sous chaque réseau, pour que le lien soit vérifiable. */
-const COMPTES: Record<string, string> = {
-  Instagram: "@chevalier_conciergerie",
-  LinkedIn: "Victor Chevalier",
-  Facebook: "Chevalier Conciergerie",
-};
+import { COUVERTURES_BLOG, COURRIEL, TELEPHONE } from "@/data/accueil";
 import { usePivot } from "./effets";
 import { Etiquette, Revele, TitreAnime } from "./Primitives";
 
@@ -23,6 +17,7 @@ const ARTICLES_ACCUEIL = articles.filter((a) => a.slug in COUVERTURES_BLOG);
 
 function CarteArticle({ rang }: { rang: number }) {
   const article = ARTICLES_ACCUEIL[rang];
+  const t = useT();
   const carte = usePivot<HTMLAnchorElement>(rang % 2 ? -1 : 1);
   return (
     <Revele as="article" effet="volume" delai={rang * 120} className={`chv-article ${rang % 2 ? "chv-article--decale" : ""}`}>
@@ -33,10 +28,10 @@ function CarteArticle({ rang }: { rang: number }) {
           </div>
           <div className="chv-article__texte">
             <p className="chv-article__meta">
-              {article.category} · {dateCourte(article.date)}
+              {t(article.category)} · {dateCourte(article.date)}
             </p>
-            <h3>{article.title}</h3>
-            <p>{article.description}</p>
+            <h3>{t(article.title)}</h3>
+            <p>{t(article.description)}</p>
           </div>
         </div>
       </Link>
@@ -46,9 +41,10 @@ function CarteArticle({ rang }: { rang: number }) {
 
 /* Les articles du Journal, en cartes qui pivotent dans la profondeur pendant le défilement. */
 export function BlogAccueil() {
+  const t = useT();
   return (
     <section id="blog" className="chv-section" aria-label="Blog">
-      <TitreAnime lignes={["Blog"]} />
+      <TitreAnime lignes={[t("Blog")]} />
       <p className="chv-blog__intro">
         Réglementation, rentabilité, fiscalité : ce qu'il faut savoir avant de louer en courte durée à Avignon.
       </p>
@@ -64,6 +60,7 @@ export function BlogAccueil() {
 const TEINTES = ["#b8652c", "#7a5c8a", "#3c6e71", "#8a5a3c", "#4a6b8a", "#8a6d3b"];
 
 function CarteAvis({ a, rang, doublon }: { a: Avis; rang: number; doublon?: boolean }) {
+  const t = useT();
   return (
     <figure className="chv-carte-avis" aria-hidden={doublon || undefined}>
       <div className="chv-carte-avis__haut">
@@ -72,11 +69,11 @@ function CarteAvis({ a, rang, doublon }: { a: Avis; rang: number; doublon?: bool
         </span>
         <div>
           <figcaption>{a.name}</figcaption>
-          <p className="chv-carte-avis__etoiles" aria-label={`${a.rating} étoiles sur 5`}>★★★★★</p>
+          <p className="chv-carte-avis__etoiles" aria-label={`${a.rating} ${t("étoiles sur 5")}`}>★★★★★</p>
         </div>
       </div>
-      <blockquote>{a.text}</blockquote>
-      <p className="chv-carte-avis__source">Publié sur Google</p>
+      <blockquote>{t(a.text)}</blockquote>
+      <p className="chv-carte-avis__source">{t("Publié sur Google")}</p>
     </figure>
   );
 }
@@ -87,11 +84,12 @@ function CarteAvis({ a, rang, doublon }: { a: Avis; rang: number; doublon?: bool
   qui avance se regarde. La liste est posée deux fois pour boucler sans saut.
 */
 export function Temoignages() {
+  const t = useT();
   return (
     <section id="avis" className="chv-section chv-avis" aria-label="Témoignages">
       <div className="chv-entete-section">
-        <Etiquette>Témoignages</Etiquette>
-        <TitreAnime lignes={["Ils nous ont", "confié leur bien"]} />
+        <Etiquette>{t("Témoignages")}</Etiquette>
+        <TitreAnime lignes={[t("Ils nous ont"), t("confié leur bien")]} />
       </div>
       <div className="chv-ruban__piste">
         <div className="chv-ruban">
@@ -109,46 +107,24 @@ export function Temoignages() {
 }
 
 export function ContactAccueil() {
+  const t = useT();
   return (
     <section id="contact" className="chv-section chv-contact" aria-label="Contact">
-      <TitreAnime lignes={["Parlons de", "votre logement"]} />
+      <TitreAnime lignes={[t("Parlons de"), t("votre logement")]} />
       <Revele as="p" className="chv-contact__intro">
-        Estimation gratuite et sans engagement : nous évaluons votre bien et vous disons ce qu'il peut rapporter, en
-        conciergerie comme en sous-location.
+        {t("Estimation gratuite et sans engagement : nous évaluons votre bien et vous disons ce qu'il peut rapporter, en conciergerie comme en sous-location.")}
       </Revele>
       <Revele className="chv-contact__coordonnees" delai={120}>
         <div>
-          <p>Téléphone</p>
+          <p>{t("Téléphone")}</p>
           <a href={TELEPHONE.lien}>{TELEPHONE.affiche}</a>
         </div>
         <div>
-          <p>Courriel</p>
+          <p>{t("Courriel")}</p>
           <a href={COURRIEL.lien}>{COURRIEL.affiche}</a>
         </div>
       </Revele>
 
-      {/*
-        Les réseaux ont quitté la barre du haut, où leurs trois pastilles de
-        couleur tiraient l'oeil plus que la navigation. Ils reviennent ici, à
-        leur taille, avec le nom du compte : à cet endroit de la page le
-        visiteur est convaincu et cherche à vérifier qui nous sommes.
-      */}
-      <Revele className="chv-suivre" delai={180}>
-        <p className="chv-suivre__titre">Suivez le quotidien de la conciergerie</p>
-        <ul className="chv-suivre__liste">
-          {RESEAUX.map((r) => (
-            <li key={r.nom}>
-              <a href={r.lien} target="_blank" rel="noopener noreferrer">
-                <img src={r.logo} alt="" width={30} height={30} loading="lazy" />
-                <span>
-                  <b>{r.nom}</b>
-                  {COMPTES[r.nom] ? <em>{COMPTES[r.nom]}</em> : null}
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </Revele>
     </section>
   );
 }

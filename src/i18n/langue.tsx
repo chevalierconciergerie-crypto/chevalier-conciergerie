@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useMemo } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo } from "react";
 import type { ReactNode } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { EN } from "./en";
@@ -60,6 +60,34 @@ export function LangueProvider({ children }: { children: ReactNode }) {
       },
     };
   }, [langue, pathname, search, hash]);
+
+  /*
+    Deux choses que Google et les lecteurs d'écran attendent, et qu'aucune page
+    ne peut poser seule : la langue du document, et les liens hreflang qui
+    disent que la même page existe dans l'autre langue. Sans eux, les deux
+    versions se concurrencent au lieu de se compléter.
+  */
+  useEffect(() => {
+    const site = "https://chevalier-conciergerie.com";
+    const nu = sansPrefixe(pathname);
+    document.documentElement.lang = langue;
+
+    const poser = (hreflang: string, href: string) => {
+      const sel = `link[rel="alternate"][hreflang="${hreflang}"]`;
+      let el = document.head.querySelector<HTMLLinkElement>(sel);
+      if (!el) {
+        el = document.createElement("link");
+        el.rel = "alternate";
+        el.hreflang = hreflang;
+        document.head.appendChild(el);
+      }
+      el.href = href;
+    };
+
+    poser("fr", site + nu);
+    poser("en", site + (nu === "/" ? "/en" : `/en${nu}`));
+    poser("x-default", site + nu);
+  }, [langue, pathname]);
 
   return <LangueContexte.Provider value={valeur}>{children}</LangueContexte.Provider>;
 }

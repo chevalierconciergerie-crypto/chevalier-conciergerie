@@ -1,3 +1,4 @@
+import { useT } from "@/i18n/langue";
 import { useProgression, allerA } from "./effets";
 import { Chevron, MotifEventail } from "./Primitives";
 
@@ -8,6 +9,7 @@ import { Chevron, MotifEventail } from "./Primitives";
   écrite par useProgression sur une course de 70 % de hauteur d'écran.
 */
 const HeroAvignon = () => {
+  const t = useT();
   const ref = useProgression<HTMLElement>();
 
   return (
@@ -15,16 +17,16 @@ const HeroAvignon = () => {
       <div className="chv-hero__collant">
         <MotifEventail className="chv-hero__motif" />
         <h1 id="chv-hero-titre" className="chv-hero__titre">
-          <span>Conciergerie</span>
+          <span>{t("Conciergerie")}</span>
           <span className="chv-hero__ligne2">
-            <span>à</span>
+            <span>{t("à")}</span>
             <span className="chv-hero__avignon">Avignon</span>
           </span>
         </h1>
         <figure className="chv-hero__photo">
           <img
             src="/accueil/hero-pont-avignon.webp"
-            alt="Vue au drone du Pont d'Avignon et du Palais des Papes"
+            alt={t("Vue au drone du Pont d'Avignon et du Palais des Papes")}
             width={1920}
             height={960}
             // React 18 ne connaît pas encore fetchPriority : l'attribut HTML passe tel quel.
@@ -35,7 +37,7 @@ const HeroAvignon = () => {
           type="button"
           className="chv-pastille chv-pastille--rond chv-hero__suite"
           onClick={() => allerA("qui-sommes-nous")}
-          aria-label="Descendre vers la présentation"
+          aria-label={t("Descendre vers la présentation")}
         >
           <Chevron taille={16} />
         </button>
