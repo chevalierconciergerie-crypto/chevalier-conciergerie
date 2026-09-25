@@ -7,6 +7,7 @@ import {
   LOGOS_PLATEFORMES,
   type BlocService,
 } from "@/data/accueil";
+import { DemoCalendrier, DemoDirect, DemoMenage, DemoTableau, DemoTarification } from "./Demos";
 import { Messagerie } from "./Messagerie";
 import { Chevron, IconeCoche, Revele, TitreAnime } from "./Primitives";
 
@@ -36,14 +37,24 @@ export function Faq({ questions }: { questions: QuestionFaq[] }) {
   );
 }
 
+/* Chaque bloc de l'offre a sa démonstration, à la place de la capture. */
+const DEMOS: Record<NonNullable<BlocService["demo"]>, JSX.Element> = {
+  calendrier: <DemoCalendrier />,
+  direct: <DemoDirect />,
+  tarification: <DemoTarification />,
+  menage: <DemoMenage />,
+  messagerie: <Messagerie />,
+  tableau: <DemoTableau />,
+};
+
 function Bloc({ bloc, rang }: { bloc: BlocService; rang: number }) {
   const inverse = rang % 2 === 1;
   return (
     <div className={`chv-bloc ${inverse ? "chv-bloc--inverse" : ""}`}>
       <Revele effet={bloc.demo ? "monte" : "volume"} className="chv-bloc__image">
-        {bloc.demo === "messagerie" ? (
+        {bloc.demo ? (
           /* Une démonstration vivante vaut mieux qu'une capture : la carte reste droite. */
-          <Messagerie />
+          DEMOS[bloc.demo]
         ) : (
           /* La capture présentée de biais, avec un liseré qui capte la lumière ; elle se redresse au survol. */
           <div className="chv-capture" style={{ "--inclinaison": `${inverse ? -8 : 8}deg` } as CSSProperties}>

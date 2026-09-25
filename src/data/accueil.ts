@@ -37,7 +37,7 @@ export const CITATION_FONDATEUR =
 export interface BlocService {
   badge: string;
   /** Remplace la capture par une démonstration animée. */
-  demo?: "messagerie";
+  demo?: "calendrier" | "direct" | "tarification" | "menage" | "messagerie" | "tableau";
   ligne1: string;
   accent: string;
   image: string;
@@ -51,6 +51,7 @@ export interface BlocService {
 export const BLOCS_SERVICES: BlocService[] = [
   {
     badge: "Le calendrier",
+    demo: "calendrier",
     ligne1: "Votre calendrier rempli,",
     accent: "vos nuits vacantes comblées.",
     image: "/accueil/calendrier-multicanal.webp",
@@ -67,6 +68,7 @@ export const BLOCS_SERVICES: BlocService[] = [
   },
   {
     badge: "La réservation directe",
+    demo: "direct",
     ligne1: "Votre propre site,",
     accent: "0 % de commission.",
     image: "/accueil/reservation-directe.webp",
@@ -83,6 +85,7 @@ export const BLOCS_SERVICES: BlocService[] = [
   },
   {
     badge: "La tarification",
+    demo: "tarification",
     ligne1: "Vos prix ajustés,",
     accent: "par de vraies personnes.",
     image: "/accueil/tarification.webp",
@@ -99,6 +102,7 @@ export const BLOCS_SERVICES: BlocService[] = [
   },
   {
     badge: "Le ménage",
+    demo: "menage",
     ligne1: "Le ménage géré,",
     accent: "sans que vous y pensiez.",
     image: "/accueil/gestion-menages.webp",
@@ -132,6 +136,7 @@ export const BLOCS_SERVICES: BlocService[] = [
   },
   {
     badge: "Le tableau de bord",
+    demo: "tableau",
     ligne1: "Vos revenus,",
     accent: "chaque mois, en clair.",
     image: "/accueil/rapport-mensuel.webp",
