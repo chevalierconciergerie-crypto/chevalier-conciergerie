@@ -22,8 +22,10 @@
   /* Sur fond clair, le cuivre manque de contraste pour du texte : on le fonce. */
   --chv-cuivre-fonce: #96523c;
   --chv-degrade-cuivre: linear-gradient(180deg, #eab6a0 1%, #cf8f7d 84%);
-  --chv-titre: "Libre Baskerville", Georgia, serif;
-  --chv-texte: "Archivo", system-ui, sans-serif;
+  /* Ne pas remplacer par Libre Baskerville / Archivo pour gagner du poids : elle est plus
+     large, et le titre de l'accueil, calé sur la largeur de l'écran, débordait. */
+  --chv-titre: "Fraunces", "Libre Baskerville", Georgia, serif;
+  --chv-texte: "Outfit", system-ui, sans-serif;
   --chv-marge: clamp(20px, 6.67vw, 110px);
   --chv-barre: 76px;
   --chv-ease: cubic-bezier(0.16, 1, 0.3, 1);
