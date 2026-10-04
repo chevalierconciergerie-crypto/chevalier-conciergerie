@@ -99,9 +99,9 @@ Le calcul n'est pas le même : la conciergerie rapporte davantage sur une bonne 
 
 ## À lire aussi
 
-- [Conciergerie ou sous-location à Avignon : comment trancher](/journal/conciergerie-ou-sous-location-avignon) — comparatif chiffré des deux formules.
-- [Rentabilité d'une location courte durée à Avignon : le calcul complet](/journal/calculer-rentabilite-reelle-location-courte-duree) — la méthode pour savoir ce que rapporte vraiment votre bien.
-- [Classement meublé de tourisme : ce que rapportent vraiment les étoiles](/journal/classement-meuble-de-tourisme) — l'abattement à 50 % et son calcul.
+- [Conciergerie ou sous-location à Avignon : comment trancher](/blog/conciergerie-ou-sous-location-avignon) — comparatif chiffré des deux formules.
+- [Rentabilité d'une location courte durée à Avignon : le calcul complet](/blog/calculer-rentabilite-reelle-location-courte-duree) — la méthode pour savoir ce que rapporte vraiment votre bien.
+- [Classement meublé de tourisme : ce que rapportent vraiment les étoiles](/blog/classement-meuble-de-tourisme) — l'abattement à 50 % et son calcul.
 - [Nos tarifs](/conciergerie) — le détail des deux formules.
 
 ## Questions fréquentes

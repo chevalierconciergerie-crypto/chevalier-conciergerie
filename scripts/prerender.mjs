@@ -205,7 +205,7 @@ function writeLlmsTxt(routes, journalRoutes, articles) {
     return `- [${titre}](${SITE}${r.path}): ${r.description || ""}`;
   };
 
-  const pages = routes.filter((r) => !r.path.startsWith("/journal"));
+  const pages = routes.filter((r) => !r.path.startsWith(JOURNAL_BASE));
   const legales = pages.filter((r) =>
     ["/mentions-legales", "/politique-confidentialite", "/cgv"].includes(r.path),
   );
@@ -236,7 +236,7 @@ Tarifs, en clair :
 
 ${principales.map(ligne).join("\n")}
 
-## Journal
+## Blog
 
 ${journalRoutes.map(ligne).join("\n")}
 
@@ -286,7 +286,7 @@ ${legales.map(ligne).join("\n")}
 
 > Conciergerie Airbnb et gestion locative saisonnière à Avignon, Villeneuve-lès-Avignon
 > et Les Angles. Ce fichier reprend les 15 questions les plus posées, puis l'intégralité
-> des articles du Journal.
+> des articles du Blog.
 > Source : ${SITE}
 
 # Top 15 questions
@@ -295,7 +295,7 @@ ${topQuestions}
 
 ---
 
-# Journal — articles complets
+# Blog — articles complets
 
 ${articles
   .map(
@@ -303,7 +303,7 @@ ${articles
 
 # ${a.title}
 
-URL : ${SITE}/journal/${a.slug}
+URL : ${SITE}${JOURNAL_BASE}/${a.slug}
 Publié le ${a.date} · Catégorie : ${a.category} · Auteur : ${a.author}
 
 ${a.markdown || ""}`,
@@ -348,7 +348,7 @@ function buildJournalRoutes() {
   const articles = loadArticles();
   const routes = [];
 
-  // Mêmes éléments que les cartes de la page /journal (BlogAccueil) : catégorie, date au
+  // Mêmes éléments que les cartes de la page /blog (BlogAccueil) : catégorie, date au
   // format jj/mm/aaaa, titre, description. La page n'affiche pas la durée de lecture.
   const cards = articles
     .map(
@@ -377,7 +377,7 @@ function buildJournalRoutes() {
       {
         "@context": "https://schema.org",
         "@type": "Blog",
-        name: "Journal — Chevalier Conciergerie",
+        name: "Blog — Chevalier Conciergerie",
         url: SITE + JOURNAL_BASE,
         inLanguage: "fr-FR",
         publisher: { "@type": "Organization", name: "Chevalier Conciergerie", url: SITE },
@@ -430,7 +430,7 @@ function buildJournalRoutes() {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Accueil", item: SITE },
-          { "@type": "ListItem", position: 2, name: "Journal", item: SITE + JOURNAL_BASE },
+          { "@type": "ListItem", position: 2, name: "Blog", item: SITE + JOURNAL_BASE },
           { "@type": "ListItem", position: 3, name: a.title, item: url },
         ],
       },
@@ -465,12 +465,12 @@ function buildJournalRoutes() {
       ogImage: a.image || "/journal/journal-defaut.jpg",
       lastmod: a.updated,
       jsonLd,
-      bodyHtml: `<main><nav><a href="/">Accueil</a> › <a href="${esc(JOURNAL_BASE)}">Journal</a></nav>
+      bodyHtml: `<main><nav><a href="/">Accueil</a> › <a href="${esc(JOURNAL_BASE)}">Blog</a></nav>
     <article>
       <p>${esc(a.category)} · ${esc(a.date)} · ${a.readingTime} min de lecture</p>
       <h1>${esc(a.title)}</h1>
       ${a.html}
-      <p><a href="/contact">Nous contacter</a> · <a href="${esc(JOURNAL_BASE)}">Retour au Journal</a></p>
+      <p><a href="/contact">Nous contacter</a> · <a href="${esc(JOURNAL_BASE)}">Retour au Blog</a></p>
     </article></main>`,
     });
   }
@@ -549,7 +549,7 @@ const notFoundHtml = buildHtml(template, {
       <li><a href="/">Accueil</a></li>
       <li><a href="/conciergerie">Conciergerie</a></li>
       <li><a href="/sous-location">Sous-location</a></li>
-      <li><a href="/journal">Journal</a></li>
+      <li><a href="${JOURNAL_BASE}">Blog</a></li>
       <li><a href="/contact">Contact</a></li>
     </ul>
   </main>`,

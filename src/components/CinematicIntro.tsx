@@ -51,7 +51,7 @@ const LIENS_MENU = [
   { libelle: "Conciergerie", vers: "/conciergerie" },
   { libelle: "Sous-location", vers: "/sous-location" },
   { libelle: "Nos logements", vers: "/logements" },
-  { libelle: "Blog", vers: "/journal" },
+  { libelle: "Blog", vers: "/blog" },
   { libelle: "Partenaires", vers: "/partenaires" },
   { libelle: "Contact", vers: "/contact" },
 ];
@@ -129,11 +129,11 @@ const CinematicIntro = () => {
             Nos logements
           </Link>
           <Link
-            to="/journal"
+            to="/blog"
             className={`${pastille} hidden lg:inline-flex border`}
             style={{ borderColor: `${CREME}40`, color: CREME }}
           >
-            Journal
+            Blog
           </Link>
         </div>
 

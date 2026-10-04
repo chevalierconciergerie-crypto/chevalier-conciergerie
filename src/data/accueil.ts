@@ -24,7 +24,7 @@ export const RUBRIQUES = [
   { libelle: "Sous-location", ancre: "sous-location", page: "/sous-location", barre: true },
   { libelle: "Villes", ancre: "villes", page: "/villes", barre: true },
   { libelle: "Devenir franchisé", ancre: "franchise", page: "/franchise", barre: true },
-  { libelle: "Blog", ancre: "blog", page: "/journal", barre: true },
+  { libelle: "Blog", ancre: "blog", page: "/blog", barre: true },
   { libelle: "Contact", ancre: "contact", page: "/contact", barre: true },
 ] as const;
 

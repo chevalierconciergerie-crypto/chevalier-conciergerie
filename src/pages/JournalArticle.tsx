@@ -11,7 +11,7 @@ const JournalArticle = () => {
   const article = getArticle(slug);
 
   // Slug inconnu : on renvoie vers la liste plutôt que d'afficher une page vide.
-  if (!article) return <Navigate to="/journal" replace />;
+  if (!article) return <Navigate to="/blog" replace />;
 
   const url = `${SITE}${article.path}`;
   const others = articles.filter((a) => a.slug !== article.slug).slice(0, 3);
@@ -38,8 +38,8 @@ const JournalArticle = () => {
                 Accueil
               </Link>
               <span aria-hidden="true"> › </span>
-              <Link to="/journal" className="hover:text-foreground">
-                Journal
+              <Link to="/blog" className="hover:text-foreground">
+                Blog
               </Link>
             </nav>
 
@@ -82,10 +82,10 @@ const JournalArticle = () => {
                 Nous contacter
               </Link>
               <Link
-                to="/journal"
+                to="/blog"
                 className="inline-flex min-h-11 items-center justify-center rounded-full border border-border px-8 py-3 font-sans text-sm font-medium tracking-wide text-foreground transition-colors hover:bg-secondary"
               >
-                Retour au Journal
+                Retour au Blog
               </Link>
             </div>
 

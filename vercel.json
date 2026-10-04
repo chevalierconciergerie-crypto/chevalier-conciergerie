@@ -8,6 +8,10 @@
     { "source": "/(.*)\\.html", "destination": "/$1", "permanent": true },
     { "source": "/tarifs", "destination": "/conciergerie", "permanent": true },
     { "source": "/en/tarifs", "destination": "/en/conciergerie", "permanent": true },
+    { "source": "/journal", "destination": "/blog", "permanent": true },
+    { "source": "/journal/:slug([a-z0-9-]+)", "destination": "/blog/:slug", "permanent": true },
+    { "source": "/en/blog", "destination": "/blog", "permanent": false },
+    { "source": "/en/blog/:slug", "destination": "/blog/:slug", "permanent": false },
     {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.chevalier-conciergerie.com" }],

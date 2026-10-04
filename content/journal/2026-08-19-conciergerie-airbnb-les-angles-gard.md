@@ -67,6 +67,6 @@ Non, ce n'est pas obligatoire, mais la déclaration en mairie avec numéro l'est
 **Comment obtenir un avis vérifiable avant de confier mon bien ?**
 Demandez le détail du bien concerné (quartier, type, ancienneté) plutôt qu'une note isolée — c'est ce que nous fournissons lors d'une [consultation gratuite](/contact), avec des exemples adaptés à votre secteur.
 
-Pour d'autres retours d'expérience et analyses locales, retrouvez nos publications sur le [journal](/journal) ou découvrez notre approche sur la page [à propos](/a-propos).
+Pour d'autres retours d'expérience et analyses locales, retrouvez nos publications sur le [journal](/blog) ou découvrez notre approche sur la page [à propos](/a-propos).
 
 (Article rédigé sans interview d'expertise — à enrichir avec un retour terrain avant publication.)

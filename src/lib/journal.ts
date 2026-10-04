@@ -70,7 +70,7 @@ function build(): Article[] {
 
     out.push({
       slug,
-      path: `/journal/${slug}`,
+      path: `/blog/${slug}`,
       title: str(data.title),
       description: str(data.description),
       date: str(data.date),

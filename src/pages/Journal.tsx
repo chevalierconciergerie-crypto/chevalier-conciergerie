@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { BlogAccueil } from "@/components/accueil/Journal";
 
 /*
-  /journal — la liste des articles.
+  /blog — la liste des articles.
 
   Le corps est la section « Blog » de l'accueil (BlogAccueil), dans le nouveau design,
   avec tous les articles au lieu de la sélection de cinq : même principe que /franchise,
@@ -29,7 +29,7 @@ const Journal = () => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="fr_FR" />
-        <link rel="canonical" href="https://chevalier-conciergerie.com/journal" />
+        <link rel="canonical" href="https://chevalier-conciergerie.com/blog" />
       </Helmet>
 
       <Header />

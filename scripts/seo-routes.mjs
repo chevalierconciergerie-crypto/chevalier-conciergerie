@@ -214,7 +214,7 @@ const LOCAL_PAGES = [
       <p><a href="/contact">Demander une estimation gratuite</a> ·
       <a href="/conciergerie">Le détail de la formule conciergerie</a> ·
       <a href="/sous-location">La sous-location avec loyer garanti</a> ·
-      <a href="/journal/declarer-location-saisonniere-avignon">Les démarches obligatoires</a></p>
+      <a href="/blog/declarer-location-saisonniere-avignon">Les démarches obligatoires</a></p>
     </main>`,
     jsonLd: [
       breadcrumb({ name: `Conciergerie ${p.city}`, path: `/${p.slug}` }),
@@ -263,7 +263,7 @@ const STATIC_ROUTES = [
           "@type": "SearchAction",
           target: {
             "@type": "EntryPoint",
-            urlTemplate: `${SITE}/journal?q={search_term_string}`,
+            urlTemplate: `${SITE}/blog?q={search_term_string}`,
           },
           "query-input": "required name=search_term_string",
         },
@@ -305,9 +305,9 @@ const STATIC_ROUTES = [
         <li><a href="/conciergerie-avignon">Conciergerie Airbnb à Avignon</a></li>
         <li><a href="/conciergerie-villeneuve-les-avignon">Conciergerie à Villeneuve-lès-Avignon</a></li>
         <li><a href="/conciergerie-les-angles">Conciergerie aux Angles</a></li>
-        <li><a href="/journal/declarer-location-saisonniere-avignon">Déclarer sa location saisonnière à Avignon : les 3 démarches obligatoires</a></li>
-        <li><a href="/journal/calculer-rentabilite-reelle-location-courte-duree">Calculer la rentabilité réelle de sa location courte durée</a></li>
-        <li><a href="/journal">Blog : tous nos guides</a></li>
+        <li><a href="/blog/declarer-location-saisonniere-avignon">Déclarer sa location saisonnière à Avignon : les 3 démarches obligatoires</a></li>
+        <li><a href="/blog/calculer-rentabilite-reelle-location-courte-duree">Calculer la rentabilité réelle de sa location courte durée</a></li>
+        <li><a href="/blog">Blog : tous nos guides</a></li>
         <li><a href="/contact">Nous contacter — estimation gratuite sous 24 h</a></li>
       </ul>
     </main>`,

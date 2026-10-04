@@ -18,8 +18,12 @@ import { marked } from "marked";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 export const JOURNAL_DIR = path.join(root, "content", "journal");
 
-/** Préfixe d'URL du journal. Changer ici le répercute partout (routes, sitemap, JSON-LD). */
-export const JOURNAL_BASE = "/journal";
+/**
+ * Préfixe d'URL du blog. Changer ici le répercute partout (routes, sitemap, JSON-LD) ; le côté
+ * navigateur (src/lib/journal.ts, src/App.tsx) et vercel.json se changent à la main.
+ * Les images restent sous /journal/ : ce sont des fichiers, pas des pages.
+ */
+export const JOURNAL_BASE = "/blog";
 
 /**
  * Parse un frontmatter YAML simple (clé: valeur, une par ligne).

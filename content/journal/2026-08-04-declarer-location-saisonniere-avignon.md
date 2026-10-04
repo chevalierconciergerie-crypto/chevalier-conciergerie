@@ -73,7 +73,7 @@ Reste votre temps. Compter deux à trois heures pour constituer un dossier simpl
 
 La taxe de séjour est due par le **voyageur**, calculée par personne et par nuit. Vous la collectez pour le compte de la collectivité, puis vous la reversez.
 
-Cette somme transite par votre compte sans jamais vous appartenir. **Ce n'est pas un revenu.** L'intégrer à votre chiffre d'affaires gonfle artificiellement vos résultats et fausse votre déclaration — c'est l'erreur comptable la plus fréquente que nous rencontrons, et nous la détaillons dans notre article sur [le calcul de la rentabilité réelle](/journal/calculer-rentabilite-reelle-location-courte-duree).
+Cette somme transite par votre compte sans jamais vous appartenir. **Ce n'est pas un revenu.** L'intégrer à votre chiffre d'affaires gonfle artificiellement vos résultats et fausse votre déclaration — c'est l'erreur comptable la plus fréquente que nous rencontrons, et nous la détaillons dans notre article sur [le calcul de la rentabilité réelle](/blog/calculer-rentabilite-reelle-location-courte-duree).
 
 Certaines plateformes collectent et reversent automatiquement — c'est le cas d'Airbnb et d'Abritel. D'autres non, ou seulement selon le canal de réservation. Si vous multipliez les sources, vérifiez précisément ce que chacune prend en charge : les régularisations rétroactives sont désagréables et se réclament sur plusieurs années.
 
@@ -101,7 +101,7 @@ Si la gestion ne vous intéresse pas du tout, la [sous-location avec loyer garan
 
 ## Pour aller plus loin
 
-Une fois le dossier en règle, la vraie question devient économique : ce que le bien rapporte réellement, une fois les commissions, les charges et la taxe de séjour déduites. Nous détaillons la méthode de calcul complète dans [l'article consacré à la rentabilité](/journal/calculer-rentabilite-reelle-location-courte-duree), et nous établissons gratuitement cette estimation sur votre logement via notre [outil d'estimation](/estimation-sous-location).
+Une fois le dossier en règle, la vraie question devient économique : ce que le bien rapporte réellement, une fois les commissions, les charges et la taxe de séjour déduites. Nous détaillons la méthode de calcul complète dans [l'article consacré à la rentabilité](/blog/calculer-rentabilite-reelle-location-courte-duree), et nous établissons gratuitement cette estimation sur votre logement via notre [outil d'estimation](/estimation-sous-location).
 
 ## Questions fréquentes
 
@@ -122,7 +122,7 @@ Vous vous exposez au retrait de vos annonces par les plateformes, et à des sanc
 
 ## Mettez-vous en règle avant la saison
 
-[Nous contacter](/contact) · [Retour au Journal](/journal)
+[Nous contacter](/contact) · [Retour au Blog](/blog)
 
 Trois démarches, quelques jours de délai, et une saison qui démarre sans mauvaise surprise.
 

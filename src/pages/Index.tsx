@@ -46,7 +46,7 @@ const Index = () => {
           <Fondateur />
           {/*
             Conciergerie, sous-location, franchise, blog et contact ont chacun leur page
-            (/conciergerie, /sous-location, /franchise, /journal, /contact), ouverte depuis
+            (/conciergerie, /sous-location, /franchise, /blog, /contact), ouverte depuis
             le menu : elles ne sont plus répétées ici.
           */}
           <Temoignages />

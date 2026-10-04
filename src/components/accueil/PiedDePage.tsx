@@ -19,7 +19,7 @@ const COLONNES = [
       { libelle: "Sous-location", lien: "/sous-location" },
       { libelle: "Estimation gratuite", lien: "/estimation-sous-location" },
       { libelle: "Devenir franchisé", lien: "/franchise" },
-      { libelle: "Blog", lien: "/journal" },
+      { libelle: "Blog", lien: "/blog" },
     ],
   },
   {

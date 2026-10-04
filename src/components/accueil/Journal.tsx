@@ -50,7 +50,7 @@ function CarteArticle({ article, rang }: { article: Article; rang: number }) {
 /*
   Les articles du Journal, en cartes qui pivotent dans la profondeur pendant le défilement.
 
-  Sur l'accueil : la sélection de cinq articles. Sur sa propre page (/journal), la même
+  Sur l'accueil : la sélection de cinq articles. Sur sa propre page (/blog), la même
   section porte le titre principal (`commeH1`) et liste tous les articles (`tous`), pour
   qu'aucun ne perde son lien depuis la liste.
 */

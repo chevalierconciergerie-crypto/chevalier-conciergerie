@@ -8,7 +8,7 @@ import { ContactAccueil } from "@/components/accueil/Journal";
 
   Le corps est la section « Parlons de votre logement » de l'accueil (ContactAccueil), dans
   le nouveau design : même principe que /franchise, /conciergerie, /sous-location et
-  /journal. L'ancienne page, d'un autre design, est remplacée.
+  /blog. L'ancienne page, d'un autre design, est remplacée.
 
   Le texte lisible sans JavaScript (scripts/seo-routes.mjs) reprend celui de la section.
 */

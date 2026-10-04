@@ -90,9 +90,9 @@ Chez Chevalier Conciergerie, la démarche de classement fait partie de la prise 
 
 ## À lire aussi
 
-- [Rentabilité d'une location courte durée à Avignon : le calcul complet](/journal/calculer-rentabilite-reelle-location-courte-duree) — la méthode pour savoir ce que rapporte vraiment votre bien, charges et taxe de séjour déduites.
-- [Déclarer sa location saisonnière à Avignon : les 3 démarches obligatoires](/journal/declarer-location-saisonniere-avignon) — le préalable indispensable au classement.
-- [Conciergerie ou sous-location à Avignon : comment trancher](/journal/conciergerie-ou-sous-location-avignon) — comparatif chiffré des deux formules.
+- [Rentabilité d'une location courte durée à Avignon : le calcul complet](/blog/calculer-rentabilite-reelle-location-courte-duree) — la méthode pour savoir ce que rapporte vraiment votre bien, charges et taxe de séjour déduites.
+- [Déclarer sa location saisonnière à Avignon : les 3 démarches obligatoires](/blog/declarer-location-saisonniere-avignon) — le préalable indispensable au classement.
+- [Conciergerie ou sous-location à Avignon : comment trancher](/blog/conciergerie-ou-sous-location-avignon) — comparatif chiffré des deux formules.
 - [Nos tarifs](/conciergerie) — 25 % HT tout compris, ou 0 % en sous-location.
 
 ## Questions fréquentes

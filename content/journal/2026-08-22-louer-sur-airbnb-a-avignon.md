@@ -57,6 +57,6 @@ Un interlocuteur local prend en charge l'incident directement, sans vous sollici
 **La sous-location à loyer garanti est-elle possible pour tous les biens à Avignon ?**
 Non, elle dépend de la localisation, de l'état du bien et de sa conformité réglementaire. C'est ce que nous vérifions lors de la [consultation gratuite](/contact) avant de vous proposer un loyer garanti chiffré.
 
-Pour aller plus loin sur nos méthodes et notre implantation locale, consultez notre page [à propos](/a-propos) ou parcourez nos derniers articles sur le [journal](/journal).
+Pour aller plus loin sur nos méthodes et notre implantation locale, consultez notre page [à propos](/a-propos) ou parcourez nos derniers articles sur le [journal](/blog).
 
 (Article rédigé sans interview d'expertise — à enrichir avec un retour terrain avant publication.)

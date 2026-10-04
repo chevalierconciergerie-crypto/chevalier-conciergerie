@@ -81,7 +81,7 @@ Pas de projection optimiste : le chiffre que nous vous donnons est celui sur leq
 
 ## Pour aller plus loin
 
-Avant de vous lancer, assurez-vous que votre situation administrative est en règle : numéro d'enregistrement, changement d'usage éventuel et collecte de la taxe de séjour conditionnent la viabilité de tout le calcul. Nous détaillons les démarches dans notre article sur [la déclaration d'une location saisonnière à Avignon](/journal/declarer-location-saisonniere-avignon).
+Avant de vous lancer, assurez-vous que votre situation administrative est en règle : numéro d'enregistrement, changement d'usage éventuel et collecte de la taxe de séjour conditionnent la viabilité de tout le calcul. Nous détaillons les démarches dans notre article sur [la déclaration d'une location saisonnière à Avignon](/blog/declarer-location-saisonniere-avignon).
 
 ## Questions fréquentes
 
@@ -99,7 +99,7 @@ Cela dépend du prix moyen par nuit et du taux d'occupation actuel. Sur un studi
 
 ## À vous de décider en connaissance de cause
 
-[Nous contacter](/contact) · [Retour au Journal](/journal)
+[Nous contacter](/contact) · [Retour au Blog](/blog)
 
 Une estimation gratuite, sans engagement, et un chiffre sur lequel nous nous engageons.
 

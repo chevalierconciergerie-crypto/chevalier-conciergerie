@@ -59,7 +59,7 @@ Autant le dire franchement, parce que la plupart des sites évitent la question.
 
 **En conciergerie, vous payez une commission sur les revenus générés.** Elle est définie bien par bien, selon l'emplacement, la taille et les services retenus, et elle est écrite dans le mandat avant tout démarrage. Pour donner un ordre de grandeur concret plutôt qu'une fourchette abstraite, [l'exemple chiffré publié sur notre page conciergerie](/conciergerie) porte sur un studio de 30 m² loué 9 nuits en juillet à 110 € : 990 € de revenus bruts, 149 € de commission de plateforme, 168 € de commission pour nous, **673 € nets pour le propriétaire**. Dans ce cas précis, notre part représente environ 17 % du brut.
 
-Deux points à retenir sur ce chiffre. Le ménage n'y figure pas : il est payé par le voyageur, pas par vous. Et la taxe de séjour n'apparaît nulle part dans le calcul, pour une raison simple — **ce n'est pas un revenu**. Elle est collectée auprès du voyageur et reversée à la collectivité ; la compter comme un produit fausse toute comparaison, et c'est l'erreur que nous voyons le plus souvent. Nous la détaillons dans notre article sur [le calcul de la rentabilité réelle](/journal/calculer-rentabilite-reelle-location-courte-duree).
+Deux points à retenir sur ce chiffre. Le ménage n'y figure pas : il est payé par le voyageur, pas par vous. Et la taxe de séjour n'apparaît nulle part dans le calcul, pour une raison simple — **ce n'est pas un revenu**. Elle est collectée auprès du voyageur et reversée à la collectivité ; la compter comme un produit fausse toute comparaison, et c'est l'erreur que nous voyons le plus souvent. Nous la détaillons dans notre article sur [le calcul de la rentabilité réelle](/blog/calculer-rentabilite-reelle-location-courte-duree).
 
 **En sous-location, il n'y a pas de commission.** Vous recevez un loyer net, versé chaque mois. Son montant se fixe après une estimation du bien : il se construit à partir du potentiel locatif observé sur le secteur, dont nous retranchons ce que nous prenons en charge — les charges d'exploitation et le risque de vacance, qui devient le nôtre. Mécaniquement, le loyer garanti est inférieur à ce qu'une excellente année en conciergerie aurait rapporté, et supérieur à ce qu'une mauvaise aurait laissé. C'est le prix de la certitude, et il se chiffre bien sur votre bien précis : c'est l'objet de [l'estimation gratuite](/estimation-sous-location).
 
@@ -73,7 +73,7 @@ En conciergerie, l'autorisation est demandée à votre nom : nous montons le dos
 
 Si le bien est votre résidence principale, le raisonnement change : pas d'autorisation de changement d'usage, mais un plafond de **90 jours de location par année civile** — Avignon a abaissé le seuil national de 120 jours par délibération du 22 février 2025. Un plafond de 90 jours rend d'ailleurs la sous-location sans objet : on ne prend pas un bien à bail à l'année pour l'exploiter trois mois.
 
-Le détail des trois démarches, dans l'ordre, est dans notre article [Déclarer sa location saisonnière à Avignon](/journal/declarer-location-saisonniere-avignon). Ces règles évoluent et diffèrent d'une commune à l'autre : à [Villeneuve-lès-Avignon](/conciergerie-villeneuve-les-avignon) et [aux Angles](/conciergerie-les-angles), le cadre n'est pas celui d'Avignon. Vérifiez auprès de la mairie dont dépend votre bien.
+Le détail des trois démarches, dans l'ordre, est dans notre article [Déclarer sa location saisonnière à Avignon](/blog/declarer-location-saisonniere-avignon). Ces règles évoluent et diffèrent d'une commune à l'autre : à [Villeneuve-lès-Avignon](/conciergerie-villeneuve-les-avignon) et [aux Angles](/conciergerie-les-angles), le cadre n'est pas celui d'Avignon. Vérifiez auprès de la mairie dont dépend votre bien.
 
 ## Pour qui chaque formule est-elle faite ?
 
@@ -92,7 +92,7 @@ C'est valable à [Avignon](/conciergerie-avignon), à [Villeneuve-lès-Avignon](
 
 ## Pour aller plus loin
 
-Avant de choisir une formule, assurez-vous de savoir ce que votre bien rapporte réellement : beaucoup de calculs circulent en confondant chiffre d'affaires et revenu net. La méthode complète est dans [notre article sur la rentabilité](/journal/calculer-rentabilite-reelle-location-courte-duree). Et si votre dossier administratif n'est pas encore en règle, commencez par [les trois démarches obligatoires](/journal/declarer-location-saisonniere-avignon) : elles conditionnent les deux formules.
+Avant de choisir une formule, assurez-vous de savoir ce que votre bien rapporte réellement : beaucoup de calculs circulent en confondant chiffre d'affaires et revenu net. La méthode complète est dans [notre article sur la rentabilité](/blog/calculer-rentabilite-reelle-location-courte-duree). Et si votre dossier administratif n'est pas encore en règle, commencez par [les trois démarches obligatoires](/blog/declarer-location-saisonniere-avignon) : elles conditionnent les deux formules.
 
 ## Questions fréquentes
 
@@ -110,7 +110,7 @@ En conciergerie, le ménage est facturé au voyageur, pas à vous ; les consomma
 
 ## Comparez sur votre bien, pas sur un principe
 
-[Nous contacter](/contact) · [Retour au Journal](/journal)
+[Nous contacter](/contact) · [Retour au Blog](/blog)
 
 Deux chiffrages, une estimation gratuite, et une décision qui repose sur votre adresse plutôt que sur une moyenne.
 

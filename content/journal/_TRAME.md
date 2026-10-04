@@ -1,4 +1,4 @@
-# Trame éditoriale du Journal
+# Trame éditoriale du Blog
 
 Spécification suivie par la routine de publication. Ce fichier commence par `_` :
 il est ignoré par le chargeur d'articles et n'est jamais publié.
@@ -88,7 +88,7 @@ comme un rédacteur SEO les taperait.
 Trois éléments :
 
 1. Un sous-titre mobilisateur et court (leur équivalent : « À vous d'embarquer »)
-2. Deux liens : un vers [Nous contacter](/contact), un vers [Retour au Journal](/journal)
+2. Deux liens : un vers [Nous contacter](/contact), un vers [Retour au Blog](/blog)
 3. Une accroche finale d'une ligne, avec un chiffre si possible
 
 ---
@@ -100,7 +100,7 @@ Trois éléments :
 **Liens internes** : 8 à 10 dans le corps, en ancres contextuelles. Cibles prioritaires :
 `/conciergerie`, `/sous-location`, `/estimation-sous-location`, `/contact`,
 `/conciergerie-avignon`, `/conciergerie-villeneuve-les-avignon`, `/conciergerie-les-angles`,
-et les autres articles du Journal.
+et les autres articles du Blog.
 
 **Ton** : vouvoiement, expert local qui démystifie. Phrases courtes alternées avec du
 détail explicatif. Vendeur sans être insistant. Des chiffres précis plutôt que des

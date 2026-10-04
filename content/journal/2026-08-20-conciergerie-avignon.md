@@ -51,7 +51,7 @@ Le chiffrage précis dépend de chaque bien : c'est pourquoi nous proposons une 
 
 ## Pourquoi une conciergerie locale change la donne à Avignon
 
-Une conciergerie basée à Avignon connaît les délais réels de la mairie, les particularités de chaque quartier intra-muros et les pics de demande liés au calendrier culturel local — des éléments qu'une franchise nationale gère depuis un standard téléphonique, sans jamais mettre les pieds sur le bien. Chevalier Conciergerie intervient directement sur Avignon, Villeneuve-lès-Avignon et Les Angles, avec une équipe qui connaît le terrain plutôt qu'un algorithme de tarification générique. Vous pouvez vérifier notre approche sur la page [à propos](/a-propos) ou consulter nos retours d'expérience sur le [journal](/journal).
+Une conciergerie basée à Avignon connaît les délais réels de la mairie, les particularités de chaque quartier intra-muros et les pics de demande liés au calendrier culturel local — des éléments qu'une franchise nationale gère depuis un standard téléphonique, sans jamais mettre les pieds sur le bien. Chevalier Conciergerie intervient directement sur Avignon, Villeneuve-lès-Avignon et Les Angles, avec une équipe qui connaît le terrain plutôt qu'un algorithme de tarification générique. Vous pouvez vérifier notre approche sur la page [à propos](/a-propos) ou consulter nos retours d'expérience sur le [journal](/blog).
 
 ## FAQ
 

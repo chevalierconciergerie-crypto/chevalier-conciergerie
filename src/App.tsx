@@ -68,8 +68,8 @@ const App = () => (
               <Route path="/partenaires" element={<Partenaires />} />
               <Route path="/a-propos" element={<APropos />} />
               <Route path="/cgv" element={<CGV />} />
-              <Route path="/journal" element={<Journal />} />
-              <Route path="/journal/:slug" element={<JournalArticle />} />
+              <Route path="/blog" element={<Journal />} />
+              <Route path="/blog/:slug" element={<JournalArticle />} />
               <Route path="/en" element={<Index />} />
               <Route path="/en/conciergerie" element={<Conciergerie />} />
               <Route path="/en/sous-location" element={<SousLocation />} />
@@ -88,8 +88,8 @@ const App = () => (
               <Route path="/en/partenaires" element={<Partenaires />} />
               <Route path="/en/a-propos" element={<APropos />} />
               <Route path="/en/cgv" element={<CGV />} />
-              <Route path="/en/journal" element={<Journal />} />
-              <Route path="/en/journal/:slug" element={<JournalArticle />} />
+              <Route path="/en/blog" element={<Journal />} />
+              <Route path="/en/blog/:slug" element={<JournalArticle />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

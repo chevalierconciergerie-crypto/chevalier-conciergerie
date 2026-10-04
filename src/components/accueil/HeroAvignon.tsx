@@ -3,6 +3,13 @@ import { useLangue, useT } from "@/i18n/langue";
 import { useProgression, allerA } from "./effets";
 import { Chevron, MotifEventail } from "./Primitives";
 
+/* La flèche des deux boutons : elle glisse vers la droite au survol (voir .chv-hero__actions). */
+const Fleche = () => (
+  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+    <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 /**
   La couverture : « Conciergerie à Avignon » en très grand, et la vue au
   drone du Pont d'Avignon qui s'agrandit jusqu'à couvrir l'écran pendant
@@ -39,9 +46,11 @@ const HeroAvignon = () => {
         <div className="chv-hero__actions">
           <Link to={lien("/conciergerie")} className="chv-pastille chv-pastille--grand">
             {t("Conciergerie")}
+            <Fleche />
           </Link>
           <Link to={lien("/sous-location")} className="chv-pastille chv-pastille--grand">
             {t("Sous-location")}
+            <Fleche />
           </Link>
         </div>
         <button

@@ -18,7 +18,7 @@ export const EN: Record<string, string> = {
   "Conciergerie": "Property management",
   "Sous-location": "Guaranteed rent",
   "Devenir franchisé": "Become a franchisee",
-  "Blog": "Journal",
+  "Blog": "Blog",
   "Témoignages": "Reviews",
   "Contact": "Contact",
   "Estimation gratuite": "Free estimate",
@@ -40,7 +40,6 @@ export const EN: Record<string, string> = {
   "Tarifs": "Pricing",
   "Villes": "Cities",
   "Toutes nos villes": "All our cities",
-  "Journal": "Journal",
   "Conciergerie à Avignon": "Property management in Avignon",
   "Conciergerie et sous-location de meublés de tourisme à Avignon, Villeneuve-lès-Avignon et Les Angles.":
     "Holiday-let property management and guaranteed-rent letting in Avignon, Villeneuve-lès-Avignon and Les Angles.",
