@@ -153,6 +153,25 @@ export function ServiceConciergerie({ commeH1 = false }: { commeH1?: boolean }) 
   );
 }
 
+/*
+  Le tarif de la sous-location, présenté comme celui de la conciergerie. Texte repris de
+  l'ancienne page Tarifs : aucune commission, un loyer fixe fixé avant la signature.
+*/
+function TarifSousLocation() {
+  return (
+    <Revele className="chv-tarif">
+      <p className="chv-etiquette" style={{ margin: 0 }}>Notre tarif</p>
+      <p className="chv-tarif__chiffre">0 %</p>
+      <p className="chv-tarif__accroche">de commission. Un loyer fixe, versé chaque mois, saison creuse comprise.</p>
+      <p className="chv-tarif__explication">
+        Nous louons votre bien à l'année à notre nom : nos revenus viennent de l'exploitation du logement, pas de
+        votre poche. Le montant dépend du logement, du quartier et de la durée du bail ; il est fixé avant signature
+        et ne bouge plus.
+      </p>
+    </Revele>
+  );
+}
+
 /* La seconde formule, bâtie sur le contenu réel de la page /sous-location. */
 export function ServiceSousLocation({ commeH1 = false }: { commeH1?: boolean }) {
   const t = useT();
@@ -191,6 +210,7 @@ export function ServiceSousLocation({ commeH1 = false }: { commeH1?: boolean }) 
         ))}
       </div>
 
+      <TarifSousLocation />
       <Faq questions={faqSousLocation} />
     </section>
   );

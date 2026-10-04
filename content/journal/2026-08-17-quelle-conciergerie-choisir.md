@@ -45,7 +45,7 @@ Ce type de retour, ancré sur un bien réel et une saison réelle, vaut plus que
 
 La commission d'une conciergerie ne se compare jamais seule : elle dépend du niveau de service inclus (ménage, linge, accueil physique, gestion de la piscine) et du volume de séjours généré sur l'année. Un pourcentage bas sur un service minimal peut coûter plus cher en temps et en gestion qu'un pourcentage plus élevé incluant l'entretien complet d'un bien avec piscine.
 
-Le bon réflexe : demander une simulation sur votre bien précis, pas une fourchette moyenne valable pour toute la région. Notre page [tarifs](/tarifs) détaille les formules, et notre outil d'[estimation de sous-location](/estimation-sous-location) permet de chiffrer le potentiel de votre logement à Villeneuve avant de comparer les prestataires.
+Le bon réflexe : demander une simulation sur votre bien précis, pas une fourchette moyenne valable pour toute la région. Notre page [tarifs](/conciergerie) détaille les formules, et notre outil d'[estimation de sous-location](/estimation-sous-location) permet de chiffrer le potentiel de votre logement à Villeneuve avant de comparer les prestataires.
 
 ## La saisonnalité de Villeneuve pèse sur le choix du prestataire
 

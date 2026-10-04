@@ -364,13 +364,13 @@ function buildJournalRoutes() {
     path: JOURNAL_BASE,
     changefreq: "weekly",
     priority: "0.8",
-    title: "Journal : location courte durée à Avignon | Chevalier",
+    title: "Blog : location courte durée à Avignon | Chevalier",
     description:
       "Nos guides sur la gestion locative saisonnière à Avignon : réglementation, rentabilité, conciergerie et sous-location. Publications régulières.",
-    ogTitle: "Journal : location courte durée à Avignon",
+    ogTitle: "Blog : location courte durée à Avignon",
     ogDescription:
       "Réglementation, rentabilité, fiscalité : ce qu'il faut savoir avant de louer en courte durée à Avignon.",
-    bodyHtml: `<main><h1>Journal de la location courte durée à Avignon</h1>
+    bodyHtml: `<main><h1>Blog</h1>
     <p>Réglementation, rentabilité, fiscalité : ce qu'il faut savoir avant de louer en courte durée à Avignon.</p>
     ${cards}</main>`,
     jsonLd: [

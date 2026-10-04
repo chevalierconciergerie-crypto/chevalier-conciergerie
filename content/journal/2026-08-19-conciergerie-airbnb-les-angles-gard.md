@@ -54,7 +54,7 @@ Si vous préférez ne prendre aucun risque de vacance locative, l'option [sous-l
 
 ## Comment Chevalier Conciergerie gère votre bien aux Angles
 
-Nous intervenons directement sur la commune, sans sous-traitance à distance : ménage, accueil voyageur, gestion des annonces et démarches réglementaires sont pilotés localement. Notre grille tarifaire complète, avec le détail de ce qui est inclus, est consultable sur la page [tarifs](/tarifs). Pour un premier échange sans engagement, une [consultation gratuite](/contact) permet d'évaluer votre bien et votre situation réglementaire précise.
+Nous intervenons directement sur la commune, sans sous-traitance à distance : ménage, accueil voyageur, gestion des annonces et démarches réglementaires sont pilotés localement. Notre grille tarifaire complète, avec le détail de ce qui est inclus, est consultable sur la page [tarifs](/conciergerie). Pour un premier échange sans engagement, une [consultation gratuite](/contact) permet d'évaluer votre bien et votre situation réglementaire précise.
 
 ## FAQ
 

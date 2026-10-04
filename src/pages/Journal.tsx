@@ -17,12 +17,12 @@ const Journal = () => {
   return (
     <>
       <Helmet>
-        <title>Journal : location courte durée à Avignon | Chevalier</title>
+        <title>Blog : location courte durée à Avignon | Chevalier</title>
         <meta
           name="description"
           content="Nos guides sur la gestion locative saisonnière à Avignon : réglementation, rentabilité, conciergerie et sous-location. Publications régulières."
         />
-        <meta property="og:title" content="Journal : location courte durée à Avignon" />
+        <meta property="og:title" content="Blog : location courte durée à Avignon" />
         <meta
           property="og:description"
           content="Réglementation, rentabilité, fiscalité : ce qu'il faut savoir avant de louer en courte durée à Avignon."

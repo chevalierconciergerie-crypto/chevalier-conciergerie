@@ -6,6 +6,8 @@
   "trailingSlash": false,
   "redirects": [
     { "source": "/(.*)\\.html", "destination": "/$1", "permanent": true },
+    { "source": "/tarifs", "destination": "/conciergerie", "permanent": true },
+    { "source": "/en/tarifs", "destination": "/en/conciergerie", "permanent": true },
     {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.chevalier-conciergerie.com" }],

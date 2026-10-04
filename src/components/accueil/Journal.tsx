@@ -59,10 +59,7 @@ export function BlogAccueil({ commeH1 = false, tous = false }: { commeH1?: boole
   const liste = tous ? articles : ARTICLES_ACCUEIL;
   return (
     <section id="blog" className="chv-section" aria-label="Blog">
-      <TitreAnime
-        as={commeH1 ? "h1" : "h2"}
-        lignes={commeH1 ? [t("Journal de la location"), t("courte durée à Avignon")] : [t("Blog")]}
-      />
+      <TitreAnime as={commeH1 ? "h1" : "h2"} lignes={[t("Blog")]} />
       <p className="chv-blog__intro">
         Réglementation, rentabilité, fiscalité : ce qu'il faut savoir avant de louer en courte durée à Avignon.
       </p>
@@ -124,11 +121,11 @@ export function Temoignages() {
   );
 }
 
-export function ContactAccueil() {
+export function ContactAccueil({ commeH1 = false }: { commeH1?: boolean }) {
   const t = useT();
   return (
     <section id="contact" className="chv-section chv-contact" aria-label="Contact">
-      <TitreAnime lignes={[t("Parlons de"), t("votre logement")]} />
+      <TitreAnime as={commeH1 ? "h1" : "h2"} lignes={[t("Parlons de"), t("votre logement")]} />
       <Revele as="p" className="chv-contact__intro">
         {t("Estimation gratuite et sans engagement : nous évaluons votre bien et vous disons ce qu'il peut rapporter, en conciergerie comme en sous-location.")}
       </Revele>

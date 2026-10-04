@@ -112,9 +112,8 @@ const Villes = () => {
 
               <p className="max-w-3xl mx-auto mt-12 font-sans text-sm text-muted-foreground leading-relaxed">
                 Les règles applicables aux meublés de tourisme dépendent de chaque commune
-                et évoluent : nous les vérifions avant toute mise en ligne. Le détail du
-                tarif figure sur la page <Link to="/tarifs" className="underline underline-offset-4">Tarifs</Link>,
-                celui des deux formules sur les pages{" "}
+                et évoluent : nous les vérifions avant toute mise en ligne. Le tarif de chaque
+                formule figure sur les pages{" "}
                 <Link to="/conciergerie" className="underline underline-offset-4">Conciergerie</Link> et{" "}
                 <Link to="/sous-location" className="underline underline-offset-4">Sous-location</Link>.
                 Pour un bien dans une autre commune, <Link to="/contact" className="underline underline-offset-4">contactez-nous</Link>.

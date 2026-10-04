@@ -12,21 +12,20 @@
   plein écran, qui garde la liste complète.
 */
 /*
-  « Conciergerie », « Sous-location », « Tarifs », « Villes », « Devenir franchisé » et
-  « Journal » ouvrent de vraies pages, indexables séparément. Les deux premières
-  (/conciergerie, /sous-location) rendent les mêmes sections que l'accueil, dans le
-  nouveau design, comme /franchise. « Contact » ouvre la section de l'accueil.
+  « Conciergerie », « Sous-location », « Villes », « Devenir franchisé » et
+  « Blog » ouvrent de vraies pages, indexables séparément. Chacune rend la section qu'avait
+  l'accueil, dans le nouveau design, comme /franchise : l'accueil ne les répète plus.
+  « Contact » (/contact) fonctionne de la même façon.
   « À propos », « Partenaires » et les pages légales sont dans le pied de page.
 */
 export const RUBRIQUES = [
   { libelle: "Accueil", ancre: "accueil" },
   { libelle: "Conciergerie", ancre: "notre-service", page: "/conciergerie", barre: true },
   { libelle: "Sous-location", ancre: "sous-location", page: "/sous-location", barre: true },
-  { libelle: "Tarifs", ancre: "tarifs", page: "/tarifs", barre: true },
   { libelle: "Villes", ancre: "villes", page: "/villes", barre: true },
   { libelle: "Devenir franchisé", ancre: "franchise", page: "/franchise", barre: true },
-  { libelle: "Journal", ancre: "journal", page: "/journal", barre: true },
-  { libelle: "Contact", ancre: "contact", barre: true },
+  { libelle: "Blog", ancre: "blog", page: "/journal", barre: true },
+  { libelle: "Contact", ancre: "contact", page: "/contact", barre: true },
 ] as const;
 
 export const TELEPHONE = { affiche: "07 83 19 83 41", international: "+33 7 83 19 83 41", lien: "tel:+33783198341" };

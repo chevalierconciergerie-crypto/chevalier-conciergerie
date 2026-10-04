@@ -6,7 +6,7 @@ import "./chevalier.css";
 
 /*
   Toutes les pages du site restent liées depuis le pied de page : l'accueil
-  tient sur une seule page, mais Google indexe /conciergerie-avignon, /tarifs,
+  tient sur une seule page, mais Google indexe /conciergerie-avignon,
   le Journal… et ces liens, présents sur chaque page, sont ce qui les lui fait
   trouver et leur transmet du poids. Titres de colonnes en <h2> : un <h4> après
   le <h2> d'une section sauterait des niveaux.
@@ -17,10 +17,9 @@ const COLONNES = [
     liens: [
       { libelle: "Conciergerie", lien: "/conciergerie" },
       { libelle: "Sous-location", lien: "/sous-location" },
-      { libelle: "Tarifs", lien: "/tarifs" },
       { libelle: "Estimation gratuite", lien: "/estimation-sous-location" },
       { libelle: "Devenir franchisé", lien: "/franchise" },
-      { libelle: "Journal", lien: "/journal" },
+      { libelle: "Blog", lien: "/journal" },
     ],
   },
   {

@@ -20,7 +20,7 @@ La conciergerie classique vous fait gagner plus si le bien tourne bien, le loyer
 | Vacance locative | À votre charge | Zéro, absorbée par Chevalier Conciergerie |
 | Gestion | Déléguée intégralement | Déléguée intégralement |
 | Idéal pour | Biens bien situés, forte demande | Propriétaires cherchant la sécurité |
-| Commission | Détaillée sur la page [tarifs](/tarifs) | Loyer fixé après [estimation](/estimation-sous-location) |
+| Commission | Détaillée sur la page [tarifs](/conciergerie) | Loyer fixé après [estimation](/estimation-sous-location) |
 
 Pour un bien en plein centre historique d'Avignon, la conciergerie classique tire souvent mieux son épingle du jeu grâce à la demande touristique. Pour un bien plus excentré ou à Villeneuve-lès-Avignon, le loyer garanti lisse le risque de creux entre deux réservations. La page [conciergerie](/conciergerie) détaille le fonctionnement du premier modèle, la page [sous-location](/sous-location) celui du second.
 
@@ -47,7 +47,7 @@ En loyer garanti, cette variation n'existe plus pour vous : le montant versé ch
 
 Prenons un studio type dans le centre historique d'Avignon, loué habituellement à la nuitée pendant la période estivale et plus difficilement en janvier ou février. En conciergerie classique, le propriétaire perçoit les loyers réels du mois, avec un pic en juillet et un creux en hiver, moins la commission unique tout compris de Chevalier Conciergerie — sans frais de ménage, de gestion technique ou de photographie ajoutés en plus, contrairement à ce que pratiquent certaines conciergeries. En loyer garanti, le même propriétaire perçoit un montant identique chaque mois de l'année, calculé après une [estimation gratuite](/estimation-sous-location) qui prend en compte l'emplacement, la saisonnalité et l'état du bien.
 
-Le chiffrage précis dépend de chaque bien : c'est pourquoi nous proposons une consultation gratuite plutôt que des simulations génériques qui ne collent jamais à la réalité d'un logement donné. Les détails de nos deux grilles tarifaires sont disponibles sur la page [tarifs](/tarifs).
+Le chiffrage précis dépend de chaque bien : c'est pourquoi nous proposons une consultation gratuite plutôt que des simulations génériques qui ne collent jamais à la réalité d'un logement donné. Les détails de nos deux grilles tarifaires sont disponibles sur la page [tarifs](/conciergerie).
 
 ## Pourquoi une conciergerie locale change la donne à Avignon
 

@@ -98,7 +98,6 @@ function readFaq(file, qKey, aKey, liste) {
 const CONCIERGERIE_FAQ = readFaq("src/data/faq.ts", "q", "a", "faqConciergerie");
 const FRANCHISE_FAQ = readFaq("src/data/faq.ts", "q", "a", "faqFranchise");
 const SOUSLOCATION_FAQ = readFaq("src/data/faq.ts", "q", "a", "faqSousLocation");
-const TARIFS_FAQ = readFaq("src/pages/Tarifs.tsx", "question", "answer");
 
 /**
  * Lit le contenu d'une page locale (Avignon, Villeneuve, Les Angles) dans le fichier
@@ -276,26 +275,6 @@ const STATIC_ROUTES = [
       Conciergerie intervient à Avignon, Villeneuve-lès-Avignon, Les Angles,
       Aix-en-Provence et Montpellier. Réponse sous 24 h, sans engagement.</p>
 
-      <h2>Deux formules</h2>
-      <p>Que vous souhaitiez déléguer la gestion ou sécuriser vos revenus, nous avons la
-      solution adaptée.</p>
-
-      <h3><a href="/conciergerie">Conciergerie</a></h3>
-      <p>Service complet de gestion locative. Accueil voyageurs, ménage professionnel,
-      optimisation des revenus. Commission sur-mesure, adaptée à chaque bien.</p>
-
-      <h3><a href="/sous-location">Sous-location</a></h3>
-      <p>Loyer garanti chaque mois, zéro vacance locative. Aucune gestion, aucun risque.</p>
-
-      <p>Vous hésitez entre les deux ? Nous les comparons chiffre en main dans
-      <a href="/journal/conciergerie-ou-sous-location-avignon">notre article dédié</a>.</p>
-
-      <h2>Questions sur la conciergerie</h2>
-      ${faqHtml(CONCIERGERIE_FAQ)}
-
-      <h2>Questions sur la sous-location</h2>
-      ${faqHtml(SOUSLOCATION_FAQ)}
-
       <h2>Ils nous font confiance</h2>
       <p>Note de 5,0 sur 5 pour 12 avis Google. Extraits publics :</p>
       <blockquote><p>« Je confie mon appartement en centre-ville d'Avignon à Chevalier
@@ -319,12 +298,16 @@ const STATIC_ROUTES = [
 
       <h2>Aller plus loin</h2>
       <ul>
+        <li><a href="/conciergerie">Notre service de conciergerie</a></li>
+        <li><a href="/sous-location">Notre service de sous-location</a></li>
+        <li><a href="/franchise">Devenir franchisé</a></li>
+        <li><a href="/villes">Les villes où nous intervenons</a></li>
         <li><a href="/conciergerie-avignon">Conciergerie Airbnb à Avignon</a></li>
         <li><a href="/conciergerie-villeneuve-les-avignon">Conciergerie à Villeneuve-lès-Avignon</a></li>
         <li><a href="/conciergerie-les-angles">Conciergerie aux Angles</a></li>
         <li><a href="/journal/declarer-location-saisonniere-avignon">Déclarer sa location saisonnière à Avignon : les 3 démarches obligatoires</a></li>
         <li><a href="/journal/calculer-rentabilite-reelle-location-courte-duree">Calculer la rentabilité réelle de sa location courte durée</a></li>
-        <li><a href="/journal">Journal : tous nos guides</a></li>
+        <li><a href="/journal">Blog : tous nos guides</a></li>
         <li><a href="/contact">Nous contacter — estimation gratuite sous 24 h</a></li>
       </ul>
     </main>`,
@@ -422,8 +405,7 @@ const STATIC_ROUTES = [
       ${faqHtml(CONCIERGERIE_FAQ)}
 
       <p><a href="/contact">Prendre rendez-vous</a> — estimation gratuite sous 24 h ·
-      <a href="/sous-location">Voir aussi la sous-location avec loyer garanti</a> ·
-      <a href="/tarifs">Nos tarifs</a></p>
+      <a href="/sous-location">Voir aussi la sous-location avec loyer garanti</a> ·</p>
     </main>`,
     jsonLd: [
       breadcrumb({ name: "Conciergerie", path: "/conciergerie" }),
@@ -478,12 +460,17 @@ const STATIC_ROUTES = [
         virement, sans exception.</li>
       </ol>
 
+      <h2>Notre tarif : 0 % de commission</h2>
+      <p>Un loyer fixe, versé chaque mois, saison creuse comprise. Nous louons votre bien à
+      l'année à notre nom : nos revenus viennent de l'exploitation du logement, pas de votre
+      poche. Le montant dépend du logement, du quartier et de la durée du bail ; il est fixé
+      avant signature et ne bouge plus.</p>
+
       <h2>Les questions qu'on nous pose</h2>
       ${faqHtml(SOUSLOCATION_FAQ)}
 
       <p><a href="/estimation-sous-location">Obtenir mon estimation gratuite</a> ·
-      <a href="/conciergerie">Voir aussi la formule conciergerie</a> ·
-      <a href="/tarifs">Nos tarifs</a></p>
+      <a href="/conciergerie">Voir aussi la formule conciergerie</a> ·</p>
     </main>`,
     jsonLd: [
       breadcrumb({ name: "Sous-location", path: "/sous-location" }),
@@ -496,67 +483,6 @@ const STATIC_ROUTES = [
       faqPage(SOUSLOCATION_FAQ),
     ],
   },
-  /*
-    Page Tarifs. Le concurrent le mieux classé sur « conciergerie Avignon » en
-    a une, en entrée de menu — mais sans y écrire le moindre chiffre. Celle-ci
-    donne le taux : sur une requête de comparaison de prix, la page qui répond
-    à la question posée est la seule qui puisse la gagner.
-
-    Priorité 0.9 comme les deux pages de service : c'est une page de conversion,
-    pas une page annexe. Quelqu'un qui cherche un tarif est plus avancé dans sa
-    décision que quelqu'un qui découvre le métier.
-  */
-  {
-    path: "/tarifs",
-    changefreq: "monthly",
-    priority: "0.9",
-    title: "Tarifs conciergerie Avignon | 25 % HT tout compris | Chevalier Conciergerie",
-    description:
-      "Tarifs de conciergerie à Avignon : 25 % HT du net perçu par le propriétaire, tout compris, sans abonnement ni engagement. Sous-location : 0 % de commission, loyer fixe chaque mois.",
-    keywords:
-      "tarif conciergerie Avignon, prix conciergerie Avignon, commission conciergerie Airbnb, coût gestion locative Avignon, tarif sous-location Avignon",
-    bodyHtml: `<main>
-      <nav><a href="/">Accueil</a> › Tarifs</nav>
-      <h1>Tarifs de conciergerie à Avignon</h1>
-      <p>Un seul taux, annoncé avant tout rendez-vous. Pas d'abonnement, pas de frais
-      de dossier, pas d'engagement de durée.</p>
-
-      <h2>Conciergerie : 25 % HT du net perçu par le propriétaire</h2>
-      <p>Les commissions des plateformes, le ménage et la taxe de séjour sont déduits
-      d'abord : la commission ne s'applique qu'au net qui reste. Ce taux couvre
-      l'intégralité du service à Avignon,
-      Villeneuve-lès-Avignon et Les Angles :</p>
-      <ul>
-        <li>Annonces créées et diffusées sur Airbnb, Booking et Abritel</li>
-        <li>Prix ajustés en continu selon la saison et les événements</li>
-        <li>Échanges avec les voyageurs, remise des clés, assistance 7 j/7</li>
-        <li>Ménage et linge d'hôtel entre chaque séjour</li>
-        <li>Suivi des encaissements et récapitulatif mensuel</li>
-      </ul>
-      <p>Le ménage est refacturé au voyageur, pas au propriétaire. La taxe de séjour est
-      collectée auprès du voyageur puis reversée à la commune : elle ne passe jamais par
-      vos revenus.</p>
-
-      <h2>Sous-location : 0 % de commission</h2>
-      <p>Nous louons votre bien à l'année à notre nom et vous versons le même loyer
-      chaque mois, saison creuse comprise. Vous ne payez aucune commission : nos revenus
-      viennent de l'exploitation du logement. Le montant dépend du logement, du quartier
-      et de la durée du bail ; il est fixé avant signature et ne bouge plus.</p>
-
-      <h2>Questions fréquentes</h2>
-      ${faqHtml(TARIFS_FAQ)}
-
-      <p><a href="/estimation-sous-location">Estimer les revenus de mon logement</a> ·
-      <a href="/conciergerie">Le détail de la formule conciergerie</a> ·
-      <a href="/sous-location">Le détail de la sous-location</a></p>
-    </main>`,
-    jsonLd: [
-      breadcrumb({ name: "Tarifs", path: "/tarifs" }),
-      faqPage(TARIFS_FAQ),
-    ],
-  },
-  // /logements et /reservation sont retirés le temps que le site de réservation soit
-  // opérationnel. Les laisser dans le sitemap enverrait Google sur deux 404.
   {
     path: "/contact",
     changefreq: "monthly",
@@ -567,24 +493,13 @@ const STATIC_ROUTES = [
     keywords: "contact conciergerie Avignon, devis gestion locative Avignon, rendez-vous conciergerie",
     bodyHtml: `<main>
       <nav><a href="/">Accueil</a> › Contact</nav>
-      <h1>Contacter Chevalier Conciergerie</h1>
-      <p>Consultation gratuite et sans engagement pour votre projet de gestion locative
-      ou de sous-location à Avignon. Réponse sous 24 h.</p>
-
-      <h2>Nous joindre</h2>
+      <h1>Parlons de votre logement</h1>
+      <p>Estimation gratuite et sans engagement : nous évaluons votre bien et vous disons ce
+      qu'il peut rapporter, en conciergerie comme en sous-location.</p>
       <ul>
-        <li>Téléphone : <a href="tel:+33783198341">+33 7 83 19 83 41</a></li>
-        <li>WhatsApp : <a href="https://wa.me/33783198341">+33 7 83 19 83 41</a></li>
-        <li>Email : <a href="mailto:contact@chevalier-conciergerie.com">contact@chevalier-conciergerie.com</a></li>
-        <li>Adresse : 5 Lotissement Les Cades, 30400 Villeneuve-lès-Avignon, France</li>
+        <li>Téléphone : <a href="tel:+33783198341">07 83 19 83 41</a></li>
+        <li>Courriel : <a href="mailto:contact@chevalier-conciergerie.com">contact@chevalier-conciergerie.com</a></li>
       </ul>
-
-      <h2>Zone d'intervention</h2>
-      <p>Avignon, Villeneuve-lès-Avignon, Les Angles et leurs environs immédiats.</p>
-
-      <p><a href="/conciergerie">La formule conciergerie</a> ·
-      <a href="/sous-location">La sous-location avec loyer garanti</a> ·
-      <a href="/estimation-sous-location">Estimer mon loyer garanti</a></p>
     </main>`,
     jsonLd: [breadcrumb({ name: "Contact", path: "/contact" })],
   },
@@ -776,8 +691,7 @@ const STATIC_ROUTES = [
       <a href="/politique-confidentialite">politique de confidentialité</a>.</p>
 
       <p><a href="/sous-location">Le détail de la sous-location</a> ·
-      <a href="/conciergerie">La formule conciergerie</a> ·
-      <a href="/tarifs">Tarifs comparés</a></p>
+      <a href="/conciergerie">La formule conciergerie</a></p>
     </main>`,
     changefreq: "monthly",
     priority: "0.7",
@@ -837,9 +751,8 @@ const STATIC_ROUTES = [
       <p><a href="/conciergerie-montpellier">Voir la conciergerie à Montpellier</a></p>
 
       <p>Les règles applicables aux meublés de tourisme dépendent de chaque commune et
-      évoluent : nous les vérifions avant toute mise en ligne. Le détail du tarif figure sur la
-      page <a href="/tarifs">Tarifs</a>, celui des deux formules sur les pages
-      <a href="/conciergerie">Conciergerie</a> et <a href="/sous-location">Sous-location</a>.
+      évoluent : nous les vérifions avant toute mise en ligne. Le tarif de chaque formule figure
+      sur les pages <a href="/conciergerie">Conciergerie</a> et <a href="/sous-location">Sous-location</a>.
       Pour un bien dans une autre commune, <a href="/contact">contactez-nous</a>.</p>
     </main>`,
     jsonLd: [breadcrumb({ name: "Villes", path: "/villes" })],
@@ -1249,7 +1162,6 @@ function traduireRoute(route) {
         <li><a href="/en/conciergerie">Property management</a></li>
         <li><a href="/en/sous-location">Guaranteed rent</a></li>
         <li><a href="/en/franchise">Become a franchisee</a></li>
-        <li><a href="/en/tarifs">Pricing</a></li>
         <li><a href="/en/contact">Contact</a></li>
       </ul>
       <p><em>Version française : <a href="${escSeo(route.path)}">${escSeo(route.path)}</a></em></p>

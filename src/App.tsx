@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { HelmetProvider } from "@/lib/seo";
@@ -13,7 +13,6 @@ import Index from "./pages/Index";
 import Conciergerie from "./pages/Conciergerie";
 import SousLocation from "./pages/SousLocation";
 import Franchise from "./pages/Franchise";
-import Tarifs from "./pages/Tarifs";
 import EstimationSousLocation from "./pages/EstimationSousLocation";
 import Contact from "./pages/Contact";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
@@ -54,7 +53,8 @@ const App = () => (
               <Route path="/conciergerie" element={<Conciergerie />} />
               <Route path="/sous-location" element={<SousLocation />} />
               <Route path="/franchise" element={<Franchise />} />
-              <Route path="/tarifs" element={<Tarifs />} />
+              {/* Page supprimée : le tarif est sur /conciergerie (25 % HT) et /sous-location (0 %). */}
+              <Route path="/tarifs" element={<Navigate to="/conciergerie" replace />} />
               <Route path="/estimation-sous-location" element={<EstimationSousLocation />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
@@ -74,7 +74,7 @@ const App = () => (
               <Route path="/en/conciergerie" element={<Conciergerie />} />
               <Route path="/en/sous-location" element={<SousLocation />} />
               <Route path="/en/franchise" element={<Franchise />} />
-              <Route path="/en/tarifs" element={<Tarifs />} />
+              <Route path="/en/tarifs" element={<Navigate to="/en/conciergerie" replace />} />
               <Route path="/en/estimation-sous-location" element={<EstimationSousLocation />} />
               <Route path="/en/contact" element={<Contact />} />
               <Route path="/en/politique-confidentialite" element={<PolitiqueConfidentialite />} />

@@ -81,6 +81,6 @@ Nous accompagnons la déclaration en mairie et le classement meublé de tourisme
 
 ---
 
-Pour savoir si votre bien est éligible et obtenir une estimation concrète, une [consultation gratuite](/contact) permet d'évaluer votre situation sans engagement. Retrouvez aussi le détail de nos conditions sur la page [tarifs](/tarifs) et nos implantations à [Avignon](/conciergerie-avignon), [Villeneuve-lès-Avignon](/conciergerie-villeneuve-les-avignon) et [Les Angles](/conciergerie-les-angles).
+Pour savoir si votre bien est éligible et obtenir une estimation concrète, une [consultation gratuite](/contact) permet d'évaluer votre situation sans engagement. Retrouvez aussi le détail de nos conditions sur la page [tarifs](/conciergerie) et nos implantations à [Avignon](/conciergerie-avignon), [Villeneuve-lès-Avignon](/conciergerie-villeneuve-les-avignon) et [Les Angles](/conciergerie-les-angles).
 
 (Article rédigé sans interview d'expertise — à enrichir avec un retour terrain avant publication.)

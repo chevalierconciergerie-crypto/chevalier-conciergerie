@@ -30,7 +30,7 @@ Le revenu brut ne veut rien dire tant qu'on n'a pas retiré la taxe de séjour, 
 | Poste | Studio (18 000 € brut/an) | T2 (21 000 € brut/an) |
 |---|---|---|
 | Taxe de séjour reversée | -450 € | -550 € |
-| Commission de gestion complète | voir [tarifs](/tarifs) | voir [tarifs](/tarifs) |
+| Commission de gestion complète | voir [tarifs](/conciergerie) | voir [tarifs](/conciergerie) |
 | Charges (ménage, linge, énergie, abonnements plateformes) | -2 800 € | -3 400 € |
 | Vacance locative résiduelle (5-8 nuits/mois basse saison) | -900 € | -1 100 € |
 | **Revenu net avant fiscalité** | **≈ 9 500 - 10 500 €** | **≈ 11 000 - 13 000 €** |

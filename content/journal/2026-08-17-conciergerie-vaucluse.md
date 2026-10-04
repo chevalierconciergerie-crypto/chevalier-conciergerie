@@ -64,7 +64,7 @@ Aux [Angles](/conciergerie-les-angles), la proximité avec Avignon sans la contr
 
 Le flou tarifaire est l'un des reproches les plus fréquents envers les conciergeries généralistes qui affichent "sur devis" sans jamais détailler ce que cela recouvre.
 
-Chez Chevalier Conciergerie, la commission est unique et couvre l'intégralité de la prestation : gestion des annonces, tarification, ménage, accueil, démarches réglementaires. Aucune ligne supplémentaire ne s'ajoute en cours de gestion. Pour connaître le montant exact appliqué à votre bien et simuler vos revenus selon la formule choisie, consultez la page [tarifs](/tarifs) ou utilisez notre outil d'[estimation en sous-location](/estimation-sous-location).
+Chez Chevalier Conciergerie, la commission est unique et couvre l'intégralité de la prestation : gestion des annonces, tarification, ménage, accueil, démarches réglementaires. Aucune ligne supplémentaire ne s'ajoute en cours de gestion. Pour connaître le montant exact appliqué à votre bien et simuler vos revenus selon la formule choisie, consultez la page [tarifs](/conciergerie) ou utilisez notre outil d'[estimation en sous-location](/estimation-sous-location).
 
 ## FAQ
 

@@ -2,9 +2,7 @@ import { Helmet } from "@/lib/seo";
 import EnTete from "@/components/accueil/EnTete";
 import HeroAvignon from "@/components/accueil/HeroAvignon";
 import Fondateur from "@/components/accueil/Fondateur";
-import { ServiceConciergerie, ServiceSousLocation } from "@/components/accueil/Services";
-import Franchise from "@/components/accueil/Franchise";
-import { BlogAccueil, ContactAccueil, Temoignages } from "@/components/accueil/Journal";
+import { Temoignages } from "@/components/accueil/Journal";
 import PiedDePage from "@/components/accueil/PiedDePage";
 
 /*
@@ -46,12 +44,12 @@ const Index = () => {
         <main>
           <HeroAvignon />
           <Fondateur />
-          <ServiceConciergerie />
-          <ServiceSousLocation />
-          <Franchise />
-          <BlogAccueil />
+          {/*
+            Conciergerie, sous-location, franchise, blog et contact ont chacun leur page
+            (/conciergerie, /sous-location, /franchise, /journal, /contact), ouverte depuis
+            le menu : elles ne sont plus répétées ici.
+          */}
           <Temoignages />
-          <ContactAccueil />
         </main>
         <PiedDePage />
       </div>

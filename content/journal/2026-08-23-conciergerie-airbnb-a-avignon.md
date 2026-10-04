@@ -24,7 +24,7 @@ Concrètement, ce pourcentage inclut :
 - La gestion des litiges (dégâts, avis négatifs, réclamations)
 - Les démarches administratives liées à la déclaration en mairie et au classement
 
-Aucun supplément n'est facturé sur ces postes. C'est la différence entre un pourcentage "à partir de" annoncé sur un site vitrine et un tarif réellement tout compris. Le détail complet est consultable sur notre page [tarifs](/tarifs).
+Aucun supplément n'est facturé sur ces postes. C'est la différence entre un pourcentage "à partir de" annoncé sur un site vitrine et un tarif réellement tout compris. Le détail complet est consultable sur notre page [tarifs](/conciergerie).
 
 ## La réglementation diffère selon votre commune : Avignon, Villeneuve-lès-Avignon, Les Angles
 

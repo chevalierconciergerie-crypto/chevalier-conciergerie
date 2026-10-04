@@ -51,8 +51,7 @@ const LIENS_MENU = [
   { libelle: "Conciergerie", vers: "/conciergerie" },
   { libelle: "Sous-location", vers: "/sous-location" },
   { libelle: "Nos logements", vers: "/logements" },
-  { libelle: "Tarifs", vers: "/tarifs" },
-  { libelle: "Journal", vers: "/journal" },
+  { libelle: "Blog", vers: "/journal" },
   { libelle: "Partenaires", vers: "/partenaires" },
   { libelle: "Contact", vers: "/contact" },
 ];

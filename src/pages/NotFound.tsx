@@ -21,7 +21,7 @@ const NotFound = () => {
   const raccourcis = [
     { label: "Conciergerie", href: "/conciergerie", texte: "Gestion complète de votre location saisonnière." },
     { label: "Sous-location", href: "/sous-location", texte: "Un loyer garanti chaque mois, sans vacance locative." },
-    { label: "Journal", href: "/journal", texte: "Nos guides sur la location courte durée à Avignon." },
+    { label: "Blog", href: "/journal", texte: "Nos guides sur la location courte durée à Avignon." },
   ];
 
   return (
