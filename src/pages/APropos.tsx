@@ -85,10 +85,10 @@ const APropos = () => {
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 Nous proposons deux formules complémentaires. Avec la{" "}
-                <Link to="/#notre-service" className="text-gold hover:underline">conciergerie</Link>,
+                <Link to="/conciergerie" className="text-gold hover:underline">conciergerie</Link>,
                 nous gérons votre location courte durée de A à Z et vous reversons les
                 revenus, en toute transparence. Avec la{" "}
-                <Link to="/#sous-location" className="text-gold hover:underline">sous-location professionnelle</Link>,
+                <Link to="/sous-location" className="text-gold hover:underline">sous-location professionnelle</Link>,
                 nous prenons votre bien à bail et vous garantissons un loyer fixe chaque
                 mois, que le logement soit occupé ou non.
               </p>

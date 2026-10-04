@@ -12,16 +12,16 @@
   plein écran, qui garde la liste complète.
 */
 /*
-  « Conciergerie », « Sous-location » et « Contact » ouvrent les sections du nouvel
-  accueil : les anciennes pages /conciergerie et /sous-location (ancien design) ont été
-  supprimées et redirigent vers ces sections. « Tarifs », « Villes », « Devenir
-  franchisé » et « Journal » ouvrent de vraies pages, indexables séparément.
+  « Conciergerie », « Sous-location », « Tarifs », « Villes », « Devenir franchisé » et
+  « Journal » ouvrent de vraies pages, indexables séparément. Les deux premières
+  (/conciergerie, /sous-location) rendent les mêmes sections que l'accueil, dans le
+  nouveau design, comme /franchise. « Contact » ouvre la section de l'accueil.
   « À propos », « Partenaires » et les pages légales sont dans le pied de page.
 */
 export const RUBRIQUES = [
   { libelle: "Accueil", ancre: "accueil" },
-  { libelle: "Conciergerie", ancre: "notre-service", barre: true },
-  { libelle: "Sous-location", ancre: "sous-location", barre: true },
+  { libelle: "Conciergerie", ancre: "notre-service", page: "/conciergerie", barre: true },
+  { libelle: "Sous-location", ancre: "sous-location", page: "/sous-location", barre: true },
   { libelle: "Tarifs", ancre: "tarifs", page: "/tarifs", barre: true },
   { libelle: "Villes", ancre: "villes", page: "/villes", barre: true },
   { libelle: "Devenir franchisé", ancre: "franchise", page: "/franchise", barre: true },

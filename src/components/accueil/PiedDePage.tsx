@@ -15,8 +15,8 @@ const COLONNES = [
   {
     titre: "Nos services",
     liens: [
-      { libelle: "Conciergerie", lien: "/#notre-service" },
-      { libelle: "Sous-location", lien: "/#sous-location" },
+      { libelle: "Conciergerie", lien: "/conciergerie" },
+      { libelle: "Sous-location", lien: "/sous-location" },
       { libelle: "Tarifs", lien: "/tarifs" },
       { libelle: "Estimation gratuite", lien: "/estimation-sous-location" },
       { libelle: "Devenir franchisé", lien: "/franchise" },

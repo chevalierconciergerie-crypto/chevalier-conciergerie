@@ -44,13 +44,13 @@ Concrètement, il faut vérifier :
 2. **L'éventuel classement meublé de tourisme**, facultatif mais qui joue sur la visibilité de l'annonce et sur certains abattements fiscaux.
 3. **Les règles de copropriété**, si votre bien est en résidence — un point souvent oublié alors qu'il peut bloquer un dossier.
 
-Nous nous chargeons de ces démarches administratives dans le cadre de notre [offre de conciergerie](/#notre-service), avec une connaissance des spécificités des Angles qu'une plateforme nationale ne peut pas avoir.
+Nous nous chargeons de ces démarches administratives dans le cadre de notre [offre de conciergerie](/conciergerie), avec une connaissance des spécificités des Angles qu'une plateforme nationale ne peut pas avoir.
 
 ## Taux d'occupation réel : à quoi s'attendre aux Angles
 
 Sur ce marché résidentiel, le taux d'occupation dépend moins de l'effet festival que de la qualité de gestion et du positionnement tarifaire. Un bien bien situé, bien géré et correctement positionné peut atteindre un niveau d'occupation comparable à une location longue durée, avec un revenu net supérieur — mais cela suppose une gestion active du calendrier, des prix et des avis, pas une annonce laissée à l'abandon.
 
-Si vous préférez ne prendre aucun risque de vacance locative, l'option [sous-location avec loyer garanti](/#sous-location) reste pertinente aux Angles : vous percevez un loyer fixe, sans dépendre des variations saisonnières propres à ce marché plus résidentiel qu'Avignon intra-muros.
+Si vous préférez ne prendre aucun risque de vacance locative, l'option [sous-location avec loyer garanti](/sous-location) reste pertinente aux Angles : vous percevez un loyer fixe, sans dépendre des variations saisonnières propres à ce marché plus résidentiel qu'Avignon intra-muros.
 
 ## Comment Chevalier Conciergerie gère votre bien aux Angles
 

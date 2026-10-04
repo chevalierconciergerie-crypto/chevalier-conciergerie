@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { HelmetProvider } from "@/lib/seo";
@@ -10,6 +10,8 @@ import { LangueProvider } from "@/i18n/langue";
 import ScrollToTop from "./components/ScrollToTop";
 import BandeauCookies from "./components/accueil/BandeauCookies";
 import Index from "./pages/Index";
+import Conciergerie from "./pages/Conciergerie";
+import SousLocation from "./pages/SousLocation";
 import Franchise from "./pages/Franchise";
 import Tarifs from "./pages/Tarifs";
 import EstimationSousLocation from "./pages/EstimationSousLocation";
@@ -49,14 +51,8 @@ const App = () => (
             */}
             <Routes>
               <Route path="/" element={<Index />} />
-              {/*
-                Les anciennes pages /conciergerie et /sous-location n'existent plus : ces
-                offres vivent dans les sections de l'accueil. Ces routes ne servent qu'aux
-                liens internes encore en circulation ; côté serveur, vercel.json fait la
-                même redirection en 301 pour Google et les liens externes.
-              */}
-              <Route path="/conciergerie" element={<Navigate to="/#notre-service" replace />} />
-              <Route path="/sous-location" element={<Navigate to="/#sous-location" replace />} />
+              <Route path="/conciergerie" element={<Conciergerie />} />
+              <Route path="/sous-location" element={<SousLocation />} />
               <Route path="/franchise" element={<Franchise />} />
               <Route path="/tarifs" element={<Tarifs />} />
               <Route path="/estimation-sous-location" element={<EstimationSousLocation />} />
@@ -75,8 +71,8 @@ const App = () => (
               <Route path="/journal" element={<Journal />} />
               <Route path="/journal/:slug" element={<JournalArticle />} />
               <Route path="/en" element={<Index />} />
-              <Route path="/en/conciergerie" element={<Navigate to="/en#notre-service" replace />} />
-              <Route path="/en/sous-location" element={<Navigate to="/en#sous-location" replace />} />
+              <Route path="/en/conciergerie" element={<Conciergerie />} />
+              <Route path="/en/sous-location" element={<SousLocation />} />
               <Route path="/en/franchise" element={<Franchise />} />
               <Route path="/en/tarifs" element={<Tarifs />} />
               <Route path="/en/estimation-sous-location" element={<EstimationSousLocation />} />

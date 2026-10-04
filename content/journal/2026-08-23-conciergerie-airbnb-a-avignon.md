@@ -53,7 +53,7 @@ Le mécanisme est simple :
 3. Nous sous-louons ensuite le bien en courte durée et assumons seuls le risque commercial : les périodes creuses, les annulations, les mois plus calmes sont à notre charge, pas à la vôtre
 4. Le loyer est plafonné en amont, sur la base d'une [estimation de sous-location](/estimation-sous-location) réalisée avant signature, qui prend en compte la zone, la saisonnalité et le type de bien
 
-Ce dispositif convient particulièrement aux propriétaires qui veulent une visibilité budgétaire totale et qui ne veulent plus subir les creux de réservation liés à la saisonnalité avignonnaise (le Festival tire l'occupation vers le haut l'été, mais l'hiver reste plus calme). Le détail du fonctionnement est expliqué sur notre page [sous-location](/#sous-location).
+Ce dispositif convient particulièrement aux propriétaires qui veulent une visibilité budgétaire totale et qui ne veulent plus subir les creux de réservation liés à la saisonnalité avignonnaise (le Festival tire l'occupation vers le haut l'été, mais l'hiver reste plus calme). Le détail du fonctionnement est expliqué sur notre page [sous-location](/sous-location).
 
 ## FAQ
 

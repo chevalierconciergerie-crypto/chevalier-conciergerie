@@ -111,11 +111,18 @@ function Tarif() {
   );
 }
 
-export function ServiceConciergerie() {
+/*
+  `commeH1` : sur sa propre page (/conciergerie), la section porte le titre principal,
+  avec le mot-clé. Sur l'accueil, qui a déjà son h1, elle reste un h2.
+*/
+export function ServiceConciergerie({ commeH1 = false }: { commeH1?: boolean }) {
   const t = useT();
   return (
     <section id="notre-service" className="chv-section" aria-label="Notre service de conciergerie">
-      <TitreAnime lignes={[t("Notre service"), t("de conciergerie")]} />
+      <TitreAnime
+        as={commeH1 ? "h1" : "h2"}
+        lignes={commeH1 ? [t("Conciergerie Airbnb"), t("à Avignon")] : [t("Notre service"), t("de conciergerie")]}
+      />
 
       <Revele className="chv-entree">
         <span className="chv-badge">{t("La mise en ligne")}</span>
@@ -150,11 +157,14 @@ export function ServiceConciergerie() {
 }
 
 /* La seconde formule, bâtie sur le contenu réel de la page /sous-location. */
-export function ServiceSousLocation() {
+export function ServiceSousLocation({ commeH1 = false }: { commeH1?: boolean }) {
   const t = useT();
   return (
     <section id="sous-location" className="chv-section" aria-label="Notre service de sous-location">
-      <TitreAnime lignes={[t("Notre service"), t("de sous-location")]} />
+      <TitreAnime
+        as={commeH1 ? "h1" : "h2"}
+        lignes={commeH1 ? [t("Loyer garanti"), t("à Avignon")] : [t("Notre service"), t("de sous-location")]}
+      />
 
       <Revele className="chv-entree">
         <span className="chv-badge">{t("L'autre formule")}</span>
