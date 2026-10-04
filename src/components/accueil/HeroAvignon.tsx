@@ -1,4 +1,5 @@
-import { useT } from "@/i18n/langue";
+import { Link } from "react-router-dom";
+import { useLangue, useT } from "@/i18n/langue";
 import { useProgression, allerA } from "./effets";
 import { Chevron, MotifEventail } from "./Primitives";
 
@@ -10,6 +11,7 @@ import { Chevron, MotifEventail } from "./Primitives";
 */
 const HeroAvignon = () => {
   const t = useT();
+  const { lien } = useLangue();
   const ref = useProgression<HTMLElement>();
 
   return (
@@ -33,6 +35,15 @@ const HeroAvignon = () => {
             {...{ fetchpriority: "high" }}
           />
         </figure>
+        {/* Les deux offres, directement sur la photo : chacune ouvre sa page. */}
+        <div className="chv-hero__actions">
+          <Link to={lien("/conciergerie")} className="chv-pastille chv-pastille--grand">
+            {t("Conciergerie")}
+          </Link>
+          <Link to={lien("/sous-location")} className="chv-pastille chv-pastille--grand">
+            {t("Sous-location")}
+          </Link>
+        </div>
         <button
           type="button"
           className="chv-pastille chv-pastille--rond chv-hero__suite"

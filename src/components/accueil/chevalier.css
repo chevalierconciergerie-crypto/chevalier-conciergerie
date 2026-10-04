@@ -133,6 +133,7 @@
 .chv-pastille:hover { filter: brightness(1.07); }
 .chv-pastille:active { transform: scale(0.97); }
 .chv-pastille--rond { width: 36px; padding: 0; }
+.chv-pastille--grand { height: 46px; padding: 0 26px; font-size: 13px; }
 
 /* ============ Barre du haut ============ */
 .chv-entete {
@@ -333,10 +334,21 @@
   bottom: 34px;
   opacity: calc(1 - 2 * var(--p));
 }
+/* Les deux offres : posées sur la photo, à droite, face à la flèche qui reste à gauche. */
+.chv-hero__actions {
+  position: absolute;
+  z-index: 3;
+  right: 6%;
+  bottom: 28px;
+  display: flex;
+  gap: 12px;
+}
 @media (max-width: 700px) {
   .chv-hero { height: 150vh; }
   .chv-hero__titre { font-size: 12.3vw; bottom: calc(54% - 0.3em); }
   .chv-hero__photo { top: calc(46% * (1 - var(--p))); }
+  .chv-hero__actions { left: calc(6% + 48px); bottom: 24px; gap: 8px; }
+  .chv-hero__actions .chv-pastille { flex: 1 1 0; height: 42px; padding: 0 8px; font-size: 11.5px; letter-spacing: 0.04em; }
 }
 
 /* ============ Sections crème ============ */

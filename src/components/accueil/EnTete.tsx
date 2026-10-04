@@ -85,12 +85,13 @@ const EnTete = () => {
         naviguer(lien(page));
         return;
       }
-      if (pathname === "/") {
+      const accueil = lien("/");
+      if (pathname === accueil) {
         // Le verrou de défilement vient d'être levé : on laisse le navigateur
         // en prendre acte avant de lancer le défilement.
         setTimeout(() => allerA(ancre), 40);
       } else {
-        naviguer(ancre === "accueil" ? "/" : `/#${ancre}`);
+        naviguer(ancre === "accueil" ? accueil : `${accueil}#${ancre}`);
       }
     },
     [fermer, naviguer, pathname, lien],
@@ -117,10 +118,10 @@ const EnTete = () => {
         */}
         {!dansMenu && (
           <nav className="chv-entete__nav" aria-label={t("Rubriques")}>
-            {RUBRIQUES.filter((r) => r.ancre !== "accueil").map((r) => (
+            {RUBRIQUES.map((r) => (
               <a
                 key={r.ancre}
-                href={"page" in r && r.page ? r.page : `/#${r.ancre}`}
+                href={"page" in r && r.page ? lien(r.page) : r.ancre === "accueil" ? lien("/") : `${lien("/")}#${r.ancre}`}
                 onClick={(e) => { e.preventDefault(); aller(r.ancre, "page" in r ? r.page : undefined); }}
               >
                 {t(r.libelle)}
@@ -148,7 +149,7 @@ const EnTete = () => {
           </button>
         )}
       </div>
-      <Link to={lien("/")} className="chv-logo" onClick={(e) => { if (pathname === "/") { e.preventDefault(); aller("accueil"); } }} aria-label={t("Chevalier Conciergerie, accueil")}>
+      <Link to={lien("/")} className="chv-logo" onClick={(e) => { if (pathname === lien("/")) { e.preventDefault(); aller("accueil"); } }} aria-label={t("Chevalier Conciergerie, accueil")}>
         <img src={LOGO} alt="CHEVALIER" width={996} height={129} />
       </Link>
       <div className="chv-entete__droite">
