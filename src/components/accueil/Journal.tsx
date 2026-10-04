@@ -1,6 +1,6 @@
 import { useT } from "@/i18n/langue";
 import { Link } from "react-router-dom";
-import { articles } from "@/lib/journal";
+import { articles, type Article } from "@/lib/journal";
 import { avis, AVIS_TOTAL_GOOGLE, GOOGLE_REVIEWS_URL, type Avis } from "@/data/avis";
 import { COUVERTURES_BLOG, COURRIEL, TELEPHONE } from "@/data/accueil";
 import { usePivot } from "./effets";
@@ -15,8 +15,16 @@ const dateCourte = (iso: string) => iso.split("-").reverse().join("/");
 */
 const ARTICLES_ACCUEIL = articles.filter((a) => a.slug in COUVERTURES_BLOG);
 
-function CarteArticle({ rang }: { rang: number }) {
-  const article = ARTICLES_ACCUEIL[rang];
+/*
+  Couverture d'une carte : celle choisie pour l'accueil si elle existe, sinon la variante
+  -card (800 px) de l'image de l'article, sinon l'image par défaut du Journal. Les
+  couvertures .svg n'ont pas de variante et se redimensionnent sans perte.
+*/
+const couverture = (a: Article) =>
+  COUVERTURES_BLOG[a.slug] ??
+  (a.image ? a.image.replace(/\.(jpg|webp)$/, "-card.$1") : "/journal/journal-defaut-card.jpg");
+
+function CarteArticle({ article, rang }: { article: Article; rang: number }) {
   const t = useT();
   const carte = usePivot<HTMLAnchorElement>(rang % 2 ? -1 : 1);
   return (
@@ -24,7 +32,7 @@ function CarteArticle({ rang }: { rang: number }) {
       <Link ref={carte} to={article.path} className="chv-article__carte">
         <div className="chv-article__interieur">
           <div className="chv-article__couverture">
-            <img src={COUVERTURES_BLOG[article.slug]} alt="" loading="lazy" />
+            <img src={couverture(article)} alt="" loading="lazy" />
           </div>
           <div className="chv-article__texte">
             <p className="chv-article__meta">
@@ -39,18 +47,28 @@ function CarteArticle({ rang }: { rang: number }) {
   );
 }
 
-/* Les articles du Journal, en cartes qui pivotent dans la profondeur pendant le défilement. */
-export function BlogAccueil() {
+/*
+  Les articles du Journal, en cartes qui pivotent dans la profondeur pendant le défilement.
+
+  Sur l'accueil : la sélection de cinq articles. Sur sa propre page (/journal), la même
+  section porte le titre principal (`commeH1`) et liste tous les articles (`tous`), pour
+  qu'aucun ne perde son lien depuis la liste.
+*/
+export function BlogAccueil({ commeH1 = false, tous = false }: { commeH1?: boolean; tous?: boolean }) {
   const t = useT();
+  const liste = tous ? articles : ARTICLES_ACCUEIL;
   return (
     <section id="blog" className="chv-section" aria-label="Blog">
-      <TitreAnime lignes={[t("Blog")]} />
+      <TitreAnime
+        as={commeH1 ? "h1" : "h2"}
+        lignes={commeH1 ? [t("Journal de la location"), t("courte durée à Avignon")] : [t("Blog")]}
+      />
       <p className="chv-blog__intro">
         Réglementation, rentabilité, fiscalité : ce qu'il faut savoir avant de louer en courte durée à Avignon.
       </p>
       <div className="chv-blog__grille">
-        {ARTICLES_ACCUEIL.map((a, i) => (
-          <CarteArticle key={a.slug} rang={i} />
+        {liste.map((a, i) => (
+          <CarteArticle key={a.slug} article={a} rang={i} />
         ))}
       </div>
     </section>

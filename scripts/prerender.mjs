@@ -348,13 +348,14 @@ function buildJournalRoutes() {
   const articles = loadArticles();
   const routes = [];
 
+  // Mêmes éléments que les cartes de la page /journal (BlogAccueil) : catégorie, date au
+  // format jj/mm/aaaa, titre, description. La page n'affiche pas la durée de lecture.
   const cards = articles
     .map(
       (a) => `<article>
-      <p>${esc(a.category)} · ${esc(a.date)} · ${a.readingTime} min</p>
+      <p>${esc(a.category)} · ${esc(a.date.split("-").reverse().join("/"))}</p>
       <h2><a href="${esc(a.path)}">${esc(a.title)}</a></h2>
       <p>${esc(a.description)}</p>
-      <a href="${esc(a.path)}">Lire l'article</a>
     </article>`,
     )
     .join("\n    ");
@@ -363,13 +364,14 @@ function buildJournalRoutes() {
     path: JOURNAL_BASE,
     changefreq: "weekly",
     priority: "0.8",
-    title: "Journal | Conseils location courte durée à Avignon | Chevalier Conciergerie",
+    title: "Journal : location courte durée à Avignon | Chevalier",
     description:
       "Nos guides sur la gestion locative saisonnière à Avignon : réglementation, rentabilité, conciergerie et sous-location. Publications régulières.",
-    ogTitle: "Journal | Chevalier Conciergerie",
-    ogDescription: "Guides et conseils sur la location courte durée à Avignon et alentours.",
-    bodyHtml: `<main><h1>Journal</h1>
-    <p>Nos guides sur la location courte durée à Avignon, Villeneuve-lès-Avignon et Les Angles.</p>
+    ogTitle: "Journal : location courte durée à Avignon",
+    ogDescription:
+      "Réglementation, rentabilité, fiscalité : ce qu'il faut savoir avant de louer en courte durée à Avignon.",
+    bodyHtml: `<main><h1>Journal de la location courte durée à Avignon</h1>
+    <p>Réglementation, rentabilité, fiscalité : ce qu'il faut savoir avant de louer en courte durée à Avignon.</p>
     ${cards}</main>`,
     jsonLd: [
       {
