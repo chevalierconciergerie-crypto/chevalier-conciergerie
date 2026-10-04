@@ -101,7 +101,7 @@ const Villes = () => {
                     </p>
                     <Link
                       to={v.chemin}
-                      className="inline-flex items-center gap-2 font-sans text-sm text-foreground underline-offset-4 hover:underline"
+                      className="inline-flex min-h-11 items-center gap-2 font-sans text-sm text-foreground underline-offset-4 hover:underline"
                     >
                       Voir la conciergerie à {v.nom}
                       <ArrowRight className="w-4 h-4" />

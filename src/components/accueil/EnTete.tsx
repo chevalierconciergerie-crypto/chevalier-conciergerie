@@ -192,6 +192,8 @@ const EnTete = () => {
           <a href={TELEPHONE.lien} tabIndex={ouvert ? 0 : -1}>{TELEPHONE.affiche}</a>
           <a href={COURRIEL.lien} tabIndex={ouvert ? 0 : -1}>{COURRIEL.affiche}</a>
           <Reseaux tabIndex={ouvert ? 0 : -1} />
+          {/* Sur téléphone, la barre n'a pas la place des drapeaux : ils se choisissent ici (cf. chevalier.css, bloc « Téléphone »). */}
+          <Drapeaux dansMenu />
         </div>
       </div>
     </>

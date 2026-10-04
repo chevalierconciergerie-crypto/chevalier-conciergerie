@@ -34,11 +34,11 @@ const JournalArticle = () => {
         <article className="px-6 py-16 md:py-20">
           <div className="mx-auto max-w-3xl">
             <nav aria-label="Fil d'Ariane" className="font-sans text-xs text-muted-foreground">
-              <Link to="/" className="hover:text-foreground">
+              <Link to="/" className="inline-block py-3 hover:text-foreground">
                 Accueil
               </Link>
               <span aria-hidden="true"> › </span>
-              <Link to="/blog" className="hover:text-foreground">
+              <Link to="/blog" className="inline-block py-3 hover:text-foreground">
                 Blog
               </Link>
             </nav>
