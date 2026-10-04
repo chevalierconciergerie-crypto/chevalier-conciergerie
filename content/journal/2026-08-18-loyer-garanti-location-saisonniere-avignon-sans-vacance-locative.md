@@ -53,7 +53,7 @@ Les critères qui pèsent réellement dans la décision :
 - **État général** : un bien nécessitant des travaux avant mise en location n'est pas éligible en l'état.
 - **Conformité réglementaire** : un bien sans possibilité de déclaration ou de classement ne peut pas entrer dans le dispositif.
 
-Si votre bien ne coche pas ces cases, ce n'est pas nécessairement le [loyer garanti](/sous-location) qu'il vous faut : la [conciergerie classique](/conciergerie) reste pertinente, avec un revenu variable mais souvent plus élevé sur les biens bien situés.
+Si votre bien ne coche pas ces cases, ce n'est pas nécessairement le [loyer garanti](/#sous-location) qu'il vous faut : la [conciergerie classique](/#notre-service) reste pertinente, avec un revenu variable mais souvent plus élevé sur les biens bien situés.
 
 ## Le loyer garanti ne dispense d'aucune obligation réglementaire
 

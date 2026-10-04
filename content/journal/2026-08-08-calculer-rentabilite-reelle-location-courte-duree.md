@@ -59,9 +59,9 @@ Sur les biens que nous gérons à Avignon, l'écart entre le brut affiché et le
 
 C'est une charge supplémentaire, disons-le clairement. La vraie question n'est pas son coût mais son effet net.
 
-Une gestion professionnelle agit sur trois leviers simultanés : le taux d'occupation, le prix moyen par nuit et la qualité des avis — qui alimente les deux premiers. Sur certains biens, la [conciergerie](/conciergerie) s'autofinance largement. Sur d'autres, l'écart est plus mince et la valeur réside surtout dans le temps que vous récupérez.
+Une gestion professionnelle agit sur trois leviers simultanés : le taux d'occupation, le prix moyen par nuit et la qualité des avis — qui alimente les deux premiers. Sur certains biens, la [conciergerie](/#notre-service) s'autofinance largement. Sur d'autres, l'écart est plus mince et la valeur réside surtout dans le temps que vous récupérez.
 
-Si la gestion vous rebute entièrement, la [sous-location avec loyer garanti](/sous-location) déplace le calcul : revenu fixe, zéro vacance, zéro charge d'exploitation à votre charge.
+Si la gestion vous rebute entièrement, la [sous-location avec loyer garanti](/#sous-location) déplace le calcul : revenu fixe, zéro vacance, zéro charge d'exploitation à votre charge.
 
 ## Pour qui la courte durée reste-t-elle pertinente ?
 

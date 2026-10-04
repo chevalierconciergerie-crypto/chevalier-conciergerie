@@ -61,7 +61,7 @@ Ce point mérite d'être clarifié avant de choisir entre gestion classique et s
 | Conciergerie classique | Vous (le propriétaire) | BIC (micro-BIC ou réel) | À votre charge (déclaration, classement) |
 | Sous-location loyer garanti | La conciergerie (exploitant) | Revenus fonciers ou revenus du bail signé | Transférée à l'exploitant |
 
-Pour un propriétaire qui souhaite simplifier sa fiscalité autant que sa gestion locative, la [sous-location à loyer garanti](/sous-location) élimine à la fois la vacance locative et la complexité du régime BIC. C'est un choix qui se raisonne autant sur le plan fiscal que sur le plan pratique.
+Pour un propriétaire qui souhaite simplifier sa fiscalité autant que sa gestion locative, la [sous-location à loyer garanti](/#sous-location) élimine à la fois la vacance locative et la complexité du régime BIC. C'est un choix qui se raisonne autant sur le plan fiscal que sur le plan pratique.
 
 ## FAQ
 

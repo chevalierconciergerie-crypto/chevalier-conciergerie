@@ -64,6 +64,6 @@ Ce n'est pas obligatoire, mais c'est un vrai plus : l'entretien piscine et les n
 **Comment vérifier qu'une conciergerie connaît la réglementation de Villeneuve-lès-Avignon ?**
 Demandez-lui de vous expliquer la procédure d'enregistrement en mairie et les règles de changement d'usage propres à la commune ; une réponse précise et documentée est le meilleur indicateur, bien plus fiable qu'un avis en ligne. Pour toute question, notre équipe reste joignable via la page [contact](/contact).
 
-Pour en savoir plus sur notre fonctionnement général et notre zone d'intervention, vous pouvez consulter [notre page conciergerie](/conciergerie), [notre présentation](/a-propos), ou comparer avec notre activité sur [Avignon](/conciergerie-avignon) et [Les Angles](/conciergerie-les-angles). D'autres retours d'expérience sont régulièrement publiés dans notre [journal](/journal).
+Pour en savoir plus sur notre fonctionnement général et notre zone d'intervention, vous pouvez consulter [notre page conciergerie](/#notre-service), [notre présentation](/a-propos), ou comparer avec notre activité sur [Avignon](/conciergerie-avignon) et [Les Angles](/conciergerie-les-angles). D'autres retours d'expérience sont régulièrement publiés dans notre [journal](/journal).
 
 (Article rédigé sans interview d'expertise — à enrichir avec un retour terrain avant publication.)

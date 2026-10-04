@@ -67,7 +67,7 @@ Le **changement d'usage**, quand il s'applique, n'a pas de tarif unique : certai
 
 La **taxe de séjour** ne vous coûte rien : elle est payée par le voyageur.
 
-Reste votre temps. Compter deux à trois heures pour constituer un dossier simple, davantage si un changement d'usage est requis. C'est la partie que nous prenons en charge pour les propriétaires que nous accompagnons en [conciergerie](/conciergerie).
+Reste votre temps. Compter deux à trois heures pour constituer un dossier simple, davantage si un changement d'usage est requis. C'est la partie que nous prenons en charge pour les propriétaires que nous accompagnons en [conciergerie](/#notre-service).
 
 ## Ajouter la collecte de la taxe de séjour
 
@@ -97,7 +97,7 @@ Tout passe par le même point d'entrée, `changementdusage.fr/avignon`.
 
 Chez Chevalier Conciergerie, cette mise en conformité fait partie de la prise en charge, que vous soyez à [Avignon](/conciergerie-avignon), [Villeneuve-lès-Avignon](/conciergerie-villeneuve-les-avignon) ou [Les Angles](/conciergerie-les-angles). Nous vérifions votre situation, constituons le dossier et paramétrons la collecte.
 
-Si la gestion ne vous intéresse pas du tout, la [sous-location avec loyer garanti](/sous-location) déplace la question : les obligations d'exploitation ne reposent plus sur vous.
+Si la gestion ne vous intéresse pas du tout, la [sous-location avec loyer garanti](/#sous-location) déplace la question : les obligations d'exploitation ne reposent plus sur vous.
 
 ## Pour aller plus loin
 

@@ -48,8 +48,8 @@ const COURBES: string[] = (() => {
 
 const LIENS_MENU = [
   { libelle: "Accueil", vers: "/" },
-  { libelle: "Conciergerie", vers: "/conciergerie" },
-  { libelle: "Sous-location", vers: "/sous-location" },
+  { libelle: "Conciergerie", vers: "/#notre-service" },
+  { libelle: "Sous-location", vers: "/#sous-location" },
   { libelle: "Nos logements", vers: "/logements" },
   { libelle: "Tarifs", vers: "/tarifs" },
   { libelle: "Journal", vers: "/journal" },

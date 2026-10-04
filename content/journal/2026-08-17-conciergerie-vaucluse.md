@@ -39,9 +39,9 @@ Ce point réglementaire n'est pas un détail administratif : c'est souvent ce qu
 
 Il n'existe pas une seule bonne réponse : tout dépend de votre tolérance au risque de vacance locative et de votre besoin de visibilité sur vos revenus.
 
-En [conciergerie](/conciergerie) classique, vous restez propriétaire de la stratégie locative : le bien reste à votre nom sur les annonces, vous percevez les revenus réels générés mois par mois, et nous nous chargeons de tout l'opérationnel — annonces, tarification dynamique, ménage, accueil voyageurs.
+En [conciergerie](/#notre-service) classique, vous restez propriétaire de la stratégie locative : le bien reste à votre nom sur les annonces, vous percevez les revenus réels générés mois par mois, et nous nous chargeons de tout l'opérationnel — annonces, tarification dynamique, ménage, accueil voyageurs.
 
-En [sous-location](/sous-location) à loyer garanti, nous devenons locataires de votre bien et vous reversons un loyer fixe, que le logement soit occupé ou non. Vous ne subissez ni la saisonnalité, ni les périodes creuses, ni les aléas de calendrier.
+En [sous-location](/#sous-location) à loyer garanti, nous devenons locataires de votre bien et vous reversons un loyer fixe, que le logement soit occupé ou non. Vous ne subissez ni la saisonnalité, ni les périodes creuses, ni les aléas de calendrier.
 
 | Critère | Conciergerie classique | Sous-location loyer garanti |
 |---|---|---|

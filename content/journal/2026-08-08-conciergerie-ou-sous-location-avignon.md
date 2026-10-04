@@ -24,9 +24,9 @@ Ce tableau tient en une phrase : la conciergerie vous laisse le potentiel et le 
 
 La différence n'est pas le niveau de service. Dans les deux cas, le ménage est fait, les voyageurs sont accueillis, l'annonce est tenue à jour. La différence est **juridique**, et tout le reste en découle.
 
-En [conciergerie](/conciergerie), vous restez l'exploitant du logement. Vous louez à des voyageurs, nous agissons pour votre compte en vertu d'un mandat. Les revenus sont les vôtres, les risques aussi, et nous sommes rémunérés par une commission sur ce que le bien rapporte.
+En [conciergerie](/#notre-service), vous restez l'exploitant du logement. Vous louez à des voyageurs, nous agissons pour votre compte en vertu d'un mandat. Les revenus sont les vôtres, les risques aussi, et nous sommes rémunérés par une commission sur ce que le bien rapporte.
 
-En [sous-location](/sous-location), nous devenons votre locataire. Nous prenons le bien à bail, nous vous versons un loyer, et nous exploitons ensuite le logement à notre nom et à nos frais. Vous n'êtes plus dans la chaîne : vous êtes bailleur d'un locataire unique, qui se trouve être une entreprise.
+En [sous-location](/#sous-location), nous devenons votre locataire. Nous prenons le bien à bail, nous vous versons un loyer, et nous exploitons ensuite le logement à notre nom et à nos frais. Vous n'êtes plus dans la chaîne : vous êtes bailleur d'un locataire unique, qui se trouve être une entreprise.
 
 Ce basculement de statut explique tout le reste : qui encaisse, qui supporte un mois creux, et qui doit demander quelle autorisation en mairie.
 
@@ -57,7 +57,7 @@ Une chose qu'aucune des deux formules ne fait : transformer un bien mal situé o
 
 Autant le dire franchement, parce que la plupart des sites évitent la question.
 
-**En conciergerie, vous payez une commission sur les revenus générés.** Elle est définie bien par bien, selon l'emplacement, la taille et les services retenus, et elle est écrite dans le mandat avant tout démarrage. Pour donner un ordre de grandeur concret plutôt qu'une fourchette abstraite, [l'exemple chiffré publié sur notre page conciergerie](/conciergerie) porte sur un studio de 30 m² loué 9 nuits en juillet à 110 € : 990 € de revenus bruts, 149 € de commission de plateforme, 168 € de commission pour nous, **673 € nets pour le propriétaire**. Dans ce cas précis, notre part représente environ 17 % du brut.
+**En conciergerie, vous payez une commission sur les revenus générés.** Elle est définie bien par bien, selon l'emplacement, la taille et les services retenus, et elle est écrite dans le mandat avant tout démarrage. Pour donner un ordre de grandeur concret plutôt qu'une fourchette abstraite, [l'exemple chiffré publié sur notre page conciergerie](/#notre-service) porte sur un studio de 30 m² loué 9 nuits en juillet à 110 € : 990 € de revenus bruts, 149 € de commission de plateforme, 168 € de commission pour nous, **673 € nets pour le propriétaire**. Dans ce cas précis, notre part représente environ 17 % du brut.
 
 Deux points à retenir sur ce chiffre. Le ménage n'y figure pas : il est payé par le voyageur, pas par vous. Et la taxe de séjour n'apparaît nulle part dans le calcul, pour une raison simple — **ce n'est pas un revenu**. Elle est collectée auprès du voyageur et reversée à la collectivité ; la compter comme un produit fausse toute comparaison, et c'est l'erreur que nous voyons le plus souvent. Nous la détaillons dans notre article sur [le calcul de la rentabilité réelle](/journal/calculer-rentabilite-reelle-location-courte-duree).
 

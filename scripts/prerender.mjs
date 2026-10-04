@@ -545,8 +545,8 @@ const notFoundHtml = buildHtml(template, {
     <p>Elle a peut-être été déplacée, ou l'adresse comporte une erreur.</p>
     <ul>
       <li><a href="/">Accueil</a></li>
-      <li><a href="/conciergerie">Conciergerie</a></li>
-      <li><a href="/sous-location">Sous-location</a></li>
+      <li><a href="/#notre-service">Conciergerie</a></li>
+      <li><a href="/#sous-location">Sous-location</a></li>
       <li><a href="/journal">Journal</a></li>
       <li><a href="/contact">Contact</a></li>
     </ul>

@@ -22,7 +22,7 @@ La conciergerie classique vous fait gagner plus si le bien tourne bien, le loyer
 | Idéal pour | Biens bien situés, forte demande | Propriétaires cherchant la sécurité |
 | Commission | Détaillée sur la page [tarifs](/tarifs) | Loyer fixé après [estimation](/estimation-sous-location) |
 
-Pour un bien en plein centre historique d'Avignon, la conciergerie classique tire souvent mieux son épingle du jeu grâce à la demande touristique. Pour un bien plus excentré ou à Villeneuve-lès-Avignon, le loyer garanti lisse le risque de creux entre deux réservations. La page [conciergerie](/conciergerie) détaille le fonctionnement du premier modèle, la page [sous-location](/sous-location) celui du second.
+Pour un bien en plein centre historique d'Avignon, la conciergerie classique tire souvent mieux son épingle du jeu grâce à la demande touristique. Pour un bien plus excentré ou à Villeneuve-lès-Avignon, le loyer garanti lisse le risque de creux entre deux réservations. La page [conciergerie](/#notre-service) détaille le fonctionnement du premier modèle, la page [sous-location](/#sous-location) celui du second.
 
 ## Ce que Chevalier Conciergerie prend en charge sur le plan réglementaire
 

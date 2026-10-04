@@ -171,7 +171,7 @@ const Tarifs = () => {
                       collectée puis reversée à la commune : elle ne passe jamais par vos revenus.
                     </p>
                     <Link
-                      to="/conciergerie"
+                      to="/#notre-service"
                       className="mt-8 inline-flex items-center gap-2 font-sans text-sm text-white underline-offset-4 hover:underline"
                     >
                       Le détail de la formule
@@ -203,7 +203,7 @@ const Tarifs = () => {
                       Il est fixé avant signature et ne bouge plus.
                     </p>
                     <Link
-                      to="/sous-location"
+                      to="/#sous-location"
                       className="mt-8 inline-flex items-center gap-2 font-sans text-sm text-foreground underline-offset-4 hover:underline"
                     >
                       Le détail de la formule

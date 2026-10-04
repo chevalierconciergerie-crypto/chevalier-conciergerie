@@ -42,7 +42,7 @@ Le détail exact de la commission de gestion et des formules dépend de votre bi
 
 La gestion classique offre un revenu plafonné plus haut mais variable, tandis que la sous-location à loyer garanti lisse ce revenu à zéro vacance locative. La différence se joue sur les mois creux, pas sur juillet.
 
-Prenons un studio dont le potentiel brut annuel est de 17 000 €. En gestion Airbnb classique, un hiver difficile (grippe, travaux du quartier, concurrence accrue) peut faire chuter l'occupation de janvier à mars, générant un manque à gagner de 1 500 à 2 000 € sur ces trois mois seuls. En [sous-location à loyer garanti](/sous-location), ce risque disparaît : le propriétaire perçoit un loyer fixe chaque mois, quelle que soit l'occupation réelle du bien.
+Prenons un studio dont le potentiel brut annuel est de 17 000 €. En gestion Airbnb classique, un hiver difficile (grippe, travaux du quartier, concurrence accrue) peut faire chuter l'occupation de janvier à mars, générant un manque à gagner de 1 500 à 2 000 € sur ces trois mois seuls. En [sous-location à loyer garanti](/#sous-location), ce risque disparaît : le propriétaire perçoit un loyer fixe chaque mois, quelle que soit l'occupation réelle du bien.
 
 | Critère | Conciergerie Airbnb classique | Sous-location loyer garanti |
 |---|---|---|
