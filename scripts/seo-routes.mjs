@@ -290,11 +290,14 @@ const STATIC_ROUTES = [
       secteur Gard et Vaucluse. » — Félicien Arnoux</p></blockquote>
 
       <h2>Le fondateur</h2>
-      <p>Victor Chevalier a suivi des études de mathématiques et de physique à la CUPGE
-      d'Avignon avant de réaliser son premier investissement immobilier à 19 ans.
-      Originaire d'Avignon, il en connaît les quartiers, le patrimoine et la
-      saisonnalité — c'est cette connaissance locale qui l'a conduit à créer Chevalier
-      Conciergerie. <a href="/a-propos">En savoir plus</a>.</p>
+      <p>À seulement 20 ans, Victor Chevalier fait partie de cette nouvelle génération
+      d'entrepreneurs qui osent concrétiser leurs ambitions. Originaire d'Avignon, il a fondé
+      Chevalier Conciergerie, dans laquelle il propose ses services de conciergerie et de
+      sous-location.</p>
+      <blockquote><p>« Mon premier investissement immobilier à 19 ans a été le déclic. En
+      explorant le marché avignonnais, j'ai rapidement compris le potentiel extraordinaire de
+      la location courte durée dans notre belle région »</p></blockquote>
+      <p>Victor Chevalier, fondateur de Chevalier Conciergerie</p>
 
       <h2>Aller plus loin</h2>
       <ul>
@@ -511,47 +514,24 @@ const STATIC_ROUTES = [
     description:
       "Découvrez Chevalier Conciergerie : une conciergerie indépendante et locale à Avignon, fondée par Victor Chevalier, spécialiste de la location courte durée et de la sous-location avec loyer garanti.",
     keywords: "Victor Chevalier, conciergerie indépendante Avignon, qui sommes-nous conciergerie Avignon",
+    // Texte lisible sans JavaScript : il reprend, mot pour mot, la section « Qui sommes-nous »
+    // de l'accueil (Fondateur.tsx, TEXTE_TV_SUD et CITATION_FONDATEUR dans src/data/accueil.ts).
     bodyHtml: `<main>
-      <nav><a href="/">Accueil</a> › À propos</nav>
-      <h1>Une conciergerie locale et exigeante à Avignon</h1>
-      <p>Chevalier Conciergerie accompagne les propriétaires de la région d'Avignon dans
-      la gestion de leur location courte durée. Notre métier : transformer votre bien en
-      une source de revenus sereine, sans que vous ayez à vous occuper de quoi que ce
-      soit.</p>
-
-      <h2>Le mot du fondateur</h2>
-      <blockquote>
-        <p>« J'ai créé Chevalier Conciergerie avec une conviction simple : un propriétaire
-        ne devrait jamais avoir à choisir entre la rentabilité de son bien et sa
-        tranquillité d'esprit. Trop de propriétaires renoncent à la location courte durée
-        par manque de temps, ou se font dépasser par les réservations, le ménage et les
-        imprévus. Nous prenons tout en charge, de la création de l'annonce à l'accueil des
-        voyageurs, avec un niveau de service digne de l'hôtellerie. Et nous le faisons en
-        local, à taille humaine : à Avignon, nous sommes sur place, joignables, et nous
-        traitons chaque logement comme s'il était le nôtre. »</p>
-        <p>— Victor Chevalier, fondateur</p>
-      </blockquote>
-
-      <h2>Ce que nous faisons</h2>
-      <p>Nous proposons deux formules complémentaires. Avec la
-      <a href="/conciergerie">conciergerie</a>, nous gérons votre location courte durée de
-      A à Z et vous reversons les revenus, en toute transparence. Avec la
-      <a href="/sous-location">sous-location professionnelle</a>, nous prenons votre bien
-      à bail et vous garantissons un loyer fixe chaque mois, que le logement soit occupé
-      ou non. Dans les deux cas, vous bénéficiez d'un interlocuteur unique et d'un suivi
-      clair de vos revenus. Nous intervenons à Avignon, Villeneuve-lès-Avignon, Les Angles
-      et leurs environs.</p>
-
-      <h2>Nos valeurs</h2>
-      <p><strong>Transparence.</strong> Des comptes rendus clairs, des reversements à date
-      fixe et aucune mauvaise surprise. La taxe de séjour, collectée pour la collectivité,
-      n'est jamais comptée comme un revenu : vous touchez vos honoraires, votre ménage et
-      vos suppléments, point.</p>
-      <p><strong>Exigence.</strong> Accueil soigné, linge hôtelier, ménage professionnel
-      et annonces optimisées. Chaque séjour est pensé pour décrocher les meilleures
-      évaluations et fidéliser les voyageurs.</p>
-      <p><strong>Ancrage local.</strong> Nous sommes installés à Villeneuve-lès-Avignon et
-      intervenons sur place.</p>
+      <p>Qui sommes-nous</p>
+      <h1>Le fondateur</h1>
+      <p>À seulement 20 ans, Victor Chevalier fait partie de cette nouvelle génération
+      d'entrepreneurs qui osent concrétiser leurs ambitions. Originaire d'Avignon, il a fondé
+      Chevalier Conciergerie, dans laquelle il propose ses services de conciergerie et de
+      sous-location.</p>
+      <blockquote><p>« Mon premier investissement immobilier à 19 ans a été le déclic. En
+      explorant le marché avignonnais, j'ai rapidement compris le potentiel extraordinaire de
+      la location courte durée dans notre belle région »</p></blockquote>
+      <p>Victor Chevalier, fondateur de Chevalier Conciergerie</p>
+      <ul>
+        <li><a href="https://www.instagram.com/chevalier_conciergerie/">@chevalier_conciergerie</a> (Instagram)</li>
+        <li><a href="https://www.linkedin.com/in/victor-chevalier-bba282356/">Victor Chevalier</a> (LinkedIn)</li>
+        <li><a href="https://www.facebook.com/share/1Eio3qasaM/">Chevalier Conciergerie</a> (Facebook)</li>
+      </ul>
     </main>`,
     jsonLd: [
       breadcrumb({ name: "À propos", path: "/a-propos" }),
@@ -565,7 +545,11 @@ const STATIC_ROUTES = [
           "@id": SITE,
           name: "Chevalier Conciergerie",
           url: SITE,
-          founder: { "@type": "Person", name: "Victor Chevalier" },
+          founder: {
+            "@type": "Person",
+            name: "Victor Chevalier",
+            sameAs: ["https://www.linkedin.com/in/victor-chevalier-bba282356/"],
+          },
           areaServed: ZONE.map((a) => ({ "@type": "City", name: a })),
         },
       },
@@ -618,47 +602,6 @@ const STATIC_ROUTES = [
       breadcrumb({ name: "Devenir franchisé", path: "/franchise" }),
       faqPage(FRANCHISE_FAQ),
     ],
-  },
-  {
-    path: "/partenaires",
-    changefreq: "monthly",
-    priority: "0.7",
-    title: "Partenaires locaux | Chevalier Conciergerie Avignon",
-    description:
-      "Les partenaires locaux d'Avignon et Villeneuve-lès-Avignon avec qui nous travaillons pour l'entretien, la valorisation et la commercialisation des biens en gestion.",
-    keywords: "partenaires conciergerie Avignon, prestataires location saisonnière Avignon, réseau local conciergerie Vaucluse",
-    bodyHtml: `<main>
-      <nav><a href="/">Accueil</a> › Partenaires</nav>
-      <h1>Partenaires locaux — Chevalier Conciergerie Avignon</h1>
-      <p>Nous nous appuyons sur un réseau d'entreprises locales, choisies pour la
-      qualité de leur travail et leur réactivité. Elles interviennent chaque semaine
-      sur les logements que nous gérons à Avignon, Villeneuve-lès-Avignon et Les
-      Angles.</p>
-
-      <h2>ERA Immobilier — Rachel Lindo</h2>
-      <p>Agence immobilière partenaire à Villeneuve-lès-Avignon. Rachel Lindo
-      accompagne les propriétaires qui souhaitent acquérir ou vendre un bien destiné
-      à la location courte durée dans le secteur Gard–Vaucluse. Elle nous adresse
-      les acquéreurs qui cherchent un partenaire de gestion, et nous lui adressons
-      les propriétaires qui envisagent d'arbitrer.</p>
-
-      <h2>La Cave Réalpanier</h2>
-      <p>Caviste indépendant du secteur, sélectionné pour les vins de bienvenue
-      offerts à certains voyageurs. Les produits sont locaux, les allergènes signalés,
-      la présentation soignée : ce sont ces détails que les voyageurs commentent
-      dans leurs avis.</p>
-
-      <h2>Devenir partenaire</h2>
-      <p>Vous êtes artisan, commerçant ou professionnel indépendant sur Avignon,
-      Villeneuve-lès-Avignon ou Les Angles et vous souhaitez travailler avec nous ?
-      <a href="/contact">Contactez-nous</a>. Nous privilégions la proximité, la
-      qualité du service et la stabilité du tarif dans la durée.</p>
-
-      <p><a href="/conciergerie">La formule conciergerie</a> ·
-      <a href="/sous-location">La sous-location avec loyer garanti</a> ·
-      <a href="/a-propos">Notre approche</a></p>
-    </main>`,
-    jsonLd: [breadcrumb({ name: "Partenaires", path: "/partenaires" })],
   },
   {
     path: "/estimation-sous-location",
@@ -1023,8 +966,6 @@ const SEO_EN = {
     "About us | Property Management Avignon | Chevalier",
   "Devenir franchisé | Ouvrir sa conciergerie | Chevalier Conciergerie":
     "Become a franchisee | Open your own property management | Chevalier Conciergerie",
-  "Nos Partenaires | Chevalier Conciergerie Avignon":
-    "Our Partners | Chevalier Conciergerie Avignon",
   "Conciergerie Airbnb à Avignon : gestion complète | Chevalier":
     "Airbnb Property Management in Avignon: Full Service | Chevalier",
   "Conciergerie Airbnb à Avignon : annonce, accueil des voyageurs, ménage et tarification. 25 % HT du net perçu, sans engagement. Estimation gratuite.":
@@ -1071,8 +1012,6 @@ const SEO_EN = {
     "Chevalier Conciergerie is an independent, local property manager in Avignon, founded by Victor Chevalier, specialising in short-let hosting and guaranteed-rent letting.",
   "Ouvrez votre conciergerie avec le réseau Chevalier Conciergerie : marque et territoire réservé, plus de 40 h de formation, logiciel PMS et CRM compris, site web et référencement, kit marketing, accompagnement continu.":
     "Open your own property management business with the Chevalier Conciergerie network: brand and protected territory, 40+ hours of training, PMS and CRM software included, website and SEO, marketing kit, ongoing support.",
-  "Les partenaires locaux avec qui nous travaillons à Avignon et alentours pour l'entretien et la valorisation des biens que nous gérons.":
-    "The local partners we work with in and around Avignon for the upkeep and staging of the properties we manage.",
   "Conciergerie Airbnb à Avignon intra-muros : quartiers couverts, marché local et règles applicables depuis le 1er janvier 2026. Enregistrement et changement d'usage pris en charge.":
     "Airbnb property management in Avignon old town: neighbourhoods covered, local market and rules in force since 1 January 2026. Registration and change-of-use handled for you.",
   "Conciergerie Airbnb à Villeneuve-lès-Avignon : gestion complète de votre location saisonnière face à Avignon, et des démarches plus simples que de l'autre côté du Rhône. Devis gratuit.":
@@ -1113,8 +1052,6 @@ const SEO_EN = {
     "Victor Chevalier, independent property management Avignon, about Chevalier Conciergerie",
   "franchise conciergerie, devenir franchisé conciergerie, ouvrir une conciergerie, réseau conciergerie Airbnb, franchise gestion locative, monter sa conciergerie":
     "property management franchise, become a franchisee, open a property management business, Airbnb management franchise network",
-  "partenaires conciergerie Avignon, prestataires location saisonnière Avignon":
-    "property management partners Avignon, holiday-let suppliers Avignon",
   "conciergerie Airbnb Avignon, gestion location saisonnière Avignon, conciergerie Avignon intra-muros, location courte durée Avignon, Airbnb Avignon":
     "Airbnb property management Avignon, holiday-let hosting Avignon, property management Avignon old town, short-let Avignon",
   "conciergerie Villeneuve-lès-Avignon, conciergerie Villeneuve lez Avignon, Airbnb Villeneuve Avignon, gestion locative Villeneuve, location saisonnière Villeneuve-lès-Avignon":

@@ -8,6 +8,8 @@
     { "source": "/(.*)\\.html", "destination": "/$1", "permanent": true },
     { "source": "/tarifs", "destination": "/conciergerie", "permanent": true },
     { "source": "/en/tarifs", "destination": "/en/conciergerie", "permanent": true },
+    { "source": "/partenaires", "destination": "/a-propos", "permanent": true },
+    { "source": "/en/partenaires", "destination": "/en/a-propos", "permanent": true },
     { "source": "/journal", "destination": "/blog", "permanent": true },
     { "source": "/journal/:slug([a-z0-9-]+)", "destination": "/blog/:slug", "permanent": true },
     { "source": "/en/blog", "destination": "/blog", "permanent": false },

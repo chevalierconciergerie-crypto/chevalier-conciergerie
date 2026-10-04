@@ -38,7 +38,6 @@ const COLONNES = [
     liens: [
       { libelle: "Accueil", lien: "/" },
       { libelle: "À propos", lien: "/a-propos" },
-      { libelle: "Nos partenaires", lien: "/partenaires" },
       { libelle: "Contact", lien: "/contact" },
     ],
   },

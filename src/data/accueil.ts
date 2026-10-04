@@ -16,7 +16,8 @@
   « Blog » ouvrent de vraies pages, indexables séparément. Chacune rend la section qu'avait
   l'accueil, dans le nouveau design, comme /franchise : l'accueil ne les répète plus.
   « Contact » (/contact) fonctionne de la même façon.
-  « À propos », « Partenaires » et les pages légales sont dans le pied de page.
+  « À propos » (/a-propos, la section « Qui sommes-nous » de l'accueil) et les pages légales
+  sont dans le pied de page.
 */
 export const RUBRIQUES = [
   { libelle: "Accueil", ancre: "accueil" },

@@ -36,7 +36,6 @@ export const EN: Record<string, string> = {
   "Politique de confidentialité": "Privacy policy",
   "Gestion des cookies": "Cookie settings",
   "À propos": "About",
-  "Nos partenaires": "Our partners",
   "Tarifs": "Pricing",
   "Villes": "Cities",
   "Toutes nos villes": "All our cities",

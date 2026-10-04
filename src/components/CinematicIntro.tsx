@@ -52,7 +52,6 @@ const LIENS_MENU = [
   { libelle: "Sous-location", vers: "/sous-location" },
   { libelle: "Nos logements", vers: "/logements" },
   { libelle: "Blog", vers: "/blog" },
-  { libelle: "Partenaires", vers: "/partenaires" },
   { libelle: "Contact", vers: "/contact" },
 ];
 

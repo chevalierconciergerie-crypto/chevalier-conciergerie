@@ -23,7 +23,6 @@ import ConciergerieLesAngles from "./pages/ConciergerieLesAngles";
 import ConciergerieAixEnProvence from "./pages/ConciergerieAixEnProvence";
 import ConciergerieMontpellier from "./pages/ConciergerieMontpellier";
 import Villes from "./pages/Villes";
-import Partenaires from "./pages/Partenaires";
 import APropos from "./pages/APropos";
 import CGV from "./pages/CGV";
 import Journal from "./pages/Journal";
@@ -65,7 +64,7 @@ const App = () => (
               <Route path="/conciergerie-aix-en-provence" element={<ConciergerieAixEnProvence />} />
               <Route path="/conciergerie-montpellier" element={<ConciergerieMontpellier />} />
               <Route path="/villes" element={<Villes />} />
-              <Route path="/partenaires" element={<Partenaires />} />
+              <Route path="/partenaires" element={<Navigate to="/a-propos" replace />} />
               <Route path="/a-propos" element={<APropos />} />
               <Route path="/cgv" element={<CGV />} />
               <Route path="/blog" element={<Journal />} />
@@ -85,7 +84,7 @@ const App = () => (
               <Route path="/en/conciergerie-aix-en-provence" element={<ConciergerieAixEnProvence />} />
               <Route path="/en/conciergerie-montpellier" element={<ConciergerieMontpellier />} />
               <Route path="/en/villes" element={<Villes />} />
-              <Route path="/en/partenaires" element={<Partenaires />} />
+              <Route path="/en/partenaires" element={<Navigate to="/en/a-propos" replace />} />
               <Route path="/en/a-propos" element={<APropos />} />
               <Route path="/en/cgv" element={<CGV />} />
               <Route path="/en/blog" element={<Journal />} />

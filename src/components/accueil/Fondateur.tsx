@@ -9,15 +9,20 @@ const COMPTES: Record<string, string> = {
   Facebook: "Chevalier Conciergerie",
 };
 
-/** Qui sommes-nous : Victor, en grand — c'est le fondateur, il doit être vu. */
-const Fondateur = () => {
+/**
+  Qui sommes-nous : Victor, en grand — c'est le fondateur, il doit être vu.
+
+  `commeH1` : sur sa propre page (/a-propos), la section porte le titre principal.
+  Sur l'accueil, qui a déjà son h1, elle reste un h2.
+*/
+const Fondateur = ({ commeH1 = false }: { commeH1?: boolean }) => {
   const t = useT();
   return (
   <section id="qui-sommes-nous" className="chv-section" aria-labelledby="chv-titre-fondateur">
     <div className="chv-entete-section">
       <Etiquette>Qui sommes-nous</Etiquette>
       <div id="chv-titre-fondateur">
-        <TitreAnime lignes={["Le fondateur"]} />
+        <TitreAnime as={commeH1 ? "h1" : "h2"} lignes={["Le fondateur"]} />
       </div>
     </div>
 
