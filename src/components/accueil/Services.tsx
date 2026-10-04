@@ -119,10 +119,7 @@ export function ServiceConciergerie({ commeH1 = false }: { commeH1?: boolean }) 
   const t = useT();
   return (
     <section id="notre-service" className="chv-section" aria-label="Notre service de conciergerie">
-      <TitreAnime
-        as={commeH1 ? "h1" : "h2"}
-        lignes={commeH1 ? [t("Conciergerie Airbnb"), t("à Avignon")] : [t("Notre service"), t("de conciergerie")]}
-      />
+      <TitreAnime as={commeH1 ? "h1" : "h2"} lignes={[t("Notre service"), t("de conciergerie")]} />
 
       <Revele className="chv-entree">
         <span className="chv-badge">{t("La mise en ligne")}</span>
@@ -161,10 +158,7 @@ export function ServiceSousLocation({ commeH1 = false }: { commeH1?: boolean }) 
   const t = useT();
   return (
     <section id="sous-location" className="chv-section" aria-label="Notre service de sous-location">
-      <TitreAnime
-        as={commeH1 ? "h1" : "h2"}
-        lignes={commeH1 ? [t("Loyer garanti"), t("à Avignon")] : [t("Notre service"), t("de sous-location")]}
-      />
+      <TitreAnime as={commeH1 ? "h1" : "h2"} lignes={[t("Notre service"), t("de sous-location")]} />
 
       <Revele className="chv-entree">
         <span className="chv-badge">{t("L'autre formule")}</span>

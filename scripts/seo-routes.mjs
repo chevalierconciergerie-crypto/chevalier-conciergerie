@@ -350,7 +350,7 @@ const STATIC_ROUTES = [
       "Annonce, accueil des voyageurs, ménage et tarification : 25 % HT du net perçu, sans engagement.",
     bodyHtml: `<main>
       <nav><a href="/">Accueil</a> › Conciergerie</nav>
-      <h1>Conciergerie Airbnb à Avignon</h1>
+      <h1>Notre service de conciergerie</h1>
 
       <h2>Votre annonce créée, publiée partout.</h2>
       <p>Tout commence par l'annonce : rédaction, mise en valeur du logement, réglage des règles
@@ -449,7 +449,7 @@ const STATIC_ROUTES = [
     ogDescription: "Un loyer fixe chaque mois, 0 % de commission, sans vacance locative ni gestion.",
     bodyHtml: `<main>
       <nav><a href="/">Accueil</a> › Sous-location</nav>
-      <h1>Loyer garanti à Avignon</h1>
+      <h1>Notre service de sous-location</h1>
 
       <h2>Vous ne gérez plus rien, vous encaissez un loyer fixe.</h2>
       <p>Nous devenons votre locataire principal : nous louons votre bien à l'année pour y
