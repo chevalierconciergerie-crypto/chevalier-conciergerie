@@ -22,8 +22,8 @@
   /* Sur fond clair, le cuivre manque de contraste pour du texte : on le fonce. */
   --chv-cuivre-fonce: #96523c;
   --chv-degrade-cuivre: linear-gradient(180deg, #eab6a0 1%, #cf8f7d 84%);
-  --chv-titre: "Fraunces", "Libre Baskerville", Georgia, serif;
-  --chv-texte: "Outfit", system-ui, sans-serif;
+  --chv-titre: "Libre Baskerville", Georgia, serif;
+  --chv-texte: "Archivo", system-ui, sans-serif;
   --chv-marge: clamp(20px, 6.67vw, 110px);
   --chv-barre: 76px;
   --chv-ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -598,8 +598,75 @@ select.chv-champ { appearance: none; background-image: url("data:image/svg+xml,%
 .chv-cookies a { color: #eab6a0; text-decoration: none; }
 .chv-cookies__boutons { display: flex; align-items: center; gap: 6px; }
 .chv-cookies .chv-pastille { height: 32px; font-size: 11px; padding: 0 16px; }
-.chv-cookies__refuser { background: none; border: 0; color: rgba(248, 240, 232, 0.7); font-family: var(--chv-texte); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 0 10px; height: 32px; cursor: pointer; }
-.chv-cookies__refuser:hover { color: var(--chv-creme); }
+.chv-cookies__refuser,
+.chv-cookies__accepter {
+  font-family: var(--chv-texte);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0 16px;
+  height: 32px;
+  cursor: pointer;
+  border-radius: 999px;
+  border: 1px solid rgba(248, 240, 232, 0.28);
+  background: transparent;
+  color: rgba(248, 240, 232, 0.82);
+  transition: background 0.2s var(--chv-ease), color 0.2s var(--chv-ease), border-color 0.2s var(--chv-ease);
+}
+.chv-cookies__refuser:hover,
+.chv-cookies__accepter:hover {
+  color: var(--chv-creme);
+  border-color: rgba(248, 240, 232, 0.6);
+}
+/*
+  Refuser et Accepter partagent le même contour et la même graisse : la CNIL demande
+  depuis 2022 que le refus soit aussi visible et aussi facile que l'acceptation.
+  L'accepter garde un léger accent cuivre pour rester le geste par défaut, mais
+  sans dark pattern — le poids visuel des deux est équivalent.
+*/
+.chv-cookies__accepter {
+  color: var(--chv-cuivre);
+  border-color: var(--chv-cuivre);
+}
+.chv-cookies__accepter:hover {
+  background: var(--chv-cuivre);
+  color: var(--chv-creme);
+}
+.chv-cookies__fermer {
+  background: none;
+  border: 0;
+  padding: 6px;
+  margin-left: 2px;
+  color: rgba(248, 240, 232, 0.55);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s var(--chv-ease);
+}
+.chv-cookies__fermer:hover { color: var(--chv-creme); }
+
+/*
+  Sur mobile, le bandeau devient une carte compacte à la place de la pastille pleine
+  largeur qui débordait sur le hero. Le texte s'enveloppe, les boutons prennent leur
+  ligne. Objectif : libérer le premier écran pour le visiteur qui vient d'atterrir.
+*/
+@media (max-width: 720px) {
+  .chv-cookies {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    translate: none;
+    border-radius: 16px;
+    padding: 12px 14px 12px 16px;
+    gap: 10px;
+    flex-wrap: wrap;
+    max-width: none;
+  }
+  .chv-cookies p { white-space: normal; font-size: 12.5px; line-height: 1.4; flex: 1 1 auto; padding-right: 26px; }
+  .chv-cookies__boutons { width: 100%; justify-content: flex-end; gap: 8px; }
+  .chv-cookies__fermer { position: absolute; top: 8px; right: 10px; }
+}
 
 /* ------------------------------------------------------------------ *
    Messagerie voyageurs — la démonstration animée du bloc « Les voyageurs ».

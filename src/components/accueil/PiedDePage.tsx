@@ -19,15 +19,19 @@ const COLONNES = [
       { libelle: "Sous-location", lien: "/sous-location" },
       { libelle: "Tarifs", lien: "/tarifs" },
       { libelle: "Estimation gratuite", lien: "/estimation-sous-location" },
+      { libelle: "Devenir franchisé", lien: "/franchise" },
       { libelle: "Journal", lien: "/journal" },
     ],
   },
   {
     titre: "Nos villes",
     liens: [
+      { libelle: "Toutes nos villes", lien: "/villes" },
       { libelle: "Conciergerie à Avignon", lien: "/conciergerie-avignon" },
       { libelle: "Villeneuve-lès-Avignon", lien: "/conciergerie-villeneuve-les-avignon" },
       { libelle: "Les Angles", lien: "/conciergerie-les-angles" },
+      { libelle: "Aix-en-Provence", lien: "/conciergerie-aix-en-provence" },
+      { libelle: "Montpellier", lien: "/conciergerie-montpellier" },
     ],
   },
   {

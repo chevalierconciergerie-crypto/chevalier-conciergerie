@@ -11,8 +11,8 @@ const ConciergerieAvignon = () => (
     // même <title> se disputent la même requête : Google partage les signaux entre elles
     // et n'en classe souvent aucune. Chaque page doit viser une intention distincte —
     // /conciergerie pour le service, celle-ci pour l'ancrage local.
-    metaTitle="Conciergerie Avignon intra-muros | Quartiers et règles 2026 | Chevalier"
-    metaDescription="Conciergerie Airbnb à Avignon intra-muros : quartiers couverts, marché local et règles applicables depuis le 1er janvier 2026. Enregistrement et changement d'usage pris en charge."
+    metaTitle="Conciergerie Airbnb Avignon : 25 % HT, sans commission"
+    metaDescription="Conciergerie Airbnb à Avignon intra-muros : 25 % HT du net perçu, réservation directe sans commission. Enregistrement et changement d'usage 2026 pris en charge. Estimation gratuite."
     metaKeywords="conciergerie Airbnb Avignon, gestion location saisonnière Avignon, conciergerie Avignon intra-muros, location courte durée Avignon, Airbnb Avignon"
     intro={{
       headline: "Conciergerie Airbnb\nà Avignon",

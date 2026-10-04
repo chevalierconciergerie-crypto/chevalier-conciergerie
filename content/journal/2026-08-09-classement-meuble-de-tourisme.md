@@ -1,6 +1,6 @@
 ---
-title: "Classement meublé de tourisme : ce que rapportent vraiment les étoiles à Avignon"
-description: "Classement meublé de tourisme : barème, coût, durée, et le vrai calcul de rentabilité — dont l'abattement fiscal qui passe de 30 % à 50 % à Avignon."
+title: "Classement meublé de tourisme : étoiles à Avignon"
+description: "Classement meublé de tourisme à Avignon : barème, coût, durée, et l'abattement fiscal qui passe de 30 % à 50 % pour un logement classé. Le vrai calcul de rentabilité."
 date: 2026-08-09
 category: Réglementation
 image: /journal/reel-classement.webp
@@ -84,7 +84,7 @@ Oui, et c'est même là que le rapport est le plus net. La dépense est fixe et 
 
 ## Ce que nous faisons pour nos propriétaires
 
-Chez Chevalier Conciergerie, la démarche de classement fait partie de la prise en charge : nous préparons le bien selon la grille officielle, nous prenons le rendez-vous avec l'organisme, et nous suivons le dossier jusqu'au certificat. C'est inclus dans la formule conciergerie à 25 % HT, sans facturation séparée.
+Chez Chevalier Conciergerie, la démarche de classement fait partie de la prise en charge : nous préparons le bien selon la grille officielle, nous prenons le rendez-vous avec l'organisme, et nous suivons le dossier jusqu'au certificat. C'est inclus dans la formule conciergerie à 25 % HT, sans facturation séparée. Le détail de la prestation et du cadre local figure sur la page [conciergerie Airbnb à Avignon](/conciergerie-avignon).
 
 [Estimer les revenus de mon logement](/estimation-sous-location) — deux minutes, réponse sous 24 h, sans engagement.
 

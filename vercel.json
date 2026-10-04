@@ -5,6 +5,12 @@
   "installCommand": "npm install",
   "trailingSlash": false,
   "redirects": [
-    { "source": "/(.*)\\.html", "destination": "/$1", "permanent": true }
+    { "source": "/(.*)\\.html", "destination": "/$1", "permanent": true },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.chevalier-conciergerie.com" }],
+      "destination": "https://chevalier-conciergerie.com/:path*",
+      "permanent": true
+    }
   ]
 }

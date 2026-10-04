@@ -1,6 +1,6 @@
 ---
-title: "Conciergerie ou sous-location à Avignon : comment trancher selon votre bien"
-description: "Commission variable ou loyer fixe : ce que chaque formule change sur vos revenus, vos obligations et votre risque à Avignon. Comparatif chiffré."
+title: "Conciergerie ou sous-location à Avignon : trancher"
+description: "Commission variable ou loyer fixe garanti à Avignon : ce que chaque formule change sur vos revenus, vos obligations et votre risque. Comparatif chiffré, cas par cas."
 date: 2026-08-08
 category: Sous-location
 image: /journal/reel-formules.webp

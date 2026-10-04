@@ -38,6 +38,8 @@ export const EN: Record<string, string> = {
   "À propos": "About",
   "Nos partenaires": "Our partners",
   "Tarifs": "Pricing",
+  "Villes": "Cities",
+  "Toutes nos villes": "All our cities",
   "Journal": "Journal",
   "Conciergerie à Avignon": "Property management in Avignon",
   "Conciergerie et sous-location de meublés de tourisme à Avignon, Villeneuve-lès-Avignon et Les Angles.":

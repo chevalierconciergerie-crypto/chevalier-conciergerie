@@ -1,6 +1,6 @@
 ---
-title: "Déclarer sa location saisonnière à Avignon : les 3 démarches obligatoires"
-description: "Numéro d'enregistrement, changement d'usage, taxe de séjour : ce qu'il faut faire avant de louer en courte durée à Avignon depuis le 1er janvier 2026, dans quel ordre, et ce que ça coûte."
+title: "Déclarer sa location saisonnière à Avignon"
+description: "Numéro d'enregistrement, changement d'usage, taxe de séjour : les 3 démarches obligatoires à Avignon depuis le 1er janvier 2026, dans quel ordre les faire et ce que ça coûte."
 date: 2026-08-04
 updated: 2026-08-08
 category: Réglementation

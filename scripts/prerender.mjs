@@ -28,12 +28,49 @@ function setTag(html, pattern, replacement) {
   return pattern.test(html) ? html.replace(pattern, replacement) : html.replace("</head>", `    ${replacement}\n  </head>`);
 }
 
-function buildHtml(template, route) {
+/*
+  Table des équivalences FR ↔ EN, construite depuis la liste des routes. Sert à poser
+  les balises `<link rel="alternate" hreflang="…">` dans le HEAD dès le HTML servi —
+  les robots qui n'exécutent pas de JS (aperçus sociaux, GPTBot, PerplexityBot,
+  ClaudeBot) les lisent, et Google les préfère à celles injectées après montage.
+*/
+function construireCorrespondances(routes) {
+  const parFr = new Map();
+  for (const r of routes) {
+    if (r.lang === "en" && r.fr) parFr.set(r.fr, r.path);
+  }
+  return parFr;
+}
+
+function buildHtml(template, route, correspondances) {
   const url = SITE + (route.path === "/" ? "/" : route.path);
   const ogTitle = route.ogTitle || route.title;
   const ogDescription = route.ogDescription || route.description;
+  const langue = route.lang || "fr";
+
+  const cheminFr = langue === "fr" ? route.path : route.fr || "/";
+  const cheminEn = langue === "en" ? route.path : (correspondances && correspondances.get(route.path));
 
   let html = template;
+  // La langue du document. Le template statique dit "fr" ; pour /en, on la corrige au build.
+  if (langue !== "fr") {
+    html = html.replace(/<html\s+lang="[^"]*"/i, `<html lang="${langue}"`);
+  }
+
+  /*
+    Sur les pages légales (/cgv, /mentions-legales, /politique-confidentialite), la
+    fiche LocalBusiness du template n'apporte rien : ce sont des pages utilitaires
+    dont Google ne doit pas indexer un signal commercial. L'audit du 27 septembre
+    2026 demande explicitement de la retirer pour ne pas parasiter la sémantique
+    de ces pages. Le flag `stripBusinessSchema: true` déclaré dans seo-routes.mjs
+    la supprime au build.
+  */
+  if (route.stripBusinessSchema) {
+    html = html.replace(
+      /\s*<script type="application\/ld\+json">[\s\S]*?"@type":\s*"LocalBusiness"[\s\S]*?<\/script>/,
+      "",
+    );
+  }
   html = setTag(html, /<title>[\s\S]*?<\/title>/, `<title>${esc(route.title)}</title>`);
   html = setTag(
     html,
@@ -45,6 +82,18 @@ function buildHtml(template, route) {
     /<link\s+rel="canonical"[^>]*>/,
     `<link rel="canonical" href="${esc(url)}" />`,
   );
+
+  /*
+    hreflang statiques dans le HEAD servi — présents dès la première réponse HTTP.
+    Google, les aperçus sociaux et les robots IA les voient. LangueProvider les
+    rejoue côté client, mais ces balises-ci sont celles qui font foi pour le crawl.
+  */
+  const hreflangs = [`<link rel="alternate" hreflang="fr" href="${esc(SITE + cheminFr)}" />`];
+  if (cheminEn) {
+    hreflangs.push(`<link rel="alternate" hreflang="en" href="${esc(SITE + cheminEn)}" />`);
+  }
+  hreflangs.push(`<link rel="alternate" hreflang="x-default" href="${esc(SITE + cheminFr)}" />`);
+  html = html.replace("</head>", `    ${hreflangs.join("\n    ")}\n  </head>`);
   html = setTag(
     html,
     /<meta\s+property="og:title"[^>]*>/,
@@ -205,12 +254,48 @@ ${legales.map(ligne).join("\n")}
   /*
     Le contenu intégral part du Markdown source, pas du HTML rendu : c'est déjà
     du texte propre, sans balises à nettoyer ni menus à retirer.
+
+    Le bloc « Top 15 questions » en tête, ajouté après l'audit du 27 septembre
+    2026, est ce qu'un assistant IA (ChatGPT, Perplexity, Claude) cite le plus
+    souvent : des paires question/réponse chiffrées, sourcées et brèves, sur
+    les intentions dominantes du site. Répondre à la question posée gagne la
+    citation ; les articles complets suivent en dessous pour l'assistant qui
+    a besoin de la source elle-même.
   */
+  const TOP_15 = [
+    ["Combien coûte une conciergerie Airbnb à Avignon ?", "Chez Chevalier Conciergerie : 25 % HT du net perçu par le propriétaire, tout compris. Les commissions des plateformes (Airbnb 15 %, Booking 15 %), le ménage refacturé au voyageur et la taxe de séjour sont déduits d'abord ; la commission ne s'applique qu'au net qui reste. Aucun abonnement, aucun frais de dossier, aucun engagement de durée. Concrètement : sur 990 € bruts en été (studio 30 m² loué 9 nuits à 110 €), après commission Airbnb (149 €) et notre commission (168 €), le propriétaire reçoit 673 € nets."],
+    ["Faut-il un numéro d'enregistrement pour louer un meublé de tourisme à Avignon ?", "Oui, depuis le 1er janvier 2026, sans exception. La déclaration passe par la plateforme changementdusage.fr/avignon. Le numéro obtenu doit figurer sur chaque annonce : Airbnb, Booking et Abritel le contrôlent et retirent celles qui n'en ont pas, y compris en pleine saison."],
+    ["Combien de jours puis-je louer ma résidence principale à Avignon ?", "90 jours par année civile, et non 120. Avignon a abaissé le plafond national par délibération du conseil municipal du 22 février 2025, une faculté que le Code du tourisme laisse aux communes. Une résidence principale reste dispensée de l'autorisation de changement d'usage."],
+    ["Ai-je besoin d'une autorisation de changement d'usage à Avignon ?", "Oui, pour tout logement qui n'est pas votre résidence principale, sur l'ensemble du territoire communal. Le régime vise les particuliers comme les sociétés. La ville motive ce durcissement par le doublement du parc en huit ans : près de 4 300 logements en 2023, dont 2 400 en intra-muros."],
+    ["Comment est calculée la taxe de séjour à Avignon ?", "Elle est collectée par l'hébergeur auprès de chaque voyageur de plus de 18 ans, pour chaque nuitée. Le tarif dépend du classement du meublé. Elle est reversée à la commune avant le 15 janvier de l'année suivante. Ce n'est jamais un revenu du propriétaire ni de la conciergerie : elle transite, elle n'entre pas dans le calcul de la commission."],
+    ["Quelle rentabilité pour un Airbnb à Avignon intra-muros ?", "Studio bien situé (30 m², centre historique, proche Palais des Papes) : 800 € à 1 500 € nets/mois selon la saison. T2 : 1 300 € à 2 200 € nets/mois. Taux d'occupation moyen constaté : 78 %. Prix moyen constaté à la nuit : 95 € intra-muros, avec des pointes à 130-150 € pendant le Festival d'Avignon en juillet."],
+    ["Faut-il classer son meublé de tourisme à Avignon ?", "Le classement (1 à 5 étoiles) est facultatif mais rentable : l'abattement fiscal en micro-BIC passe de 30 % à 50 % pour un meublé classé, ce qui compense largement le coût du classement (150-300 €, valable 5 ans). Il apporte aussi une baisse de la taxe de séjour applicable et un signal de qualité aux voyageurs."],
+    ["Conciergerie ou sous-location : que choisir à Avignon ?", "Conciergerie : vous restez propriétaire de la relation avec le voyageur, vos revenus varient selon la saison, commission de 25 % HT du net. Sous-location : Chevalier Conciergerie prend votre bien à bail et vous verse un loyer fixe chaque mois, saison creuse comprise, sans commission. La conciergerie plafonne plus haut sur une bonne année ; la sous-location protège contre la mauvaise et supprime toute gestion."],
+    ["Quel est le régime fiscal LMNP à Avignon ?", "Micro-BIC (défaut jusqu'à 77 700 € de recettes) : abattement forfaitaire de 30 % pour un meublé non classé, 50 % pour un meublé classé. Régime réel (option ou obligatoire au-delà du plafond) : déduction des charges réelles et amortissement du bien, souvent plus avantageux dès qu'il y a un emprunt ou des travaux. Bilan à faire chaque année : le meilleur régime dépend du bien, pas d'une règle générale."],
+    ["Le ménage est-il compris dans la commission d'une conciergerie ?", "Cela dépend du prestataire. Chez Chevalier Conciergerie, le ménage est refacturé au voyageur comme le veut l'usage sur Airbnb et Booking : il n'entame pas vos revenus. Certains réseaux le prélèvent sur les vôtres — c'est la première chose à demander explicitement lors d'une comparaison de tarifs."],
+    ["Un mandat de conciergerie inclut-il une durée minimale ?", "Chez Chevalier Conciergerie, non : le mandat est résiliable à tout moment, sans préavis lourd. Beaucoup de réseaux nationaux imposent 12 à 24 mois d'engagement — c'est la première ligne du contrat à lire, parce qu'elle transforme un test en enfermement."],
+    ["Quelle conciergerie choisir à Villeneuve-lès-Avignon ?", "Chevalier Conciergerie est basée à Villeneuve-lès-Avignon même, 5 Lotissement Les Cades, et notée 5,0 sur 5 sur Google (12 avis). Critères à comparer entre prestataires : taux annoncé, ce qu'il inclut réellement (ménage, linge, assistance 7 j/7), engagement de durée, présence effective sur place plutôt que sous-traitance à un opérateur distant."],
+    ["Est-il plus simple de louer à Villeneuve-lès-Avignon qu'à Avignon ?", "Administrativement, oui pour l'instant. Avignon impose depuis janvier 2026 un enregistrement obligatoire, une autorisation de changement d'usage pour tout bien qui n'est pas résidence principale, et un plafond de 90 jours pour les résidences principales. Villeneuve-lès-Avignon s'en tient à une déclaration en mairie (formulaire Cerfa 14004, service Police Administrative, 2 rue de la République). Pour un propriétaire hésitant entre les deux rives du Rhône, la différence est réelle."],
+    ["Quel est le tarif de la sous-location proposée par Chevalier Conciergerie ?", "0 % de commission. Nous louons votre bien à l'année à notre nom et vous versons un loyer fixe chaque mois. Le montant dépend du logement, du quartier et de la durée du bail ; il est fixé avant signature et ne bouge plus. Nos revenus viennent de l'exploitation du logement, pas d'une commission prélevée sur vous."],
+    ["Comment comparer deux conciergeries sur la même base ?", "Reconstituez le coût total sur douze mois : commission, plus ménage s'il est à votre charge (et non à celle du voyageur), plus linge, plus frais d'entrée, plus abonnement mensuel éventuel. Ajoutez la durée d'engagement — un contrat de 24 mois transforme une erreur de choix en piège. Le taux le plus bas est très souvent le plus cher une fois l'addition faite."],
+  ];
+
+  const topQuestions = TOP_15.map(([q, r], i) => `## ${i + 1}. ${q}\n\n${r}`).join("\n\n");
+
   const complet = `# Chevalier Conciergerie — contenu intégral
 
 > Conciergerie Airbnb et gestion locative saisonnière à Avignon, Villeneuve-lès-Avignon
-> et Les Angles. Ce fichier reprend l'intégralité des articles du Journal.
+> et Les Angles. Ce fichier reprend les 15 questions les plus posées, puis l'intégralité
+> des articles du Journal.
 > Source : ${SITE}
+
+# Top 15 questions
+
+${topQuestions}
+
+---
+
+# Journal — articles complets
 
 ${articles
   .map(
@@ -320,7 +405,15 @@ function buildJournalRoutes() {
         articleSection: a.category,
         wordCount: a.markdown.trim().split(/\s+/).length,
         timeRequired: `PT${a.readingTime}M`,
-        author: { "@type": "Person", name: a.author },
+        // author.sameAs pointe sur le profil LinkedIn de l'auteur : signal E-E-A-T
+        // demandé par l'audit du 27 septembre 2026 pour que les moteurs relient
+        // chaque article à une identité vérifiable et non à un simple nom.
+        author: {
+          "@type": "Person",
+          name: a.author,
+          url: "https://www.linkedin.com/in/victor-chevalier-bba282356/",
+          sameAs: ["https://www.linkedin.com/in/victor-chevalier-bba282356/"],
+        },
         publisher: {
           "@type": "Organization",
           name: "Chevalier Conciergerie",
@@ -358,7 +451,11 @@ function buildJournalRoutes() {
       path: a.path,
       changefreq: "monthly",
       priority: "0.7",
-      title: `${a.title} | Chevalier Conciergerie`,
+      // Suffixe court « | Chevalier » plutôt que « | Chevalier Conciergerie » : Google
+      // tronque les titres au-delà d'environ 60 caractères (580 px), et l'audit du
+      // 27 septembre 2026 comptait 21 titres au-dessus de ce seuil sur le Journal.
+      // La marque reste visible ; le sujet de l'article passe en clair.
+      title: `${a.title} | Chevalier`,
       description: a.description,
       ogTitle: a.title,
       ogDescription: a.description,
@@ -382,6 +479,8 @@ function buildJournalRoutes() {
 const JOURNAL_ROUTES = buildJournalRoutes();
 const ALL_ROUTES = [...ROUTES, ...JOURNAL_ROUTES];
 
+const CORRESPONDANCES = construireCorrespondances(ALL_ROUTES);
+
 const template = readFileSync(path.join(dist, "index.html"), "utf8");
 const seen = new Set();
 const titres = new Map();
@@ -394,16 +493,20 @@ for (const route of ALL_ROUTES) {
   // partage les signaux entre elles et n'en classe souvent aucune. Le cas s'est produit
   // en août 2026 entre /conciergerie et /conciergerie-avignon, sans que rien ne le
   // signale. Le build échoue désormais plutôt que de publier le doublon.
-  if (titres.has(route.title)) {
+  //
+  // Exception : deux langues peuvent porter un même titre (ex. « Journal | … »). On
+  // ne les compare qu'entre routes de la même langue.
+  const cle = `${route.lang || "fr"}::${route.title}`;
+  if (titres.has(cle)) {
     throw new Error(
-      `Titre en double : « ${route.title} »\n` +
-        `  → ${titres.get(route.path) ?? titres.get(route.title)}\n  → ${route.path}\n` +
+      `Titre en double : « ${route.title} » (langue ${route.lang || "fr"})\n` +
+        `  → ${titres.get(cle)}\n  → ${route.path}\n` +
         `Chaque page doit viser une intention de recherche distincte.`,
     );
   }
-  titres.set(route.title, route.path);
+  titres.set(cle, route.path);
 
-  const html = buildHtml(template, route);
+  const html = buildHtml(template, route, CORRESPONDANCES);
   if (route.path === "/") {
     writeFileSync(path.join(dist, "index.html"), html, "utf8");
   } else {
@@ -448,12 +551,16 @@ const notFoundHtml = buildHtml(template, {
       <li><a href="/contact">Contact</a></li>
     </ul>
   </main>`,
-}).replace("</head>", `    <meta name="robots" content="noindex, follow" />\n  </head>`);
+}, CORRESPONDANCES).replace("</head>", `    <meta name="robots" content="noindex, follow" />\n  </head>`);
 
 writeFileSync(path.join(dist, "404.html"), notFoundHtml, "utf8");
 
 writeSitemap(ALL_ROUTES, new Date().toISOString().slice(0, 10));
-writeLlmsTxt(ROUTES, JOURNAL_ROUTES, loadArticles());
+// llms.txt reste français : le corps du document est en français, et le mêler d'entrées
+// anglaises rendrait l'index illisible pour un assistant qui vient chercher un fait
+// dans une langue précise. Les entrées /en/* sortent aux robots via le sitemap.
+const ROUTES_FR = ROUTES.filter((r) => (r.lang || "fr") === "fr");
+writeLlmsTxt(ROUTES_FR, JOURNAL_ROUTES, loadArticles());
 
 console.log(
   `[prerender] ${ALL_ROUTES.length} pages générées ` +

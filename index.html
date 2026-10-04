@@ -76,7 +76,7 @@
         "closes": "23:59"
       },
       "sameAs": [
-        "https://www.google.com/maps/place/CHEVALIER+CONCIERGERIE/@43.8680214,4.8327906,17z",
+        "https://www.google.com/maps/place/CHEVALIER+CONCIERGERIE/@43.9657,4.7956,17z",
         "https://www.instagram.com/chevalier_conciergerie/",
         "https://www.facebook.com/share/1Eio3qasaM/",
         "https://www.linkedin.com/in/victor-chevalier-bba282356/"
@@ -150,18 +150,22 @@
     -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Archivo:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Archivo:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Archivo:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Archivo:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
     <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Archivo:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Archivo:wght@300;400;500;600&display=swap">
     </noscript>
+
     <!--
-      Préchargement retiré. Il pointait vers /src/assets/hero-video-luxury.mp4, un chemin
-      qui n'existe qu'en développement : au build, Vite renomme le fichier avec un hash.
-      En production cette ligne déclenchait donc un 404 sur chaque page, et `as="fetch"`
-      n'aurait de toute façon pas alimenté l'élément <video>. Le poster du hero couvre
-      désormais l'affichage initial.
+      Préchargement du hero — L'audit SEO du 27 septembre 2026 identifiait le hero
+      /accueil/hero-pont-avignon.webp (340 Ko, candidat LCP) comme non préchargé,
+      d'où un LCP mobile dégradé. Le fichier est servi statiquement depuis /public
+      donc son chemin est stable en prod. `fetchpriority="high"` monte sa priorité
+      au-dessus des autres ressources statiques ; `imagesrcset` reste absent parce
+      qu'il n'y a qu'une variante WebP pour l'instant (piste : générer AVIF < 150 Ko
+      à l'étape suivante, voir chevalier.css).
     -->
+    <link rel="preload" as="image" href="/accueil/hero-pont-avignon.webp" fetchpriority="high" type="image/webp">
 
     <!--
       Google Analytics 4 : le script chargeait l'ID d'exemple G-XXXXXXXXXX. Résultat,

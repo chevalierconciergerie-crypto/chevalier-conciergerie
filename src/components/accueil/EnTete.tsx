@@ -82,7 +82,7 @@ const EnTete = () => {
       fermer();
       // Une rubrique qui porte une page n'est pas une ancre : on y navigue.
       if (page) {
-        naviguer(page);
+        naviguer(lien(page));
         return;
       }
       if (pathname === "/") {
@@ -93,7 +93,7 @@ const EnTete = () => {
         naviguer(ancre === "accueil" ? "/" : `/#${ancre}`);
       }
     },
-    [fermer, naviguer, pathname],
+    [fermer, naviguer, pathname, lien],
   );
 
   useEffect(() => {

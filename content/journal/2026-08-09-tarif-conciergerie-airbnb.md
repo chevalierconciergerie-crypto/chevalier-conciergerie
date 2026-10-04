@@ -1,18 +1,18 @@
 ---
-title: "Tarif conciergerie Airbnb : combien ça coûte vraiment en 2026"
-description: "Tarif conciergerie Airbnb : la fourchette réelle du marché, ce que chaque commission inclut ou non, et les frais annexes qui font grimper la note. Comparatif chiffré."
+title: "Tarif conciergerie Airbnb : 25 % HT, sans commission"
+description: "Tarif conciergerie Airbnb et location saisonnière : 25 % HT du net perçu, sans commission sur la réservation directe. Tableaux de prix détaillés et exemples chiffrés."
 date: 2026-08-09
 category: Conciergerie
 image: /journal/reel-tarif.webp
 author: Victor Chevalier
-keywords: [tarif conciergerie Airbnb, coût conciergerie Airbnb, prix conciergerie Airbnb, commission conciergerie, combien coûte une conciergerie, tarif conciergerie Avignon]
+keywords: [tarif conciergerie Airbnb, tarif conciergerie location saisonnière, prix conciergerie Airbnb, commission conciergerie, réservation directe sans commission, tarif conciergerie Avignon]
 ---
 
 Le tarif d'une conciergerie Airbnb se situe entre 15 % et 30 % des revenus encaissés. C'est la seule réponse honnête à la question, et elle ne sert à rien telle quelle : deux conciergeries affichant 20 % peuvent coûter du simple au double, parce que le pourcentage ne dit pas ce qu'il couvre.
 
 Ce qui compte n'est pas le taux affiché mais **ce qu'il reste à payer à côté**. Voici la structure réelle des tarifs du marché, les frais annexes qui n'apparaissent jamais dans la première conversation, et la méthode pour comparer deux offres sur la même base.
 
-## La fourchette du marché en 2026
+## Tarif conciergerie Airbnb et location saisonnière : la fourchette 2026
 
 | Type de prestataire | Commission | Ce qui est généralement inclus |
 |---|---|---|
@@ -60,7 +60,7 @@ Parce qu'un tarif annoncé se compare. Une page « nos tarifs sont adaptés à c
 
 Le repère est simple : **une conciergerie qui refuse de donner son taux avant un rendez-vous a une raison de ne pas le donner.** Un taux unique, sans palier ni condition, s'écrit en une ligne sur un site.
 
-## Ce que nous facturons, et pourquoi
+## Ce que nous facturons : 25 % HT du net, sans commission cachée
 
 Chez Chevalier Conciergerie, à Avignon, Villeneuve-lès-Avignon et Les Angles : **25 % HT du net perçu par le propriétaire.** Les commissions des plateformes, le ménage et la taxe de séjour sont déduits d'abord : la commission ne s'applique qu'au net qui reste. Un seul taux, aucun palier.
 
@@ -78,6 +78,18 @@ Ce qui n'est pas à votre charge : le **ménage est refacturé au voyageur**, co
 Ce qu'il n'y a pas : pas d'abonnement, pas de frais de dossier, pas de frais de mise en ligne, pas d'engagement de durée.
 
 [Estimer les revenus de mon logement](/estimation-sous-location) — deux minutes, réponse sous 24 h, sans engagement.
+
+## Réservation directe sans commission : ce que ça change sur le net
+
+Sur Airbnb ou Booking, la plateforme prélève sa propre commission (de l'ordre de 15 % côté hôte, davantage côté voyageur) **avant** que notre pourcentage ne s'applique. Sur la **réservation directe**, cette couche disparaît : le voyageur réserve sur le site du logement, nous ne prenons **aucune commission supplémentaire** et notre rémunération reste 25 % HT du net.
+
+Le calcul est simple : à prix de nuitée identique, le net qui vous revient est plus élevé en direct qu'en passant par une plateforme. C'est l'intérêt du canal, et c'est pour cela que nous poussons chaque bien à l'avoir en complément des plateformes. Pour la mise en pratique à Avignon, le détail est sur notre [tarif conciergerie Airbnb à Avignon](/conciergerie-avignon). Pour Villeneuve, voir le [tarif conciergerie location saisonnière à Villeneuve-lès-Avignon](/conciergerie-villeneuve-les-avignon). Pour la rive gardoise, la [conciergerie aux Angles](/conciergerie-les-angles) applique la même grille.
+
+## Chevalier PMS : notre outil, pas un logiciel revendu
+
+Chevalier PMS est l'outil propriétaire que nous avons développé pour la gestion de nos propres biens. Il centralise les calendriers multi-plateformes, la messagerie voyageurs, les ménages, les photos par séjour, le suivi des revenus et le rapport mensuel que vous recevez. Nous ne revendons pas une licence et nous ne payons pas une licence : c'est développé et maintenu en interne.
+
+Ce que ça change pour vous : moins d'allers-retours, des réponses voyageurs plus rapides, un historique de votre bien consultable à tout moment. Le tarif reste 25 % HT, l'outil est inclus.
 
 ## L'alternative à zéro commission
 
@@ -106,8 +118,8 @@ Elle ne devrait pas. La taxe de séjour est collectée auprès du voyageur puis 
 **Y a-t-il des frais de mise en service ?**
 Chez certaines conciergeries oui, de 150 à 500 €. Chez nous, non : ni frais d'entrée, ni frais de dossier, ni frais de photographie.
 
-**Faut-il s'engager sur une durée ?**
-Pas en conciergerie chez nous : le mandat est sans engagement de durée et peut prendre fin à tout moment. Beaucoup de réseaux nationaux imposent en revanche 12 à 24 mois — vérifiez ce point avant de signer.
+**Un mandat de conciergerie peut-il inclure une durée minimale ?**
+Chez Chevalier Conciergerie, non : le mandat est résiliable à tout moment, sans préavis lourd. Beaucoup de réseaux nationaux imposent en revanche 12 à 24 mois d'engagement — c'est la première ligne du contrat à lire, parce qu'elle transforme un test en enfermement.
 
 **Comment comparer deux conciergeries sur la même base ?**
 Reconstituez le coût total sur douze mois : commission, plus ménage s'il est à votre charge, plus linge, plus frais d'entrée, plus abonnement éventuel. Le taux le plus bas est très souvent le plus cher une fois l'addition faite.

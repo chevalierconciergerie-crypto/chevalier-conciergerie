@@ -11,15 +11,22 @@
   quatre, « Contact » passe sous CHEVALIER. Les autres restent dans le tambour
   plein écran, qui garde la liste complète.
 */
+/*
+  Le menu pointe vers les pages commerciales indexées (/conciergerie, /sous-location,
+  /tarifs, /villes, /journal, /contact), et non plus vers des ancres de l'accueil : un
+  lien d'en-tête présent sur chaque page est ce qui transmet le plus de poids à la
+  page visée. Seul « Accueil » reste une ancre (retour en haut de l'accueil).
+  « À propos », « Partenaires » et les pages légales sont dans le pied de page.
+*/
 export const RUBRIQUES = [
   { libelle: "Accueil", ancre: "accueil" },
-  { libelle: "Qui sommes-nous", ancre: "qui-sommes-nous" },
-  { libelle: "Conciergerie", ancre: "notre-service", barre: true },
-  { libelle: "Sous-location", ancre: "sous-location", barre: true },
-  // Seule rubrique qui n'est pas une ancre de l'accueil : elle ouvre une vraie page.
+  { libelle: "Conciergerie", ancre: "conciergerie", page: "/conciergerie", barre: true },
+  { libelle: "Sous-location", ancre: "sous-location", page: "/sous-location", barre: true },
+  { libelle: "Tarifs", ancre: "tarifs", page: "/tarifs", barre: true },
+  { libelle: "Villes", ancre: "villes", page: "/villes", barre: true },
   { libelle: "Devenir franchisé", ancre: "franchise", page: "/franchise", barre: true },
-  { libelle: "Blog", ancre: "blog" },
-  { libelle: "Contact", ancre: "contact", barre: true },
+  { libelle: "Journal", ancre: "journal", page: "/journal", barre: true },
+  { libelle: "Contact", ancre: "contact", page: "/contact", barre: true },
 ] as const;
 
 export const TELEPHONE = { affiche: "07 83 19 83 41", international: "+33 7 83 19 83 41", lien: "tel:+33783198341" };

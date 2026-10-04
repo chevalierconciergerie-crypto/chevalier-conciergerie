@@ -25,7 +25,11 @@ interface LocalSeoPageProps {
     subheadline: string;
     paragraphs: string[];
   };
-  stats: {
+  /**
+   * Chiffres de marché. Facultatif : une page ne doit afficher que des chiffres dont
+   * la source est vérifiable. Sans source, on omet le bloc plutôt que d'inventer.
+   */
+  stats?: {
     avgNightPrice: string;
     occupancyRate: string;
     avgMonthlyRevenue: string;
@@ -86,11 +90,10 @@ const LocalSeoPage = ({
     "areaServed": city,
     "priceRange": "€€",
     "image": heroImage,
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "47",
-    },
+    // Pas d'aggregateRating ici : ce bloc affichait 4,9 sur 47 avis, des chiffres qui ne
+    // correspondent pas à la fiche Google (5,0 sur 12). Un balisage d'avis inexact
+    // expose le site à une action manuelle. La note réelle est déjà portée par la fiche
+    // LocalBusiness de index.html.
   };
 
   return (
@@ -139,7 +142,8 @@ const LocalSeoPage = ({
             </div>
           </section>
 
-          {/* Stats */}
+          {/* Stats — omises quand la page n'a pas de chiffres sourcés */}
+          {stats && (
           <section className="py-12 bg-background border-b border-border/50">
             <div className="container mx-auto px-6">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
@@ -162,6 +166,7 @@ const LocalSeoPage = ({
               </div>
             </div>
           </section>
+          )}
 
           {/* Intro locale */}
           <section className="py-16 md:py-24 bg-background">
@@ -261,6 +266,63 @@ const LocalSeoPage = ({
                         <p className="font-sans text-muted-foreground leading-relaxed">{reason}</p>
                       </div>
                     ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/*
+            Section « différenciateurs » — identique sur toutes les pages villes. Les
+            agrégateurs nationaux (Hostnfly, Welkeys) ne proposent ni PMS propriétaire
+            ni réservation directe sans commission supplémentaire : ce sont les deux
+            seuls arguments vraiment distinctifs face à eux. Phase 5 du script SEO.
+          */}
+          <section className="py-20 bg-background">
+            <div className="container mx-auto px-6">
+              <div className="max-w-3xl mx-auto">
+                <h2 className="font-serif text-3xl md:text-4xl font-light text-foreground mb-10 text-center">
+                  Trois choses que nous faisons autrement
+                </h2>
+
+                <div className="space-y-10">
+                  <div>
+                    <h3 className="font-serif text-xl md:text-2xl text-foreground mb-3">
+                      Chevalier PMS : notre outil, pas un logiciel revendu
+                    </h3>
+                    <p className="font-sans text-muted-foreground leading-relaxed">
+                      Chevalier PMS est l'outil propriétaire que nous avons développé
+                      pour la gestion de nos propres biens. Il centralise les calendriers
+                      multi-plateformes, la messagerie voyageurs, les ménages, les photos
+                      par séjour et le rapport mensuel. Nous ne revendons pas une licence,
+                      nous ne payons pas une licence : l'outil est développé et maintenu
+                      en interne. Concrètement : moins d'allers-retours, des réponses plus
+                      rapides, un historique de votre bien consultable à tout moment.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-serif text-xl md:text-2xl text-foreground mb-3">
+                      Réservation directe : pas de commission en plus
+                    </h3>
+                    <p className="font-sans text-muted-foreground leading-relaxed">
+                      Sur une réservation directe, nous ne prenons aucune commission
+                      supplémentaire. Notre rémunération reste 25 % HT du net perçu,
+                      point. La commission de plateforme, elle, disparaît sur ces
+                      réservations. À prix de nuitée identique, le net qui vous revient
+                      est plus élevé en direct qu'en passant par une plateforme.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-serif text-xl md:text-2xl text-foreground mb-3">
+                      Un revenue management humain, pas un algorithme
+                    </h3>
+                    <p className="font-sans text-muted-foreground leading-relaxed">
+                      Nous ne laissons pas un algorithme fixer vos prix. Les tarifs sont
+                      ajustés à la main, selon la saison, les événements locaux et le taux
+                      d'occupation réel de votre bien. Un outil propose, un humain décide.
+                    </p>
                   </div>
                 </div>
               </div>

@@ -21,6 +21,9 @@ import MentionsLegales from "./pages/MentionsLegales";
 import ConciergerieAvignon from "./pages/ConciergerieAvignon";
 import ConciergerieVilleneuve from "./pages/ConciergerieVilleneuve";
 import ConciergerieLesAngles from "./pages/ConciergerieLesAngles";
+import ConciergerieAixEnProvence from "./pages/ConciergerieAixEnProvence";
+import ConciergerieMontpellier from "./pages/ConciergerieMontpellier";
+import Villes from "./pages/Villes";
 import Partenaires from "./pages/Partenaires";
 import APropos from "./pages/APropos";
 import CGV from "./pages/CGV";
@@ -59,6 +62,9 @@ const App = () => (
               <Route path="/conciergerie-avignon" element={<ConciergerieAvignon />} />
               <Route path="/conciergerie-villeneuve-les-avignon" element={<ConciergerieVilleneuve />} />
               <Route path="/conciergerie-les-angles" element={<ConciergerieLesAngles />} />
+              <Route path="/conciergerie-aix-en-provence" element={<ConciergerieAixEnProvence />} />
+              <Route path="/conciergerie-montpellier" element={<ConciergerieMontpellier />} />
+              <Route path="/villes" element={<Villes />} />
               <Route path="/partenaires" element={<Partenaires />} />
               <Route path="/a-propos" element={<APropos />} />
               <Route path="/cgv" element={<CGV />} />
@@ -76,6 +82,9 @@ const App = () => (
               <Route path="/en/conciergerie-avignon" element={<ConciergerieAvignon />} />
               <Route path="/en/conciergerie-villeneuve-les-avignon" element={<ConciergerieVilleneuve />} />
               <Route path="/en/conciergerie-les-angles" element={<ConciergerieLesAngles />} />
+              <Route path="/en/conciergerie-aix-en-provence" element={<ConciergerieAixEnProvence />} />
+              <Route path="/en/conciergerie-montpellier" element={<ConciergerieMontpellier />} />
+              <Route path="/en/villes" element={<Villes />} />
               <Route path="/en/partenaires" element={<Partenaires />} />
               <Route path="/en/a-propos" element={<APropos />} />
               <Route path="/en/cgv" element={<CGV />} />

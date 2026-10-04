@@ -22,6 +22,19 @@ export function useRevele<T extends Element>(seuil = 0.15): [RefObject<T>, boole
       setVisible(true);
       return;
     }
+    /*
+      Un élément déjà passé au-dessus du viewport (parce que la page a été
+      rechargée à mi-parcours, ou qu'on arrive par une ancre) doit apparaître
+      immédiatement — sinon la section reste vide, l'IntersectionObserver
+      n'ayant jamais vu l'entrée dans l'écran. Même chose pour un élément
+      déjà partiellement visible au montage.
+    */
+    const r = el.getBoundingClientRect();
+    const h = window.innerHeight || 800;
+    if (r.top < h * (1 - seuil)) {
+      setVisible(true);
+      return;
+    }
     const observateur = new IntersectionObserver(
       (entrees) => {
         if (entrees.some((e) => e.isIntersecting)) {
@@ -29,7 +42,7 @@ export function useRevele<T extends Element>(seuil = 0.15): [RefObject<T>, boole
           observateur.disconnect();
         }
       },
-      { threshold: seuil },
+      { threshold: seuil, rootMargin: "0px 0px -5% 0px" },
     );
     observateur.observe(el);
     return () => observateur.disconnect();

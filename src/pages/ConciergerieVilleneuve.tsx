@@ -7,8 +7,8 @@ const ConciergerieVilleneuve = () => (
     slug="conciergerie-villeneuve-les-avignon"
     heroImage={heroImage}
     heroAlt="Vue panoramique de Villeneuve-lès-Avignon avec le Fort Saint-André"
-    metaTitle="Conciergerie Airbnb Villeneuve-lès-Avignon | Chevalier"
-    metaDescription="Conciergerie Airbnb à Villeneuve-lès-Avignon : gestion complète de votre location saisonnière face à Avignon, et des démarches plus simples que de l'autre côté du Rhône. Devis gratuit."
+    metaTitle="Conciergerie Airbnb Villeneuve-lès-Avignon : 25 % HT"
+    metaDescription="Conciergerie Airbnb à Villeneuve-lès-Avignon : 25 % HT du net perçu, sans commission sur la réservation directe. Déclaration en mairie prise en charge. Estimation gratuite."
     // « Villeneuve lez Avignon » est l'orthographe que la commune emploie elle-même :
     // les deux graphies sont recherchées, autant couvrir les deux.
     metaKeywords="conciergerie Villeneuve-lès-Avignon, conciergerie Villeneuve lez Avignon, Airbnb Villeneuve Avignon, gestion locative Villeneuve, location saisonnière Villeneuve-lès-Avignon"

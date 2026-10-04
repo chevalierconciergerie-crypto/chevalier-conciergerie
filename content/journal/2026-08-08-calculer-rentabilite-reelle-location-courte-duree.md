@@ -1,6 +1,6 @@
 ---
-title: "Rentabilité d'une location courte durée à Avignon : le calcul complet"
-description: "Le chiffre affiché par les plateformes n'est pas votre revenu. La méthode pour connaître ce que votre bien rapporte vraiment, charges et taxe de séjour déduites."
+title: "Rentabilité location courte durée à Avignon"
+description: "Rentabilité réelle d'une location courte durée à Avignon : la méthode pour connaître ce que votre bien rapporte vraiment, commissions, charges et taxe de séjour déduites."
 date: 2026-08-08
 category: Rentabilité
 image: /journal/reel-rentabilite.webp

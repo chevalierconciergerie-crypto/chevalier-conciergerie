@@ -141,6 +141,13 @@ const LOCAL_PAGES = [
   { file: "src/pages/ConciergerieAvignon.tsx", priority: "0.9" },
   { file: "src/pages/ConciergerieVilleneuve.tsx", priority: "0.8" },
   { file: "src/pages/ConciergerieLesAngles.tsx", priority: "0.8" },
+  // Ajoutées le 27 septembre 2026 après audit SEO : l'accueil listait Aix-en-Provence
+  // et Montpellier comme zones desservies mais aucune page dédiée n'existait, laissant
+  // les requêtes correspondantes aux concurrents nationaux. Priorité 0.7 (elles ne sont
+  // pas encore aussi étoffées que les pages du cœur de zone), à monter à 0.8 quand du
+  // contenu local supplémentaire y sera ajouté.
+  { file: "src/pages/ConciergerieAixEnProvence.tsx", priority: "0.7" },
+  { file: "src/pages/ConciergerieMontpellier.tsx", priority: "0.7" },
 ].map(({ file, priority }) => {
   const p = readLocalPage(file);
   const li = (items) => items.map((x) => `<li>${x}</li>`).join("\n        ");
@@ -161,9 +168,13 @@ const LOCAL_PAGES = [
       <p>${p.subheadline}</p>
       ${p.paragraphs.map((x) => `<p>${x}</p>`).join("\n      ")}
 
-      <h2>Le marché de la location courte durée à ${p.city}</h2>
+      ${
+        p.avgNightPrice
+          ? `<h2>Le marché de la location courte durée à ${p.city}</h2>
       <p>Prix moyen constaté : ${p.avgNightPrice} la nuit. Taux d'occupation moyen :
-      ${p.occupancyRate}. Revenu mensuel moyen : ${p.avgMonthlyRevenue}.</p>
+      ${p.occupancyRate}. Revenu mensuel moyen : ${p.avgMonthlyRevenue}.</p>`
+          : ""
+      }
 
       <h2>À voir à ${p.city}</h2>
       <ul>
@@ -179,6 +190,24 @@ const LOCAL_PAGES = [
       <ul>
         ${li(p.whyUs)}
       </ul>
+
+      <h2>Trois choses que nous faisons autrement</h2>
+      <h3>Chevalier PMS : notre outil, pas un logiciel revendu</h3>
+      <p>Chevalier PMS est l'outil propriétaire que nous avons développé pour la
+      gestion de nos propres biens. Il centralise les calendriers multi-plateformes,
+      la messagerie voyageurs, les ménages, les photos par séjour et le rapport
+      mensuel. Nous ne revendons pas une licence, nous ne payons pas une licence :
+      l'outil est développé et maintenu en interne. Concrètement : moins d'allers-retours,
+      des réponses plus rapides, un historique de votre bien consultable à tout moment.</p>
+      <h3>Réservation directe : pas de commission en plus</h3>
+      <p>Sur une réservation directe, nous ne prenons aucune commission supplémentaire.
+      Notre rémunération reste 25 % HT du net perçu, point. La commission de plateforme,
+      elle, disparaît sur ces réservations. À prix de nuitée identique, le net qui vous
+      revient est plus élevé en direct qu'en passant par une plateforme.</p>
+      <h3>Un revenue management humain, pas un algorithme</h3>
+      <p>Nous ne laissons pas un algorithme fixer vos prix. Les tarifs sont ajustés à
+      la main, selon la saison, les événements locaux et le taux d'occupation réel de
+      votre bien. Un outil propose, un humain décide.</p>
 
       <h2>Vos questions sur la location courte durée à ${p.city}</h2>
       ${faqHtml(faq)}
@@ -222,6 +251,25 @@ const STATIC_ROUTES = [
     ogTitle: "Conciergerie Avignon | Gestion Locative Saisonnière | Chevalier Conciergerie",
     ogDescription:
       "Conciergerie Airbnb à Avignon. Gestion locative saisonnière complète, ou loyer garanti chaque mois. Estimation gratuite.",
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Chevalier Conciergerie",
+        alternateName: "Chevalier Conciergerie Avignon",
+        url: SITE,
+        inLanguage: "fr-FR",
+        publisher: { "@type": "Organization", "@id": SITE, name: "Chevalier Conciergerie" },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: `${SITE}/journal?q={search_term_string}`,
+          },
+          "query-input": "required name=search_term_string",
+        },
+      },
+    ],
     bodyHtml: `<main>
       <h1>Votre conciergerie à Avignon</h1>
       <p>Gestion locative saisonnière et revenus garantis, sans contrainte. Chevalier
@@ -650,43 +698,141 @@ const STATIC_ROUTES = [
     path: "/partenaires",
     changefreq: "monthly",
     priority: "0.7",
-    title: "Nos Partenaires | Chevalier Conciergerie Avignon",
+    title: "Partenaires locaux | Chevalier Conciergerie Avignon",
     description:
-      "Les partenaires locaux avec qui nous travaillons à Avignon et alentours pour l'entretien et la valorisation des biens que nous gérons.",
-    keywords: "partenaires conciergerie Avignon, prestataires location saisonnière Avignon",
+      "Les partenaires locaux d'Avignon et Villeneuve-lès-Avignon avec qui nous travaillons pour l'entretien, la valorisation et la commercialisation des biens en gestion.",
+    keywords: "partenaires conciergerie Avignon, prestataires location saisonnière Avignon, réseau local conciergerie Vaucluse",
+    bodyHtml: `<main>
+      <nav><a href="/">Accueil</a> › Partenaires</nav>
+      <h1>Partenaires locaux — Chevalier Conciergerie Avignon</h1>
+      <p>Nous nous appuyons sur un réseau d'entreprises locales, choisies pour la
+      qualité de leur travail et leur réactivité. Elles interviennent chaque semaine
+      sur les logements que nous gérons à Avignon, Villeneuve-lès-Avignon et Les
+      Angles.</p>
+
+      <h2>ERA Immobilier — Rachel Lindo</h2>
+      <p>Agence immobilière partenaire à Villeneuve-lès-Avignon. Rachel Lindo
+      accompagne les propriétaires qui souhaitent acquérir ou vendre un bien destiné
+      à la location courte durée dans le secteur Gard–Vaucluse. Elle nous adresse
+      les acquéreurs qui cherchent un partenaire de gestion, et nous lui adressons
+      les propriétaires qui envisagent d'arbitrer.</p>
+
+      <h2>La Cave Réalpanier</h2>
+      <p>Caviste indépendant du secteur, sélectionné pour les vins de bienvenue
+      offerts à certains voyageurs. Les produits sont locaux, les allergènes signalés,
+      la présentation soignée : ce sont ces détails que les voyageurs commentent
+      dans leurs avis.</p>
+
+      <h2>Devenir partenaire</h2>
+      <p>Vous êtes artisan, commerçant ou professionnel indépendant sur Avignon,
+      Villeneuve-lès-Avignon ou Les Angles et vous souhaitez travailler avec nous ?
+      <a href="/contact">Contactez-nous</a>. Nous privilégions la proximité, la
+      qualité du service et la stabilité du tarif dans la durée.</p>
+
+      <p><a href="/conciergerie">La formule conciergerie</a> ·
+      <a href="/sous-location">La sous-location avec loyer garanti</a> ·
+      <a href="/a-propos">Notre approche</a></p>
+    </main>`,
+    jsonLd: [breadcrumb({ name: "Partenaires", path: "/partenaires" })],
   },
   {
     path: "/estimation-sous-location",
     bodyHtml: `<main>
-<nav><a href="/">Accueil</a> › Estimation Sous-Location</nav>
-<h1>Estimez votre Loyer Garanti</h1>
-<p>Décrivez votre bien, nous vous proposons une offre sous 48h.</p>
+      <nav><a href="/">Accueil</a> › Estimation sous-location</nav>
+      <h1>Estimez votre loyer garanti à Avignon</h1>
+      <p>Décrivez votre bien, nous vous proposons une offre chiffrée sous 48 h.
+      L'estimation est gratuite et sans engagement — vous ne recevrez pas
+      d'appels commerciaux si vous ne donnez pas suite.</p>
 
-<h2>Localisation</h2>
-<p>Où se situe votre bien ?</p>
+      <h2>Localisation</h2>
+      <p>Adresse ou quartier précis de votre bien (Avignon, Villeneuve-lès-Avignon,
+      Les Angles ou communes limitrophes).</p>
 
-<h2>Caractéristiques</h2>
-<p>Décrivez votre logement</p>
-<ul>
-<li>Meublé</li>
-<li>Parking</li>
-<li>Extérieur (balcon, terrasse...)</li>
-</ul>
+      <h2>Caractéristiques</h2>
+      <p>Décrivez votre logement pour que nous puissions établir une offre juste :</p>
+      <ul>
+        <li>Type de bien (studio, T2, T3, maison…) et surface habitable</li>
+        <li>Meublé ou non — un bien meublé se met en exploitation immédiatement</li>
+        <li>Parking, ascenseur, cave</li>
+        <li>Extérieur : balcon, terrasse, jardin, piscine</li>
+        <li>État général et travaux récents</li>
+      </ul>
 
-<h2>Vos coordonnées</h2>
-<p>Pour vous recontacter avec notre proposition</p>
-<p>Quand êtes-vous disponible pour un appel ?</p>
-<p>Une question ? Un commentaire ?</p>
-<p>J'accepte que mes données soient utilisées pour traiter ma demande d'estimation, conformément à la <a href="/politique-confidentialite">politique de confidentialité</a>.</p>
+      <h2>Vos coordonnées</h2>
+      <p>Pour vous recontacter avec notre proposition chiffrée. Précisez quand
+      vous êtes disponible pour un appel de dix minutes.</p>
+      <p>J'accepte que mes données soient utilisées pour traiter ma demande
+      d'estimation, conformément à la
+      <a href="/politique-confidentialite">politique de confidentialité</a>.</p>
 
-<p>Merci ! Nous vous recontacterons sous 48h avec votre estimation.</p>
-</main>`,
+      <p><a href="/sous-location">Le détail de la sous-location</a> ·
+      <a href="/conciergerie">La formule conciergerie</a> ·
+      <a href="/tarifs">Tarifs comparés</a></p>
+    </main>`,
     changefreq: "monthly",
     priority: "0.7",
-    title: "Estimation Sous-Location | Chevalier Conciergerie",
+    title: "Estimation sous-location Avignon | Loyer garanti sous 48h | Chevalier",
     description:
-      "Obtenez une estimation gratuite pour la sous-location de votre bien à Avignon. Formulaire simple et rapide.",
-    keywords: "estimation sous-location Avignon, simulation loyer garanti Avignon",
+      "Estimation gratuite du loyer garanti pour votre bien à Avignon, Villeneuve-lès-Avignon ou Les Angles. Formulaire simple, réponse chiffrée sous 48 h, sans engagement.",
+    keywords: "estimation sous-location Avignon, simulation loyer garanti Avignon, estimation gratuite location Avignon",
+    jsonLd: [breadcrumb({ name: "Estimation sous-location", path: "/estimation-sous-location" })],
+  },
+  /*
+    Page mère des villes. Le texte reprend celui de src/pages/Villes.tsx : les deux
+    doivent dire la même chose (sinon, cloaking). Les liens relient les cinq pages
+    locales, que seul le pied de page reliait jusqu'ici.
+  */
+  {
+    path: "/villes",
+    changefreq: "monthly",
+    priority: "0.8",
+    title: "Conciergerie Airbnb : villes desservies | Chevalier",
+    description:
+      "Conciergerie Airbnb à Avignon, Villeneuve-lès-Avignon, Les Angles, Aix-en-Provence et Montpellier. 25 % HT du net perçu, sans engagement. Estimation gratuite.",
+    keywords:
+      "conciergerie Avignon, conciergerie Villeneuve-lès-Avignon, conciergerie Les Angles, conciergerie Aix-en-Provence, conciergerie Montpellier",
+    ogTitle: "Conciergerie Airbnb : villes desservies",
+    ogDescription: "Cinq villes, un seul taux : 25 % HT du net perçu, sans engagement de durée.",
+    bodyHtml: `<main>
+      <nav><a href="/">Accueil</a> › Villes</nav>
+      <h1>Conciergerie Airbnb : les villes où nous intervenons</h1>
+      <p>Cinq villes, la même formule partout : 25 % HT du net perçu par le propriétaire,
+      sans abonnement ni engagement de durée, ou sous-location avec un loyer fixe et 0 % de
+      commission.</p>
+
+      <h2>Conciergerie Airbnb à Avignon</h2>
+      <p>Intra-muros et alentours. Depuis le 1er janvier 2026, la ville exige un numéro
+      d'enregistrement et, hors résidence principale, une autorisation de changement d'usage :
+      nous montons le dossier avant la mise en ligne.</p>
+      <p><a href="/conciergerie-avignon">Voir la conciergerie à Avignon</a></p>
+
+      <h2>Conciergerie Airbnb à Villeneuve-lès-Avignon</h2>
+      <p>Notre base, dans le Gard, face à Avignon. La déclaration se fait en mairie et nous
+      nous en chargeons.</p>
+      <p><a href="/conciergerie-villeneuve-les-avignon">Voir la conciergerie à Villeneuve-lès-Avignon</a></p>
+
+      <h2>Conciergerie Airbnb à Les Angles</h2>
+      <p>Commune gardoise face à Avignon, à environ dix minutes du centre historique, avec une
+      clientèle plus familiale.</p>
+      <p><a href="/conciergerie-les-angles">Voir la conciergerie à Les Angles</a></p>
+
+      <h2>Conciergerie Airbnb à Aix-en-Provence</h2>
+      <p>À environ une heure de route de notre base. Nous vérifions auprès de la mairie le
+      cadre applicable à chaque bien.</p>
+      <p><a href="/conciergerie-aix-en-provence">Voir la conciergerie à Aix-en-Provence</a></p>
+
+      <h2>Conciergerie Airbnb à Montpellier</h2>
+      <p>À un peu plus d'une heure de route de notre base. Nous vérifions auprès de la mairie
+      le cadre applicable à chaque bien.</p>
+      <p><a href="/conciergerie-montpellier">Voir la conciergerie à Montpellier</a></p>
+
+      <p>Les règles applicables aux meublés de tourisme dépendent de chaque commune et
+      évoluent : nous les vérifions avant toute mise en ligne. Le détail du tarif figure sur la
+      page <a href="/tarifs">Tarifs</a>, celui des deux formules sur les pages
+      <a href="/conciergerie">Conciergerie</a> et <a href="/sous-location">Sous-location</a>.
+      Pour un bien dans une autre commune, <a href="/contact">contactez-nous</a>.</p>
+    </main>`,
+    jsonLd: [breadcrumb({ name: "Villes", path: "/villes" })],
   },
   // Les trois pages locales sont générées plus bas depuis LOCAL_PAGES : leur titre,
   // leur description et leur contenu sont lus directement dans les fichiers
@@ -695,17 +841,115 @@ const STATIC_ROUTES = [
     path: "/cgv",
     changefreq: "yearly",
     priority: "0.3",
-    title: "Conditions Générales de Vente | Chevalier Conciergerie",
+    title: "Conditions générales de vente | Chevalier Conciergerie Avignon",
     description:
-      "Conditions Générales de Vente de Chevalier Conciergerie (CHEVALIER LOCABUSINESS) — conciergerie et gestion locative courte durée à Avignon.",
+      "Conditions générales de vente applicables aux prestations de conciergerie Airbnb et de sous-location avec loyer garanti proposées par CHEVALIER LOCABUSINESS à Avignon.",
+    bodyHtml: `<main>
+      <nav><a href="/">Accueil</a> › Conditions générales de vente</nav>
+      <h1>Conditions générales de vente</h1>
+      <p>Conditions applicables aux prestations de conciergerie et de gestion locative
+      fournies par CHEVALIER LOCABUSINESS.</p>
+
+      <h2>Article 1 — Objet</h2>
+      <p>Les présentes Conditions Générales de Vente régissent les relations
+      contractuelles entre CHEVALIER LOCABUSINESS et tout propriétaire ou client
+      souscrivant à ses services de conciergerie et de gestion locative. Toute
+      commande implique l'acceptation sans réserve des présentes CGV.</p>
+
+      <h2>Article 2 — Services proposés</h2>
+      <p>Deux offres principales : (1) conciergerie et gestion locative courte durée
+      (création et optimisation des annonces, gestion des réservations, accueil,
+      ménage, linge, maintenance courante) ; (2) sous-location professionnelle avec
+      loyer garanti, par laquelle le Prestataire prend à bail le bien du Client puis
+      en assure l'exploitation.</p>
+
+      <h2>Article 3 — Tarifs et honoraires</h2>
+      <p>Honoraires exprimés en pourcentage des revenus locatifs générés ou sous
+      forme de forfait, selon l'offre choisie. La taxe de séjour, collectée pour la
+      collectivité, ne constitue jamais un revenu du Prestataire.</p>
+
+      <h2>Article 4 — Obligations du Prestataire</h2>
+      <p>Le Prestataire exécute les prestations avec professionnalisme et diligence,
+      dans le respect de la réglementation applicable à la location de courte durée.
+      Il rend compte régulièrement au Client de la gestion et lui reverse les sommes
+      dues selon la périodicité convenue.</p>
+
+      <h2>Article 5 — Obligations du Client</h2>
+      <p>Le Client garantit être propriétaire du bien confié ou disposer des
+      autorisations nécessaires (règlement de copropriété, changement d'usage,
+      déclaration en mairie).</p>
+
+      <h2>Article 6 — Durée et résiliation</h2>
+      <p>Le contrat est conclu pour la durée stipulée entre les parties, résiliable
+      par lettre recommandée avec accusé de réception moyennant le préavis fixé au
+      contrat.</p>
+
+      <h2>Article 7 — Responsabilité</h2>
+      <p>Le Prestataire est tenu d'une obligation de moyens, non de résultat. Sa
+      responsabilité n'est pas engagée en cas de force majeure, de fait d'un tiers
+      ou de manquement du Client.</p>
+
+      <h2>Article 8 — Données personnelles</h2>
+      <p>Les données sont traitées conformément au RGPD, comme détaillé dans la
+      <a href="/politique-confidentialite">politique de confidentialité</a>.</p>
+
+      <h2>Article 9 — Droit applicable et litiges</h2>
+      <p>Droit français. À défaut d'accord amiable, litige porté devant les
+      tribunaux compétents du siège social du Prestataire.</p>
+
+      <p><a href="/mentions-legales">Mentions légales</a> ·
+      <a href="/politique-confidentialite">Politique de confidentialité</a></p>
+    </main>`,
+    jsonLd: [breadcrumb({ name: "Conditions générales de vente", path: "/cgv" })],
+    stripBusinessSchema: true,
   },
   {
     path: "/mentions-legales",
     changefreq: "yearly",
     priority: "0.3",
-    title: "Mentions Légales | Chevalier Conciergerie",
+    title: "Mentions légales | Chevalier Conciergerie Avignon",
     description:
-      "Mentions légales de Chevalier Conciergerie - CHEVALIER LOCABUSINESS, conciergerie et gestion locative à Avignon.",
+      "Mentions légales de Chevalier Conciergerie (CHEVALIER LOCABUSINESS) — éditeur, siège social à Villeneuve-lès-Avignon, hébergeur et directeur de publication.",
+    bodyHtml: `<main>
+      <nav><a href="/">Accueil</a> › Mentions légales</nav>
+      <h1>Mentions légales</h1>
+      <p>Conformément à la loi n° 2004-575 du 21 juin 2004 pour la confiance dans
+      l'économie numérique.</p>
+
+      <h2>Éditeur du site</h2>
+      <ul>
+        <li>Raison sociale : CHEVALIER LOCABUSINESS</li>
+        <li>Forme juridique : SAS (Société par Actions Simplifiée)</li>
+        <li>SIREN : 995 268 802</li>
+        <li>SIRET : 995 268 802 00015</li>
+        <li>TVA intracommunautaire : FR45995268802</li>
+        <li>RCS : Nîmes</li>
+        <li>Code NAF/APE : 6820A — Location de logements</li>
+      </ul>
+
+      <h2>Siège social</h2>
+      <p>5 Lotissement Les Cades, 30400 Villeneuve-lès-Avignon, France</p>
+
+      <h2>Contact</h2>
+      <ul>
+        <li>Téléphone : <a href="tel:+33783198341">+33 7 83 19 83 41</a></li>
+        <li>Email : <a href="mailto:contact@chevalier-conciergerie.com">contact@chevalier-conciergerie.com</a></li>
+      </ul>
+
+      <h2>Publication</h2>
+      <ul>
+        <li>Directeur de la publication : CHEVALIER LOCABUSINESS</li>
+        <li>Site web : chevalier-conciergerie.com</li>
+      </ul>
+
+      <h2>Hébergement</h2>
+      <p>Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA.</p>
+
+      <p><a href="/cgv">Conditions générales de vente</a> ·
+      <a href="/politique-confidentialite">Politique de confidentialité</a></p>
+    </main>`,
+    jsonLd: [breadcrumb({ name: "Mentions légales", path: "/mentions-legales" })],
+    stripBusinessSchema: true,
   },
   {
     path: "/politique-confidentialite",
@@ -791,9 +1035,11 @@ Réclamation CNIL : www.cnil.fr</p>
 </main>`,
     changefreq: "yearly",
     priority: "0.3",
-    title: "Politique de Confidentialité | Chevalier Conciergerie",
+    title: "Politique de confidentialité | RGPD | Chevalier Conciergerie",
     description:
-      "Politique de confidentialité de Chevalier Conciergerie - Protection de vos données personnelles conformément au RGPD.",
+      "Politique de confidentialité de Chevalier Conciergerie : quelles données sont collectées, dans quel but, combien de temps elles sont conservées, et comment exercer vos droits RGPD.",
+    jsonLd: [breadcrumb({ name: "Politique de confidentialité", path: "/politique-confidentialite" })],
+    stripBusinessSchema: true,
   },
 ];
 
@@ -828,7 +1074,184 @@ function readProperties() {
   return out;
 }
 
-export const ROUTES = [...STATIC_ROUTES, ...LOCAL_PAGES];
+/*
+  Dictionnaire SEO EN.
+
+  Les traductions de titres, descriptions, mots-clés et OG sont ici — pas dans
+  src/i18n/en.ts, qui sert le SPA. Le prérendu est un moment de build, il n'a pas
+  besoin d'un mécanisme runtime.
+
+  Convention : la clé est la chaîne française exacte. Une clé manquante fait
+  ressortir le français plutôt que de laisser un trou, comme dans en.ts.
+*/
+const SEO_EN = {
+  // Titres
+  "Conciergerie Avignon | Gestion Locative & Sous-location | Chevalier Conciergerie":
+    "Property Management Avignon | Guaranteed Rent & Holiday Lets | Chevalier Conciergerie",
+  "Conciergerie Airbnb Avignon | Gestion Location Saisonnière | Chevalier":
+    "Airbnb Property Management Avignon | Holiday Let Services | Chevalier",
+  "Sous-location Avignon | Loyer Garanti & Zéro Vacance | Chevalier":
+    "Guaranteed Rent Avignon | Fixed Monthly Income, Zero Vacancy | Chevalier",
+  "Tarifs conciergerie Avignon | 25 % HT tout compris | Chevalier Conciergerie":
+    "Property Management Fees Avignon | 25 % all-in | Chevalier Conciergerie",
+  "Contact Conciergerie Avignon | Consultation Gratuite | Chevalier":
+    "Contact Chevalier Conciergerie Avignon | Free Consultation",
+  "Qui sommes-nous | Conciergerie Avignon | Chevalier":
+    "About us | Property Management Avignon | Chevalier",
+  "Devenir franchisé | Ouvrir sa conciergerie | Chevalier Conciergerie":
+    "Become a franchisee | Open your own property management | Chevalier Conciergerie",
+  "Nos Partenaires | Chevalier Conciergerie Avignon":
+    "Our Partners | Chevalier Conciergerie Avignon",
+  "Conciergerie Airbnb : villes desservies | Chevalier":
+    "Airbnb Property Management: Cities We Serve | Chevalier",
+  "Conciergerie Airbnb à Avignon, Villeneuve-lès-Avignon, Les Angles, Aix-en-Provence et Montpellier. 25 % HT du net perçu, sans engagement. Estimation gratuite.":
+    "Airbnb property management in Avignon, Villeneuve-lès-Avignon, Les Angles, Aix-en-Provence and Montpellier. 25 % (excl. VAT) of the net received, no lock-in. Free estimate.",
+  "Conciergerie Airbnb : villes desservies":
+    "Airbnb Property Management: Cities We Serve",
+  "Cinq villes, un seul taux : 25 % HT du net perçu, sans engagement de durée.":
+    "Five cities, one rate: 25 % (excl. VAT) of the net received, no lock-in.",
+  "Conciergerie Avignon intra-muros | Quartiers et règles 2026 | Chevalier":
+    "Property Management Avignon Old Town | Neighbourhoods and 2026 Rules | Chevalier",
+  "Conciergerie Airbnb Villeneuve-lès-Avignon | Chevalier":
+    "Airbnb Property Management Villeneuve-lès-Avignon | Chevalier",
+  "Conciergerie Airbnb Les Angles | Chevalier":
+    "Airbnb Property Management Les Angles | Chevalier",
+
+  // Descriptions
+  "Conciergerie Airbnb à Avignon, Villeneuve-lès-Avignon et Les Angles. Gestion locative saisonnière complète, ou sous-location avec loyer garanti chaque mois. Estimation gratuite sous 24 h.":
+    "Airbnb property management in Avignon, Villeneuve-lès-Avignon and Les Angles. Full holiday-let management, or guaranteed monthly rent with a fixed lease. Free estimate within 24 h.",
+  "Conciergerie Airbnb à Avignon et Villeneuve-lès-Avignon : accueil voyageurs, ménage, linge, annonces, tarification. Commission sur-mesure, sans engagement. Estimation gratuite sous 24 h.":
+    "Airbnb property management in Avignon and Villeneuve-lès-Avignon: guest welcome, cleaning, linen, listings, pricing. Custom commission, no lock-in. Free estimate within 24 h.",
+  "Sous-location professionnelle à Avignon avec loyer garanti chaque mois. Zéro vacance locative, zéro gestion. Estimation gratuite de votre bien.":
+    "Professional guaranteed-rent letting in Avignon with a fixed monthly rent. Zero vacancy, zero management. Free estimate for your property.",
+  "Tarifs de conciergerie à Avignon : 25 % HT du net perçu par le propriétaire, tout compris, sans abonnement ni engagement. Sous-location : 0 % de commission, loyer fixe chaque mois.":
+    "Property management fees in Avignon: 25 % (excl. VAT) of the net received by the owner, all in, no subscription or lock-in. Guaranteed rent: 0 % commission, fixed monthly rent.",
+  "Contactez Chevalier Conciergerie à Avignon. Consultation gratuite pour votre projet de gestion locative ou sous-location. Réponse sous 24h.":
+    "Get in touch with Chevalier Conciergerie in Avignon. Free consultation for your property management or guaranteed-rent project. Reply within 24 h.",
+  "Découvrez Chevalier Conciergerie : une conciergerie indépendante et locale à Avignon, fondée par Victor Chevalier, spécialiste de la location courte durée et de la sous-location avec loyer garanti.":
+    "Chevalier Conciergerie is an independent, local property manager in Avignon, founded by Victor Chevalier, specialising in short-let hosting and guaranteed-rent letting.",
+  "Ouvrez votre conciergerie avec le réseau Chevalier Conciergerie : marque et territoire réservé, plus de 40 h de formation, logiciel PMS et CRM compris, site web et référencement, kit marketing, accompagnement continu.":
+    "Open your own property management business with the Chevalier Conciergerie network: brand and protected territory, 40+ hours of training, PMS and CRM software included, website and SEO, marketing kit, ongoing support.",
+  "Les partenaires locaux avec qui nous travaillons à Avignon et alentours pour l'entretien et la valorisation des biens que nous gérons.":
+    "The local partners we work with in and around Avignon for the upkeep and staging of the properties we manage.",
+  "Conciergerie Airbnb à Avignon intra-muros : quartiers couverts, marché local et règles applicables depuis le 1er janvier 2026. Enregistrement et changement d'usage pris en charge.":
+    "Airbnb property management in Avignon old town: neighbourhoods covered, local market and rules in force since 1 January 2026. Registration and change-of-use handled for you.",
+  "Conciergerie Airbnb à Villeneuve-lès-Avignon : gestion complète de votre location saisonnière face à Avignon, et des démarches plus simples que de l'autre côté du Rhône. Devis gratuit.":
+    "Airbnb property management in Villeneuve-lès-Avignon: full holiday-let management across the river from Avignon, with lighter red tape than on the other side. Free quote.",
+  "Conciergerie Airbnb aux Angles, près d'Avignon. Gestion locative complète pour propriétaires : accueil voyageurs, ménage professionnel, revenus optimisés. Estimation gratuite.":
+    "Airbnb property management in Les Angles, near Avignon. Full holiday-let hosting for owners: guest welcome, professional cleaning, optimised income. Free estimate.",
+
+  // OG variants
+  "Conciergerie Avignon | Gestion Locative Saisonnière | Chevalier Conciergerie":
+    "Property Management Avignon | Holiday-Let Hosting | Chevalier Conciergerie",
+  "Conciergerie Airbnb à Avignon. Gestion locative saisonnière complète, ou loyer garanti chaque mois. Estimation gratuite.":
+    "Airbnb property management in Avignon. Full holiday-let hosting, or guaranteed monthly rent. Free estimate.",
+  "Conciergerie Airbnb Avignon | Gestion Location Saisonnière":
+    "Airbnb Property Management Avignon | Holiday-Let Hosting",
+  "Conciergerie Airbnb à Avignon : gestion complète de votre location saisonnière, commission sur-mesure.":
+    "Airbnb property management in Avignon: full holiday-let hosting, custom commission.",
+  "Sous-location Avignon | Loyer Garanti Chaque Mois":
+    "Guaranteed Rent Avignon | Fixed Monthly Income",
+  "Sous-location professionnelle à Avignon. Loyer garanti, zéro vacance, zéro risque.":
+    "Professional guaranteed-rent letting in Avignon. Fixed rent, zero vacancy, zero risk.",
+  "Tarifs conciergerie Avignon | 25 % HT tout compris":
+    "Property Management Fees Avignon | 25 % all-in",
+  "25 % HT du net perçu par le propriétaire, tout compris. Sous-location : 0 % de commission, loyer fixe chaque mois.":
+    "25 % (excl. VAT) of the net received by the owner, all in. Guaranteed rent: 0 % commission, fixed monthly rent.",
+
+  // Mots-clés
+  "conciergerie Avignon, gestion locative Avignon, Airbnb Avignon, location saisonnière Avignon, sous-location Avignon, conciergerie Villeneuve-lès-Avignon, gestion Airbnb":
+    "property management Avignon, holiday let Avignon, Airbnb Avignon, short-let Avignon, guaranteed rent Avignon, property management Villeneuve-lès-Avignon",
+  "conciergerie Airbnb Avignon, gestion location saisonnière Avignon, accueil voyageurs Avignon, ménage Airbnb Avignon":
+    "Airbnb property management Avignon, holiday-let hosting Avignon, guest welcome Avignon, Airbnb cleaning Avignon",
+  "sous-location Avignon, loyer garanti Avignon, gestion locative Avignon, location meublée Avignon":
+    "guaranteed rent Avignon, fixed monthly rent Avignon, property management Avignon, furnished let Avignon",
+  "tarif conciergerie Avignon, prix conciergerie Avignon, commission conciergerie Airbnb, coût gestion locative Avignon, tarif sous-location Avignon":
+    "property management fees Avignon, Airbnb management commission, cost of holiday-let hosting Avignon, guaranteed rent price Avignon",
+  "contact conciergerie Avignon, devis gestion locative Avignon, rendez-vous conciergerie":
+    "contact property management Avignon, holiday-let quote Avignon, book a call with a property manager",
+  "Victor Chevalier, conciergerie indépendante Avignon, qui sommes-nous conciergerie Avignon":
+    "Victor Chevalier, independent property management Avignon, about Chevalier Conciergerie",
+  "franchise conciergerie, devenir franchisé conciergerie, ouvrir une conciergerie, réseau conciergerie Airbnb, franchise gestion locative, monter sa conciergerie":
+    "property management franchise, become a franchisee, open a property management business, Airbnb management franchise network",
+  "partenaires conciergerie Avignon, prestataires location saisonnière Avignon":
+    "property management partners Avignon, holiday-let suppliers Avignon",
+  "conciergerie Airbnb Avignon, gestion location saisonnière Avignon, conciergerie Avignon intra-muros, location courte durée Avignon, Airbnb Avignon":
+    "Airbnb property management Avignon, holiday-let hosting Avignon, property management Avignon old town, short-let Avignon",
+  "conciergerie Villeneuve-lès-Avignon, conciergerie Villeneuve lez Avignon, Airbnb Villeneuve Avignon, gestion locative Villeneuve, location saisonnière Villeneuve-lès-Avignon":
+    "property management Villeneuve-lès-Avignon, Airbnb Villeneuve Avignon, holiday-let Villeneuve, short-let Villeneuve-lès-Avignon",
+  "conciergerie Les Angles, Airbnb Les Angles Avignon, gestion locative Les Angles, location saisonnière Les Angles, conciergerie Gard":
+    "property management Les Angles, Airbnb Les Angles, holiday-let Les Angles, short-let Les Angles, property management Gard",
+};
+
+const traduire = (fr) => (fr && typeof fr === "string" && SEO_EN[fr]) || fr;
+
+/**
+ * Produit la variante /en d'une route française.
+ *
+ * Le chemin est préfixé, les métadonnées textuelles passent par le dictionnaire SEO_EN.
+ * Le bodyHtml français ne peut pas être servi sous /en : ce serait du cloaking (langue
+ * différente de la <html lang>). À la place, on écrit un bodyHtml court en anglais qui
+ * donne aux robots (GPTBot, PerplexityBot, ClaudeBot) un contenu réel dans la bonne
+ * langue, avec un lien vers la version française pour l'équivalence.
+ */
+function traduireRoute(route) {
+  const cheminEn = route.path === "/" ? "/en" : `/en${route.path}`;
+  const titreEn = traduire(route.title);
+  const descEn = traduire(route.description);
+  const ogTitleEn = traduire(route.ogTitle) ?? titreEn;
+  const ogDescEn = traduire(route.ogDescription) ?? descEn;
+
+  return {
+    ...route,
+    path: cheminEn,
+    title: titreEn,
+    description: descEn,
+    keywords: traduire(route.keywords),
+    ogTitle: ogTitleEn,
+    ogDescription: ogDescEn,
+    lang: "en",
+    fr: route.path,
+    bodyHtml: `<main lang="en">
+      <h1>${escSeo(titreEn)}</h1>
+      <p>${escSeo(descEn || "")}</p>
+      <p><strong>Pricing:</strong> 25 % (excl. VAT) of the net received by the owner, all in — no subscription, no lock-in. Guaranteed rent: 0 % commission, fixed monthly income.</p>
+      <p><strong>Areas served:</strong> Avignon, Villeneuve-lès-Avignon, Les Angles.</p>
+      <p><strong>Contact:</strong> +33 7 83 19 83 41 · contact@chevalier-conciergerie.com</p>
+      <ul>
+        <li><a href="/en">Home (English)</a></li>
+        <li><a href="/en/conciergerie">Property management</a></li>
+        <li><a href="/en/sous-location">Guaranteed rent</a></li>
+        <li><a href="/en/franchise">Become a franchisee</a></li>
+        <li><a href="/en/tarifs">Pricing</a></li>
+        <li><a href="/en/contact">Contact</a></li>
+      </ul>
+      <p><em>Version française : <a href="${escSeo(route.path)}">${escSeo(route.path)}</a></em></p>
+    </main>`,
+    // JSON-LD gardé en français : le SPA affiche les FAQ françaises tant que les pages
+    // intérieures ne sont pas traduites. À traduire dans la phase 2, en même temps que
+    // les <Helmet> des pages intérieures.
+    jsonLd: route.jsonLd,
+  };
+}
+
+function escSeo(s) {
+  return String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+// Les routes /en/* couvertes en priorité : celles qui vendent. Les mentions légales et
+// l'estimation restent hors bilingue pour l'instant — leurs contenus techniques attendent
+// la phase 2 (traduction des <Helmet> des pages intérieures).
+const ROUTES_EN = STATIC_ROUTES
+  .filter((r) => !["/cgv", "/mentions-legales", "/politique-confidentialite", "/estimation-sous-location"].includes(r.path))
+  .map(traduireRoute)
+  .concat(LOCAL_PAGES.map(traduireRoute));
+
+export const ROUTES = [
+  ...STATIC_ROUTES.map((r) => ({ ...r, lang: "fr" })),
+  ...LOCAL_PAGES.map((r) => ({ ...r, lang: "fr" })),
+  ...ROUTES_EN,
+];
 
 // Quand la route /proprietes/:slug existera à nouveau dans src/App.tsx :
 //   export const ROUTES = [...STATIC_ROUTES, ...readProperties()];

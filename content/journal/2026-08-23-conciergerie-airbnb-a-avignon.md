@@ -1,6 +1,6 @@
 ---
-title: "Conciergerie Airbnb à Avignon : ce qu'il faut savoir avant de confier votre bien"
-description: "Conciergerie Airbnb à Avignon : gestion complète, 25% HT tout inclus et conformité réglementaire pour votre location courte durée."
+title: "Conciergerie Airbnb Avignon : avant de confier votre bien"
+description: "Conciergerie Airbnb à Avignon : gestion complète, 25 % HT tout inclus, conformité 2026 et accueil voyageurs 7 j/7. Ce qu'il faut vraiment savoir avant de confier votre bien."
 date: 2026-08-23
 category: Conciergerie
 image: /journal/journal-defaut.jpg

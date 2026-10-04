@@ -1,6 +1,6 @@
 ---
-title: "Quelle rentabilité pour un Airbnb à Avignon intra-muros : studio ou T2 ? Notre estimation"
-description: "Quelle rentabilité pour un Airbnb à Avignon intra-muros, studio ou T2 : notre estimation chiffrée du revenu net réel après charges."
+title: "Rentabilité Airbnb Avignon intra-muros : studio ou T2"
+description: "Rentabilité d'un Airbnb à Avignon intra-muros, studio ou T2 : estimation chiffrée du revenu net réel, après commissions, ménage, taxe de séjour et impôts. Notre calcul."
 date: 2026-08-24
 category: Rentabilité
 image: /journal/journal-defaut.jpg

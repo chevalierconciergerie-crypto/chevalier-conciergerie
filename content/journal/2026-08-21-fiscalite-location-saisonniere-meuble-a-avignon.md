@@ -1,6 +1,6 @@
 ---
-title: "Fiscalité location saisonnière meublé à Avignon : ce que paie réellement un propriétaire non professionnel"
-description: "LMNP à Avignon : micro-BIC ou régime réel, abattements et impôts réels pour un propriétaire non professionnel."
+title: "Fiscalité LMNP Avignon : impôts réels pour non-pro"
+description: "LMNP à Avignon en 2026 : micro-BIC ou régime réel, abattements et impôts réellement payés par un propriétaire non professionnel. Le calcul complet, poste par poste."
 date: 2026-08-21
 category: Réglementation
 image: /journal/journal-defaut.jpg

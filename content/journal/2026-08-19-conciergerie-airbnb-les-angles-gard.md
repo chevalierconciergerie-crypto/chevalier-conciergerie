@@ -1,6 +1,6 @@
 ---
-title: "Conciergerie Airbnb Les Angles (Gard) : avis propriétaire, ce qu'il faut vraiment savoir"
-description: "Avis propriétaire sur une conciergerie Airbnb aux Angles (Gard) : critères concrets, quartiers, rentabilité réelle et pièges à éviter."
+title: "Conciergerie Airbnb Les Angles (Gard) : avis"
+description: "Avis propriétaire sur la conciergerie Airbnb aux Angles (Gard) : critères concrets, quartiers, rentabilité réelle et pièges à éviter avant de signer un mandat."
 date: 2026-08-19
 category: Conciergerie
 image: /journal/journal-defaut.jpg

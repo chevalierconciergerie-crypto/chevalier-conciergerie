@@ -48,10 +48,25 @@ const BandeauCookies = () => {
         <button type="button" className="chv-cookies__refuser" onClick={() => choisir("refuses")}>
           {t("Refuser")}
         </button>
-        <button type="button" className="chv-pastille" onClick={() => choisir("acceptes")}>
+        <button type="button" className="chv-cookies__accepter" onClick={() => choisir("acceptes")}>
           {t("Accepter")}
         </button>
       </div>
+      {/*
+        Bouton × discret : la CNIL demande depuis 2022 que fermer le bandeau vaille
+        refus, et qu'un choix négatif soit aussi facile qu'un choix positif. Sur mobile
+        c'est aussi ce qui libère la page pour les visiteurs qui veulent d'abord lire.
+      */}
+      <button
+        type="button"
+        className="chv-cookies__fermer"
+        onClick={() => choisir("refuses")}
+        aria-label={t("Fermer") || "Fermer"}
+      >
+        <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      </button>
     </div>
   );
 };

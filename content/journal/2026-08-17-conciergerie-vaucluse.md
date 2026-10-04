@@ -1,6 +1,6 @@
 ---
-title: "Conciergerie Vaucluse : pourquoi l'expertise locale change tout à Avignon"
-description: "Conciergerie Vaucluse : découvrez pourquoi une expertise locale à Avignon fait la différence face aux opérateurs généralistes du département."
+title: "Conciergerie Vaucluse : l'expertise locale à Avignon"
+description: "Conciergerie Vaucluse : pourquoi une expertise locale à Avignon fait la différence face aux opérateurs nationaux — connaissance des quartiers, saisonnalité, réglementation."
 date: 2026-08-17
 category: Conciergerie
 image: /journal/journal-defaut.jpg

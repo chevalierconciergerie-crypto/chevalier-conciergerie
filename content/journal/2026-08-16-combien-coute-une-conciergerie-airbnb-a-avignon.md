@@ -1,6 +1,6 @@
 ---
-title: "Combien coûte une conciergerie Airbnb à Avignon ?"
-description: "Prix, taux de commission et forfaits : ce que coûte réellement une conciergerie Airbnb à Avignon, poste par poste."
+title: "Coût d'une conciergerie Airbnb à Avignon"
+description: "Le coût réel d'une conciergerie Airbnb à Avignon, poste par poste : commissions, ménage, taxe de séjour, forfaits cachés. Comparez vraiment avant de signer un mandat."
 date: 2026-08-16
 category: Conciergerie
 image: /journal/journal-defaut.jpg
@@ -29,7 +29,7 @@ Ce que la plupart des pages de comparaison n'expliquent pas, c'est que le taux a
 4. **Les frais de mise en route** — photos professionnelles, rédaction de l'annonce, kit d'accueil initial : facturés une fois, en amont, mais absents des taux habituellement mis en avant.
 5. **Les frais de haute saison** — un supplément qui n'apparaît sur aucune grille tarifaire standard, mais qui existe bel et bien à Avignon en juillet, pour les raisons détaillées plus bas.
 
-Un propriétaire qui ne demande que "le pourcentage" découvre souvent ces postes après coup, sur sa première facture réelle. Le bon réflexe : exiger une simulation ligne par ligne sur [une demande de devis](/contact), plutôt qu'un taux isolé à l'oral.
+Un propriétaire qui ne demande que "le pourcentage" découvre souvent ces postes après coup, sur sa première facture réelle. Le bon réflexe : exiger une simulation ligne par ligne sur [une demande de devis](/contact), plutôt qu'un taux isolé à l'oral. Le taux et le périmètre de Chevalier Conciergerie sont affichés sur la page [conciergerie Airbnb à Avignon](/conciergerie-avignon), avant tout rendez-vous.
 
 ## Le Festival d'Avignon change la facture, même à commission égale
 
