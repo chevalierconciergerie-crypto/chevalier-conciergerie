@@ -1,6 +1,7 @@
 import { useT } from "@/i18n/langue";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { activerAnalytics, desactiverAnalytics } from "@/lib/analytics";
 import "./chevalier.css";
 
 const CLE = "chv-cookies";
@@ -10,8 +11,9 @@ export const EVENEMENT_COOKIES = "chv-cookies-ouvrir";
   Bandeau de consentement, discret, en bas de l'écran. Refuser est aussi
   simple qu'accepter (exigence de la CNIL). Le choix est gardé dans le
   navigateur ; le lien « Gestion des cookies » du pied de page rouvre le
-  bandeau. La mesure d'audience Vercel ne dépose aucun cookie : ce bandeau
-  informe et recueille le choix, il ne bloque rien.
+  bandeau. La mesure d'audience Vercel ne dépose aucun cookie et n'attend rien.
+  Google Analytics 4, lui, n'est chargé qu'après « Accepter » (src/lib/analytics.ts) ;
+  un refus ou la fermeture du bandeau le laisse absent.
 */
 const BandeauCookies = () => {
   const t = useT();
@@ -34,6 +36,8 @@ const BandeauCookies = () => {
     } catch {
       /* navigation privée : le bandeau reviendra à la prochaine visite */
     }
+    if (choix === "acceptes") activerAnalytics();
+    else desactiverAnalytics();
     setVisible(false);
   };
 

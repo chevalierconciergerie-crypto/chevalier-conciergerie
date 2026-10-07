@@ -91,9 +91,9 @@ Réclamation CNIL : www.cnil.fr`
       subtitle: "Navigation",
       content: `Types de cookies utilisés :
 • Cookies essentiels : nécessaires au fonctionnement
-• Cookies analytiques : comprendre votre utilisation
+• Cookies de mesure d'audience : Google Analytics 4 (Google Ireland Limited) mesure les pages vues pour nous aider à améliorer le site. Il n'est chargé qu'après votre accord, donné avec le bouton « Accepter » du bandeau. Refuser ou fermer le bandeau suffit à ne rien déposer.
 
-Vous pouvez configurer votre navigateur pour refuser les cookies.`
+Vous pouvez changer d'avis à tout moment avec le lien « Gestion des cookies » en bas de page, et configurer votre navigateur pour refuser les cookies.`
     },
   ];
 

@@ -9,6 +9,7 @@ import { HelmetProvider } from "@/lib/seo";
 import { LangueProvider } from "@/i18n/langue";
 import ScrollToTop from "./components/ScrollToTop";
 import BandeauCookies from "./components/accueil/BandeauCookies";
+import SuiviPages from "./components/SuiviPages";
 import Index from "./pages/Index";
 import Conciergerie from "./pages/Conciergerie";
 import SousLocation from "./pages/SousLocation";
@@ -39,6 +40,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <ScrollToTop />
+          <SuiviPages />
           <LangueProvider>
             <BandeauCookies />
             {/*
