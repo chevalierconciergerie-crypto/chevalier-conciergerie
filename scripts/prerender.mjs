@@ -15,7 +15,7 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import { ROUTES, SITE } from "./seo-routes.mjs";
-import { loadArticles, JOURNAL_BASE } from "./journal.mjs";
+import { loadArticles, articlesLies, JOURNAL_BASE } from "./journal.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(root, "dist");
@@ -471,6 +471,15 @@ function buildJournalRoutes() {
       <h1>${esc(a.title)}</h1>
       ${a.html}
       <p><a href="/contact">Nous contacter</a> · <a href="${esc(JOURNAL_BASE)}">Retour au Blog</a></p>
+      <aside><h2>À lire aussi</h2><ul>${articlesLies(a, articles, 4)
+        .map((r) => `<li><a href="${esc(r.path)}">${esc(r.title)}</a></li>`)
+        .join("")}</ul></aside>
+      <nav aria-label="Nos offres"><h2>Nos offres</h2><ul>
+        <li><a href="/conciergerie-avignon">Conciergerie à Avignon</a></li>
+        <li><a href="/conciergerie">Conciergerie Airbnb</a></li>
+        <li><a href="/sous-location">Loyer garanti</a></li>
+        <li><a href="/villes">Villes desservies</a></li>
+      </ul></nav>
     </article></main>`,
     });
   }

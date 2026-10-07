@@ -1058,6 +1058,36 @@ const SEO_EN = {
     "property management Villeneuve-lès-Avignon, Airbnb Villeneuve Avignon, holiday-let Villeneuve, short-let Villeneuve-lès-Avignon",
   "conciergerie Les Angles, Airbnb Les Angles Avignon, gestion locative Les Angles, location saisonnière Les Angles, conciergerie Gard":
     "property management Les Angles, Airbnb Les Angles, holiday-let Les Angles, short-let Les Angles, property management Gard",
+
+  // Pages de villes : les titres et descriptions français ont changé après la rédaction
+  // du dictionnaire ci-dessus, donc `traduire` renvoyait le français sous <html lang="en">.
+  // À mettre à jour ici chaque fois qu'un title ou une description de ville change.
+  "Conciergerie Airbnb Avignon : 25 % HT, sans commission":
+    "Airbnb Property Management Avignon: 25 % excl. VAT",
+  "Conciergerie Airbnb à Avignon intra-muros : 25 % HT du net perçu, réservation directe sans commission. Enregistrement et changement d'usage 2026 pris en charge. Estimation gratuite.":
+    "Airbnb property management inside Avignon's walls: 25 % excl. VAT of the net received, no commission on direct bookings. 2026 registration and change-of-use authorisation handled. Free estimate.",
+  "Conciergerie Airbnb Villeneuve-lès-Avignon : 25 % HT":
+    "Airbnb Management Villeneuve-lès-Avignon: 25 % excl. VAT",
+  "Conciergerie Airbnb à Villeneuve-lès-Avignon : 25 % HT du net perçu, sans commission sur la réservation directe. Déclaration en mairie prise en charge. Estimation gratuite.":
+    "Airbnb property management in Villeneuve-lès-Avignon: 25 % excl. VAT of the net received, no commission on direct bookings. Town hall registration handled. Free estimate.",
+  "Conciergerie Airbnb Les Angles : 25 % HT, sans commission":
+    "Airbnb Property Management Les Angles: 25 % excl. VAT",
+  "Conciergerie Airbnb aux Angles, près d'Avignon : 25 % HT du net perçu, réservation directe sans commission. Gestion complète, ménage et accueil voyageurs inclus. Estimation gratuite.":
+    "Airbnb property management in Les Angles, near Avignon: 25 % excl. VAT of the net received, no commission on direct bookings. Full management, cleaning and guest welcome included. Free estimate.",
+  "Conciergerie Airbnb Aix-en-Provence | Chevalier":
+    "Airbnb Property Management Aix-en-Provence | Chevalier",
+  "Conciergerie Airbnb à Aix-en-Provence : gestion complète de votre location saisonnière, 25 % HT du net perçu, sans engagement. Accueil voyageurs, ménage, tarification. Estimation gratuite.":
+    "Airbnb property management in Aix-en-Provence: full management of your holiday let, 25 % excl. VAT of the net received, no lock-in. Guest welcome, cleaning, pricing. Free estimate.",
+  "conciergerie Aix-en-Provence, gestion locative Aix, Airbnb Aix-en-Provence, location saisonnière Aix, conciergerie Provence":
+    "property management Aix-en-Provence, holiday-let management Aix, Airbnb Aix-en-Provence, short-let Aix, property management Provence",
+  "Conciergerie Airbnb Montpellier | Chevalier":
+    "Airbnb Property Management Montpellier | Chevalier",
+  "Conciergerie Airbnb à Montpellier : gestion complète de votre location saisonnière, 25 % HT du net perçu, sans engagement. Accueil voyageurs, ménage, tarification. Estimation gratuite.":
+    "Airbnb property management in Montpellier: full management of your holiday let, 25 % excl. VAT of the net received, no lock-in. Guest welcome, cleaning, pricing. Free estimate.",
+  "conciergerie Montpellier, gestion locative Montpellier, Airbnb Montpellier, location saisonnière Montpellier, conciergerie Hérault":
+    "property management Montpellier, holiday-let management Montpellier, Airbnb Montpellier, short-let Montpellier, property management Hérault",
+  "conciergerie Avignon, conciergerie Villeneuve-lès-Avignon, conciergerie Les Angles, conciergerie Aix-en-Provence, conciergerie Montpellier":
+    "property management Avignon, property management Villeneuve-lès-Avignon, property management Les Angles, property management Aix-en-Provence, property management Montpellier",
 };
 
 const traduire = (fr) => (fr && typeof fr === "string" && SEO_EN[fr]) || fr;

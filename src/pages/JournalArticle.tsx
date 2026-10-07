@@ -2,7 +2,7 @@ import { Helmet } from "@/lib/seo";
 import { Link, Navigate, useParams } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { articles, getArticle, formatDate } from "@/lib/journal";
+import { getArticle, formatDate, relatedArticles } from "@/lib/journal";
 
 const SITE = "https://chevalier-conciergerie.com";
 
@@ -14,7 +14,8 @@ const JournalArticle = () => {
   if (!article) return <Navigate to="/blog" replace />;
 
   const url = `${SITE}${article.path}`;
-  const others = articles.filter((a) => a.slug !== article.slug).slice(0, 3);
+  // Articles du même sujet (et non les 3 derniers, identiques sur toutes les pages).
+  const others = relatedArticles(article, 4);
 
   return (
     <>
@@ -106,6 +107,29 @@ const JournalArticle = () => {
                 </ul>
               </aside>
             )}
+
+            {/* Liens vers les pages qui vendent : les articles y renvoient aussi dans leur texte,
+                mais ce bloc garantit qu'aucun article n'est une impasse. */}
+            <nav aria-label="Nos offres" className="mt-10 border-t border-border pt-8">
+              <h2 className="font-serif text-xl font-light text-foreground">Nos offres</h2>
+              <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-1">
+                {[
+                  { to: "/conciergerie-avignon", label: "Conciergerie à Avignon" },
+                  { to: "/conciergerie", label: "Conciergerie Airbnb" },
+                  { to: "/sous-location", label: "Loyer garanti" },
+                  { to: "/villes", label: "Villes desservies" },
+                ].map((l) => (
+                  <li key={l.to}>
+                    <Link
+                      to={l.to}
+                      className="inline-flex min-h-11 items-center text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground hover:no-underline"
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
         </article>
       </main>

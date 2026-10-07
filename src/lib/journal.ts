@@ -92,6 +92,35 @@ export const articles: Article[] = build();
 export const getArticle = (slug?: string): Article | undefined =>
   slug ? articles.find((a) => a.slug === slug) : undefined;
 
+/* Même liste et même règle que dans scripts/journal.mjs (qui sert le HTML prérendu). */
+const MOTS_COMMUNS = new Set([
+  "avignon", "conciergerie", "airbnb", "location", "saisonniere", "quelle", "comment", "combien",
+  "pour", "dans", "sans", "avec", "votre", "vous", "choisir",
+]);
+
+function jetons(article: Article): Set<string> {
+  return new Set(
+    [article.title, ...article.keywords]
+      .join(" ")
+      .normalize("NFD")
+      .replace(/[̀-ͯ]/g, "")
+      .toLowerCase()
+      .split(/[^a-z0-9]+/)
+      .filter((t) => t.length > 3 && !MOTS_COMMUNS.has(t)),
+  );
+}
+
+/** Les articles les plus proches par sujet (mots communs du titre et des mots-clés), puis les plus récents. */
+export function relatedArticles(article: Article, n = 4): Article[] {
+  const base = jetons(article);
+  return articles
+    .filter((a) => a.slug !== article.slug)
+    .map((a) => ({ a, score: [...jetons(a)].filter((t) => base.has(t)).length }))
+    .sort((x, y) => y.score - x.score || y.a.date.localeCompare(x.a.date))
+    .slice(0, n)
+    .map((x) => x.a);
+}
+
 /** Date lisible en français : 2026-08-08 -> 8 août 2026 */
 export function formatDate(iso: string): string {
   const d = new Date(`${iso}T00:00:00`);

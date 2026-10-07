@@ -117,3 +117,40 @@ export function loadArticles({ includeDrafts = false } = {}) {
 
   return articles.sort((a, b) => String(b.date).localeCompare(String(a.date)));
 }
+
+/*
+  Mots trop présents dans tous les articles pour dire de quoi ils parlent : on les retire
+  pour que la proximité se joue sur le sujet (tarif, fiscalité, rentabilité, Les Angles…).
+  Même liste et même règle dans src/lib/journal.ts.
+*/
+const MOTS_COMMUNS = new Set([
+  "avignon", "conciergerie", "airbnb", "location", "saisonniere", "quelle", "comment", "combien",
+  "pour", "dans", "sans", "avec", "votre", "vous", "choisir",
+]);
+
+function jetons(article) {
+  return new Set(
+    [article.title, ...(article.keywords || [])]
+      .join(" ")
+      .normalize("NFD")
+      .replace(/[̀-ͯ]/g, "")
+      .toLowerCase()
+      .split(/[^a-z0-9]+/)
+      .filter((t) => t.length > 3 && !MOTS_COMMUNS.has(t)),
+  );
+}
+
+/**
+ * Les articles les plus proches d'un article, par mots de sujet communs (titre + mots-clés),
+ * à égalité du plus récent. Remplace « les 3 derniers articles » : ceux-ci étaient les mêmes
+ * sur toutes les pages, donc les articles plus anciens ne recevaient presque aucun lien.
+ */
+export function articlesLies(article, tous, n = 4) {
+  const base = jetons(article);
+  return tous
+    .filter((a) => a.slug !== article.slug)
+    .map((a) => ({ a, score: [...jetons(a)].filter((t) => base.has(t)).length }))
+    .sort((x, y) => y.score - x.score || String(y.a.date).localeCompare(String(x.a.date)))
+    .slice(0, n)
+    .map((x) => x.a);
+}
