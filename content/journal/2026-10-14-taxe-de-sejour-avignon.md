@@ -48,6 +48,8 @@ Trois situations se présentent.
 - **Réservation encaissée par une plateforme qui ne collecte pas la taxe.** C'est à vous de la demander au voyageur et de la reverser.
 - **Réservation directe, hors plateforme.** La collecte, la déclaration et le reversement vous incombent entièrement.
 
+Pour le détail plateforme par plateforme, notre guide sur [la taxe de séjour avec Airbnb et Booking](https://chevalier-pms.com/blog/taxe-de-sejour-airbnb) reprend ce que chacune collecte et ce qui reste à vérifier.
+
 Si vous publiez sur plusieurs canaux, dressez un tableau simple : pour chacun, qui collecte, qui reverse, et ce qui reste à votre charge. Cela évite les régularisations rétroactives. Si vous hésitez à gérer cela seul, notre comparatif [conciergerie ou sous-location à Avignon](/blog/conciergerie-ou-sous-location-avignon) pose la question du temps que vous voulez y consacrer.
 
 ## Combien coûte la taxe de séjour à Avignon ?

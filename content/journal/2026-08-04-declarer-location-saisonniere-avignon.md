@@ -31,7 +31,7 @@ Si vous envisagez de basculer d'un bail classique vers la courte durée, cette b
 
 C'est la première étape, et la plus simple. Elle consiste à signaler à la commune que votre logement est proposé en meublé de tourisme.
 
-En retour, vous recevez un **numéro d'enregistrement**. Ce numéro doit figurer sur chacune de vos annonces, sur toutes les plateformes, sans exception.
+En retour, vous recevez un **numéro d'enregistrement**. Ce numéro doit figurer sur chacune de vos annonces, sur toutes les plateformes, sans exception. Pour remplir le formulaire case par case, nous avons détaillé [le Cerfa de déclaration d'un meublé de tourisme](https://chevalier-pms.com/blog/declaration-meuble-de-tourisme).
 
 Trois points souvent mal compris :
 

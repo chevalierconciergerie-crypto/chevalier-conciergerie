@@ -10,6 +10,7 @@ import {
 } from "@/data/accueil";
 import { DemoCalendrier, DemoDirect, DemoMenage, DemoTableau, DemoTarification } from "./Demos";
 import { Messagerie } from "./Messagerie";
+import { avecLienArticlePms, avecLienPms } from "./LienPms";
 import { Chevron, IconeCoche, Revele, TitreAnime } from "./Primitives";
 
 /*
@@ -32,7 +33,7 @@ export function Faq({ questions }: { questions: QuestionFaq[] }) {
             <span>{t(item.q)}</span>
             <Chevron couleur="var(--chv-cuivre-fonce)" />
           </summary>
-          <p>{t(item.a)}</p>
+          <p>{avecLienPms(t(item.a))}</p>
         </Revele>
       ))}
     </div>
@@ -74,7 +75,7 @@ function Bloc({ bloc, rang }: { bloc: BlocService; rang: number }) {
           <br />
           <em>{t(bloc.accent)}</em>
         </h3>
-        <p className="chv-paragraphe">{t(bloc.texte)}</p>
+        <p className="chv-paragraphe">{avecLienArticlePms(t(bloc.texte))}</p>
         <ul className="chv-puces">
           {bloc.puces.map((puce) => (
             <li key={puce}>

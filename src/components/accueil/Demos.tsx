@@ -2,6 +2,7 @@ import { useT } from "@/i18n/langue";
 import { useEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import { useRevele } from "./effets";
+import { avecLienPms } from "./LienPms";
 
 /*
   Les démonstrations animées des blocs de l'offre conciergerie.
@@ -265,7 +266,7 @@ export function DemoMenage() {
 
       <p className={`chv-demo__preuve ${cran >= 3 ? "est-posee" : ""}`}>
         <Coche />
-        {t("Déposé dans Chevalier PMS — le propriétaire peut le consulter quand il veut.")}
+        {avecLienPms(t("Déposé dans Chevalier PMS — le propriétaire peut le consulter quand il veut."))}
       </p>
     </div>
   );
@@ -329,7 +330,7 @@ export function DemoTableau() {
 
       <p className={`chv-demo__preuve ${cran >= 3 ? "est-posee" : ""}`}>
         <Coche />
-        {t("Envoyé chaque mois, et consultable à tout moment dans Chevalier PMS.")}
+        {avecLienPms(t("Envoyé chaque mois, et consultable à tout moment dans Chevalier PMS."))}
       </p>
     </div>
   );
