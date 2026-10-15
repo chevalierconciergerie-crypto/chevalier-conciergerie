@@ -65,6 +65,13 @@ const service = ({ name, description, areas }) => ({
 const faqHtml = (pairs) =>
   pairs.map(([q, a]) => `<h3>${q}</h3>\n      <p>${a}</p>`).join("\n      ");
 
+/*
+  Comme avecLienPms côté React : « Chevalier PMS » renvoie vers le logiciel, lien normal
+  sans nofollow. Le schéma FAQPage garde le texte brut ; seul le HTML visible porte le lien.
+*/
+const LIEN_PMS = '<a href="https://chevalier-pms.com">Chevalier PMS</a>';
+const faqHtmlLiens = (pairs) => faqHtml(pairs.map(([q, a]) => [q, a.replaceAll("Chevalier PMS", LIEN_PMS)]));
+
 const ZONE = ["Avignon", "Villeneuve-lès-Avignon", "Les Angles"];
 
 /**
@@ -345,7 +352,7 @@ const STATIC_ROUTES = [
 
       <h2>Votre calendrier rempli, vos nuits vacantes comblées.</h2>
       <p>Notre travail, c'est de combler vos nuits vacantes. Airbnb, Booking et la réservation
-      directe sont synchronisés dans les deux sens dans Chevalier PMS, notre propre logiciel.</p>
+      directe sont synchronisés dans les deux sens dans <a href="/blog/logiciel-conciergerie-airbnb">Chevalier PMS, notre propre logiciel</a>.</p>
       <ul>
         <li>Airbnb, Booking et réservation directe synchronisés en temps réel</li>
         <li>Les doubles réservations deviennent impossibles</li>
@@ -391,7 +398,7 @@ const STATIC_ROUTES = [
 
       <h2>Vos revenus, chaque mois, en clair.</h2>
       <p>Chaque propriétaire reçoit un rapport mensuel détaillé de son logement, et garde un
-      accès direct à Chevalier PMS pour tout suivre lui-même, à tout moment.</p>
+      accès direct à ${LIEN_PMS} pour tout suivre lui-même, à tout moment.</p>
       <ul>
         <li>Rapport mensuel détaillé, logement par logement</li>
         <li>Canaux, occupation et chiffre d'affaires au même endroit</li>
@@ -405,7 +412,7 @@ const STATIC_ROUTES = [
       payé par le voyageur — pas par vous.</p>
 
       <h2>Les questions qu'on nous pose</h2>
-      ${faqHtml(CONCIERGERIE_FAQ)}
+      ${faqHtmlLiens(CONCIERGERIE_FAQ)}
 
       <p><a href="/contact">Prendre rendez-vous</a> — estimation gratuite sous 24 h ·
       <a href="/sous-location">Voir aussi la sous-location avec loyer garanti</a> ·</p>
@@ -470,7 +477,7 @@ const STATIC_ROUTES = [
       avant signature et ne bouge plus.</p>
 
       <h2>Les questions qu'on nous pose</h2>
-      ${faqHtml(SOUSLOCATION_FAQ)}
+      ${faqHtmlLiens(SOUSLOCATION_FAQ)}
 
       <p><a href="/estimation-sous-location">Obtenir mon estimation gratuite</a> ·
       <a href="/conciergerie">Voir aussi la formule conciergerie</a> ·</p>
@@ -596,7 +603,7 @@ const STATIC_ROUTES = [
         <li>L'ouverture : site en ligne, premiers mandats, points réguliers et séminaire annuel</li>
       </ol>
 
-      ${faqHtml(FRANCHISE_FAQ)}
+      ${faqHtmlLiens(FRANCHISE_FAQ)}
     </main>`,
     jsonLd: [
       breadcrumb({ name: "Devenir franchisé", path: "/franchise" }),
