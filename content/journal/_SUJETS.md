@@ -8,7 +8,6 @@ Sujets existants à ne pas dupliquer : voir les fichiers `content/journal/2026-*
 
 ## À rédiger (par ordre de priorité)
 
-- [ ] Autorisation de changement d'usage à Avignon : démarche, délais, pièces à fournir
 - [ ] Résidence principale et plafond de 90 jours à Avignon : comment le suivre sans se tromper
 - [ ] Combien coûte le ménage d'une location courte durée à Avignon, rotation par rotation
 - [ ] Linge de maison en location saisonnière : quantités, rotation, qui s'en occupe
@@ -36,3 +35,4 @@ Sujets existants à ne pas dupliquer : voir les fichiers `content/journal/2026-*
 (la routine déplace ici chaque sujet traité, avec la date et le slug)
 - [x] Taxe de séjour à Avignon : qui la collecte, comment la reverser, ce qu'elle n'est pas — 2026-10-14, slug `taxe-de-sejour-avignon`
 - [x] Caution et dommages en location saisonnière : ce que la plateforme couvre et ce qu'elle ne couvre pas — 2026-10-16, slug `caution-dommages-location-saisonniere`
+- [x] Autorisation de changement d'usage à Avignon : démarche, délais, pièces à fournir — 2026-10-19, slug `autorisation-changement-usage-avignon`
