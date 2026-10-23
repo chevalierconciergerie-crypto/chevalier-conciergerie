@@ -1436,3 +1436,163 @@ main.chv > .chv-section:first-child { padding-top: max(min(11vw, 120px), calc(va
   .chv-menu__liens { margin-top: 2vh; }
   .chv-menu__liens a { padding: 2px 0; }
 }
+
+/* ============ Nos logements (réservation directe) ============
+   Sous les avis : chaque logement en grand, photo à gauche, texte à droite,
+   la visite filmée s'ouvre en plein écran sur fond noir. */
+.chv-logements__intro { max-width: 34em; margin: calc(min(7vw, 64px) * -0.45) auto 0; font-size: 16px; line-height: 1.7; color: rgba(10, 10, 10, 0.62); text-align: center; }
+.chv-logements__liste { max-width: 1180px; margin: min(8vw, 80px) auto 0; display: grid; gap: min(12vw, 120px); }
+.chv-logement { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: min(6vw, 84px); align-items: center; }
+.chv-logement__media { position: relative; aspect-ratio: 4 / 5; border-radius: 8px; overflow: hidden; box-shadow: 0 40px 80px -42px rgba(10, 10, 10, 0.6); }
+.chv-logement__media > img,
+.chv-logement__lecture img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.8s var(--chv-ease); }
+.chv-logement__lecture { position: absolute; inset: 0; display: block; text-decoration: none; padding: 0; border: 0; background: none; cursor: pointer; color: var(--chv-creme); font-family: var(--chv-texte); text-align: left; }
+.chv-logement__lecture::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10, 10, 10, 0) 52%, rgba(10, 10, 10, 0.58) 100%); pointer-events: none; }
+.chv-logement__lecture:hover img { transform: scale(1.045); }
+.chv-logement__lecture:focus-visible { outline: 2px solid var(--chv-cuivre); outline-offset: -6px; }
+.chv-logement__badge { position: absolute; z-index: 1; top: 18px; left: 18px; padding: 8px 15px; border-radius: 99px; background: rgba(248, 240, 232, 0.92); color: var(--chv-noir); font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; }
+.chv-logement__jouer { position: absolute; z-index: 1; left: 22px; bottom: 22px; display: flex; align-items: center; gap: 14px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+.chv-logement__jouer small { display: block; margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; opacity: 0.75; }
+.chv-logement__rond { width: 58px; height: 58px; flex: none; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgba(248, 240, 232, 0.75); background: rgba(248, 240, 232, 0.14); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); transition: background 0.4s ease, color 0.4s ease, transform 0.4s var(--chv-ease); }
+.chv-logement__rond svg { margin-left: 3px; }
+.chv-logement__lecture:hover .chv-logement__rond { background: var(--chv-creme); color: var(--chv-noir); transform: scale(1.06); }
+.chv-logement__lieu { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--chv-cuivre-fonce); margin: 0 0 14px; }
+.chv-logement__nom { font-family: var(--chv-titre); font-weight: 400; font-size: min(12vw, 84px); line-height: 0.95; letter-spacing: -0.02em; text-transform: uppercase; margin: 0 0 22px; }
+.chv-logement__accroche { font-size: 17px; line-height: 1.7; color: rgba(10, 10, 10, 0.66); margin: 0 0 24px; max-width: 30em; }
+.chv-logement__details { list-style: none; padding: 0; margin: 0 0 18px; display: flex; flex-wrap: wrap; font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; }
+.chv-logement__details li:not(:last-child)::after { content: "·"; margin: 0 10px; color: var(--chv-cuivre-fonce); }
+.chv-logement__atouts { list-style: none; padding: 0; margin: 0 0 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+.chv-logement__atouts li { padding: 7px 14px; border: 1px solid rgba(10, 10, 10, 0.16); border-radius: 99px; font-size: 12px; letter-spacing: 0.04em; }
+.chv-logement__note { font-size: 13px; color: rgba(10, 10, 10, 0.7); margin: 0 0 30px; }
+.chv-logement__note span { color: var(--chv-cuivre-fonce); }
+.chv-logement__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; }
+.chv-logement__voir { text-decoration: none; display: inline-flex; align-items: center; gap: 10px; padding: 12px 0 6px; border: 0; border-bottom: 1px solid currentColor; background: none; color: var(--chv-noir); font-family: var(--chv-texte); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: color 0.3s ease; }
+.chv-logement__voir:hover { color: var(--chv-cuivre-fonce); }
+.chv-logement__mention { margin: 22px 0 0; font-size: 12px; line-height: 1.6; color: rgba(10, 10, 10, 0.5); }
+
+
+@media (max-width: 860px) {
+  .chv-logement { grid-template-columns: 1fr; gap: 34px; }
+  .chv-logement__nom { font-size: 15vw; }
+}
+@media (max-width: 560px) {
+  .chv-logements__intro { font-size: 15px; }
+  .chv-logement__accroche { font-size: 16px; }
+  .chv-logement__actions { flex-direction: column; align-items: stretch; }
+  .chv-logement__reserver { width: 100%; }
+  .chv-logement__voir { align-self: center; }
+  .chv-logement__mention { text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chv-logement__lecture img, .chv-logement__rond { transition: none; }
+}
+
+/* ============ Fiche d'un logement (/logements/<slug>) ============ */
+.chv-fiche { padding-top: var(--chv-barre); }
+.chv-fiche__galerie { position: relative; max-width: 1240px; margin: 0 auto; padding: 24px var(--chv-marge) 0; }
+.chv-fiche__mosaique { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 8px; height: min(46vw, 540px); border-radius: 12px; overflow: hidden; }
+.chv-fiche__tuile { position: relative; padding: 0; border: 0; overflow: hidden; background: #e8ded4; cursor: pointer; }
+.chv-fiche__tuile--0 { grid-row: 1 / span 2; }
+.chv-fiche__tuile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.4s var(--chv-ease), filter 0.4s ease; }
+.chv-fiche__tuile:hover img { transform: scale(1.04); filter: brightness(0.94); }
+.chv-fiche__toutes { position: absolute; right: calc(var(--chv-marge) + 16px); bottom: 16px; display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border: 1px solid var(--chv-noir); border-radius: 99px; background: var(--chv-creme); color: var(--chv-noir); font-family: var(--chv-texte); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; }
+.chv-fiche__corps { max-width: 1240px; margin: 0 auto; padding: 0 var(--chv-marge) min(12vw, 120px); display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: min(6vw, 72px); align-items: start; }
+.chv-fiche__ariane { font-size: 12px; letter-spacing: 0.06em; color: rgba(10, 10, 10, 0.55); margin: 28px 0 26px; }
+.chv-fiche__ariane a { color: inherit; text-underline-offset: 3px; }
+.chv-fiche__titre { font-family: var(--chv-titre); font-weight: 400; font-size: min(14vw, 96px); line-height: 0.95; letter-spacing: -0.02em; text-transform: uppercase; margin: 0 0 10px; }
+.chv-fiche__type { font-size: 15px; color: rgba(10, 10, 10, 0.66); margin: 0 0 16px; }
+.chv-fiche__bloc { border-top: 1px solid rgba(10, 10, 10, 0.12); padding-top: 40px; margin-top: 40px; }
+.chv-fiche__intertitre { font-family: var(--chv-titre); font-weight: 400; font-size: min(8vw, 34px); letter-spacing: -0.01em; line-height: 1.1; margin: 0 0 20px; }
+.chv-fiche__intertitre span { color: var(--chv-cuivre-fonce); }
+.chv-fiche__texte { font-size: 16px; line-height: 1.75; color: rgba(10, 10, 10, 0.72); margin: 0 0 16px; max-width: 42em; }
+.chv-fiche__texte--discret { font-size: 13px; color: rgba(10, 10, 10, 0.55); }
+.chv-fiche__listes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 36px; margin: 26px 0; }
+.chv-fiche__listes h3, .chv-fiche__equipements h3, .chv-fiche__savoir h3 { font-family: var(--chv-texte); font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--chv-cuivre-fonce); margin: 0 0 10px; }
+.chv-fiche__listes ul, .chv-fiche__equipements ul, .chv-fiche__savoir ul { list-style: none; padding: 0; margin: 0; }
+.chv-fiche__listes li, .chv-fiche__equipements li, .chv-fiche__savoir li { font-size: 15px; line-height: 1.6; padding: 3px 0; }
+.chv-fiche__couchages { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.chv-fiche__couchage { padding: 0; border: 0; background: none; text-align: left; font-family: var(--chv-texte); color: var(--chv-noir); cursor: pointer; }
+.chv-fiche__couchage img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; display: block; }
+.chv-fiche__couchage strong { display: block; font-size: 15px; font-weight: 500; margin: 12px 0 2px; }
+.chv-fiche__couchage span { font-size: 13px; color: rgba(10, 10, 10, 0.6); }
+.chv-fiche__piece { margin: 0 0 44px; }
+.chv-fiche__piece h3 { font-family: var(--chv-titre); font-weight: 400; font-size: 24px; margin: 0 0 12px; }
+.chv-fiche__piece h3 span { font-family: var(--chv-texte); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(10, 10, 10, 0.5); margin-left: 8px; }
+.chv-fiche__grille { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 16px; }
+.chv-fiche__vignette { aspect-ratio: 1; padding: 0; border: 0; border-radius: 6px; overflow: hidden; background: #e8ded4; cursor: pointer; }
+.chv-fiche__vignette img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.2s var(--chv-ease); }
+.chv-fiche__vignette:hover img { transform: scale(1.05); }
+.chv-fiche__equipements { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 40px; }
+.chv-fiche__non-inclus { margin: 24px 0 0; font-size: 13px; color: rgba(10, 10, 10, 0.55); }
+.chv-fiche__notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; margin: 16px 0 0; }
+.chv-fiche__notes div { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid rgba(10, 10, 10, 0.08); }
+.chv-fiche__notes dt { font-size: 15px; }
+.chv-fiche__notes dd { margin: 0; display: flex; align-items: center; gap: 12px; font-size: 14px; }
+.chv-fiche__jauge { display: block; width: 90px; height: 3px; border-radius: 3px; background: rgba(10, 10, 10, 0.12); overflow: hidden; }
+.chv-fiche__jauge span { display: block; height: 100%; background: var(--chv-noir); }
+.chv-fiche__savoir { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 32px; }
+.chv-fiche__reservation { position: sticky; top: calc(var(--chv-barre) + 28px); margin-top: 28px; }
+.chv-fiche__carte { padding: 28px; border: 1px solid rgba(10, 10, 10, 0.1); border-radius: 14px; background: #fff; box-shadow: 0 30px 60px -40px rgba(10, 10, 10, 0.45); }
+.chv-fiche__carte .chv-etiquette { margin-bottom: 10px; }
+.chv-fiche__carte-nom { font-family: var(--chv-titre); font-size: 34px; line-height: 1; text-transform: uppercase; margin: 0 0 10px; }
+.chv-fiche__carte .chv-logement__note { margin-bottom: 22px; }
+.chv-fiche__carte .chv-logement__reserver { width: 100%; }
+.chv-fiche__carte .chv-logement__mention { text-align: center; margin-top: 14px; }
+.chv-fiche__carte-infos { list-style: none; padding: 16px 0 0; margin: 18px 0 0; border-top: 1px solid rgba(10, 10, 10, 0.08); font-size: 14px; line-height: 1.8; }
+.chv-fiche__carte-appel { margin: 12px 0 0; font-size: 13px; color: rgba(10, 10, 10, 0.6); }
+.chv-fiche__carte-appel a { color: var(--chv-noir); }
+.chv-fiche__barre { display: none; }
+
+@media (max-width: 900px) {
+  .chv-fiche__corps { grid-template-columns: 1fr; padding-bottom: 110px; }
+  .chv-fiche__reservation { display: none; }
+  .chv-fiche__barre { position: fixed; z-index: 50; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); background: rgba(248, 240, 232, 0.94); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-top: 1px solid rgba(10, 10, 10, 0.12); }
+  .chv-fiche__barre p { margin: 0; min-width: 0; }
+  .chv-fiche__barre strong { display: block; font-family: var(--chv-titre); font-weight: 400; font-size: 19px; text-transform: uppercase; line-height: 1.1; white-space: nowrap; }
+  .chv-fiche__barre span { font-size: 12px; color: rgba(10, 10, 10, 0.6); }
+  .chv-fiche__barre .chv-pastille--grand { flex: none; width: auto; height: 48px; padding: 0 20px; font-size: 12px; }
+  .chv-fiche__barre span { white-space: nowrap; }
+  .chv-fiche__savoir { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .chv-fiche__galerie { padding: 0; }
+  .chv-fiche__mosaique { display: flex; height: auto; gap: 0; border-radius: 0; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .chv-fiche__mosaique::-webkit-scrollbar { display: none; }
+  .chv-fiche__tuile { flex: 0 0 100%; aspect-ratio: 4 / 3; scroll-snap-align: start; }
+  .chv-fiche__toutes { right: 16px; bottom: 14px; height: 36px; padding: 0 14px; font-size: 11px; }
+  .chv-fiche__ariane { margin: 20px 0 18px; }
+  .chv-fiche__titre { font-size: 14.5vw; }
+  .chv-fiche__bloc { padding-top: 32px; margin-top: 32px; }
+  .chv-fiche__couchages { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 64%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-right: calc(var(--chv-marge) * -1); padding-right: var(--chv-marge); }
+  .chv-fiche__couchage { scroll-snap-align: start; }
+  .chv-fiche__grille { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .chv-fiche__notes { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .chv-fiche__listes, .chv-fiche__equipements { grid-template-columns: 1fr; gap: 22px; }
+}
+
+/* Visionneuse plein écran */
+.chv-visionneuse { position: fixed; inset: 0; z-index: 120; display: flex; flex-direction: column; background: #0a0a0a; color: var(--chv-creme); animation: chv-fondu 0.35s ease both; }
+@keyframes chv-fondu { from { opacity: 0; } to { opacity: 1; } }
+.chv-visionneuse__haut { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: max(14px, env(safe-area-inset-top)) 16px 10px 20px; }
+.chv-visionneuse__haut p { margin: 0; min-width: 0; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chv-visionneuse__compteur { margin-right: 14px; }
+.chv-visionneuse__legende { opacity: 0.7; }
+.chv-visionneuse__cadre { flex: 1; min-height: 0; margin: 0; display: flex; align-items: center; justify-content: center; padding: 0 72px max(20px, env(safe-area-inset-bottom)); }
+.chv-visionneuse__cadre img { max-width: 100%; max-height: 100%; object-fit: contain; animation: chv-fondu 0.3s ease both; }
+.chv-visionneuse__bouton { flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgba(248, 240, 232, 0.35); background: rgba(10, 10, 10, 0.45); color: var(--chv-creme); cursor: pointer; }
+.chv-visionneuse__bouton:hover { background: rgba(248, 240, 232, 0.14); }
+.chv-visionneuse__fleche { position: absolute; top: 50%; translate: 0 -50%; }
+.chv-visionneuse__fleche--g { left: 16px; }
+.chv-visionneuse__fleche--d { right: 16px; }
+@media (max-width: 760px) {
+  .chv-visionneuse__cadre { padding: 0 0 max(70px, calc(env(safe-area-inset-bottom) + 70px)); }
+  .chv-visionneuse__fleche { top: auto; bottom: max(14px, env(safe-area-inset-bottom)); translate: none; }
+  .chv-visionneuse__fleche--g { left: calc(50% - 56px); }
+  .chv-visionneuse__fleche--d { right: calc(50% - 56px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chv-fiche__tuile img, .chv-fiche__vignette img { transition: none; }
+  .chv-visionneuse, .chv-visionneuse__cadre img { animation: none; }
+}

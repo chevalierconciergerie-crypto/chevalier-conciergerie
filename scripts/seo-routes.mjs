@@ -296,6 +296,17 @@ const STATIC_ROUTES = [
       clients. Je recommande vivement pour tout projet de location courte durée sur le
       secteur Gard et Vaucluse. » — Félicien Arnoux</p></blockquote>
 
+      <h2>Nos logements : réservez en direct</h2>
+      <p>Une sélection de nos plus beaux appartements à Avignon, tenus comme un hôtel.
+      Réservez directement auprès de nous, sans frais de plateforme.</p>
+      <h3>Le Vernet — Avignon intra-muros</h3>
+      <p>Un T3 rénové au deuxième étage, dans une rue calme du centre historique : hauts
+      plafonds, moulures, cheminée en marbre et fenêtres sur une cour intérieure. 4 voyageurs,
+      2 chambres, 3 lits, 1 salle de bain. Climatisation, cour intérieure, hypercentre.
+      Note de 4,77 sur 5 pour 13 avis voyageurs sur Airbnb.</p>
+      <p><a href="/logements/le-vernet">Découvrir Le Vernet : photos, description, équipements</a> ·
+      <a href="/contact">Réserver Le Vernet en direct</a></p>
+
       <h2>Le fondateur</h2>
       <p>À seulement 20 ans, Victor Chevalier fait partie de cette nouvelle génération
       d'entrepreneurs qui osent concrétiser leurs ambitions. Originaire d'Avignon, il a fondé
@@ -512,6 +523,113 @@ const STATIC_ROUTES = [
       </ul>
     </main>`,
     jsonLd: [breadcrumb({ name: "Contact", path: "/contact" })],
+  },
+  /*
+    Fiche du Vernet (src/pages/Logement.tsx, contenu dans src/data/logementsVitrine.ts,
+    repris de l'annonce Airbnb). Le texte ci-dessous reprend celui de la fiche : toute
+    modification de l'un doit être reportée sur l'autre.
+  */
+  {
+    path: "/logements/le-vernet",
+    changefreq: "monthly",
+    priority: "0.8",
+    title: "Le Vernet — Appartement à Avignon intra-muros | Réservation directe | Chevalier Conciergerie",
+    description:
+      "Un T3 rénové au deuxième étage, dans une rue calme du centre historique : hauts plafonds, moulures, cheminée en marbre et fenêtres sur une cour intérieure.",
+    keywords: "location appartement Avignon intra-muros, appartement Avignon centre historique, location saisonnière Avignon, réservation directe Avignon, T3 Avignon 4 personnes",
+    ogImage: "/logements/le-vernet/photos/salon-6.jpg",
+    bodyHtml: `<main>
+      <nav><a href="/">Accueil</a> › <a href="/#logements">Nos logements</a> › Le Vernet</nav>
+      <p>Avignon intra-muros</p>
+      <h1>Le Vernet</h1>
+      <p>Appartement entier · 4 voyageurs · 2 chambres · 3 lits · 1 salle de bain.
+      Note de 4,77 sur 5 pour 13 avis voyageurs sur Airbnb.</p>
+
+      <h2>Le logement</h2>
+      <p>Bienvenue dans ce charmant T3 entièrement rénové au cœur d'Avignon intra-muros, alliant
+      cachet et modernité. Belle hauteur sous plafond et grande fenêtre lumineuse avec vue sur la
+      cour intérieure.</p>
+      <p>Situé au deuxième étage d'une rue calme intra-muros, vous profitez d'un emplacement
+      privilégié : commerces, restaurants, Les Halles, théâtres et gare SNCF sont accessibles à
+      pied en quelques minutes. Tout se fait facilement sans voiture.</p>
+      <p>Appartement chaleureux et confortable, parfait pour découvrir Avignon tout en profitant
+      du calme. Capacité maximale : 4 personnes.</p>
+      <h3>Chambre 1</h3><ul><li>1 lit double 160 × 190 cm</li><li>Espace de rangement</li></ul>
+      <h3>Chambre 2</h3><ul><li>1 lit double 160 × 190 cm</li><li>Espace de rangement</li><li>Bureau</li><li>Climatisation</li></ul>
+      <h3>Linge de maison fourni</h3><ul><li>Draps, housse de couette, taies d'oreiller</li><li>Serviettes de bain</li><li>Tapis de bain</li><li>Torchon de cuisine</li></ul>
+      <h3>Cuisine équipée</h3><ul><li>Plaque de cuisson</li><li>Lave-vaisselle</li><li>Four</li><li>Réfrigérateur</li><li>Cafetière (capsules offertes)</li><li>Vaisselle et nécessaire pour cuisiner</li></ul>
+      <h3>Salle de bain</h3><ul><li>Douche</li><li>Sèche-cheveux</li><li>WC</li></ul>
+      <h3>Équipements</h3><ul><li>WiFi gratuit et illimité</li><li>Seconde climatisation dans le salon</li><li>Le ménage comprend le lavage et le blanchissage du linge</li></ul>
+      <p>Pour les séjours de moyenne durée, un ménage supplémentaire peut être organisé sur demande.</p>
+
+      <h2>Où vous dormirez</h2>
+      <ul><li>Chambre 1 : 1 lit queen size</li><li>Chambre 2 : 1 lit queen size</li><li>Salon : 1 canapé convertible</li></ul>
+
+      <h2>Visite pièce par pièce</h2>
+      <p>41 photos : salon, cuisine, espace repas, chambre 1, chambre 2, salle de bain, cour et jardin, entrée.</p>
+
+      <h2>Équipements</h2>
+      <ul>
+        <li>Cuisine et salle à manger : cuisine, réfrigérateur, congélateur, four, cuisinière, plaques de cuisson, lave-vaisselle, cafetière, café, bouilloire électrique, vaisselle et couverts, verres à vin, tout le nécessaire pour cuisiner, table à manger</li>
+        <li>Chambre et linge : linge de lit, oreillers et couvertures supplémentaires, rideaux occultants, rangements pour les vêtements, cintres, fer à repasser</li>
+        <li>Salle de bain : sèche-cheveux, shampoing, gel douche, savon pour le corps, eau chaude</li>
+        <li>Chauffage et climatisation : climatisation, chauffage</li>
+        <li>Internet et bureau : wifi, espace de travail dédié</li>
+        <li>Divertissement : système audio, livres et de quoi lire</li>
+        <li>Sécurité : détecteur de fumée, détecteur de monoxyde de carbone</li>
+      </ul>
+      <p>Non disponible : télévision, lave-linge.</p>
+
+      <h2>Notes des voyageurs</h2>
+      <p>4,77 sur 5 pour 13 avis sur Airbnb. Propreté 4,9 · Précision 4,9 · Arrivée 4,8 ·
+      Communication 4,7 · Emplacement 5,0 · Qualité-prix 4,8.</p>
+
+      <h2>À savoir</h2>
+      <ul>
+        <li>Arrivée : entre 17:00 et 00:00</li>
+        <li>Départ : avant 10:00</li>
+        <li>Jusqu'à 4 voyageurs</li>
+        <li>Pas d'animaux (animaux d'assistance uniquement)</li>
+        <li>Logement non-fumeur, vapotage compris</li>
+        <li>Pas de fête ni de soirée</li>
+        <li>Calme à respecter de 22:00 à 08:00</li>
+        <li>Chaussures retirées à l'entrée</li>
+      </ul>
+      <p>Une caméra de surveillance est installée à l'intérieur de l'immeuble, pour des raisons de
+      sécurité. Elle ne filme aucun espace privé. Détecteur de fumée et détecteur de monoxyde de
+      carbone installés.</p>
+
+      <h2>Emplacement</h2>
+      <p>Au deuxième étage d'une rue calme d'Avignon intra-muros. Commerces, restaurants, Les
+      Halles, théâtres et gare SNCF sont à quelques minutes à pied. L'adresse exacte est
+      communiquée après la réservation.</p>
+
+      <p><a href="/contact">Réserver Le Vernet en direct</a> — sans frais de plateforme.
+      Une question ? <a href="tel:+33783198341">07 83 19 83 41</a></p>
+    </main>`,
+    jsonLd: [
+      breadcrumb({ name: "Nos logements", path: "/#logements" }, { name: "Le Vernet", path: "/logements/le-vernet" }),
+      {
+        "@context": "https://schema.org",
+        "@type": "Apartment",
+        name: "Le Vernet",
+        description:
+          "T3 rénové au deuxième étage, dans une rue calme d'Avignon intra-muros : hauts plafonds, moulures, cheminée en marbre et fenêtres sur une cour intérieure.",
+        url: `${SITE}/logements/le-vernet`,
+        image: ["salon-6", "salon-4", "chambre1-3", "chambre2-4", "salon-2"].map((f) => `${SITE}/logements/le-vernet/photos/${f}.jpg`),
+        numberOfRooms: 3,
+        numberOfBedrooms: 2,
+        numberOfBathroomsTotal: 1,
+        occupancy: { "@type": "QuantitativeValue", maxValue: 4 },
+        petsAllowed: false,
+        address: { "@type": "PostalAddress", addressLocality: "Avignon", postalCode: "84000", addressCountry: "FR" },
+        amenityFeature: ["Climatisation", "Wifi", "Cuisine équipée", "Lave-vaisselle", "Espace de travail dédié", "Chauffage"].map((n) => ({
+          "@type": "LocationFeatureSpecification",
+          name: n,
+          value: true,
+        })),
+      },
+    ],
   },
   {
     path: "/a-propos",
@@ -958,6 +1076,12 @@ function readProperties() {
   ressortir le français plutôt que de laisser un trou, comme dans en.ts.
 */
 const SEO_EN = {
+  "Le Vernet — Appartement à Avignon intra-muros | Réservation directe | Chevalier Conciergerie":
+    "Le Vernet — Flat in Avignon's old town | Direct booking | Chevalier Conciergerie",
+  "Un T3 rénové au deuxième étage, dans une rue calme du centre historique : hauts plafonds, moulures, cheminée en marbre et fenêtres sur une cour intérieure.":
+    "A renovated two-bedroom flat on the second floor, on a quiet street in the historic centre: high ceilings, mouldings, a marble fireplace and windows over an inner courtyard.",
+  "location appartement Avignon intra-muros, appartement Avignon centre historique, location saisonnière Avignon, réservation directe Avignon, T3 Avignon 4 personnes":
+    "Avignon old town flat rental, Avignon historic centre apartment, Avignon holiday rental, book direct Avignon, two-bedroom flat Avignon",
   // Titres
   "Conciergerie Avignon | Gestion Locative & Sous-location | Chevalier Conciergerie":
     "Property Management Avignon | Guaranteed Rent & Holiday Lets | Chevalier Conciergerie",

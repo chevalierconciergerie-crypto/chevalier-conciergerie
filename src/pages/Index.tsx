@@ -3,6 +3,7 @@ import EnTete from "@/components/accueil/EnTete";
 import HeroAvignon from "@/components/accueil/HeroAvignon";
 import Fondateur from "@/components/accueil/Fondateur";
 import { Temoignages } from "@/components/accueil/Journal";
+import { LogementsAccueil } from "@/components/accueil/Logements";
 import PiedDePage from "@/components/accueil/PiedDePage";
 
 /*
@@ -50,6 +51,8 @@ const Index = () => {
             le menu : elles ne sont plus répétées ici.
           */}
           <Temoignages />
+          {/* Sous les avis : les plus beaux logements, en visite filmée et en réservation directe. */}
+          <LogementsAccueil />
         </main>
         <PiedDePage />
       </div>

@@ -28,6 +28,7 @@ import APropos from "./pages/APropos";
 import CGV from "./pages/CGV";
 import Journal from "./pages/Journal";
 import JournalArticle from "./pages/JournalArticle";
+import Logement from "./pages/Logement";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -71,6 +72,7 @@ const App = () => (
               <Route path="/cgv" element={<CGV />} />
               <Route path="/blog" element={<Journal />} />
               <Route path="/blog/:slug" element={<JournalArticle />} />
+              <Route path="/logements/:slug" element={<Logement />} />
               <Route path="/en" element={<Index />} />
               <Route path="/en/conciergerie" element={<Conciergerie />} />
               <Route path="/en/sous-location" element={<SousLocation />} />
@@ -91,6 +93,7 @@ const App = () => (
               <Route path="/en/cgv" element={<CGV />} />
               <Route path="/en/blog" element={<Journal />} />
               <Route path="/en/blog/:slug" element={<JournalArticle />} />
+              <Route path="/en/logements/:slug" element={<Logement />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
