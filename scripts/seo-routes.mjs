@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import { CONDITIONS, CONFIDENTIALITE, MENTIONS_LEGALES, htmlLegal } from "../src/data/pagesLegales.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -590,6 +591,9 @@ const STATIC_ROUTES = [
         <li>Calme à respecter de 22:00 à 08:00</li>
         <li>Chaussures retirées à l'entrée</li>
       </ul>
+      <p>Annulation gratuite jusqu'à 5 jours avant l'arrivée. Ensuite, 50 % du prix des nuits est
+      remboursé, sauf la première nuit. <a href="/cgv#location">Conditions de location</a>.</p>
+      <p>Logement loué par son propriétaire et géré par Chevalier Conciergerie.</p>
       <p>Une caméra de surveillance est installée à l'intérieur de l'immeuble, pour des raisons de
       sécurité. Elle ne filme aucun espace privé. Détecteur de fumée et détecteur de monoxyde de
       carbone installés.</p>
@@ -828,63 +832,9 @@ const STATIC_ROUTES = [
     priority: "0.3",
     title: "Conditions générales de vente | Chevalier Conciergerie Avignon",
     description:
-      "Conditions générales de vente applicables aux prestations de conciergerie Airbnb et de sous-location avec loyer garanti proposées par CHEVALIER LOCABUSINESS à Avignon.",
-    bodyHtml: `<main>
-      <nav><a href="/">Accueil</a> › Conditions générales de vente</nav>
-      <h1>Conditions générales de vente</h1>
-      <p>Conditions applicables aux prestations de conciergerie et de gestion locative
-      fournies par CHEVALIER LOCABUSINESS.</p>
-
-      <h2>Article 1 — Objet</h2>
-      <p>Les présentes Conditions Générales de Vente régissent les relations
-      contractuelles entre CHEVALIER LOCABUSINESS et tout propriétaire ou client
-      souscrivant à ses services de conciergerie et de gestion locative. Toute
-      commande implique l'acceptation sans réserve des présentes CGV.</p>
-
-      <h2>Article 2 — Services proposés</h2>
-      <p>Deux offres principales : (1) conciergerie et gestion locative courte durée
-      (création et optimisation des annonces, gestion des réservations, accueil,
-      ménage, linge, maintenance courante) ; (2) sous-location professionnelle avec
-      loyer garanti, par laquelle le Prestataire prend à bail le bien du Client puis
-      en assure l'exploitation.</p>
-
-      <h2>Article 3 — Tarifs et honoraires</h2>
-      <p>Honoraires exprimés en pourcentage des revenus locatifs générés ou sous
-      forme de forfait, selon l'offre choisie. La taxe de séjour, collectée pour la
-      collectivité, ne constitue jamais un revenu du Prestataire.</p>
-
-      <h2>Article 4 — Obligations du Prestataire</h2>
-      <p>Le Prestataire exécute les prestations avec professionnalisme et diligence,
-      dans le respect de la réglementation applicable à la location de courte durée.
-      Il rend compte régulièrement au Client de la gestion et lui reverse les sommes
-      dues selon la périodicité convenue.</p>
-
-      <h2>Article 5 — Obligations du Client</h2>
-      <p>Le Client garantit être propriétaire du bien confié ou disposer des
-      autorisations nécessaires (règlement de copropriété, changement d'usage,
-      déclaration en mairie).</p>
-
-      <h2>Article 6 — Durée et résiliation</h2>
-      <p>Le contrat est conclu pour la durée stipulée entre les parties, résiliable
-      par lettre recommandée avec accusé de réception moyennant le préavis fixé au
-      contrat.</p>
-
-      <h2>Article 7 — Responsabilité</h2>
-      <p>Le Prestataire est tenu d'une obligation de moyens, non de résultat. Sa
-      responsabilité n'est pas engagée en cas de force majeure, de fait d'un tiers
-      ou de manquement du Client.</p>
-
-      <h2>Article 8 — Données personnelles</h2>
-      <p>Les données sont traitées conformément au RGPD, comme détaillé dans la
-      <a href="/politique-confidentialite">politique de confidentialité</a>.</p>
-
-      <h2>Article 9 — Droit applicable et litiges</h2>
-      <p>Droit français. À défaut d'accord amiable, litige porté devant les
-      tribunaux compétents du siège social du Prestataire.</p>
-
-      <p><a href="/mentions-legales">Mentions légales</a> ·
-      <a href="/politique-confidentialite">Politique de confidentialité</a></p>
-    </main>`,
+      "Conditions générales de Chevalier Conciergerie : location de nos logements (réservation, paiement, annulation, séjour) et prestations de conciergerie et de sous-location aux propriétaires.",
+    // Texte des robots tiré de src/data/pagesLegales.js, comme la page.
+    bodyHtml: htmlLegal(CONDITIONS, "/cgv"),
     jsonLd: [breadcrumb({ name: "Conditions générales de vente", path: "/cgv" })],
     stripBusinessSchema: true,
   },
@@ -895,129 +845,15 @@ const STATIC_ROUTES = [
     title: "Mentions légales | Chevalier Conciergerie Avignon",
     description:
       "Mentions légales de Chevalier Conciergerie (CHEVALIER LOCABUSINESS) — éditeur, siège social à Villeneuve-lès-Avignon, hébergeur et directeur de publication.",
-    bodyHtml: `<main>
-      <nav><a href="/">Accueil</a> › Mentions légales</nav>
-      <h1>Mentions légales</h1>
-      <p>Conformément à la loi n° 2004-575 du 21 juin 2004 pour la confiance dans
-      l'économie numérique.</p>
-
-      <h2>Éditeur du site</h2>
-      <ul>
-        <li>Raison sociale : CHEVALIER LOCABUSINESS</li>
-        <li>Forme juridique : SAS (Société par Actions Simplifiée)</li>
-        <li>SIREN : 995 268 802</li>
-        <li>SIRET : 995 268 802 00015</li>
-        <li>TVA intracommunautaire : FR45995268802</li>
-        <li>RCS : Nîmes</li>
-        <li>Code NAF/APE : 6820A — Location de logements</li>
-      </ul>
-
-      <h2>Siège social</h2>
-      <p>5 Lotissement Les Cades, 30400 Villeneuve-lès-Avignon, France</p>
-
-      <h2>Contact</h2>
-      <ul>
-        <li>Téléphone : <a href="tel:+33783198341">+33 7 83 19 83 41</a></li>
-        <li>Email : <a href="mailto:contact@chevalier-conciergerie.com">contact@chevalier-conciergerie.com</a></li>
-      </ul>
-
-      <h2>Publication</h2>
-      <ul>
-        <li>Directeur de la publication : CHEVALIER LOCABUSINESS</li>
-        <li>Site web : chevalier-conciergerie.com</li>
-      </ul>
-
-      <h2>Hébergement</h2>
-      <p>Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA.</p>
-
-      <p><a href="/cgv">Conditions générales de vente</a> ·
-      <a href="/politique-confidentialite">Politique de confidentialité</a></p>
-    </main>`,
+    // Texte des robots tiré de src/data/pagesLegales.js, comme la page.
+    bodyHtml: htmlLegal(MENTIONS_LEGALES, "/mentions-legales"),
     jsonLd: [breadcrumb({ name: "Mentions légales", path: "/mentions-legales" })],
     stripBusinessSchema: true,
   },
   {
     path: "/politique-confidentialite",
-    bodyHtml: `<main>
-<nav><a href="/">Accueil</a> › Politique de Confidentialité</nav>
-<h1>Protection des données</h1>
-<p>Transparence et sécurité au cœur de notre engagement</p>
-
-<h2>Donnée personnelle</h2>
-<p>Définition</p>
-<p>Une donnée personnelle est toute information permettant d'identifier directement ou indirectement une personne physique. Il peut s'agir de votre nom, prénom, adresse email, numéro de téléphone, adresse postale, ou encore de votre adresse IP.</p>
-
-<h2>Données collectées</h2>
-<p>Ce que nous recueillons</p>
-<ul>
-<li>Données d'identification : nom, prénom, adresse email, numéro de téléphone</li>
-<li>Données relatives à votre bien : adresse, type de bien, caractéristiques</li>
-<li>Données de navigation : adresse IP, type de navigateur, pages visitées</li>
-<li>Données de correspondance : messages envoyés via le formulaire de contact</li>
-</ul>
-
-<h2>Responsable</h2>
-<p>Qui traite vos données</p>
-<p>CHEVALIER LOCABUSINESS (SASU)
-Nom commercial : Chevalier Conciergerie
-Siège social : Avignon, 84000 France
-Email : contact@chevalier-conciergerie.com
-Téléphone : +33 7 83 19 83 41</p>
-
-<h2>Finalités</h2>
-<p>Pourquoi nous collectons</p>
-<h3>Traitements contractuels</h3>
-<ul>
-<li>Gestion des demandes de contact et de devis</li>
-<li>Gestion de la relation client et de nos prestations</li>
-<li>Communication relative à nos services</li>
-</ul>
-<h3>Traitements avec consentement</h3>
-<ul>
-<li>Communications marketing</li>
-<li>Amélioration de votre expérience utilisateur</li>
-</ul>
-<p>Retrait du consentement : contact@chevalier-conciergerie.com</p>
-
-<h2>Stockage</h2>
-<p>Où sont vos données</p>
-<p>Vos données sont stockées sur des serveurs sécurisés situés dans l'Union Européenne. Nous mettons en œuvre toutes les mesures techniques et organisationnelles appropriées pour protéger vos données.</p>
-
-<h2>Conservation</h2>
-<p>Durées de rétention</p>
-<ul>
-<li>Données clients : durée de la relation + 3 ans</li>
-<li>Données de prospection : 3 ans après dernier contact</li>
-<li>Données de facturation : 10 ans (obligations légales)</li>
-<li>Données de navigation : 13 mois maximum</li>
-</ul>
-
-<h2>Vos droits</h2>
-<p>RGPD</p>
-<ul>
-<li>Droit d'accès : obtenir une copie de vos données</li>
-<li>Droit de rectification : corriger des données inexactes</li>
-<li>Droit à l'effacement : demander la suppression</li>
-<li>Droit à la limitation : limiter le traitement</li>
-<li>Droit à la portabilité : recevoir vos données</li>
-<li>Droit d'opposition : vous opposer au traitement</li>
-</ul>
-<p>Contact : contact@chevalier-conciergerie.com
-Réclamation CNIL : www.cnil.fr</p>
-
-<h2>Cookies</h2>
-<p>Navigation</p>
-<h3>Types de cookies utilisés</h3>
-<ul>
-<li>Cookies essentiels : nécessaires au fonctionnement</li>
-<li>Cookies analytiques : comprendre votre utilisation</li>
-</ul>
-<p>Vous pouvez configurer votre navigateur pour refuser les cookies.</p>
-
-<p>Sélectionnez une catégorie pour en savoir plus</p>
-
-<p>Mise à jour : Janvier 2026 · Questions ?</p>
-</main>`,
+    // Texte des robots tiré de src/data/pagesLegales.js, comme la page.
+    bodyHtml: htmlLegal(CONFIDENTIALITE, "/politique-confidentialite"),
     changefreq: "yearly",
     priority: "0.3",
     title: "Politique de confidentialité | RGPD | Chevalier Conciergerie",
@@ -1070,6 +906,8 @@ function readProperties() {
   ressortir le français plutôt que de laisser un trou, comme dans en.ts.
 */
 const SEO_EN = {
+  "Conditions générales de Chevalier Conciergerie : location de nos logements (réservation, paiement, annulation, séjour) et prestations de conciergerie et de sous-location aux propriétaires.":
+    "Chevalier Conciergerie terms and conditions: renting our homes (booking, payment, cancellation, stay) and property management and guaranteed-rent services for owners.",
   "Le Vernet — Appartement à Avignon intra-muros | Réservation directe | Chevalier Conciergerie":
     "Le Vernet — Flat in Avignon's old town | Direct booking | Chevalier Conciergerie",
   "Un T3 rénové au deuxième étage, dans une rue calme du centre historique : hauts plafonds, moulures, cheminée en marbre et fenêtres sur une cour intérieure.":

@@ -231,6 +231,26 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
                   </ul>
                 </div>
                 <div>
+                  <h3>{t("Annulation")}</h3>
+                  <ul>
+                    <li>{t(l.annulation)}</li>
+                    <li>
+                      <Link to={`${lien("/cgv")}#location`}>{t("Voir les conditions de location")}</Link>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3>{t("Gestion")}</h3>
+                  <ul>
+                    <li>{t("Logement loué par son propriétaire et géré par Chevalier Conciergerie.")}</li>
+                    {l.numeroEnregistrement && (
+                      <li>
+                        {t("Numéro d'enregistrement :")} {l.numeroEnregistrement}
+                      </li>
+                    )}
+                  </ul>
+                </div>
+                <div>
                   <h3>{t("Sécurité")}</h3>
                   <ul>
                     {l.securite.map((r) => (
@@ -263,7 +283,11 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
                 <li>
                   {t("Départ :")} {t(l.depart)}
                 </li>
+                <li>{t(l.annulation)}</li>
               </ul>
+              <p className="chv-fiche__carte-conditions">
+                <Link to={`${lien("/cgv")}#location`}>{t("Voir les conditions de location")}</Link>
+              </p>
               <p className="chv-fiche__carte-appel">
                 {t("Une question ?")} <a href={TELEPHONE.lien}>{TELEPHONE.affiche}</a>
               </p>

@@ -1,3 +1,5 @@
+import { SOCIETE } from "./pagesLegales.js";
+
 /*
   Contenus de l'accueil en une seule page. Les textes sont ceux validés par
   Victor sur la maquette (septembre 2026) ; les FAQ et les avis viennent de
@@ -203,12 +205,5 @@ export const COUVERTURES_BLOG: Record<string, string> = {
   "declarer-location-saisonniere-avignon": "/accueil/hero-pont-avignon.webp",
 };
 
-export const LEGAL = {
-  raisonSociale: "CHEVALIER LOCABUSINESS",
-  forme: "SAS",
-  siret: "995 268 802 00015",
-  tva: "FR45995268802",
-  rcs: "Nîmes",
-  ape: "6820A",
-  adresse: "5 Lotissement Les Cades, 30400 Villeneuve-lès-Avignon, France",
-};
+/* L'identité de la société vit dans src/data/pagesLegales.js, avec les pages légales. */
+export const LEGAL = SOCIETE;

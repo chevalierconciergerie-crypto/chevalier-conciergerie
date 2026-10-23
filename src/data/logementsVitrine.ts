@@ -44,6 +44,10 @@ export interface LogementVitrine {
   nonInclus: string[];
   arrivee: string;
   depart: string;
+  /** Conditions d'annulation, en une phrase (le détail est dans /cgv#location). */
+  annulation: string;
+  /** Numéro d'enregistrement en mairie, obligatoire sur toute annonce ; affiché dès qu'il est renseigné. */
+  numeroEnregistrement: string;
   reglement: string[];
   securite: string[];
   quartier: string[];
@@ -207,6 +211,8 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     nonInclus: ["Télévision", "Lave-linge"],
     arrivee: "entre 17:00 et 00:00",
     depart: "avant 10:00",
+    annulation: "Annulation gratuite jusqu'à 5 jours avant l'arrivée. Ensuite, 50 % du prix des nuits est remboursé, sauf la première nuit.",
+    numeroEnregistrement: "",
     reglement: [
       "Jusqu'à 4 voyageurs",
       "Pas d'animaux (animaux d'assistance uniquement)",

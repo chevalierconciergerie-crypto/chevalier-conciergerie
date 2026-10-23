@@ -46,7 +46,8 @@ const COLONNES = [
     liens: [
       { libelle: "Mentions légales", lien: "/mentions-legales" },
       { libelle: "CGV", lien: "/cgv" },
-      { libelle: "Politique de confidentialité", lien: "/politique-confidentialite" },
+      { libelle: "Conditions de location", lien: "/cgv#location" },
+      { libelle: "Confidentialité (RGPD)", lien: "/politique-confidentialite" },
     ],
   },
 ];
@@ -94,6 +95,15 @@ const PiedDePage = () => {
     <p className="chv-pied__mentions">
       {LEGAL.raisonSociale} · {LEGAL.forme} · SIRET {LEGAL.siret} · TVA {LEGAL.tva} · RCS {LEGAL.rcs} · APE {LEGAL.ape}
     </p>
+    {/* Les liens légaux répétés tout en bas, sur une ligne : c'est là qu'on les cherche. */}
+    <nav className="chv-pied__legal" aria-label={t("Informations légales")}>
+      <Link to={lien("/mentions-legales")}>{t("Mentions légales")}</Link>
+      <Link to={lien("/cgv")}>{t("CGV")}</Link>
+      <Link to={lien("/politique-confidentialite")}>{t("Confidentialité (RGPD)")}</Link>
+      <button type="button" onClick={() => window.dispatchEvent(new Event(EVENEMENT_COOKIES))}>
+        {t("Gestion des cookies")}
+      </button>
+    </nav>
     <p className="chv-pied__bas">
       <span>
         © {new Date().getFullYear()} Chevalier Conciergerie. {t("Tous droits réservés — Taxe de séjour collectée pour le compte de la collectivité et reversée intégralement.")}

@@ -35,6 +35,9 @@ export const EN: Record<string, string> = {
   "Mentions légales": "Legal notice",
   "Politique de confidentialité": "Privacy policy",
   "Gestion des cookies": "Cookie settings",
+  "CGV": "Terms",
+  "Conditions de location": "Rental terms",
+  "Confidentialité (RGPD)": "Privacy (GDPR)",
   "À propos": "About",
   "Tarifs": "Pricing",
   "Villes": "Cities",
@@ -461,6 +464,13 @@ export const EN: Record<string, string> = {
     "The living room at Le Vernet: a table laid by a window open onto the courtyard",
 
   /* ---------- Fiche d'un logement (/logements/<slug>) ---------- */
+  "Annulation": "Cancellation",
+  "Annulation gratuite jusqu'à 5 jours avant l'arrivée. Ensuite, 50 % du prix des nuits est remboursé, sauf la première nuit.":
+    "Free cancellation up to 5 days before arrival. After that, 50% of the nightly price is refunded, except for the first night.",
+  "Voir les conditions de location": "See the rental terms",
+  "Logement loué par son propriétaire et géré par Chevalier Conciergerie.": "Rented by its owner and managed by Chevalier Conciergerie.",
+  "Numéro d'enregistrement :": "Registration number:",
+  "Gestion": "Management",
   "Réserver": "Book",
   "Photos": "Photos",
   "2 lits": "2 beds",

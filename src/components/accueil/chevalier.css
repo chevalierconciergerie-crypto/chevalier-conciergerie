@@ -550,6 +550,9 @@
 .chv-pied__mentions { max-width: 1180px; margin: 0 auto; font-size: 12px !important; line-height: 1.9 !important; color: rgba(10, 10, 10, 0.45) !important; }
 .chv-pied__bas { max-width: 1180px; margin: 14px auto 0 !important; font-size: 12px !important; line-height: 1.8 !important; color: rgba(10, 10, 10, 0.4) !important; display: flex; flex-wrap: wrap; gap: 6px 22px; }
 .chv-pied__bas a { color: inherit; }
+.chv-pied__legal { max-width: 1180px; margin: 22px auto 0; padding-top: 16px; border-top: 1px solid rgba(10, 10, 10, 0.1); display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 13px; }
+.chv-pied__legal a, .chv-pied__legal button { color: rgba(10, 10, 10, 0.7); text-decoration: none; background: none; border: 0; padding: 6px 0; font-family: var(--chv-texte); font-size: 13px; cursor: pointer; }
+.chv-pied__legal a:hover, .chv-pied__legal button:hover { color: var(--chv-cuivre-fonce); }
 
 /* Les pages intérieures gardent leur mise en page : la barre fixe fait 76 px. */
 .chv-decalage-barre { height: var(--chv-barre); }
@@ -1522,7 +1525,10 @@ main.chv > .chv-section:first-child { padding-top: max(min(11vw, 120px), calc(va
 .chv-fiche__carte .chv-etiquette { margin-bottom: 10px; }
 .chv-fiche__carte-nom { font-family: var(--chv-titre); font-size: 34px; line-height: 1; text-transform: uppercase; margin: 0 0 10px; }
 .chv-fiche__carte .chv-logement__reserver { width: 100%; margin-top: 22px; }
-.chv-fiche__carte-infos { list-style: none; padding: 16px 0 0; margin: 18px 0 0; border-top: 1px solid rgba(10, 10, 10, 0.08); font-size: 14px; line-height: 1.8; }
+.chv-fiche__carte-infos { list-style: none; padding: 16px 0 0; margin: 18px 0 0; border-top: 1px solid rgba(10, 10, 10, 0.08); font-size: 14px; line-height: 1.6; }
+.chv-fiche__carte-infos li { padding: 3px 0; }
+.chv-fiche__carte-conditions { margin: 10px 0 0; font-size: 13px; }
+.chv-fiche__carte-conditions a, .chv-fiche__savoir a { color: var(--chv-noir); text-underline-offset: 3px; }
 .chv-fiche__carte-appel { margin: 12px 0 0; font-size: 13px; color: rgba(10, 10, 10, 0.6); }
 .chv-fiche__carte-appel a { color: var(--chv-noir); }
 .chv-fiche__barre { display: none; }
@@ -1579,4 +1585,29 @@ main.chv > .chv-section:first-child { padding-top: max(min(11vw, 120px), calc(va
 @media (prefers-reduced-motion: reduce) {
   .chv-fiche__tuile img, .chv-fiche__vignette img { transition: none; }
   .chv-visionneuse, .chv-visionneuse__cadre img { animation: none; }
+}
+
+/* ============ Pages légales ============ */
+.chv-legal { padding: calc(var(--chv-barre) + min(8vw, 72px)) var(--chv-marge) min(12vw, 120px); }
+.chv-legal__article { max-width: 760px; margin: 0 auto; }
+.chv-legal__titre { font-family: var(--chv-titre); font-weight: 400; font-size: min(10vw, 56px); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 18px; }
+.chv-legal__intro { font-size: 17px; line-height: 1.7; color: rgba(10, 10, 10, 0.7); margin: 0 0 28px; }
+.chv-legal__sommaire { display: flex; flex-direction: column; gap: 6px; padding: 18px 0; margin: 0 0 12px; border-top: 1px solid rgba(10, 10, 10, 0.12); border-bottom: 1px solid rgba(10, 10, 10, 0.12); }
+.chv-legal__sommaire a { color: var(--chv-noir); font-size: 15px; text-underline-offset: 3px; }
+.chv-legal h2 { font-family: var(--chv-titre); font-weight: 400; font-size: min(7vw, 30px); line-height: 1.15; margin: 44px 0 14px; scroll-margin-top: 100px; }
+.chv-legal h3 { font-family: var(--chv-texte); font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--chv-cuivre-fonce); margin: 30px 0 10px; }
+.chv-legal p, .chv-legal li { font-size: 16px; line-height: 1.75; color: rgba(10, 10, 10, 0.78); }
+.chv-legal p { margin: 0 0 14px; }
+.chv-legal ul { margin: 0 0 14px; padding-left: 20px; }
+.chv-legal li { margin: 0 0 6px; }
+.chv-legal a { color: var(--chv-noir); text-underline-offset: 3px; }
+.chv-legal__partie { scroll-margin-top: 100px; }
+.chv-legal__fiche { margin: 0 0 14px; }
+.chv-legal__fiche div { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 16px; padding: 10px 0; border-bottom: 1px solid rgba(10, 10, 10, 0.08); }
+.chv-legal__fiche dt { font-size: 14px; color: rgba(10, 10, 10, 0.55); }
+.chv-legal__fiche dd { margin: 0; font-size: 15px; }
+.chv-legal__maj { margin-top: 48px !important; font-size: 13px !important; color: rgba(10, 10, 10, 0.5) !important; }
+@media (max-width: 560px) {
+  .chv-legal__fiche div { grid-template-columns: 1fr; gap: 2px; }
+  .chv-legal p, .chv-legal li { font-size: 15px; }
 }
