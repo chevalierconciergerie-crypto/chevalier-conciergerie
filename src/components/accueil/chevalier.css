@@ -1437,55 +1437,41 @@ main.chv > .chv-section:first-child { padding-top: max(min(11vw, 120px), calc(va
   .chv-menu__liens a { padding: 2px 0; }
 }
 
-/* ============ Nos logements (réservation directe) ============
-   Sous les avis : chaque logement en grand, photo à gauche, texte à droite,
-   la visite filmée s'ouvre en plein écran sur fond noir. */
-.chv-logements__intro { max-width: 34em; margin: calc(min(7vw, 64px) * -0.45) auto 0; font-size: 16px; line-height: 1.7; color: rgba(10, 10, 10, 0.62); text-align: center; }
-.chv-logements__liste { max-width: 1180px; margin: min(8vw, 80px) auto 0; display: grid; gap: min(12vw, 120px); }
-.chv-logement { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: min(6vw, 84px); align-items: center; }
-.chv-logement__media { position: relative; aspect-ratio: 4 / 5; border-radius: 8px; overflow: hidden; box-shadow: 0 40px 80px -42px rgba(10, 10, 10, 0.6); }
-.chv-logement__media > img,
-.chv-logement__lecture img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.8s var(--chv-ease); }
-.chv-logement__lecture { position: absolute; inset: 0; display: block; text-decoration: none; padding: 0; border: 0; background: none; cursor: pointer; color: var(--chv-creme); font-family: var(--chv-texte); text-align: left; }
-.chv-logement__lecture::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10, 10, 10, 0) 52%, rgba(10, 10, 10, 0.58) 100%); pointer-events: none; }
-.chv-logement__lecture:hover img { transform: scale(1.045); }
-.chv-logement__lecture:focus-visible { outline: 2px solid var(--chv-cuivre); outline-offset: -6px; }
-.chv-logement__badge { position: absolute; z-index: 1; top: 18px; left: 18px; padding: 8px 15px; border-radius: 99px; background: rgba(248, 240, 232, 0.92); color: var(--chv-noir); font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; }
-.chv-logement__jouer { position: absolute; z-index: 1; left: 22px; bottom: 22px; display: flex; align-items: center; gap: 14px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
-.chv-logement__jouer small { display: block; margin-top: 4px; font-size: 11px; letter-spacing: 0.1em; opacity: 0.75; }
-.chv-logement__rond { width: 58px; height: 58px; flex: none; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgba(248, 240, 232, 0.75); background: rgba(248, 240, 232, 0.14); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); transition: background 0.4s ease, color 0.4s ease, transform 0.4s var(--chv-ease); }
-.chv-logement__rond svg { margin-left: 3px; }
-.chv-logement__lecture:hover .chv-logement__rond { background: var(--chv-creme); color: var(--chv-noir); transform: scale(1.06); }
-.chv-logement__lieu { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--chv-cuivre-fonce); margin: 0 0 14px; }
-.chv-logement__nom { font-family: var(--chv-titre); font-weight: 400; font-size: min(12vw, 84px); line-height: 0.95; letter-spacing: -0.02em; text-transform: uppercase; margin: 0 0 22px; }
-.chv-logement__accroche { font-size: 17px; line-height: 1.7; color: rgba(10, 10, 10, 0.66); margin: 0 0 24px; max-width: 30em; }
-.chv-logement__details { list-style: none; padding: 0; margin: 0 0 18px; display: flex; flex-wrap: wrap; font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; }
-.chv-logement__details li:not(:last-child)::after { content: "·"; margin: 0 10px; color: var(--chv-cuivre-fonce); }
-.chv-logement__atouts { list-style: none; padding: 0; margin: 0 0 20px; display: flex; flex-wrap: wrap; gap: 8px; }
-.chv-logement__atouts li { padding: 7px 14px; border: 1px solid rgba(10, 10, 10, 0.16); border-radius: 99px; font-size: 12px; letter-spacing: 0.04em; }
-.chv-logement__note { font-size: 13px; color: rgba(10, 10, 10, 0.7); margin: 0 0 30px; }
-.chv-logement__note span { color: var(--chv-cuivre-fonce); }
-.chv-logement__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; }
-.chv-logement__voir { text-decoration: none; display: inline-flex; align-items: center; gap: 10px; padding: 12px 0 6px; border: 0; border-bottom: 1px solid currentColor; background: none; color: var(--chv-noir); font-family: var(--chv-texte); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: color 0.3s ease; }
-.chv-logement__voir:hover { color: var(--chv-cuivre-fonce); }
-.chv-logement__mention { margin: 22px 0 0; font-size: 12px; line-height: 1.6; color: rgba(10, 10, 10, 0.5); }
-
-
-@media (max-width: 860px) {
-  .chv-logement { grid-template-columns: 1fr; gap: 34px; }
-  .chv-logement__nom { font-size: 15vw; }
+/* ============ Nos logements ============
+   Sous les avis : une grille de petites cartes, quatre par rangée sur
+   ordinateur, deux sur téléphone — la liste doit tenir à huit logements et plus. */
+.chv-logements__grille { list-style: none; max-width: 1180px; margin: 0 auto; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 40px 24px; }
+.chv-logements__grille > li { width: calc((100% - 3 * 24px) / 4); }
+.chv-carte-logement { display: block; color: var(--chv-noir); text-decoration: none; }
+.chv-carte-logement__photo { display: block; aspect-ratio: 4 / 5; border-radius: 8px; overflow: hidden; background: #e8ded4; }
+.chv-carte-logement__photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.2s var(--chv-ease); }
+.chv-carte-logement:hover .chv-carte-logement__photo img { transform: scale(1.04); }
+.chv-carte-logement:focus-visible { outline: 2px solid var(--chv-cuivre-fonce); outline-offset: 4px; border-radius: 8px; }
+.chv-carte-logement__haut { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 14px; }
+.chv-carte-logement__nom { font-family: var(--chv-titre); font-size: 21px; line-height: 1.15; }
+.chv-carte-logement__note { flex: none; font-size: 13px; }
+.chv-carte-logement__ligne { display: block; margin-top: 3px; font-size: 14px; line-height: 1.45; color: rgba(10, 10, 10, 0.6); }
+@media (max-width: 900px) {
+  .chv-logements__grille > li { width: calc((100% - 2 * 24px) / 3); }
 }
-@media (max-width: 560px) {
-  .chv-logements__intro { font-size: 15px; }
-  .chv-logement__accroche { font-size: 16px; }
-  .chv-logement__actions { flex-direction: column; align-items: stretch; }
-  .chv-logement__reserver { width: 100%; }
-  .chv-logement__voir { align-self: center; }
-  .chv-logement__mention { text-align: center; }
+@media (max-width: 640px) {
+  .chv-logements__grille { gap: 28px 14px; }
+  .chv-logements__grille > li { width: calc((100% - 14px) / 2); }
+  .chv-carte-logement__haut { margin-top: 10px; }
+  .chv-carte-logement__nom { font-size: 17px; }
+  .chv-carte-logement__note { font-size: 12px; }
+  .chv-carte-logement__ligne { font-size: 12.5px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .chv-logement__lecture img, .chv-logement__rond { transition: none; }
+  .chv-carte-logement__photo img { transition: none; }
 }
+
+/* Repris par la fiche d'un logement */
+.chv-logement__lieu { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--chv-cuivre-fonce); margin: 0 0 14px; }
+.chv-logement__details { list-style: none; padding: 0; margin: 0 0 14px; display: flex; flex-wrap: wrap; font-size: 15px; color: rgba(10, 10, 10, 0.75); }
+.chv-logement__details li:not(:last-child)::after { content: "·"; margin: 0 8px; }
+.chv-logement__note { font-size: 14px; color: rgba(10, 10, 10, 0.7); margin: 0; }
+.chv-fiche__equipements-piece { margin: 0; font-size: 14px; line-height: 1.6; color: rgba(10, 10, 10, 0.6); }
 
 /* ============ Fiche d'un logement (/logements/<slug>) ============ */
 .chv-fiche { padding-top: var(--chv-barre); }
@@ -1535,9 +1521,7 @@ main.chv > .chv-section:first-child { padding-top: max(min(11vw, 120px), calc(va
 .chv-fiche__carte { padding: 28px; border: 1px solid rgba(10, 10, 10, 0.1); border-radius: 14px; background: #fff; box-shadow: 0 30px 60px -40px rgba(10, 10, 10, 0.45); }
 .chv-fiche__carte .chv-etiquette { margin-bottom: 10px; }
 .chv-fiche__carte-nom { font-family: var(--chv-titre); font-size: 34px; line-height: 1; text-transform: uppercase; margin: 0 0 10px; }
-.chv-fiche__carte .chv-logement__note { margin-bottom: 22px; }
-.chv-fiche__carte .chv-logement__reserver { width: 100%; }
-.chv-fiche__carte .chv-logement__mention { text-align: center; margin-top: 14px; }
+.chv-fiche__carte .chv-logement__reserver { width: 100%; margin-top: 22px; }
 .chv-fiche__carte-infos { list-style: none; padding: 16px 0 0; margin: 18px 0 0; border-top: 1px solid rgba(10, 10, 10, 0.08); font-size: 14px; line-height: 1.8; }
 .chv-fiche__carte-appel { margin: 12px 0 0; font-size: 13px; color: rgba(10, 10, 10, 0.6); }
 .chv-fiche__carte-appel a { color: var(--chv-noir); }

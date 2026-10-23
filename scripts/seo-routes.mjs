@@ -296,16 +296,11 @@ const STATIC_ROUTES = [
       clients. Je recommande vivement pour tout projet de location courte durée sur le
       secteur Gard et Vaucluse. » — Félicien Arnoux</p></blockquote>
 
-      <h2>Nos logements : réservez en direct</h2>
-      <p>Une sélection de nos plus beaux appartements à Avignon, tenus comme un hôtel.
-      Réservez directement auprès de nous, sans frais de plateforme.</p>
-      <h3>Le Vernet — Avignon intra-muros</h3>
-      <p>Un T3 rénové au deuxième étage, dans une rue calme du centre historique : hauts
-      plafonds, moulures, cheminée en marbre et fenêtres sur une cour intérieure. 4 voyageurs,
-      2 chambres, 3 lits, 1 salle de bain. Climatisation, cour intérieure, hypercentre.
-      Note de 4,77 sur 5 pour 13 avis voyageurs sur Airbnb.</p>
-      <p><a href="/logements/le-vernet">Découvrir Le Vernet : photos, description, équipements</a> ·
-      <a href="/contact">Réserver Le Vernet en direct</a></p>
+      <h2>Nos logements</h2>
+      <ul>
+        <li><a href="/logements/le-vernet">Le Vernet</a> — Avignon intra-muros · 4 voyageurs · 2 chambres
+        · note de 4,77 sur 5 (13 avis Airbnb)</li>
+      </ul>
 
       <h2>Le fondateur</h2>
       <p>À seulement 20 ans, Victor Chevalier fait partie de cette nouvelle génération
@@ -542,7 +537,7 @@ const STATIC_ROUTES = [
       <nav><a href="/">Accueil</a> › <a href="/#logements">Nos logements</a> › Le Vernet</nav>
       <p>Avignon intra-muros</p>
       <h1>Le Vernet</h1>
-      <p>Appartement entier · 4 voyageurs · 2 chambres · 3 lits · 1 salle de bain.
+      <p>Appartement entier · 4 voyageurs · 2 chambres · 2 lits · 1 salle de bain.
       Note de 4,77 sur 5 pour 13 avis voyageurs sur Airbnb.</p>
 
       <h2>Le logement</h2>
@@ -565,7 +560,7 @@ const STATIC_ROUTES = [
       <h2>Où vous dormirez</h2>
       <ul><li>Chambre 1 : 1 lit queen size</li><li>Chambre 2 : 1 lit queen size</li><li>Salon : 1 canapé convertible</li></ul>
 
-      <h2>Visite pièce par pièce</h2>
+      <h2>Photos</h2>
       <p>41 photos : salon, cuisine, espace repas, chambre 1, chambre 2, salle de bain, cour et jardin, entrée.</p>
 
       <h2>Équipements</h2>
@@ -604,8 +599,7 @@ const STATIC_ROUTES = [
       Halles, théâtres et gare SNCF sont à quelques minutes à pied. L'adresse exacte est
       communiquée après la réservation.</p>
 
-      <p><a href="/contact">Réserver Le Vernet en direct</a> — sans frais de plateforme.
-      Une question ? <a href="tel:+33783198341">07 83 19 83 41</a></p>
+      <p><a href="/contact">Réserver Le Vernet</a> · Une question ? <a href="tel:+33783198341">07 83 19 83 41</a></p>
     </main>`,
     jsonLd: [
       breadcrumb({ name: "Nos logements", path: "/#logements" }, { name: "Le Vernet", path: "/logements/le-vernet" }),

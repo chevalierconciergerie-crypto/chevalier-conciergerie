@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useLangue, useT } from "@/i18n/langue";
 import { dossierLogement, LOGEMENTS_VITRINE, type LogementVitrine } from "@/data/logementsVitrine";
-import { Etiquette, Revele, TitreAnime } from "./Primitives";
+import { Revele, TitreAnime } from "./Primitives";
 
 export function BoutonReservation({ logement, className = "" }: { logement: LogementVitrine; className?: string }) {
   const t = useT();
@@ -10,99 +10,56 @@ export function BoutonReservation({ logement, className = "" }: { logement: Loge
   if (logement.reservation) {
     return (
       <a className={classes} href={logement.reservation} target="_blank" rel="noopener">
-        {t("Réserver en direct")}
+        {t("Réserver")}
       </a>
     );
   }
   return (
     <Link className={classes} to={lien("/contact")}>
-      {t("Réserver en direct")}
+      {t("Réserver")}
     </Link>
   );
 }
 
 export const nombrePhotos = (l: LogementVitrine) => l.pieces.reduce((n, p) => n + p.photos.length, 0);
 
-function CarteLogement({ logement }: { logement: LogementVitrine }) {
+/* Une carte par logement : la photo, le nom, le quartier, la capacité, la note. */
+function CarteLogement({ logement, rang }: { logement: LogementVitrine; rang: number }) {
   const t = useT();
   const { lien } = useLangue();
-  const fiche = lien(dossierLogement(logement.slug));
   return (
-    <article className="chv-logement">
-      <Revele effet="volume" className="chv-logement__media">
-        <Link to={fiche} className="chv-logement__lecture" aria-label={`${t("Découvrir le logement")} ${logement.nom}`}>
+    <Revele as="li" delai={(rang % 4) * 80}>
+      <Link to={lien(dossierLogement(logement.slug))} className="chv-carte-logement">
+        <span className="chv-carte-logement__photo">
           <img src={logement.photo.src} alt={t(logement.photo.alt)} width={logement.photo.largeur} height={logement.photo.hauteur} loading="lazy" />
-          <span className="chv-logement__badge">{t("Réservation directe")}</span>
-          <span className="chv-logement__jouer">
-            <span className="chv-logement__rond" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="18" height="18">
-                <rect x="4" y="4" width="7" height="7" rx="1" fill="none" stroke="currentColor" strokeWidth="1.6" />
-                <rect x="13" y="4" width="7" height="7" rx="1" fill="none" stroke="currentColor" strokeWidth="1.6" />
-                <rect x="4" y="13" width="7" height="7" rx="1" fill="none" stroke="currentColor" strokeWidth="1.6" />
-                <rect x="13" y="13" width="7" height="7" rx="1" fill="none" stroke="currentColor" strokeWidth="1.6" />
-              </svg>
-            </span>
-            <span>
-              {t("Voir les photos")}
-              <small>
-                {nombrePhotos(logement)} {t("photos")}
-              </small>
-            </span>
-          </span>
-        </Link>
-      </Revele>
-
-      <Revele className="chv-logement__texte" delai={120}>
-        <p className="chv-logement__lieu">{t(logement.lieu)}</p>
-        <h3 className="chv-logement__nom">{logement.nom}</h3>
-        <p className="chv-logement__accroche">{t(logement.accroche)}</p>
-        <ul className="chv-logement__details">
-          {logement.details.map((d) => (
-            <li key={d}>{t(d)}</li>
-          ))}
-        </ul>
-        <ul className="chv-logement__atouts">
-          {logement.atouts.map((a) => (
-            <li key={a}>{t(a)}</li>
-          ))}
-        </ul>
-        <p className="chv-logement__note">
-          <span aria-hidden="true">★</span> {logement.note.valeur} · {logement.note.avis} {t("avis voyageurs sur Airbnb")}
-        </p>
-        <div className="chv-logement__actions">
-          <BoutonReservation logement={logement} />
-          <Link className="chv-logement__voir" to={fiche}>
-            {t("Découvrir le logement")}
-          </Link>
-        </div>
-        <p className="chv-logement__mention">{t("Sans frais de plateforme : vous réservez directement auprès de nous.")}</p>
-      </Revele>
-    </article>
+        </span>
+        <span className="chv-carte-logement__haut">
+          <span className="chv-carte-logement__nom">{logement.nom}</span>
+          <span className="chv-carte-logement__note">★ {logement.note.valeur}</span>
+        </span>
+        <span className="chv-carte-logement__ligne">{t(logement.lieu)}</span>
+        <span className="chv-carte-logement__ligne">{logement.details.slice(0, 2).map((d) => t(d)).join(" · ")}</span>
+      </Link>
+    </Revele>
   );
 }
 
 /*
-  Nos logements, sous les avis : les plus beaux appartements de la
-  conciergerie, chacun avec sa fiche complète et sa réservation directe.
+  Nos logements, sous les avis : une grille de petites cartes (quatre par
+  rangée sur ordinateur, deux sur téléphone), chacune vers la fiche du logement.
 */
 export function LogementsAccueil() {
   const t = useT();
   return (
     <section id="logements" className="chv-section chv-logements" aria-labelledby="chv-titre-logements">
-      <div className="chv-entete-section">
-        <Etiquette>{t("Réservez en direct")}</Etiquette>
-        <div id="chv-titre-logements">
-          <TitreAnime lignes={[t("Nos"), t("logements")]} />
-        </div>
-        <Revele as="p" className="chv-logements__intro">
-          {t("Une sélection de nos plus beaux appartements à Avignon, tenus comme un hôtel. Réservez directement auprès de nous.")}
-        </Revele>
+      <div id="chv-titre-logements" className="chv-entete-section">
+        <TitreAnime lignes={[t("Nos logements")]} />
       </div>
-      <div className="chv-logements__liste">
-        {LOGEMENTS_VITRINE.map((l) => (
-          <CarteLogement key={l.slug} logement={l} />
+      <ul className="chv-logements__grille">
+        {LOGEMENTS_VITRINE.map((l, i) => (
+          <CarteLogement key={l.slug} logement={l} rang={i} />
         ))}
-      </div>
+      </ul>
     </section>
   );
 }

@@ -82,7 +82,7 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
             <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
               <path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" fill="none" stroke="currentColor" strokeWidth="1.6" />
             </svg>
-            {t("Voir les")} {n} {t("photos")}
+            {n} {t("photos")}
           </button>
         </section>
 
@@ -102,7 +102,7 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
                 ))}
               </ul>
               <p className="chv-logement__note">
-                <span aria-hidden="true">★</span> {l.note.valeur} · {l.note.avis} {t("avis voyageurs sur Airbnb")}
+                <span aria-hidden="true">★</span> {l.note.valeur} · {l.note.avis} {t("avis")}
               </p>
             </header>
 
@@ -143,19 +143,13 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
             </section>
 
             <section id="photos" className="chv-fiche__bloc" aria-labelledby="fiche-photos">
-              <h2 id="fiche-photos" className="chv-fiche__intertitre">{t("Visite pièce par pièce")}</h2>
+              <h2 id="fiche-photos" className="chv-fiche__intertitre">{t("Photos")}</h2>
               {l.pieces.map((p) => (
                 <div key={p.piece} className="chv-fiche__piece">
                   <h3>
                     {t(p.piece)} <span>{p.photos.length} {t(p.photos.length > 1 ? "photos" : "photo")}</span>
                   </h3>
-                  {p.equipements && (
-                    <ul className="chv-logement__atouts">
-                      {p.equipements.map((e) => (
-                        <li key={e}>{t(e)}</li>
-                      ))}
-                    </ul>
-                  )}
+                  {p.equipements && <p className="chv-fiche__equipements-piece">{p.equipements.map((e) => t(e)).join(" · ")}</p>}
                   <div className="chv-fiche__grille">
                     {p.photos.map((ph) => (
                       <button
@@ -257,13 +251,11 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
 
           <aside className="chv-fiche__reservation" aria-label={t("Réservation")}>
             <div className="chv-fiche__carte">
-              <p className="chv-etiquette">{t("Réservez en direct")}</p>
               <p className="chv-fiche__carte-nom">{l.nom}</p>
               <p className="chv-logement__note">
-                <span aria-hidden="true">★</span> {l.note.valeur} · {l.note.avis} {t("avis voyageurs sur Airbnb")}
+                <span aria-hidden="true">★</span> {l.note.valeur} · {l.note.avis} {t("avis")}
               </p>
               <BoutonReservation logement={l} />
-              <p className="chv-logement__mention">{t("Sans frais de plateforme : vous réservez directement auprès de nous.")}</p>
               <ul className="chv-fiche__carte-infos">
                 <li>
                   {t("Arrivée :")} {t(l.arrivee)}

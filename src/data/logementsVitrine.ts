@@ -31,7 +31,6 @@ export interface LogementVitrine {
   lieu: string;
   accroche: string;
   details: string[];
-  atouts: string[];
   /** Note publique de l'annonce, telle qu'affichée sur Airbnb. */
   note: { valeur: string; avis: number; categories: { nom: string; valeur: string }[] };
   /** Photo de la carte sur l'accueil (recadrée en 4:5). */
@@ -62,8 +61,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     lieu: "Avignon intra-muros",
     accroche:
       "Un T3 rénové au deuxième étage, dans une rue calme du centre historique : hauts plafonds, moulures, cheminée en marbre et fenêtres sur une cour intérieure.",
-    details: ["4 voyageurs", "2 chambres", "3 lits", "1 salle de bain"],
-    atouts: ["Climatisation", "Cour intérieure", "Hypercentre"],
+    details: ["4 voyageurs", "2 chambres", "2 lits", "1 salle de bain"],
     note: {
       valeur: "4,77",
       avis: 13,
