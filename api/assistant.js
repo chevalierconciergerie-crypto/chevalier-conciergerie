@@ -50,11 +50,10 @@ export default async function handler(req, res) {
       const r = await fetch(`https://${req.headers.host}/assistant-contexte.txt`);
       contexte = r.ok ? await r.text() : "";
     }
-    const reponse = await client.beta.messages.create({
-      model: "claude-opus-5-5",
+    // Claude Haiku 5.5 : rapide et très peu coûteux, largement suffisant pour ces questions
+    const reponse = await client.messages.create({
+      model: "claude-haiku-5-5",
       max_tokens: 4000,
-      betas: ["server-side-fallback-2026-07-01"],
-      fallbacks: "default",
       output_config: { effort: "low" },
       // le contexte est identique d'un appel à l'autre : mis en cache
       system: [{ type: "text", text: CONSIGNES + contexte, cache_control: { type: "ephemeral" } }],
