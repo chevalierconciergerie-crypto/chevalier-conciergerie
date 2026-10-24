@@ -9,7 +9,7 @@ import { track } from "@vercel/analytics";
 import { useToast } from "@/hooks/use-toast";
 
 const EMAIL = "contact@chevalier-conciergerie.com";
-const TEL = "+33783198341";
+const TEL = "+33651873736";
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -282,7 +282,7 @@ const ContactForm = () => {
                 </Button>
                 <Button variant="outline" asChild>
                   <a
-                    href={`https://wa.me/33783198341?text=${encodeURIComponent(texteMessage)}`}
+                    href={`https://wa.me/33651873736?text=${encodeURIComponent(texteMessage)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => track("contact_whatsapp_click")}

@@ -131,7 +131,7 @@ export function ContactAccueil({ commeH1 = false }: { commeH1?: boolean }) {
       </Revele>
       <Revele className="chv-contact__coordonnees" delai={120}>
         <div>
-          <p>{t("Téléphone")}</p>
+          <p>{t("WhatsApp")}</p>
           <a href={TELEPHONE.lien}>{TELEPHONE.affiche}</a>
         </div>
         <div>

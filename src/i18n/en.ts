@@ -591,4 +591,5 @@ export const EN: Record<string, string> = {
   "photos": "photos",
   "À savoir": "Good to know",
   "Équipements": "Amenities",
+  "Écrire sur WhatsApp": "Message us on WhatsApp",
 };

@@ -6,7 +6,7 @@ import { allerA } from "./effets";
 import "./chevalier.css";
 
 const LOGO = "/accueil/logo-chevalier-blanc.png";
-const ESTIMATION = "/estimation-sous-location";
+const ESTIMATION = "/contact";
 
 /* Les trois réseaux, en icônes cliquables. */
 function Reseaux({ tabIndex }: { tabIndex?: number }) {
@@ -189,7 +189,7 @@ const EnTete = () => {
           {ouvert && <Tambour />}
         </div>
         <div className="chv-menu__pied">
-          <a href={TELEPHONE.lien} tabIndex={ouvert ? 0 : -1}>{TELEPHONE.affiche}</a>
+          <a href={TELEPHONE.lien} target="_blank" rel="noopener" tabIndex={ouvert ? 0 : -1}>WhatsApp {TELEPHONE.affiche}</a>
           <a href={COURRIEL.lien} tabIndex={ouvert ? 0 : -1}>{COURRIEL.affiche}</a>
           <Reseaux tabIndex={ouvert ? 0 : -1} />
           {/* Sur téléphone, la barre n'a pas la place des drapeaux : ils se choisissent ici (cf. chevalier.css, bloc « Téléphone »). */}

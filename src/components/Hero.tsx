@@ -167,7 +167,7 @@ const Hero = () => {
             possible ; il mérite d'être le plus gros élément cliquable du site.
           */}
           <Link
-            to="/estimation-sous-location"
+            to="/contact"
             className="btn-ressort group relative isolate inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-white px-9 py-4 font-sans text-[15px] font-semibold tracking-wide text-[hsl(0_0%_8%)] shadow-[0_14px_44px_-12px_rgba(0,0,0,0.6)] hover:shadow-[0_22px_60px_-14px_rgba(0,0,0,0.7)] md:text-base"
           >
             <span aria-hidden className="btn-brille" />

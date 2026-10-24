@@ -31,7 +31,10 @@ export const RUBRIQUES = [
   { libelle: "Contact", ancre: "contact", page: "/contact", barre: true },
 ] as const;
 
-export const TELEPHONE = { affiche: "07 83 19 83 41", international: "+33 7 83 19 83 41", lien: "tel:+33783198341" };
+/* WhatsApp Business : chaque lien ouvre la discussion avec un premier message déjà écrit. */
+export const MESSAGE_WHATSAPP = "Bonjour, je vous contacte depuis le site de Chevalier Conciergerie. J'aimerais avoir des informations sur votre conciergerie.";
+export const lienWhatsApp = (texte = MESSAGE_WHATSAPP) => `https://wa.me/33651873736?text=${encodeURIComponent(texte)}`;
+export const TELEPHONE = { affiche: "06 51 87 37 36", international: "+33 6 51 87 37 36", lien: lienWhatsApp() };
 export const COURRIEL = { affiche: "contact@chevalier-conciergerie.com", lien: "mailto:contact@chevalier-conciergerie.com" };
 
 /* Logos officiels fournis par Victor, en couleurs (public/accueil/reseau-*.png). */

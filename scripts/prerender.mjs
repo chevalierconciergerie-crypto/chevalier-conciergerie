@@ -220,7 +220,7 @@ function writeLlmsTxt(routes, journalRoutes, articles) {
 
 Entreprise : Chevalier Conciergerie (SASU), dirigée par Victor Chevalier.
 Adresse : 5 Lotissement Les Cades, 30400 Villeneuve-lès-Avignon, France.
-Téléphone : +33 7 83 19 83 41. Courriel : contact@chevalier-conciergerie.com.
+Téléphone : +33 6 51 87 37 36. Courriel : contact@chevalier-conciergerie.com.
 Zone couverte : Avignon, Villeneuve-lès-Avignon, Les Angles.
 
 Tarifs, en clair :

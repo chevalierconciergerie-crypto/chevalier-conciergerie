@@ -23,7 +23,7 @@ export const SOCIETE = {
   rcs: "Nîmes",
   ape: "6820A",
   adresse: "5 Lotissement Les Cades, 30400 Villeneuve-lès-Avignon, France",
-  telephone: "+33 7 83 19 83 41",
+  telephone: "+33 6 51 87 37 36",
   courriel: "contact@chevalier-conciergerie.com",
   directeur: "Victor Chevalier, président",
 };
@@ -51,7 +51,7 @@ export const MENTIONS_LEGALES = {
             ["TVA intracommunautaire", S.tva],
             ["Code APE", `${S.ape} (location de logements)`],
             ["Siège social", S.adresse],
-            ["Téléphone", S.telephone],
+            ["WhatsApp", S.telephone],
             ["Courriel", S.courriel],
             ["Directeur de la publication", S.directeur],
           ],

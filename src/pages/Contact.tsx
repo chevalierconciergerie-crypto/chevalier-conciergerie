@@ -2,6 +2,7 @@ import { Helmet } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ContactAccueil } from "@/components/accueil/Journal";
+import FormulaireEstimation from "@/components/accueil/FormulaireEstimation";
 
 /*
   /contact — la page de contact.
@@ -39,6 +40,9 @@ const Contact = () => {
 
       <main className="chv">
         <ContactAccueil commeH1 />
+        <section className="chv-section chv-contact-formulaire" aria-label="Demande d'estimation gratuite">
+          <FormulaireEstimation />
+        </section>
       </main>
 
       <Footer />

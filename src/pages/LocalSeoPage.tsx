@@ -79,7 +79,7 @@ const LocalSeoPage = ({
     "name": `Chevalier Conciergerie - ${city}`,
     "description": metaDescription,
     "url": `https://chevalier-conciergerie.com/${slug}`,
-    "telephone": "+33783198341",
+    "telephone": "+33651873736",
     "email": "contact@chevalier-conciergerie.com",
     "address": {
       "@type": "PostalAddress",
@@ -135,7 +135,7 @@ const LocalSeoPage = ({
                     <Link to="/contact">Estimation gratuite</Link>
                   </Button>
                   <Button variant="outline-light" size="xl" asChild>
-                    <a href="tel:+33783198341">Nous appeler</a>
+                    <a href="https://wa.me/33651873736">Nous appeler</a>
                   </Button>
                 </div>
               </div>

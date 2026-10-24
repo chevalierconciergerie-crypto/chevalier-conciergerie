@@ -59,9 +59,9 @@ export default function Assistant() {
       });
       const d = await r.json();
       conversation.current = d.conversation || conversation.current;
-      setMessages([...suite, { role: "assistant", content: d.texte || "Appelez-nous au 07 83 19 83 41." }]);
+      setMessages([...suite, { role: "assistant", content: d.texte || "Écrivez-nous sur WhatsApp au 06 51 87 37 36 : https://wa.me/33651873736" }]);
     } catch {
-      setMessages([...suite, { role: "assistant", content: "La connexion a échoué. Appelez-nous au 07 83 19 83 41 ou écrivez à contact@chevalier-conciergerie.com." }]);
+      setMessages([...suite, { role: "assistant", content: "La connexion a échoué. Écrivez-nous sur WhatsApp au 06 51 87 37 36 (https://wa.me/33651873736) ou à contact@chevalier-conciergerie.com." }]);
     } finally {
       setAttente(false);
     }

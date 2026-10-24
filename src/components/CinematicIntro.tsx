@@ -244,7 +244,7 @@ const CinematicIntro = () => {
           </span>
         </a>
         <Link
-          to="/estimation-sous-location"
+          to="/contact"
           className="btn-ressort group relative isolate inline-flex min-h-13 items-center justify-center gap-3 rounded-full px-8 py-3.5 font-sans text-[14px] font-semibold tracking-wide shadow-[0_14px_44px_-12px_rgba(0,0,0,0.6)] hover:shadow-[0_22px_60px_-14px_rgba(0,0,0,0.7)] md:text-[15px]"
           style={{ backgroundColor: CREME, color: BLEU_NUIT }}
         >

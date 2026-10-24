@@ -37,8 +37,8 @@ const Booking = () => {
                     <p className="font-sans text-muted-foreground text-sm mb-2">
                       Du lundi au samedi, 9h - 19h
                     </p>
-                    <a href="tel:+33783198341" className="font-sans text-gold font-medium hover:underline">
-                      +33 7 83 19 83 41
+                    <a href="https://wa.me/33651873736" className="font-sans text-gold font-medium hover:underline">
+                      +33 6 51 87 37 36
                     </a>
                   </div>
                 </div>
@@ -76,7 +76,7 @@ const Booking = () => {
                       Pour une réponse rapide
                     </p>
                     <Button variant="outline-gold" size="sm" asChild>
-                      <a href="https://wa.me/33783198341" target="_blank" rel="noopener noreferrer">
+                      <a href="https://wa.me/33651873736" target="_blank" rel="noopener noreferrer">
                         Démarrer une conversation
                       </a>
                     </Button>

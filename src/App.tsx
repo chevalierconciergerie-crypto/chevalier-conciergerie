@@ -10,6 +10,7 @@ import { LangueProvider } from "@/i18n/langue";
 import ScrollToTop from "./components/ScrollToTop";
 import BandeauCookies from "./components/accueil/BandeauCookies";
 import Assistant from "./components/accueil/Assistant";
+import BoutonWhatsApp from "./components/accueil/BoutonWhatsApp";
 import SuiviPages from "./components/SuiviPages";
 import Index from "./pages/Index";
 import Conciergerie from "./pages/Conciergerie";
@@ -45,6 +46,7 @@ const App = () => (
           <SuiviPages />
           <LangueProvider>
             <BandeauCookies />
+            <BoutonWhatsApp />
             <Assistant />
             {/*
               Chaque route est montée deux fois : nue en français, préfixée /en

@@ -58,7 +58,7 @@ const service = ({ name, description, areas }) => ({
   availableChannel: {
     "@type": "ServiceChannel",
     serviceUrl: `${SITE}/contact`,
-    servicePhone: "+33783198341",
+    servicePhone: "+33651873736",
   },
 });
 
@@ -514,7 +514,7 @@ const STATIC_ROUTES = [
       <p>Estimation gratuite et sans engagement : nous évaluons votre bien et vous disons ce
       qu'il peut rapporter, en conciergerie comme en sous-location.</p>
       <ul>
-        <li>Téléphone : <a href="tel:+33783198341">07 83 19 83 41</a></li>
+        <li>Téléphone : <a href="https://wa.me/33651873736">06 51 87 37 36</a></li>
         <li>Courriel : <a href="mailto:contact@chevalier-conciergerie.com">contact@chevalier-conciergerie.com</a></li>
       </ul>
     </main>`,
@@ -603,7 +603,7 @@ const STATIC_ROUTES = [
       Halles, théâtres et gare SNCF sont à quelques minutes à pied. L'adresse exacte est
       communiquée après la réservation.</p>
 
-      <p><a href="https://chevalier-pms.com/shop/cmsq61itg000104ktepz5feex#reservation">Réserver Le Vernet en ligne</a> · Une question ? <a href="tel:+33783198341">07 83 19 83 41</a></p>
+      <p><a href="https://chevalier-pms.com/shop/cmsq61itg000104ktepz5feex#reservation">Réserver Le Vernet en ligne</a> · Une question ? <a href="https://wa.me/33651873736">WhatsApp 06 51 87 37 36</a></p>
     </main>`,
     jsonLd: [
       breadcrumb({ name: "Nos logements", path: "/#logements" }, { name: "Le Vernet", path: "/logements/le-vernet" }),
@@ -1086,7 +1086,7 @@ function traduireRoute(route) {
       <p>${escSeo(descEn || "")}</p>
       <p><strong>Pricing:</strong> 25 % (excl. VAT) of the net received by the owner, all in — no subscription, no lock-in. Guaranteed rent: 0 % commission, fixed monthly income.</p>
       <p><strong>Areas served:</strong> Avignon, Villeneuve-lès-Avignon, Les Angles.</p>
-      <p><strong>Contact:</strong> +33 7 83 19 83 41 · contact@chevalier-conciergerie.com</p>
+      <p><strong>Contact:</strong> +33 6 51 87 37 36 · contact@chevalier-conciergerie.com</p>
       <ul>
         <li><a href="/en">Home (English)</a></li>
         <li><a href="/en/conciergerie">Property management</a></li>

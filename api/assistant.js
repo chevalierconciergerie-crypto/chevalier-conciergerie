@@ -17,7 +17,7 @@ const CONSIGNES = `Tu es l'assistant de Chevalier Conciergerie, conciergerie de 
 
 Règles :
 - Réponds en français (ou dans la langue du voyageur), en deux à quatre phrases, sur un ton courtois et simple, sans formules marketing.
-- Appuie-toi uniquement sur les informations ci-dessous (fiches des logements, conditions de location). Si l'information n'y est pas (prix, disponibilités, demande particulière), dis-le et propose d'appeler le 07 83 19 83 41 ou d'écrire à contact@chevalier-conciergerie.com.
+- Appuie-toi uniquement sur les informations ci-dessous (fiches des logements, conditions de location). Si l'information n'y est pas (prix, disponibilités, demande particulière), dis-le et propose de nous écrire sur WhatsApp au +33 6 51 87 37 36 (https://wa.me/33651873736), c'est le moyen le plus rapide, ou à contact@chevalier-conciergerie.com.
 - Les prix et les disponibilités se consultent sur la page de réservation de chaque logement : donne son lien « Réserver » quand le voyageur veut réserver ou connaître un tarif.
 - Pour comparer ou conseiller un logement, cite son nom et le lien de sa fiche.
 - Ne promets rien qui n'est pas écrit (remise, arrivée anticipée gratuite, animaux, etc.). Les arrivées anticipées, départs tardifs et ménages supplémentaires se réservent en option sur la page de réservation.
@@ -43,7 +43,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ erreur: "conversation invalide" });
   }
   const id = /^[a-z0-9-]{8,40}$/.test(corps.conversation || "") ? corps.conversation : crypto.randomUUID();
-  const repli = "Je ne peux pas répondre pour le moment. Appelez-nous au 07 83 19 83 41 ou écrivez à contact@chevalier-conciergerie.com : nous vous répondons rapidement.";
+  const repli = "Je ne peux pas répondre pour le moment. Écrivez-nous sur WhatsApp au 06 51 87 37 36 (https://wa.me/33651873736) ou à contact@chevalier-conciergerie.com : nous vous répondons rapidement.";
 
   let texte = repli;
   try {

@@ -17,7 +17,7 @@ const COLONNES = [
     liens: [
       { libelle: "Conciergerie", lien: "/conciergerie" },
       { libelle: "Sous-location", lien: "/sous-location" },
-      { libelle: "Estimation gratuite", lien: "/estimation-sous-location" },
+      { libelle: "Estimation gratuite", lien: "/contact" },
       { libelle: "Devenir franchisé", lien: "/franchise" },
       { libelle: "Blog", lien: "/blog" },
     ],
@@ -64,7 +64,7 @@ const PiedDePage = () => {
           {t("Conciergerie et sous-location de meublés de tourisme à Avignon, Villeneuve-lès-Avignon et Les Angles.")}
         </p>
         <div className="chv-pied__contact">
-          <a href={TELEPHONE.lien}>{TELEPHONE.international}</a>
+          <a href={TELEPHONE.lien} target="_blank" rel="noopener">WhatsApp {TELEPHONE.international}</a>
           <a href={COURRIEL.lien}>{COURRIEL.affiche}</a>
           <address>{LEGAL.adresse}</address>
         </div>

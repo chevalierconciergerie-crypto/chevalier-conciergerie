@@ -297,7 +297,7 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
                 <Link to={`${lien("/cgv")}#location`}>{t("Voir les conditions de location")}</Link>
               </p>
               <p className="chv-fiche__carte-appel">
-                {t("Une question ?")} <a href={TELEPHONE.lien}>{TELEPHONE.affiche}</a>
+                {t("Une question ?")} <a href={TELEPHONE.lien} target="_blank" rel="noopener">WhatsApp {TELEPHONE.affiche}</a>
               </p>
             </div>
           </aside>
