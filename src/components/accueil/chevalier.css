@@ -527,8 +527,7 @@
 /* Pied de page */
 .chv-pied { background: var(--chv-creme); border-top: 1px solid rgba(150, 82, 60, 0.16); padding: min(7vw, 70px) var(--chv-marge) min(6vw, 54px); font-family: var(--chv-texte); color: var(--chv-noir); overflow: hidden; }
 .chv-pied__geant { margin: min(8vw, 72px) calc(var(--chv-marge) * -1) calc(min(6vw, 54px) * -1 - 0.14em); font-family: var(--chv-titre); font-weight: 400; font-size: 19.6vw; line-height: 0.8; letter-spacing: -0.03em; text-align: center; white-space: nowrap; user-select: none; pointer-events: none; }
-.chv-pied__geant span { display: inline-block; background: var(--chv-degrade-cuivre); -webkit-background-clip: text; background-clip: text; color: transparent; transform: translateY(105%); transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--i) * 70ms); }
-.chv-pied__geant.est-visible span { transform: none; }
+.chv-pied__geant span { display: inline-block; background: var(--chv-degrade-cuivre); -webkit-background-clip: text; background-clip: text; color: transparent; transform: translateY(calc((1 - clamp(0, var(--p, 0) * 1.6 - var(--i) * 0.075, 1)) * 105%)); transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1); will-change: transform; }
 @media (prefers-reduced-motion: reduce) { .chv-pied__geant span { transform: none; transition: none; } }
 .chv-pied__haut { max-width: 1180px; margin: 0 auto min(5vw, 46px); display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(4, minmax(0, 1fr)); gap: 40px min(4vw, 48px); }
 @media (max-width: 1100px) { .chv-pied__haut { grid-template-columns: repeat(4, minmax(0, 1fr)); } .chv-pied__marque { grid-column: 1 / -1; } }

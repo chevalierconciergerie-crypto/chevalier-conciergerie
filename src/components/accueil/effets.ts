@@ -83,6 +83,31 @@ function abonner(f: Abonne) {
 }
 
 /**
+  Avancée de l'élément dans l'écran, pilotée par le défilement, dans les deux
+  sens : --p vaut 0 quand son haut touche le bas de l'écran, 1 quand il est
+  entièrement visible. Le CSS s'en sert pour faire monter ou redescendre.
+*/
+export function useMontee<T extends HTMLElement>(): RefObject<T> {
+  const ref = useRef<T>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (mouvementReduit()) {
+      el.style.setProperty("--p", "1");
+      return;
+    }
+    return abonner(() => {
+      const r = el.getBoundingClientRect();
+      const h = window.innerHeight;
+      if (r.top > h + 50 || r.bottom < -50) return;
+      const p = Math.max(0, Math.min(1, (h - r.top) / (r.height * 0.9)));
+      el.style.setProperty("--p", p.toFixed(3));
+    });
+  }, []);
+  return ref;
+}
+
+/**
   Rotation continue pilotée par le défilement : tant que l'élément traverse
   l'écran, son angle change. -1 quand il arrive par le bas, +1 quand il sort
   par le haut. `sens` choisit de quel côté il penche.
