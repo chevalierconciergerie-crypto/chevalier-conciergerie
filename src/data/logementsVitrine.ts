@@ -3391,6 +3391,968 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "L'adresse exacte est communiquée après la réservation."
   ],
   "reservation": "https://chevalier-pms.com/shop/cmsq4ydh2000x04lc33zm5zjb#reservation"
+},
+{
+  "slug": "le-central",
+  "nom": "Le Central",
+  "lieu": "Avignon centre-ville",
+  "type": "Appartement entier",
+  "titrePage": "Le Central — Appartement à Avignon centre-ville | Réservation directe | Chevalier Conciergerie",
+  "accroche": "Un studio confortable en centre-ville d'Avignon, près des commerces et des théâtres, avec navette parking, pour deux voyageurs.",
+  "details": [
+    "2 voyageurs",
+    "Studio",
+    "1 lit",
+    "1 salle de bain"
+  ],
+  "note": {
+    "valeur": "4,70",
+    "avis": 50,
+    "nouveau": false,
+    "categories": [
+      {
+        "nom": "Propreté",
+        "valeur": "4,7"
+      },
+      {
+        "nom": "Précision",
+        "valeur": "4,8"
+      },
+      {
+        "nom": "Arrivée",
+        "valeur": "4,9"
+      },
+      {
+        "nom": "Communication",
+        "valeur": "4,9"
+      },
+      {
+        "nom": "Emplacement",
+        "valeur": "4,9"
+      },
+      {
+        "nom": "Qualité-prix",
+        "valeur": "4,6"
+      }
+    ]
+  },
+  "photo": {
+    "src": "/logements/le-central/photo-carte.jpg",
+    "largeur": 720,
+    "hauteur": 900,
+    "alt": "Le Central, Avignon"
+  },
+  "mosaique": [
+    "espace-de-vie-1",
+    "espace-chambre-1",
+    "cuisine-1",
+    "salle-de-bain-2",
+    "espace-repas-1"
+  ],
+  "pieces": [
+    {
+      "piece": "Espace de vie",
+      "photos": [
+        {
+          "fichier": "espace-de-vie-1",
+          "largeur": 1600,
+          "hauteur": 1200
+        }
+      ],
+      "equipements": [
+        "Chauffage",
+        "Télévision"
+      ]
+    },
+    {
+      "piece": "Cuisine",
+      "photos": [
+        {
+          "fichier": "cuisine-1",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "cuisine-2",
+          "largeur": 1200,
+          "hauteur": 1600
+        },
+        {
+          "fichier": "cuisine-3",
+          "largeur": 1600,
+          "hauteur": 1200
+        }
+      ],
+      "equipements": [
+        "Bouilloire électrique",
+        "Cafetière",
+        "Café",
+        "Four",
+        "Plaques de cuisson",
+        "Mini réfrigérateur",
+        "Vaisselle et couverts",
+        "Verres à vin",
+        "Tout le nécessaire pour cuisiner"
+      ]
+    },
+    {
+      "piece": "Espace repas",
+      "photos": [
+        {
+          "fichier": "espace-repas-1",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "espace-repas-2",
+          "largeur": 1200,
+          "hauteur": 1600
+        }
+      ],
+      "equipements": [
+        "Chauffage",
+        "Table à manger",
+        "Verres à vin"
+      ]
+    },
+    {
+      "piece": "Salle de bain",
+      "photos": [
+        {
+          "fichier": "salle-de-bain-1",
+          "largeur": 1200,
+          "hauteur": 1600
+        },
+        {
+          "fichier": "salle-de-bain-2",
+          "largeur": 1200,
+          "hauteur": 1600
+        }
+      ],
+      "equipements": [
+        "Eau chaude",
+        "Gel douche",
+        "Produits de nettoyage"
+      ]
+    },
+    {
+      "piece": "Espace chambre",
+      "photos": [
+        {
+          "fichier": "espace-chambre-1",
+          "largeur": 1600,
+          "hauteur": 1200
+        }
+      ],
+      "equipements": [
+        "Lit double",
+        "Cintres",
+        "Linge de lit",
+        "Détecteur de fumée",
+        "Espace de rangement pour les vêtements",
+        "Télévision",
+        "Ventilateurs portables"
+      ]
+    },
+    {
+      "piece": "Autres photos",
+      "photos": [
+        {
+          "fichier": "autres-photos-1",
+          "largeur": 1600,
+          "hauteur": 1067
+        },
+        {
+          "fichier": "autres-photos-2",
+          "largeur": 1600,
+          "hauteur": 1600
+        },
+        {
+          "fichier": "autres-photos-3",
+          "largeur": 1600,
+          "hauteur": 844
+        }
+      ]
+    }
+  ],
+  "couchages": [
+    {
+      "piece": "Espace chambre",
+      "lit": "1 lit double",
+      "photo": "espace-chambre-1"
+    }
+  ],
+  "description": {
+    "intro": [
+      "Bienvenue au cœur de la ville d'Avignon !",
+      "Ce studio confortable est l'endroit idéal pour votre séjour dans cette charmante ville historique.",
+      "Situé à proximité des commerces et théâtres, vous pourrez profiter pleinement de tout ce que le centre ville d'Avignon a à offrir,",
+      "En train : La gare centre d'Avignon est à seulement 700 mètres,",
+      "En voiture : Vous pourrez vous garer au PARKING RELAIS DES ITALIENS, la navette vous déposera à quelques pas de votre studio ! ( GRATUIT )"
+    ],
+    "titre": "Le logement",
+    "texte": "Le studio est équipé avec tout le nécessaire pour votre séjour à Avignon ; Il est doté d'une TV ( chaîne TNT ) , d'une cuisine équipée , d'un LIT CONFORTABLE dissimulé dans une armoire pratique d'utilisation, et d'une agréable salle d'eau avec WC et gel douche à votre disposition. Le linge de lit et serviettes de toilettes sont fournis. Café et thé offerts pour votre arrivée Au plaisir de vous recevoir !",
+    "listes": [],
+    "fin": []
+  },
+  "equipements": [
+    {
+      "categorie": "Salle de bain",
+      "elements": [
+        "Produits de nettoyage",
+        "Savon pour le corps",
+        "Eau chaude",
+        "Gel douche"
+      ]
+    },
+    {
+      "categorie": "Chambre et linge",
+      "elements": [
+        "Produits de base",
+        "Cintres",
+        "Linge de lit",
+        "Espace de rangement pour les vêtements : placard"
+      ]
+    },
+    {
+      "categorie": "Divertissement",
+      "elements": [
+        "Télévision"
+      ]
+    },
+    {
+      "categorie": "Chauffage et climatisation",
+      "elements": [
+        "Ventilateurs portables",
+        "Chauffage radiant"
+      ]
+    },
+    {
+      "categorie": "Sécurité à la maison",
+      "elements": [
+        "Caméras de surveillance extérieures présentes sur place",
+        "Détecteur de fumée",
+        "Trousse de premiers secours"
+      ]
+    },
+    {
+      "categorie": "Cuisine et salle à manger",
+      "elements": [
+        "Cuisine",
+        "Réfrigérateur",
+        "Tout le nécessaire pour cuisiner",
+        "Vaisselle et couverts",
+        "Mini réfrigérateur",
+        "Four Candy",
+        "Bouilloire électrique",
+        "Cafetière : machine à expresso",
+        "Verres à vin",
+        "Plaques de cuisson",
+        "Table à manger",
+        "Café"
+      ]
+    },
+    {
+      "categorie": "Parking et installations",
+      "elements": [
+        "Stationnement payant sur place"
+      ]
+    }
+  ],
+  "nonInclus": [
+    "Wifi",
+    "Lave-linge",
+    "Climatisation"
+  ],
+  "arrivee": "entre 17:00 et 00:00",
+  "depart": "avant 11:00",
+  "annulation": "Annulation gratuite jusqu'à 5 jours avant l'arrivée. Ensuite, 50 % du prix des nuits est remboursé, sauf la première nuit.",
+  "numeroEnregistrement": "840070007196V",
+  "reglement": [
+    "Jusqu'à 2 voyageurs",
+    "Pas d'animaux (animaux d'assistance uniquement)",
+    "Non fumeur (le vapotage et les cigarettes électroniques sont également concernés)",
+    "Pas de fête ni de soirée"
+  ],
+  "securite": [
+    "Caméras de surveillance extérieures présentes sur place",
+    "Aucune indication de la présence d'un détecteur de monoxyde de carbone",
+    "Détecteur de fumée installé"
+  ],
+  "quartier": [
+    "Au cœur d'Avignon intra-muros.",
+    "Les voyageurs qui ont séjourné ici au cours de la dernière année ont adoré l'emplacement.",
+    "L'adresse exacte est communiquée après la réservation."
+  ],
+  "reservation": "https://chevalier-pms.com/shop/cmsq5c1x0001l04lcvm2h2pz5#reservation"
+},
+{
+  "slug": "la-scene",
+  "nom": "La Scène",
+  "lieu": "Avignon intra-muros",
+  "type": "Appartement entier",
+  "titrePage": "La Scène — Appartement à Avignon intra-muros | Réservation directe | Chevalier Conciergerie",
+  "accroche": "Un studio lumineux et rénové, avec poutres apparentes et vue sur les toits, en plein cœur d'Avignon, pour deux voyageurs.",
+  "details": [
+    "2 voyageurs",
+    "Studio",
+    "1 lit",
+    "1 salle de bain"
+  ],
+  "note": {
+    "valeur": "4,36",
+    "avis": 11,
+    "nouveau": false,
+    "categories": [
+      {
+        "nom": "Propreté",
+        "valeur": "4,4"
+      },
+      {
+        "nom": "Précision",
+        "valeur": "4,6"
+      },
+      {
+        "nom": "Arrivée",
+        "valeur": "4,9"
+      },
+      {
+        "nom": "Communication",
+        "valeur": "5,0"
+      },
+      {
+        "nom": "Emplacement",
+        "valeur": "4,8"
+      },
+      {
+        "nom": "Qualité-prix",
+        "valeur": "4,4"
+      }
+    ]
+  },
+  "photo": {
+    "src": "/logements/la-scene/photo-carte.jpg",
+    "largeur": 720,
+    "hauteur": 900,
+    "alt": "La Scène, Avignon"
+  },
+  "mosaique": [
+    "espace-chambre-1",
+    "espace-repas-1",
+    "espace-repas-3",
+    "espace-chambre-2",
+    "espace-chambre-3"
+  ],
+  "pieces": [
+    {
+      "piece": "Cuisine",
+      "photos": [
+        {
+          "fichier": "cuisine-1",
+          "largeur": 1600,
+          "hauteur": 1067
+        },
+        {
+          "fichier": "cuisine-2",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "cuisine-3",
+          "largeur": 1600,
+          "hauteur": 1200
+        }
+      ]
+    },
+    {
+      "piece": "Espace repas",
+      "photos": [
+        {
+          "fichier": "espace-repas-1",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "espace-repas-2",
+          "largeur": 1067,
+          "hauteur": 1600
+        },
+        {
+          "fichier": "espace-repas-3",
+          "largeur": 1131,
+          "hauteur": 1600
+        }
+      ]
+    },
+    {
+      "piece": "Salle de bain",
+      "photos": [
+        {
+          "fichier": "salle-de-bain-1",
+          "largeur": 1067,
+          "hauteur": 1600
+        },
+        {
+          "fichier": "salle-de-bain-2",
+          "largeur": 1200,
+          "hauteur": 1600
+        },
+        {
+          "fichier": "salle-de-bain-3",
+          "largeur": 1131,
+          "hauteur": 1600
+        }
+      ]
+    },
+    {
+      "piece": "Extérieur",
+      "photos": [
+        {
+          "fichier": "exterieur-1",
+          "largeur": 1600,
+          "hauteur": 900
+        },
+        {
+          "fichier": "exterieur-2",
+          "largeur": 1600,
+          "hauteur": 900
+        },
+        {
+          "fichier": "exterieur-3",
+          "largeur": 1600,
+          "hauteur": 900
+        },
+        {
+          "fichier": "exterieur-4",
+          "largeur": 1600,
+          "hauteur": 900
+        },
+        {
+          "fichier": "exterieur-5",
+          "largeur": 1600,
+          "hauteur": 900
+        }
+      ]
+    },
+    {
+      "piece": "Espace chambre",
+      "photos": [
+        {
+          "fichier": "espace-chambre-1",
+          "largeur": 1600,
+          "hauteur": 1168
+        },
+        {
+          "fichier": "espace-chambre-2",
+          "largeur": 1600,
+          "hauteur": 1067
+        },
+        {
+          "fichier": "espace-chambre-3",
+          "largeur": 1600,
+          "hauteur": 1067
+        }
+      ]
+    },
+    {
+      "piece": "Autres photos",
+      "photos": [
+        {
+          "fichier": "autres-photos-1",
+          "largeur": 1600,
+          "hauteur": 1067
+        },
+        {
+          "fichier": "autres-photos-2",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "autres-photos-3",
+          "largeur": 1600,
+          "hauteur": 1202
+        }
+      ]
+    }
+  ],
+  "couchages": [],
+  "description": {
+    "intro": [
+      "Bienvenue dans ce charmant studio entièrement rénové au cœur d’Avignon intra-muros, alliant cachet et modernité. Poutres apparentes, belle hauteur sous plafond et grande fenêtre lumineuse avec vue sur les toits et les pierres anciennes.",
+      "Situé au 2ème étage d’une rue calme intra-muros, vous profitez d’un emplacement privilégié : commerces, restaurants, Les Halles, théâtres et gare SNCF sont accessibles à pied en quelques minutes. Tout se fait facilement sans voiture."
+    ],
+    "titre": "Le logement",
+    "texte": "Appartement chaleureux et confortable, parfait pour découvrir Avignon tout en profitant du calme. Capacité maximale : 2 personnes Une caméra de surveillance est installée à l'intérieur de l'immeuble, pour des raisons de sécurité. Elle ne filme aucun espace privé. Pour les séjours de moyenne durée, un ménage supplémentaire peut être organisé sur demande. Nous serons ravis de vous accueillir pour votre séjour à Avignon.",
+    "listes": [
+      {
+        "titre": "Couchage",
+        "elements": [
+          "1 lit double 140x190 cm",
+          "Espace de rangement"
+        ]
+      },
+      {
+        "titre": "Linge de maison fourni",
+        "elements": [
+          "Draps, housse de couette, taies d’oreiller",
+          "Serviettes de bain",
+          "Tapis de bain",
+          "Torchon de cuisine"
+        ]
+      },
+      {
+        "titre": "Cuisine équipée",
+        "elements": [
+          "Plaque de cuisson",
+          "Micro-ondes",
+          "Réfrigérateur",
+          "Cafetière (capsules offertes)",
+          "Vaisselle et nécessaire pour cuisiner"
+        ]
+      },
+      {
+        "titre": "Salle de bain",
+        "elements": [
+          "Douche",
+          "Shampoing et gel douche fournis"
+        ]
+      },
+      {
+        "titre": "Équipements",
+        "elements": [
+          "WiFi gratuit et illimité",
+          "TV avec accès Netflix",
+          "Les frais de ménage incluent également le lavage et le blanchissage du linge."
+        ]
+      },
+      {
+        "titre": "Règlement intérieur",
+        "elements": [
+          "Résidence calme",
+          "Fêtes et soirées interdites",
+          "Maximum 2 personnes",
+          "Logement non-fumeur",
+          "Merci de limiter le bruit après 22h"
+        ]
+      }
+    ],
+    "fin": []
+  },
+  "equipements": [
+    {
+      "categorie": "Salle de bain",
+      "elements": [
+        "Produits de nettoyage",
+        "Shampoing",
+        "Savon pour le corps",
+        "Eau chaude",
+        "Gel douche"
+      ]
+    },
+    {
+      "categorie": "Chambre et linge",
+      "elements": [
+        "Produits de base",
+        "Linge de lit",
+        "Oreillers et couvertures supplémentaires",
+        "Espace de rangement pour les vêtements"
+      ]
+    },
+    {
+      "categorie": "Divertissement",
+      "elements": [
+        "Télévision"
+      ]
+    },
+    {
+      "categorie": "Chauffage et climatisation",
+      "elements": [
+        "Chauffage"
+      ]
+    },
+    {
+      "categorie": "Sécurité à la maison",
+      "elements": [
+        "Détecteur de fumée"
+      ]
+    },
+    {
+      "categorie": "Internet et bureau",
+      "elements": [
+        "Wifi"
+      ]
+    },
+    {
+      "categorie": "Cuisine et salle à manger",
+      "elements": [
+        "Cuisine",
+        "Réfrigérateur",
+        "Four à micro-ondes",
+        "Tout le nécessaire pour cuisiner",
+        "Vaisselle et couverts",
+        "Cafetière",
+        "Verres à vin",
+        "Plaques de cuisson",
+        "Café"
+      ]
+    },
+    {
+      "categorie": "Caractéristiques de l'emplacement",
+      "elements": [
+        "Entrée privée"
+      ]
+    },
+    {
+      "categorie": "Parking et installations",
+      "elements": [
+        "Stationnement payant sur place"
+      ]
+    },
+    {
+      "categorie": "Services",
+      "elements": [
+        "Ménage disponible pendant le séjour"
+      ]
+    }
+  ],
+  "nonInclus": [
+    "Lave-linge",
+    "Climatisation"
+  ],
+  "arrivee": "à partir de 17:00",
+  "depart": "",
+  "annulation": "Annulation gratuite jusqu'à 5 jours avant l'arrivée. Ensuite, 50 % du prix des nuits est remboursé, sauf la première nuit.",
+  "numeroEnregistrement": "84007000810O7",
+  "reglement": [
+    "Jusqu'à 2 voyageurs",
+    "Pas d'animaux (animaux d'assistance uniquement)",
+    "Non fumeur (le vapotage et les cigarettes électroniques sont également concernés)",
+    "Pas de fête ni de soirée"
+  ],
+  "securite": [
+    "Aucune indication de la présence d'un détecteur de monoxyde de carbone",
+    "Détecteur de fumée installé"
+  ],
+  "quartier": [
+    "Des places de stationnement payantes sont disponibles à proximité immédiate de l’appartement, vous permettant de garer votre véhicule en toute sérénité, notamment le Parking des Halles, situé à environ 3 minutes à pied (≈ 250 m).",
+    "Nous vous souhaitons un excellent séjour et espérons que vous profiterez pleinement de cet espace confortable idéalement situé au cœur de la ville d’Avignon.",
+    "L'adresse exacte est communiquée après la réservation."
+  ],
+  "reservation": "https://chevalier-pms.com/shop/cmsp0kd6k000204jsryzsezua#reservation"
+},
+{
+  "slug": "le-cocon",
+  "nom": "Le Cocon d'Intramuros",
+  "lieu": "Avignon intra-muros",
+  "type": "Appartement entier",
+  "titrePage": "Le Cocon d'Intramuros — Appartement à Avignon intra-muros | Réservation directe | Chevalier Conciergerie",
+  "accroche": "Un studio climatisé et entièrement équipé au cœur du centre historique d'Avignon, pour deux voyageurs.",
+  "details": [
+    "2 voyageurs",
+    "Studio",
+    "1 lit",
+    "1 salle de bain"
+  ],
+  "note": {
+    "valeur": "4,50",
+    "avis": 4,
+    "nouveau": false,
+    "categories": [
+      {
+        "nom": "Propreté",
+        "valeur": "4,8"
+      },
+      {
+        "nom": "Précision",
+        "valeur": "5,0"
+      },
+      {
+        "nom": "Arrivée",
+        "valeur": "5,0"
+      },
+      {
+        "nom": "Communication",
+        "valeur": "5,0"
+      },
+      {
+        "nom": "Emplacement",
+        "valeur": "5,0"
+      },
+      {
+        "nom": "Qualité-prix",
+        "valeur": "4,8"
+      }
+    ]
+  },
+  "photo": {
+    "src": "/logements/le-cocon/photo-carte.jpg",
+    "largeur": 720,
+    "hauteur": 900,
+    "alt": "Le Cocon d'Intramuros, Avignon"
+  },
+  "mosaique": [
+    "espace-chambre-2",
+    "espace-chambre-3",
+    "espace-repas-1",
+    "espace-chambre-4",
+    "cuisine-1"
+  ],
+  "pieces": [
+    {
+      "piece": "Cuisine",
+      "photos": [
+        {
+          "fichier": "cuisine-1",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "cuisine-2",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "cuisine-3",
+          "largeur": 1600,
+          "hauteur": 1200
+        }
+      ]
+    },
+    {
+      "piece": "Espace repas",
+      "photos": [
+        {
+          "fichier": "espace-repas-1",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "espace-repas-2",
+          "largeur": 1200,
+          "hauteur": 1600
+        }
+      ]
+    },
+    {
+      "piece": "Salle de bain",
+      "photos": [
+        {
+          "fichier": "salle-de-bain-1",
+          "largeur": 1200,
+          "hauteur": 1600
+        },
+        {
+          "fichier": "salle-de-bain-2",
+          "largeur": 1200,
+          "hauteur": 1600
+        },
+        {
+          "fichier": "salle-de-bain-3",
+          "largeur": 1600,
+          "hauteur": 1200
+        }
+      ]
+    },
+    {
+      "piece": "Espace chambre",
+      "photos": [
+        {
+          "fichier": "espace-chambre-1",
+          "largeur": 1600,
+          "hauteur": 1067
+        },
+        {
+          "fichier": "espace-chambre-2",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "espace-chambre-3",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "espace-chambre-4",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "espace-chambre-5",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "espace-chambre-6",
+          "largeur": 1200,
+          "hauteur": 1600
+        }
+      ]
+    },
+    {
+      "piece": "Autres photos",
+      "photos": [
+        {
+          "fichier": "autres-photos-1",
+          "largeur": 1600,
+          "hauteur": 1200
+        }
+      ]
+    }
+  ],
+  "couchages": [],
+  "description": {
+    "intro": [
+      "Bienvenue au Cocon d’Intramuros !",
+      "Séjournez dans un studio climatisé et entièrement équipé, idéal pour 2 voyageurs, au cœur du centre historique d’Avignon.",
+      "À pied : Palais des Papes, Pont Saint-Bénézet, Halles et théâtres du Festival d’Avignon.",
+      "Gare d’Avignon Centre à pied. Parking Relais des Italiens + navette gratuite.",
+      "Idéal pour profiter du Festival d’Avignon.",
+      "Au plaisir de vous accueillir !"
+    ],
+    "titre": "Le logement",
+    "texte": "Appartement chaleureux et confortable, pensé pour découvrir Avignon tout en profitant du calme. Capacité maximale : 2 personnes.",
+    "listes": [
+      {
+        "titre": "️ couchage",
+        "elements": [
+          "Chambre 1 : 1 lit double 140x190 cm, espace de rangement"
+        ]
+      },
+      {
+        "titre": "️ cuisine équipée",
+        "elements": [
+          "Plaque de cuisson",
+          "Réfrigérateur",
+          "Vaisselle et tout le nécessaire pour cuisiner",
+          "micro-ondes"
+        ]
+      },
+      {
+        "titre": "Salle de bain",
+        "elements": [
+          "Douche",
+          "WC"
+        ]
+      },
+      {
+        "titre": "Linge de maison fourni",
+        "elements": [
+          "Draps, housse de couette, taies d'oreiller",
+          "Serviettes de bain",
+          "Tapis de bain",
+          "Torchon de cuisine"
+        ]
+      },
+      {
+        "titre": "Équipements",
+        "elements": [
+          "WiFi gratuit et illimité",
+          "Climatisation",
+          "TV",
+          "Netflix",
+          "Ménage, lavage et blanchissage du linge inclus"
+        ]
+      }
+    ],
+    "fin": []
+  },
+  "equipements": [
+    {
+      "categorie": "Salle de bain",
+      "elements": [
+        "Produits de nettoyage",
+        "Eau chaude"
+      ]
+    },
+    {
+      "categorie": "Chambre et linge",
+      "elements": [
+        "Linge de lit"
+      ]
+    },
+    {
+      "categorie": "Divertissement",
+      "elements": [
+        "Télévision"
+      ]
+    },
+    {
+      "categorie": "Chauffage et climatisation",
+      "elements": [
+        "Climatisation",
+        "Chauffage"
+      ]
+    },
+    {
+      "categorie": "Sécurité à la maison",
+      "elements": [
+        "Détecteur de fumée"
+      ]
+    },
+    {
+      "categorie": "Internet et bureau",
+      "elements": [
+        "Wifi"
+      ]
+    },
+    {
+      "categorie": "Cuisine et salle à manger",
+      "elements": [
+        "Cuisine",
+        "Réfrigérateur",
+        "Four à micro-ondes",
+        "Tout le nécessaire pour cuisiner",
+        "Vaisselle et couverts",
+        "Plaques de cuisson",
+        "Table à manger"
+      ]
+    },
+    {
+      "categorie": "Caractéristiques de l'emplacement",
+      "elements": [
+        "Entrée privée",
+        "Laverie automatique à proximité"
+      ]
+    },
+    {
+      "categorie": "Parking et installations",
+      "elements": [
+        "Stationnement payant à l'extérieur de la propriété"
+      ]
+    },
+    {
+      "categorie": "Services",
+      "elements": [
+        "Ménage disponible pendant le séjour"
+      ]
+    }
+  ],
+  "nonInclus": [
+    "Lave-linge"
+  ],
+  "arrivee": "entre 17:00 et 21:00",
+  "depart": "avant 11:00",
+  "annulation": "Annulation gratuite jusqu'à 5 jours avant l'arrivée. Ensuite, 50 % du prix des nuits est remboursé, sauf la première nuit.",
+  "numeroEnregistrement": "84007003034FZ",
+  "reglement": [
+    "Jusqu'à 2 voyageurs",
+    "Pas d'animaux (animaux d'assistance uniquement)",
+    "Non fumeur (le vapotage et les cigarettes électroniques sont également concernés)",
+    "Calme à respecter de 22:00 à 07:00",
+    "Pas de fête ni de soirée"
+  ],
+  "securite": [
+    "Aucune indication de la présence d'un détecteur de monoxyde de carbone",
+    "Détecteur de fumée installé"
+  ],
+  "quartier": [
+    "Logement au rez-de-chaussée d'une rue calme d'Avignon. Emplacement privilégié : commerces, restaurants, théâtres et gare SNCF accessibles à pied en quelques minutes. Tout se fait sans voiture.",
+    "Stationnement : parking payant à proximité (Parking les Halles)",
+    "Arrivée autonome [boîte à clés ] : vous accédez au logement en toute autonomie, à partir de 17h.",
+    "Au cours de la dernière année, 100 % des voyageurs ont attribué 5 étoiles à l'emplacement du logement.",
+    "L'adresse exacte est communiquée après la réservation."
+  ],
+  "reservation": "https://chevalier-pms.com/shop/cmsq4m6hq000104lclqieigtl#reservation"
 }
 ];
 
