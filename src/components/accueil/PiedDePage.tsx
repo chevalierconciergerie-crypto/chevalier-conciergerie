@@ -1,8 +1,24 @@
+import type { CSSProperties } from "react";
 import { useT, useLangue } from "@/i18n/langue";
 import { Link } from "react-router-dom";
 import { COURRIEL, LEGAL, RESEAUX, TELEPHONE } from "@/data/accueil";
 import { EVENEMENT_COOKIES } from "./BandeauCookies";
+import { useRevele } from "./effets";
 import "./chevalier.css";
+
+/* Le grand CHEVALIER du bas de page : les lettres montent l'une après l'autre à l'arrivée dans l'écran. */
+function MotGeant() {
+  const [ref, visible] = useRevele<HTMLDivElement>(0.2);
+  return (
+    <div ref={ref} className={`chv-pied__geant ${visible ? "est-visible" : ""}`} aria-hidden="true">
+      {"CHEVALIER".split("").map((lettre, i) => (
+        <span key={i} style={{ "--i": i } as CSSProperties}>
+          {lettre}
+        </span>
+      ))}
+    </div>
+  );
+}
 
 /*
   Toutes les pages du site restent liées depuis le pied de page : l'accueil
@@ -110,7 +126,7 @@ const PiedDePage = () => {
       </span>
     </p>
     {/* La marque en très grand, sur toute la largeur, coupée en bas de page. Décorative. */}
-    <div className="chv-pied__geant" aria-hidden="true">CHEVALIER</div>
+    <MotGeant />
   </footer>
   );
 };
