@@ -3,7 +3,8 @@
 
   Répond aux questions des voyageurs à partir de dist/assistant-contexte.txt (fiches
   des logements et conditions de location, construit au build) et enregistre chaque
-  conversation dans Vercel Blob (conversations/<id>.json), relisibles sur /api/questions.
+  conversation dans le stockage Vercel Blob privé « conversations-assistant » (Paris),
+  relisibles sur /api/questions ou dans Vercel → Storage → Manage Blobs.
 
   Variables d'environnement (réglages Vercel) : ANTHROPIC_API_KEY, BLOB_READ_WRITE_TOKEN
   (créé en connectant un stockage Blob au projet). Sans clé, le site affiche un message
@@ -72,11 +73,11 @@ export default async function handler(req, res) {
 
   // la conversation est gardée pour que Victor relise les questions des voyageurs
   try {
-    if (process.env.BLOB_READ_WRITE_TOKEN) {
+    if (process.env.BLOB_READ_WRITE_TOKEN || process.env.BLOB_STORE_ID) {
       await put(
         `conversations/${id}.json`,
         JSON.stringify({ id, page: String(corps.page || "").slice(0, 200), maj: new Date().toISOString(), messages: [...messages, { role: "assistant", content: texte }] }),
-        { access: "public", addRandomSuffix: false, allowOverwrite: true, contentType: "application/json" },
+        { access: "private", addRandomSuffix: false, allowOverwrite: true, contentType: "application/json" },
       );
     }
   } catch (erreur) {

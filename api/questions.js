@@ -2,7 +2,7 @@
   Les conversations de l'assistant, pour Victor : GET /api/questions?cle=<ASSISTANT_CLE>.
   ASSISTANT_CLE est un mot de passe choisi par Victor dans les réglages Vercel.
 */
-import { list } from "@vercel/blob";
+import { get, list } from "@vercel/blob";
 
 const esc = (t) => String(t ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
@@ -11,7 +11,12 @@ export default async function handler(req, res) {
   if (!cle || req.query.cle !== cle) return res.status(401).send("Accès refusé.");
   const { blobs } = await list({ prefix: "conversations/", limit: 1000 });
   const recents = blobs.sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt)).slice(0, 200);
-  const conversations = await Promise.all(recents.map((b) => fetch(b.url).then((r) => r.json()).catch(() => null)));
+  // stockage privé : lecture authentifiée par la bibliothèque Blob
+  const lire = async (b) => {
+    const r = await get(b.url, { access: "private" });
+    return r && r.statusCode === 200 ? JSON.parse(await new Response(r.stream).text()) : null;
+  };
+  const conversations = await Promise.all(recents.map((b) => lire(b).catch(() => null)));
   const lignes = conversations.filter(Boolean).map((c) => {
     const date = new Date(c.maj).toLocaleString("fr-FR", { timeZone: "Europe/Paris" });
     const echanges = c.messages
