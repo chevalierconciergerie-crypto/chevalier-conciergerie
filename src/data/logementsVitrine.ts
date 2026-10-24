@@ -29,6 +29,10 @@ export interface LogementVitrine {
   slug: string;
   nom: string;
   lieu: string;
+  /** « Maison entière », etc. ; par défaut « Appartement entier ». */
+  type?: string;
+  /** Titre de la page, identique à celui du prérendu (scripts/logements-seo.json). */
+  titrePage?: string;
   accroche: string;
   details: string[];
   /** Note publique de l'annonce, telle qu'affichée sur Airbnb. */
@@ -2053,6 +2057,716 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
   "quartier": [
     "Des places de stationnement payantes sont disponibles à proximité immédiate de l’appartement, vous permettant de garer votre véhicule en toute sérénité, notamment le Parking des Halles, situé à environ 3 minutes à pied (≈ 250 m).",
     "Nous vous souhaitons un excellent séjour et espérons que vous profiterez pleinement de cet espace confortable idéalement situé au cœur de la ville d’Avignon.",
+    "L'adresse exacte est communiquée après la réservation."
+  ],
+  "reservation": ""
+},
+{
+  "slug": "la-bastide",
+  "nom": "La Bastide",
+  "lieu": "Villeneuve-lès-Avignon",
+  "type": "Maison entière",
+  "titrePage": "La Bastide — Maison à Villeneuve-lès-Avignon | Réservation directe | Chevalier Conciergerie",
+  "accroche": "Une maison lumineuse et climatisée au cœur de Villeneuve-lès-Avignon, avec terrasse et parking, pour quatre voyageurs.",
+  "details": [
+    "4 voyageurs",
+    "2 chambres",
+    "2 lits",
+    "1 salle de bain"
+  ],
+  "note": {
+    "valeur": "4,71",
+    "avis": 7,
+    "nouveau": false,
+    "categories": [
+      {
+        "nom": "Propreté",
+        "valeur": "4,7"
+      },
+      {
+        "nom": "Précision",
+        "valeur": "4,9"
+      },
+      {
+        "nom": "Arrivée",
+        "valeur": "4,4"
+      },
+      {
+        "nom": "Communication",
+        "valeur": "4,6"
+      },
+      {
+        "nom": "Emplacement",
+        "valeur": "4,9"
+      },
+      {
+        "nom": "Qualité-prix",
+        "valeur": "4,9"
+      }
+    ]
+  },
+  "photo": {
+    "src": "/logements/la-bastide/photo-carte.jpg",
+    "largeur": 720,
+    "hauteur": 900,
+    "alt": "La Bastide, Avignon"
+  },
+  "mosaique": [
+    "salon-1",
+    "exterieur-1",
+    "espace-repas-1",
+    "chambre-2-1",
+    "salle-de-bain-1"
+  ],
+  "pieces": [
+    {
+      "piece": "Salon",
+      "photos": [
+        {
+          "fichier": "salon-1",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "salon-2",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "salon-3",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "salon-4",
+          "largeur": 1600,
+          "hauteur": 1200
+        }
+      ]
+    },
+    {
+      "piece": "Cuisine",
+      "photos": [
+        {
+          "fichier": "cuisine-1",
+          "largeur": 1200,
+          "hauteur": 1600
+        },
+        {
+          "fichier": "cuisine-2",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "cuisine-3",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "cuisine-4",
+          "largeur": 1600,
+          "hauteur": 1200
+        }
+      ]
+    },
+    {
+      "piece": "Espace repas",
+      "photos": [
+        {
+          "fichier": "espace-repas-1",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "espace-repas-2",
+          "largeur": 1600,
+          "hauteur": 1200
+        }
+      ]
+    },
+    {
+      "piece": "Chambre 1",
+      "photos": [
+        {
+          "fichier": "chambre-1-1",
+          "largeur": 1200,
+          "hauteur": 1600
+        },
+        {
+          "fichier": "chambre-1-2",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "chambre-1-3",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "chambre-1-4",
+          "largeur": 1200,
+          "hauteur": 1600
+        },
+        {
+          "fichier": "chambre-1-5",
+          "largeur": 1600,
+          "hauteur": 1200
+        }
+      ]
+    },
+    {
+      "piece": "Chambre 2",
+      "photos": [
+        {
+          "fichier": "chambre-2-1",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "chambre-2-2",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "chambre-2-3",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "chambre-2-4",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "chambre-2-5",
+          "largeur": 1600,
+          "hauteur": 1200
+        }
+      ]
+    },
+    {
+      "piece": "Salle de bain",
+      "photos": [
+        {
+          "fichier": "salle-de-bain-1",
+          "largeur": 1200,
+          "hauteur": 1600
+        },
+        {
+          "fichier": "salle-de-bain-2",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "salle-de-bain-3",
+          "largeur": 1200,
+          "hauteur": 1600
+        },
+        {
+          "fichier": "salle-de-bain-4",
+          "largeur": 1200,
+          "hauteur": 1600
+        },
+        {
+          "fichier": "salle-de-bain-5",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "salle-de-bain-6",
+          "largeur": 1200,
+          "hauteur": 1600
+        }
+      ]
+    },
+    {
+      "piece": "Extérieur",
+      "photos": [
+        {
+          "fichier": "exterieur-1",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "exterieur-2",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "exterieur-3",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "exterieur-4",
+          "largeur": 1200,
+          "hauteur": 1600
+        }
+      ]
+    },
+    {
+      "piece": "Autres photos",
+      "photos": [
+        {
+          "fichier": "autres-photos-1",
+          "largeur": 1600,
+          "hauteur": 1067
+        },
+        {
+          "fichier": "autres-photos-2",
+          "largeur": 1200,
+          "hauteur": 1600
+        },
+        {
+          "fichier": "autres-photos-3",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "autres-photos-4",
+          "largeur": 1200,
+          "hauteur": 1600
+        },
+        {
+          "fichier": "autres-photos-5",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "autres-photos-6",
+          "largeur": 1142,
+          "hauteur": 1600
+        }
+      ]
+    }
+  ],
+  "couchages": [],
+  "description": {
+    "intro": [
+      "Au cœur de Villeneuve-lès-Avignon, Cette maison qui allie charme et confort. Une belle luminosité et hauteur sous plafond en pleine nature.",
+      "Le matin, votre café sur la terrasse, avant de partir explorer la ville à pied. Le soir, vous rentrez dans un cocon calme, loin du bruit mais à deux pas de l'animation.",
+      "Idéal pour une famille, jusqu'à 4 voyageurs."
+    ],
+    "titre": "Le logement",
+    "texte": "Appartement chaleureux et confortable, pensé pour découvrir Villeneuve-lès-Avignon tout en profitant du calme. Capacité maximale : 4 personnes.",
+    "listes": [
+      {
+        "titre": "️ couchage",
+        "elements": [
+          "Chambre 1 : 1 lit double 140x190 cm, espace de rangement",
+          "Chambre 2 : 1 lit double 140x190 cm, espace de rangement"
+        ]
+      },
+      {
+        "titre": "️ cuisine équipée",
+        "elements": [
+          "Plaque de cuisson",
+          "Four",
+          "Lave-vaisselle",
+          "Réfrigérateur",
+          "Cafetière (capsules offertes)",
+          "Vaisselle et tout le nécessaire pour cuisiner"
+        ]
+      },
+      {
+        "titre": "Salle de bain",
+        "elements": [
+          "Douche",
+          "Sèche-cheveux",
+          "WC"
+        ]
+      },
+      {
+        "titre": "Linge de maison fourni",
+        "elements": [
+          "Draps, housse de couette, taies d'oreiller",
+          "Serviettes de bain",
+          "Tapis de bain",
+          "Torchon de cuisine"
+        ]
+      },
+      {
+        "titre": "Équipements",
+        "elements": [
+          "Climatisation salon",
+          "Ménage, lavage et blanchissage du linge inclus"
+        ]
+      }
+    ],
+    "fin": []
+  },
+  "equipements": [
+    {
+      "categorie": "Chambre et linge",
+      "elements": [
+        "Lave-linge"
+      ]
+    },
+    {
+      "categorie": "Chauffage et climatisation",
+      "elements": [
+        "Climatisation"
+      ]
+    },
+    {
+      "categorie": "Sécurité à la maison",
+      "elements": [
+        "Détecteur de fumée"
+      ]
+    },
+    {
+      "categorie": "Cuisine et salle à manger",
+      "elements": [
+        "Cuisine"
+      ]
+    },
+    {
+      "categorie": "Extérieur",
+      "elements": [
+        "Espace repas en plein air"
+      ]
+    },
+    {
+      "categorie": "Parking et installations",
+      "elements": [
+        "Stationnement gratuit sur place"
+      ]
+    }
+  ],
+  "nonInclus": [
+    "Wifi",
+    "Télévision",
+    "Chauffage"
+  ],
+  "arrivee": "entre 17:00 et 22:00",
+  "depart": "avant 10:00",
+  "annulation": "Annulation gratuite jusqu'à 5 jours avant l'arrivée. Ensuite, 50 % du prix des nuits est remboursé, sauf la première nuit.",
+  "numeroEnregistrement": "",
+  "reglement": [
+    "Jusqu'à 4 voyageurs",
+    "Pas d'animaux (animaux d'assistance uniquement)",
+    "Non fumeur (le vapotage et les cigarettes électroniques sont également concernés)",
+    "Calme à respecter de 17:00 à 09:00",
+    "Pas de fête ni de soirée",
+    "Aucune photographie commerciale (les tournages à des fins commerciales sont également concernés)"
+  ],
+  "securite": [
+    "Aucune indication de la présence d'un détecteur de monoxyde de carbone",
+    "Détecteur de fumée installé"
+  ],
+  "quartier": [
+    "Emplacement privilégié : Piscine municipal, terrain de tennis, stade de foot accessibles à pied en quelques minutes. Tout se fait sans voiture.",
+    "Stationnement : parking privée gratuit sur place.",
+    "Arrivée autonome boîte à clés : vous accédez au logement en toute autonomie, à partir de 17h.",
+    "L'adresse exacte est communiquée après la réservation."
+  ],
+  "reservation": ""
+},
+{
+  "slug": "l-intramuros",
+  "nom": "L'Intramuros",
+  "lieu": "Avignon intra-muros",
+  "type": "Appartement entier",
+  "titrePage": "L'Intramuros — Appartement à Avignon intra-muros | Réservation directe | Chevalier Conciergerie",
+  "accroche": "Un studio rénové et climatisé, au calme dans le centre historique d'Avignon, pour deux voyageurs.",
+  "details": [
+    "2 voyageurs",
+    "Studio",
+    "1 lit",
+    "1 salle de bain"
+  ],
+  "note": {
+    "valeur": "4,58",
+    "avis": 12,
+    "nouveau": false,
+    "categories": [
+      {
+        "nom": "Propreté",
+        "valeur": "4,4"
+      },
+      {
+        "nom": "Précision",
+        "valeur": "4,5"
+      },
+      {
+        "nom": "Arrivée",
+        "valeur": "4,8"
+      },
+      {
+        "nom": "Communication",
+        "valeur": "4,8"
+      },
+      {
+        "nom": "Emplacement",
+        "valeur": "4,8"
+      },
+      {
+        "nom": "Qualité-prix",
+        "valeur": "4,2"
+      }
+    ]
+  },
+  "photo": {
+    "src": "/logements/l-intramuros/photo-carte.jpg",
+    "largeur": 720,
+    "hauteur": 900,
+    "alt": "L'Intramuros, Avignon"
+  },
+  "mosaique": [
+    "espace-chambre-1",
+    "cuisine-1",
+    "cuisine-2",
+    "cuisine-3",
+    "espace-repas-1"
+  ],
+  "pieces": [
+    {
+      "piece": "Cuisine",
+      "photos": [
+        {
+          "fichier": "cuisine-1",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "cuisine-2",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "cuisine-3",
+          "largeur": 1600,
+          "hauteur": 1200
+        }
+      ]
+    },
+    {
+      "piece": "Espace repas",
+      "photos": [
+        {
+          "fichier": "espace-repas-1",
+          "largeur": 1600,
+          "hauteur": 1200
+        }
+      ]
+    },
+    {
+      "piece": "Salle de bain",
+      "photos": [
+        {
+          "fichier": "salle-de-bain-1",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "salle-de-bain-2",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "salle-de-bain-3",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "salle-de-bain-4",
+          "largeur": 1600,
+          "hauteur": 1200
+        }
+      ]
+    },
+    {
+      "piece": "Extérieur",
+      "photos": [
+        {
+          "fichier": "exterieur-1",
+          "largeur": 1600,
+          "hauteur": 1200
+        }
+      ]
+    },
+    {
+      "piece": "Espace chambre",
+      "photos": [
+        {
+          "fichier": "espace-chambre-1",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "espace-chambre-2",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "espace-chambre-3",
+          "largeur": 1600,
+          "hauteur": 1200
+        }
+      ]
+    },
+    {
+      "piece": "Autres photos",
+      "photos": [
+        {
+          "fichier": "autres-photos-1",
+          "largeur": 1600,
+          "hauteur": 1067
+        },
+        {
+          "fichier": "autres-photos-2",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "autres-photos-3",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "autres-photos-4",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "autres-photos-5",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "autres-photos-6",
+          "largeur": 1200,
+          "hauteur": 1600
+        },
+        {
+          "fichier": "autres-photos-7",
+          "largeur": 1600,
+          "hauteur": 900
+        },
+        {
+          "fichier": "autres-photos-8",
+          "largeur": 1600,
+          "hauteur": 900
+        },
+        {
+          "fichier": "autres-photos-9",
+          "largeur": 1600,
+          "hauteur": 900
+        },
+        {
+          "fichier": "autres-photos-10",
+          "largeur": 1600,
+          "hauteur": 900
+        },
+        {
+          "fichier": "autres-photos-11",
+          "largeur": 1600,
+          "hauteur": 900
+        }
+      ]
+    }
+  ],
+  "couchages": [],
+  "description": {
+    "intro": [
+      "Bienvenue dans ce studio chaleureux et fonctionnel, entièrement rénové avec soin pour vous offrir un séjour confortable et agréable. Situé dans un quartier calme et pratique, ce logement combine design moderne, équipements complets et ambiance cosy.",
+      "Le logement a reçu quelques petits dégâts récemment au dessus de la porte d’entrée, ce n’est rien de dangereux seulement pas esthétique."
+    ],
+    "titre": "Le logement",
+    "texte": "️ Coin nuit douillet avec un lit double , literie de qualité et espace séparé par une étagère design. Cuisine entièrement équipée : four, plaques, micro-ondes, machine à café, ustensiles… tout pour cuisiner comme à la maison. Espace repas lumineux avec table ronde et chaises design. Salle de bain élégante avec douche à effet pluie, faïence naturelle, et rangements . ️ Climatisation réversible pour un confort toute l’année. Équipements pratiques : fer à repasser vapeur, vaisselle, rangements, sèche-cheveux. Dans Avignon Intra muros. À quelques minutes à pied des commerces, restaurants et transports. Accès rapide au centre-ville / plage / gare / lieux touristiques. Couples ou solo travelers. Séjours pro ou week-ends détente. Voyageurs cherchant confort, calme et style. Nous restons disponibles tout au long de votre séjour pour vous conseiller et répondre à vos besoins. Ce logement est identique aux photos : ce que vous voyez, c’est ce que vous aurez !",
+    "listes": [],
+    "fin": []
+  },
+  "equipements": [
+    {
+      "categorie": "Salle de bain",
+      "elements": [
+        "Sèche-cheveux",
+        "Eau chaude"
+      ]
+    },
+    {
+      "categorie": "Chambre et linge",
+      "elements": [
+        "Produits de base",
+        "Cintres",
+        "Linge de lit",
+        "Fer à repasser",
+        "Étendoir à linge",
+        "Espace de rangement pour les vêtements"
+      ]
+    },
+    {
+      "categorie": "Divertissement",
+      "elements": [
+        "Télévision"
+      ]
+    },
+    {
+      "categorie": "Chauffage et climatisation",
+      "elements": [
+        "Climatisation",
+        "Chauffage"
+      ]
+    },
+    {
+      "categorie": "Sécurité à la maison",
+      "elements": [
+        "Détecteur de fumée"
+      ]
+    },
+    {
+      "categorie": "Internet et bureau",
+      "elements": [
+        "Wifi"
+      ]
+    },
+    {
+      "categorie": "Cuisine et salle à manger",
+      "elements": [
+        "Cuisine",
+        "Four à micro-ondes",
+        "Vaisselle et couverts",
+        "Mini réfrigérateur",
+        "Four",
+        "Plaques de cuisson",
+        "Table à manger"
+      ]
+    },
+    {
+      "categorie": "Parking et installations",
+      "elements": [
+        "Stationnement payant sur place"
+      ]
+    },
+    {
+      "categorie": "Services",
+      "elements": [
+        "Clés remises par l'hôte"
+      ]
+    }
+  ],
+  "nonInclus": [
+    "Lave-linge"
+  ],
+  "arrivee": "entre 17:00 et 00:00",
+  "depart": "avant 10:00",
+  "annulation": "Annulation gratuite jusqu'à 5 jours avant l'arrivée. Ensuite, 50 % du prix des nuits est remboursé, sauf la première nuit.",
+  "numeroEnregistrement": "84007000935YC",
+  "reglement": [
+    "Jusqu'à 2 voyageurs",
+    "Pas d'animaux (animaux d'assistance uniquement)",
+    "Non fumeur (le vapotage et les cigarettes électroniques sont également concernés)",
+    "Calme à respecter de 22:00 à 07:00",
+    "Pas de fête ni de soirée",
+    "Aucune photographie commerciale (les tournages à des fins commerciales sont également concernés)"
+  ],
+  "securite": [
+    "Aucune indication de la présence d'un détecteur de monoxyde de carbone",
+    "Détecteur de fumée installé"
+  ],
+  "quartier": [
+    "Au cœur d'Avignon intra-muros.",
     "L'adresse exacte est communiquée après la réservation."
   ],
   "reservation": ""

@@ -48,7 +48,7 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
   const n = nombrePhotos(l);
   const chemin = `/logements/${l.slug}`;
   const canonique = `${SITE}${langue === "en" ? `/en${chemin}` : chemin}`;
-  const titre = `${l.nom} — ${t("Appartement à Avignon intra-muros")} | ${t("Réservation directe")} | Chevalier Conciergerie`;
+  const titre = l.titrePage ?? `${l.nom} — ${t("Appartement à Avignon intra-muros")} | ${t("Réservation directe")} | Chevalier Conciergerie`;
 
   return (
     <>
@@ -95,7 +95,7 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
             <header className="chv-fiche__entete">
               <p className="chv-logement__lieu">{t(l.lieu)}</p>
               <h1 className="chv-fiche__titre">{l.nom}</h1>
-              <p className="chv-fiche__type">{t("Appartement entier")}</p>
+              <p className="chv-fiche__type">{t(l.type ?? "Appartement entier")}</p>
               <ul className="chv-logement__details">
                 {l.details.map((d) => (
                   <li key={d}>{t(d)}</li>
