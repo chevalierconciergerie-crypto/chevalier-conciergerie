@@ -221,9 +221,11 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
                     <li>
                       {t("Arrivée :")} {t(l.arrivee)}
                     </li>
-                    <li>
-                      {t("Départ :")} {t(l.depart)}
-                    </li>
+                    {l.depart && (
+                      <li>
+                        {t("Départ :")} {t(l.depart)}
+                      </li>
+                    )}
                   </ul>
                 </div>
                 <div>
@@ -284,9 +286,11 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
                 <li>
                   {t("Arrivée :")} {t(l.arrivee)}
                 </li>
-                <li>
-                  {t("Départ :")} {t(l.depart)}
-                </li>
+                {l.depart && (
+                  <li>
+                    {t("Départ :")} {t(l.depart)}
+                  </li>
+                )}
                 <li>{t(l.annulation)}</li>
               </ul>
               <p className="chv-fiche__carte-conditions">

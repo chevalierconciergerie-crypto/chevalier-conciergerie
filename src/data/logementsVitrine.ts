@@ -2770,6 +2770,260 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "L'adresse exacte est communiquée après la réservation."
   ],
   "reservation": ""
+},
+{
+  "slug": "le-havre",
+  "nom": "Le Havre",
+  "lieu": "Avignon intra-muros",
+  "type": "Appartement entier",
+  "titrePage": "Le Havre — Appartement à Avignon intra-muros | Réservation directe | Chevalier Conciergerie",
+  "accroche": "Un appartement climatisé avec patio, au calme en plein hypercentre d'Avignon, pour deux voyageurs.",
+  "details": [
+    "2 voyageurs",
+    "1 chambre",
+    "1 lit",
+    "1 salle de bain"
+  ],
+  "note": {
+    "valeur": "",
+    "avis": 0,
+    "nouveau": true,
+    "categories": []
+  },
+  "photo": {
+    "src": "/logements/le-havre/photo-carte.jpg",
+    "largeur": 720,
+    "hauteur": 900,
+    "alt": "Le Havre, Avignon"
+  },
+  "mosaique": [
+    "chambre-1",
+    "salon-1",
+    "exterieur-1",
+    "espace-repas-1",
+    "exterieur-2"
+  ],
+  "pieces": [
+    {
+      "piece": "Salon",
+      "photos": [
+        {
+          "fichier": "salon-1",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "salon-2",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "salon-3",
+          "largeur": 1600,
+          "hauteur": 1200
+        }
+      ]
+    },
+    {
+      "piece": "Cuisine",
+      "photos": [
+        {
+          "fichier": "cuisine-1",
+          "largeur": 1200,
+          "hauteur": 1600
+        },
+        {
+          "fichier": "cuisine-2",
+          "largeur": 1600,
+          "hauteur": 1200
+        }
+      ]
+    },
+    {
+      "piece": "Espace repas",
+      "photos": [
+        {
+          "fichier": "espace-repas-1",
+          "largeur": 1600,
+          "hauteur": 1200
+        }
+      ]
+    },
+    {
+      "piece": "Chambre",
+      "photos": [
+        {
+          "fichier": "chambre-1",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "chambre-2",
+          "largeur": 1200,
+          "hauteur": 1600
+        }
+      ],
+      "equipements": [
+        "Canapé-lit"
+      ]
+    },
+    {
+      "piece": "Salle de bain",
+      "photos": [
+        {
+          "fichier": "salle-de-bain-1",
+          "largeur": 1200,
+          "hauteur": 1600
+        },
+        {
+          "fichier": "salle-de-bain-2",
+          "largeur": 1200,
+          "hauteur": 1600
+        },
+        {
+          "fichier": "salle-de-bain-3",
+          "largeur": 1200,
+          "hauteur": 1600
+        }
+      ]
+    },
+    {
+      "piece": "Extérieur",
+      "photos": [
+        {
+          "fichier": "exterieur-1",
+          "largeur": 1200,
+          "hauteur": 1600
+        },
+        {
+          "fichier": "exterieur-2",
+          "largeur": 1600,
+          "hauteur": 1200
+        },
+        {
+          "fichier": "exterieur-3",
+          "largeur": 1600,
+          "hauteur": 1200
+        }
+      ]
+    },
+    {
+      "piece": "Autres photos",
+      "photos": [
+        {
+          "fichier": "autres-photos-1",
+          "largeur": 1600,
+          "hauteur": 1067
+        },
+        {
+          "fichier": "autres-photos-2",
+          "largeur": 1200,
+          "hauteur": 1600
+        }
+      ]
+    }
+  ],
+  "couchages": [
+    {
+      "piece": "Chambre",
+      "lit": "1 canapé convertible",
+      "photo": "chambre-1"
+    }
+  ],
+  "description": {
+    "intro": [
+      "Simplifiez-vous la vie dans ce logement paisible et central."
+    ],
+    "titre": "Le logement",
+    "texte": "",
+    "listes": [],
+    "fin": []
+  },
+  "equipements": [
+    {
+      "categorie": "Salle de bain",
+      "elements": [
+        "Eau chaude"
+      ]
+    },
+    {
+      "categorie": "Chambre et linge",
+      "elements": [
+        "Produits de base",
+        "Cintres",
+        "Linge de lit",
+        "Espace de rangement pour les vêtements"
+      ]
+    },
+    {
+      "categorie": "Divertissement",
+      "elements": [
+        "Télévision"
+      ]
+    },
+    {
+      "categorie": "Chauffage et climatisation",
+      "elements": [
+        "Climatisation",
+        "Chauffage"
+      ]
+    },
+    {
+      "categorie": "Sécurité à la maison",
+      "elements": [
+        "Détecteur de fumée"
+      ]
+    },
+    {
+      "categorie": "Internet et bureau",
+      "elements": [
+        "Wifi"
+      ]
+    },
+    {
+      "categorie": "Cuisine et salle à manger",
+      "elements": [
+        "Cuisine",
+        "Réfrigérateur",
+        "Tout le nécessaire pour cuisiner",
+        "Vaisselle et couverts",
+        "Congélateur",
+        "Verres à vin",
+        "Plaques de cuisson",
+        "Table à manger"
+      ]
+    },
+    {
+      "categorie": "Extérieur",
+      "elements": [
+        "Espace repas en plein air"
+      ]
+    }
+  ],
+  "nonInclus": [
+    "Lave-linge"
+  ],
+  "arrivee": "entre 17:00 et 21:00",
+  "depart": "",
+  "annulation": "Annulation gratuite jusqu'à la veille de l'arrivée, 17:00. Ensuite, toutes les nuits sont remboursées sauf la première.",
+  "numeroEnregistrement": "840070033693V",
+  "reglement": [
+    "Jusqu'à 2 voyageurs",
+    "Pas d'animaux (animaux d'assistance uniquement)",
+    "Non fumeur (le vapotage et les cigarettes électroniques sont également concernés)",
+    "Calme à respecter de 22:00 à 08:00",
+    "Pas de fête ni de soirée",
+    "Aucune photographie commerciale (les tournages à des fins commerciales sont également concernés)"
+  ],
+  "securite": [
+    "Aucune indication de la présence d'un détecteur de monoxyde de carbone",
+    "Détecteur de fumée installé"
+  ],
+  "quartier": [
+    "Au cœur d'Avignon intra-muros.",
+    "L'adresse exacte est communiquée après la réservation."
+  ],
+  "reservation": ""
 }
 ];
 
