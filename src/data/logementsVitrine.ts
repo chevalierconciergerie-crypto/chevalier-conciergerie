@@ -11,7 +11,7 @@
   Pour ajouter un logement : une entrée de plus ici, ses photos dans
   public/logements/<slug>/, sa route dans scripts/seo-routes.mjs.
   `reservation` est la page de réservation directe du logement dans
-  Chevalier PMS ; tant qu'elle est vide, le bouton mène à /contact.
+  Chevalier PMS (chevalier-pms.com/shop/…) ; vide, le bouton mène à /contact.
 */
 export interface Photo {
   fichier: string;
@@ -234,7 +234,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
       "Au deuxième étage d'une rue calme d'Avignon intra-muros. Commerces, restaurants, Les Halles, théâtres et gare SNCF sont à quelques minutes à pied.",
       "Les voyageurs disent que les environs sont calmes et que le logement est facilement accessible à pied. L'adresse exacte est communiquée après la réservation.",
     ],
-    reservation: "",
+    reservation: "https://chevalier-pms.com/shop/cmsq61itg000104ktepz5feex#reservation",
   },
 {
   "slug": "l-adresse",
@@ -637,7 +637,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "Les voyageurs disent que les environs sont calmes et que le logement est facilement accessible à pied.",
     "L'adresse exacte est communiquée après la réservation."
   ],
-  "reservation": ""
+  "reservation": "https://chevalier-pms.com/shop/cmtof0yt3000304kyfby82ory#reservation"
 },
 {
   "slug": "le-cornue",
@@ -1006,7 +1006,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "Au cœur d'Avignon intra-muros.",
     "L'adresse exacte est communiquée après la réservation."
   ],
-  "reservation": ""
+  "reservation": "https://chevalier-pms.com/shop/cmsqazyco000a04l1x8ugu0dv#reservation"
 },
 {
   "slug": "la-loge",
@@ -1433,7 +1433,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "La GARE TGV se trouve à 20 minutes en voiture.",
     "L'adresse exacte est communiquée après la réservation."
   ],
-  "reservation": ""
+  "reservation": "https://chevalier-pms.com/shop/cmu475ly1000304jv7zauhaut#reservation"
 },
 {
   "slug": "le-vernet-lumineux",
@@ -1737,7 +1737,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "Au cœur d'Avignon intra-muros.",
     "L'adresse exacte est communiquée après la réservation."
   ],
-  "reservation": ""
+  "reservation": "https://chevalier-pms.com/shop/cmtv7xdl7000w04lavrqipkw4#reservation"
 },
 {
   "slug": "l-incontournable",
@@ -2059,7 +2059,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "Nous vous souhaitons un excellent séjour et espérons que vous profiterez pleinement de cet espace confortable idéalement situé au cœur de la ville d’Avignon.",
     "L'adresse exacte est communiquée après la réservation."
   ],
-  "reservation": ""
+  "reservation": "https://chevalier-pms.com/shop/cmthpk9e5000404jvactbdynt#reservation"
 },
 {
   "slug": "la-bastide",
@@ -2460,7 +2460,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "Arrivée autonome boîte à clés : vous accédez au logement en toute autonomie, à partir de 17h.",
     "L'adresse exacte est communiquée après la réservation."
   ],
-  "reservation": ""
+  "reservation": "https://chevalier-pms.com/shop/cmsq8zwsj000104juv2u73rw1#reservation"
 },
 {
   "slug": "l-intramuros",
@@ -2769,7 +2769,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "Au cœur d'Avignon intra-muros.",
     "L'adresse exacte est communiquée après la réservation."
   ],
-  "reservation": ""
+  "reservation": "https://chevalier-pms.com/shop/cmsq0pa51000104l8rluc0008#reservation"
 },
 {
   "slug": "le-havre",
@@ -3023,7 +3023,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "Au cœur d'Avignon intra-muros.",
     "L'adresse exacte est communiquée après la réservation."
   ],
-  "reservation": ""
+  "reservation": "https://chevalier-pms.com/shop/cmt79uy5z000604jsv3zr9gth#reservation"
 },
 {
   "slug": "la-coulisse",
@@ -3390,7 +3390,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "Au cœur d'Avignon intra-muros.",
     "L'adresse exacte est communiquée après la réservation."
   ],
-  "reservation": ""
+  "reservation": "https://chevalier-pms.com/shop/cmsq4ydh2000x04lc33zm5zjb#reservation"
 }
 ];
 

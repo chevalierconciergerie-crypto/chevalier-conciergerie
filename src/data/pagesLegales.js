@@ -112,7 +112,7 @@ export const CONDITIONS = {
           titre: "Article 1 — Objet et parties",
           blocs: [
             {
-              p: `Les présentes conditions régissent la location saisonnière, réservée directement sur le site chevalier-conciergerie.com ou auprès de ${S.nomCommercial}, des logements présentés sur le site. Chaque logement est loué en meublé de tourisme par son propriétaire (le « Loueur »). ${S.raisonSociale} (« ${S.nomCommercial} ») gère la location au nom et pour le compte du Loueur : réservations, accueil et suivi du séjour. Le voyageur qui réserve (le « Client ») agit pour lui-même et pour les personnes qui l'accompagnent.`,
+              p: `Les présentes conditions régissent la location saisonnière, réservée directement auprès de ${S.nomCommercial} (notamment sur sa page de réservation en ligne chevalier-pms.com), des logements présentés sur le site. Chaque logement est loué en meublé de tourisme par son propriétaire (le « Loueur »). ${S.raisonSociale} (« ${S.nomCommercial} ») gère la location au nom et pour le compte du Loueur : réservations, accueil et suivi du séjour. Le voyageur qui réserve (le « Client ») agit pour lui-même et pour les personnes qui l'accompagnent.`,
             },
           ],
         },

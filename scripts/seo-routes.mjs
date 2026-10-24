@@ -603,7 +603,7 @@ const STATIC_ROUTES = [
       Halles, théâtres et gare SNCF sont à quelques minutes à pied. L'adresse exacte est
       communiquée après la réservation.</p>
 
-      <p><a href="/contact">Réserver Le Vernet</a> · Une question ? <a href="tel:+33783198341">07 83 19 83 41</a></p>
+      <p><a href="https://chevalier-pms.com/shop/cmsq61itg000104ktepz5feex#reservation">Réserver Le Vernet en ligne</a> · Une question ? <a href="tel:+33783198341">07 83 19 83 41</a></p>
     </main>`,
     jsonLd: [
       breadcrumb({ name: "Nos logements", path: "/#logements" }, { name: "Le Vernet", path: "/logements/le-vernet" }),
