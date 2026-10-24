@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { Helmet } from "@/lib/seo";
 import EnTete from "@/components/accueil/EnTete";
 import HeroAvignon from "@/components/accueil/HeroAvignon";
@@ -5,6 +6,13 @@ import Fondateur from "@/components/accueil/Fondateur";
 import { Temoignages } from "@/components/accueil/Journal";
 import { LogementsAccueil } from "@/components/accueil/Logements";
 import PiedDePage from "@/components/accueil/PiedDePage";
+import BandeauGeant from "@/components/accueil/BandeauGeant";
+import OndesPhotos from "@/components/accueil/OndesPhotos";
+import { useFondsSections } from "@/components/accueil/effets";
+import { useInclinaisonTitres } from "@/components/accueil/vitesse";
+
+/* La couleur du fond selon la section au milieu de l'écran. */
+const FONDS = { accueil: "noir", bandeau: "creme", "qui-sommes-nous": "noir", avis: "creme", logements: "cuivre" };
 
 /*
   L'accueil tient sur une seule page, dans l'ordre voulu par Victor : la
@@ -15,6 +23,9 @@ import PiedDePage from "@/components/accueil/PiedDePage";
   dans l'historique git ; les pages intérieures sont inchangées.
 */
 const Index = () => {
+  const page = useRef<HTMLDivElement>(null);
+  useFondsSections(page, FONDS);
+  useInclinaisonTitres(page);
   return (
     <>
       <Helmet>
@@ -40,10 +51,13 @@ const Index = () => {
         */}
       </Helmet>
 
-      <div className="chv">
+      <div ref={page} className="chv chv--fonds" data-fond="noir">
+        <OndesPhotos />
         <EnTete />
         <main>
           <HeroAvignon />
+          {/* Deux bandeaux de texte géant entraînés par le défilement. */}
+          <BandeauGeant />
           <Fondateur />
           {/*
             Conciergerie, sous-location, franchise, blog et contact ont chacun leur page

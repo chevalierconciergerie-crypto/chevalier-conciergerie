@@ -1747,10 +1747,37 @@ html.lenis, html.lenis body { height: auto; }
 html.lenis { scroll-behavior: auto !important; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
+/* ============ Accueil : fond qui change de couleur selon la section ============ */
+.chv--fonds { --chv-fond: var(--chv-creme); background-color: var(--chv-fond); transition: background-color 0.9s var(--chv-ease); }
+.chv--fonds[data-fond="noir"] { --chv-fond: #0b0b0b; }
+.chv--fonds[data-fond="cuivre"] { --chv-fond: #efd3c5; }
+.chv--fonds .chv-section, .chv--fonds .chv-bandeau { background: transparent; }
+.chv--fonds #qui-sommes-nous, .chv--fonds #qui-sommes-nous .chv-titre, .chv--fonds #qui-sommes-nous .chv-suivre__liste span { transition: color 0.9s var(--chv-ease); }
+.chv--fonds[data-fond="noir"] #qui-sommes-nous, .chv--fonds[data-fond="noir"] #qui-sommes-nous .chv-titre { color: var(--chv-creme); }
+.chv--fonds[data-fond="noir"] #qui-sommes-nous .chv-suivre__liste span { color: rgba(248, 240, 232, 0.65); }
+.chv--fonds .chv-titre { transform-origin: 50% 50%; will-change: transform; }
+.chv--fonds .chv-bandeau__mot { transition: color 0.9s var(--chv-ease); }
+.chv--fonds[data-fond="noir"] .chv-bandeau__ligne:not(.chv-bandeau__ligne--contour) .chv-bandeau__mot { color: var(--chv-creme); }
+
+/* ============ Accueil : bandeaux de texte géant ============ */
+.chv-bandeau { position: relative; display: flex; flex-direction: column; gap: min(1.5vw, 14px); padding: min(14vw, 150px) 0; overflow: clip; background: var(--chv-creme); }
+.chv-bandeau__ligne { display: flex; width: max-content; will-change: transform; }
+.chv-bandeau__copie { display: flex; flex: none; align-items: center; }
+.chv-bandeau__mot { font-family: var(--chv-titre); font-weight: 400; font-size: clamp(64px, 13vw, 210px); line-height: 1.04; letter-spacing: -0.025em; text-transform: uppercase; white-space: nowrap; color: var(--chv-noir); }
+.chv-bandeau__ligne--contour .chv-bandeau__mot { color: transparent; -webkit-text-stroke: 1.5px var(--chv-cuivre-fonce); }
+.chv-bandeau__etoile { flex: none; margin: 0 0.45em; font-size: clamp(26px, 4.6vw, 74px); color: var(--chv-cuivre); }
+@media (prefers-reduced-motion: reduce) { .chv-bandeau__ligne { flex-wrap: wrap; width: auto; justify-content: center; } .chv-bandeau__copie + .chv-bandeau__copie { display: none; } }
+
+/* ============ Photos en WebGL (OndesPhotos) ============ */
+.chv-carte-logement__photo { position: relative; }
+.chv-onde { position: absolute; left: -4%; top: -14%; width: 108%; height: 128%; z-index: 2; pointer-events: none; }
+.est-onde { overflow: visible !important; background: transparent !important; box-shadow: none !important; }
+.est-onde > img { opacity: 0; }
+
 .chv-progression-page { position: fixed; z-index: 95; top: 0; left: 0; right: 0; height: 2px; background: var(--chv-cuivre); transform: scaleX(0); transform-origin: 0 50%; pointer-events: none; }
 [data-zoom] { transform: scale(1.28); transition: none !important; will-change: transform; }
 [data-rideau] { position: relative; }
-[data-rideau]::after { content: ""; position: absolute; inset: 0; z-index: 1; background: var(--chv-creme); transform: scaleY(var(--rideau, 0)); transform-origin: 50% 0; pointer-events: none; will-change: transform; }
+[data-rideau]::after { content: ""; position: absolute; inset: 0; z-index: 1; background: var(--chv-fond, var(--chv-creme)); transform: scaleY(var(--rideau, 0)); transform-origin: 50% 0; pointer-events: none; will-change: transform; }
 @media (prefers-reduced-motion: reduce) {
   .chv-progression-page { display: none; }
   [data-zoom] { transform: none !important; }

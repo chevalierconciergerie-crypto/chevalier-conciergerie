@@ -159,6 +159,31 @@ export function useProgression<T extends HTMLElement>(): RefObject<T> {
   return ref;
 }
 
+/**
+  Le fond de la page prend la couleur de la section qui occupe le milieu de
+  l'écran (carte : id de section → nom de couleur). Seul l'attribut data-fond du
+  conteneur change, une fois par passage d'une section à l'autre ; la transition
+  de couleur est faite en CSS.
+*/
+export function useFondsSections(ref: RefObject<HTMLElement>, carte: Record<string, string>, defaut = "creme") {
+  useEffect(() => {
+    const racine = ref.current;
+    if (!racine) return;
+    const sections = Object.keys(carte)
+      .map((id) => document.getElementById(id))
+      .filter((s): s is HTMLElement => !!s);
+    return abonner(() => {
+      const milieu = window.innerHeight * 0.5;
+      let fond = defaut;
+      for (const s of sections) {
+        const r = s.getBoundingClientRect();
+        if (r.top <= milieu && r.bottom > milieu) fond = carte[s.id];
+      }
+      if (racine.dataset.fond !== fond) racine.dataset.fond = fond;
+    });
+  }, [ref, carte, defaut]);
+}
+
 /** Défilement jusqu'à une ancre de l'accueil, sous la barre fixe. */
 export function allerA(ancre: string) {
   if (ancre === "accueil") {

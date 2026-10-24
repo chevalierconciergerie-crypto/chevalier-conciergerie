@@ -592,4 +592,8 @@ export const EN: Record<string, string> = {
   "À savoir": "Good to know",
   "Équipements": "Amenities",
   "Écrire sur WhatsApp": "Message us on WhatsApp",
+  /* ---------- Bandeaux géants (accueil) ---------- */
+  "Conciergerie Airbnb": "Airbnb management",
+  "Accueil des voyageurs": "Guest check-in",
+  "Ménage et linge": "Cleaning and linen",
 };

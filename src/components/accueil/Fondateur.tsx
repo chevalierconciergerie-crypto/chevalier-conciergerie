@@ -42,8 +42,8 @@ const Fondateur = ({ commeH1 = false }: { commeH1?: boolean }) => {
         </p>
       </Revele>
       <Revele effet="volume" delai={120}>
-        <figure className="chv-fondateur__portrait" data-rideau>
-          <img data-zoom src="/accueil/victor-portrait.webp" alt="Victor Chevalier" width={739} height={520} loading="lazy" />
+        <figure className="chv-fondateur__portrait">
+          <img data-zoom data-onde src="/accueil/victor-portrait.webp" alt="Victor Chevalier" width={739} height={520} loading="lazy" />
         </figure>
       </Revele>
     </div>
