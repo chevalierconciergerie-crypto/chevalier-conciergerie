@@ -231,7 +231,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
       "Les voyageurs disent que les environs sont calmes et que le logement est facilement accessible à pied. L'adresse exacte est communiquée après la réservation.",
     ],
     reservation: "",
-  },,
+  },
 {
   "slug": "l-adresse",
   "nom": "L'Adresse",
