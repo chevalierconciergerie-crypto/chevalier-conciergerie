@@ -1619,9 +1619,9 @@ main.chv > .chv-section:first-child { padding-top: max(min(11vw, 120px), calc(va
 }
 
 /* ============ Assistant de discussion ============ */
-.chv-whatsapp { position: fixed; z-index: 69; right: 18px; bottom: 78px; width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: #25d366; color: #fff; box-shadow: 0 14px 30px -14px rgba(10, 10, 10, 0.6); transition: transform 0.2s ease; }
+.chv-whatsapp { flex: none; width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: #25d366; color: #fff; box-shadow: 0 14px 30px -14px rgba(10, 10, 10, 0.6); transition: transform 0.2s ease; }
 .chv-whatsapp:hover { transform: scale(1.06); }
-.chv-assistant { position: fixed; z-index: 70; right: 18px; bottom: 18px; font-family: var(--chv-texte); }
+.chv-assistant { position: fixed; z-index: 70; right: 18px; bottom: 18px; display: flex; align-items: center; gap: 8px; font-family: var(--chv-texte); }
 .chv-assistant__bouton { height: 48px; padding: 0 20px; border: 0; border-radius: 999px; background: var(--chv-noir); color: var(--chv-creme); font-family: var(--chv-texte); font-size: 13px; letter-spacing: 0.06em; cursor: pointer; box-shadow: 0 14px 30px -14px rgba(10, 10, 10, 0.6); }
 .chv-assistant__panneau { width: min(380px, calc(100vw - 32px)); height: min(560px, calc(100svh - 120px)); display: flex; flex-direction: column; background: var(--chv-creme); border: 1px solid rgba(10, 10, 10, 0.12); border-radius: 16px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(10, 10, 10, 0.55); }
 .chv-assistant__panneau header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; background: var(--chv-noir); color: var(--chv-creme); }
@@ -1644,10 +1644,9 @@ main.chv > .chv-section:first-child { padding-top: max(min(11vw, 120px), calc(va
 @media (max-width: 900px) {
   /* sur une fiche, au-dessus de la barre « Réserver » */
   body:has(.chv-fiche__barre) .chv-assistant { bottom: 90px; }
-  body:has(.chv-fiche__barre) .chv-whatsapp { bottom: 150px; }
 }
 @media (max-width: 560px) {
   .chv-assistant { right: 12px; bottom: 12px; }
-  .chv-whatsapp { right: 12px; bottom: 66px; width: 48px; height: 48px; }
+  .chv-whatsapp { width: 44px; height: 44px; }
   .chv-assistant__bouton { height: 44px; padding: 0 16px; }
 }

@@ -4,7 +4,7 @@ import { lienWhatsApp, MESSAGE_WHATSAPP } from "@/data/accueil";
 import { logementParSlug } from "@/data/logementsVitrine";
 
 /*
-  Bouton WhatsApp fixe, au-dessus de la bulle de l'assistant : il ouvre la
+  Bouton WhatsApp, à gauche de la bulle « Une question ? » : il ouvre la
   discussion avec Victor, message déjà écrit. Sur la fiche d'un logement, le
   message cite le logement.
 */

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
+import BoutonWhatsApp from "./BoutonWhatsApp";
 import "./chevalier.css";
 
 type Message = { role: "user" | "assistant"; content: string };
@@ -110,6 +111,7 @@ export default function Assistant() {
           <p className="chv-assistant__mention">Vos messages sont enregistrés pour que nous puissions vous répondre et améliorer nos réponses. <a href="/politique-confidentialite">Confidentialité</a></p>
         </section>
       )}
+      {!ouvert && <BoutonWhatsApp />}
       {!ouvert && (
         <button type="button" className="chv-assistant__bouton" onClick={() => setOuvert(true)}>
           Une question ?
