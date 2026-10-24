@@ -8,7 +8,7 @@ import "./chevalier.css";
 
 /* Le grand CHEVALIER du bas de page : les lettres montent l'une après l'autre à l'arrivée dans l'écran. */
 function MotGeant() {
-  const [ref, visible] = useRevele<HTMLDivElement>(0.2);
+  const [ref, visible] = useRevele<HTMLDivElement>(0.05);
   return (
     <div ref={ref} className={`chv-pied__geant ${visible ? "est-visible" : ""}`} aria-hidden="true">
       {"CHEVALIER".split("").map((lettre, i) => (
