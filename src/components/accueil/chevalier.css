@@ -439,7 +439,8 @@
 /* Tarif */
 .chv-tarif { max-width: 760px; margin: min(11vw, 130px) auto 0; text-align: center; }
 .chv-tarif__chiffre { font-family: var(--chv-titre); font-size: min(18vw, 132px); line-height: 1; letter-spacing: -0.03em; margin: 20px 0 0; }
-.chv-tarif__chiffre span { font-size: min(5vw, 34px); letter-spacing: 0; color: var(--chv-cuivre-fonce); }
+.chv-tarif__chiffre span:not(.chv-chiffre) { font-size: min(5vw, 34px); letter-spacing: 0; color: var(--chv-cuivre-fonce); }
+.chv-chiffre { font-variant-numeric: tabular-nums; }
 .chv-tarif__ttc { font-size: 13px; letter-spacing: 0.08em; color: rgba(10, 10, 10, 0.5); margin: 10px 0 0; }
 .chv-tarif__accroche { font-size: 19px; line-height: 1.5; margin: 22px auto 0; max-width: 460px; }
 .chv-tarif__explication { font-size: 16px; line-height: 1.7; color: rgba(10, 10, 10, 0.62); margin: 18px auto 0; max-width: 540px; }
@@ -1746,6 +1747,13 @@ html.lenis, html.lenis body { height: auto; }
 html.lenis { scroll-behavior: auto !important; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
+/* ============ Passage d'une page à l'autre ============ */
+.chv-voile { position: fixed; inset: 0; z-index: 9990; display: grid; place-items: center; background: var(--chv-degrade-cuivre); pointer-events: none; animation: chv-voile 1s cubic-bezier(0.76, 0, 0.24, 1) both; }
+.chv-voile::after { content: ""; position: absolute; left: -10%; right: -10%; top: 100%; height: 14vh; background: inherit; border-radius: 0 0 50% 50%; }
+.chv-voile__mot { font-family: var(--chv-titre); font-size: min(11vw, 72px); letter-spacing: 0.04em; color: var(--chv-noir); animation: chv-voile-mot 1s var(--chv-ease) both; }
+@keyframes chv-voile { 0%, 30% { transform: translateY(0); } 100% { transform: translateY(calc(-100% - 14vh)); } }
+@keyframes chv-voile-mot { 0% { opacity: 0; transform: translateY(12px); } 25% { opacity: 1; transform: none; } 60% { opacity: 1; } 100% { opacity: 0; transform: translateY(-30px); } }
+
 .chv-progression-page { position: fixed; z-index: 95; top: 0; left: 0; right: 0; height: 2px; background: var(--chv-cuivre); transform: scaleX(0); transform-origin: 0 50%; pointer-events: none; }
 [data-zoom] { transform: scale(1.28); transition: none !important; will-change: transform; }
 @media (prefers-reduced-motion: reduce) {

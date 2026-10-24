@@ -11,7 +11,7 @@ import {
 import { DemoCalendrier, DemoDirect, DemoMenage, DemoTableau, DemoTarification } from "./Demos";
 import { Messagerie } from "./Messagerie";
 import { avecLienArticlePms, avecLienPms } from "./LienPms";
-import { Chevron, IconeCoche, Revele, TitreAnime } from "./Primitives";
+import { ChiffreDefile, Chevron, IconeCoche, Revele, TitreAnime } from "./Primitives";
 
 /*
   La FAQ, dans le registre de chevalier-pms.com : une plage claire, un titre
@@ -100,7 +100,7 @@ function Tarif() {
     <Revele className="chv-tarif">
       <p className="chv-etiquette" style={{ margin: 0 }}>Notre tarif</p>
       <p className="chv-tarif__chiffre">
-        25 %<span> HT</span>
+        <ChiffreDefile valeur={25} /> %<span> HT</span>
       </p>
       <p className="chv-tarif__accroche">de commission, prélevée uniquement sur ce que vous touchez vraiment.</p>
       <p className="chv-tarif__explication">

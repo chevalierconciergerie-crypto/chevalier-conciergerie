@@ -30,7 +30,7 @@ function CarteLogement({ logement, rang }: { logement: LogementVitrine; rang: nu
   return (
     <Revele as="li" delai={(rang % 4) * 80}>
       <Link to={lien(dossierLogement(logement.slug))} className="chv-carte-logement">
-        <span className="chv-carte-logement__photo">
+        <span className="chv-carte-logement__photo" data-rideau>
           <img data-zoom src={logement.photo.src} alt={t(logement.photo.alt)} width={logement.photo.largeur} height={logement.photo.hauteur} loading="lazy" />
         </span>
         <span className="chv-carte-logement__haut">

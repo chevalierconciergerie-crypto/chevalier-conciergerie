@@ -9,6 +9,7 @@ import { TELEPHONE } from "@/data/accueil";
 import { logementParSlug, photoPleine, vignette, type LogementVitrine } from "@/data/logementsVitrine";
 import { BoutonReservation, nombrePhotos } from "@/components/accueil/Logements";
 import Visionneuse from "@/components/accueil/Visionneuse";
+import { ChiffreDefile } from "@/components/accueil/Primitives";
 import "@/components/accueil/chevalier.css";
 
 const SITE = "https://chevalier-conciergerie.com";
@@ -102,7 +103,7 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
                 ))}
               </ul>
               <p className="chv-logement__note">
-                {l.note.nouveau ? t("Nouveau") : <><span aria-hidden="true">★</span> {l.note.valeur} · {l.note.avis} {t("avis")}</>}
+                {l.note.nouveau ? t("Nouveau") : <><span aria-hidden="true">★</span> {l.note.valeur} · <ChiffreDefile valeur={l.note.avis} /> {t("avis")}</>}
               </p>
             </header>
 
@@ -193,7 +194,7 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
             {!l.note.nouveau && (
             <section className="chv-fiche__bloc" aria-labelledby="fiche-notes">
               <h2 id="fiche-notes" className="chv-fiche__intertitre">
-                {l.note.nouveau ? t("Nouveau") : <><span aria-hidden="true">★</span> {l.note.valeur} · {l.note.avis} {t("avis")}</>}
+                {l.note.nouveau ? t("Nouveau") : <><span aria-hidden="true">★</span> {l.note.valeur} · <ChiffreDefile valeur={l.note.avis} /> {t("avis")}</>}
               </h2>
               <p className="chv-fiche__texte chv-fiche__texte--discret">{t("Notes laissées par les voyageurs sur Airbnb.")}</p>
               <dl className="chv-fiche__notes">
@@ -279,7 +280,7 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
             <div className="chv-fiche__carte">
               <p className="chv-fiche__carte-nom">{l.nom}</p>
               <p className="chv-logement__note">
-                {l.note.nouveau ? t("Nouveau") : <><span aria-hidden="true">★</span> {l.note.valeur} · {l.note.avis} {t("avis")}</>}
+                {l.note.nouveau ? t("Nouveau") : <><span aria-hidden="true">★</span> {l.note.valeur} · <ChiffreDefile valeur={l.note.avis} /> {t("avis")}</>}
               </p>
               <BoutonReservation logement={l} />
               <ul className="chv-fiche__carte-infos">

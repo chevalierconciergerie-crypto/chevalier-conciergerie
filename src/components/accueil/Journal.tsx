@@ -4,7 +4,7 @@ import { articles, type Article } from "@/lib/journal";
 import { avis, AVIS_TOTAL_GOOGLE, GOOGLE_REVIEWS_URL, type Avis } from "@/data/avis";
 import { COUVERTURES_BLOG, COURRIEL, TELEPHONE } from "@/data/accueil";
 import { usePivot } from "./effets";
-import { Etiquette, Revele, TitreAnime } from "./Primitives";
+import { ChiffreDefile, Etiquette, Revele, TitreAnime } from "./Primitives";
 
 const dateCourte = (iso: string) => iso.split("-").reverse().join("/");
 
@@ -31,7 +31,7 @@ function CarteArticle({ article, rang }: { article: Article; rang: number }) {
     <Revele as="article" effet="volume" delai={rang * 120} className={`chv-article ${rang % 2 ? "chv-article--decale" : ""}`}>
       <Link ref={carte} to={article.path} className="chv-article__carte">
         <div className="chv-article__interieur">
-          <div className="chv-article__couverture">
+          <div className="chv-article__couverture" data-rideau>
             <img data-zoom src={couverture(article)} alt="" loading="lazy" />
           </div>
           <div className="chv-article__texte">
@@ -114,7 +114,7 @@ export function Temoignages() {
       </div>
       <p className="chv-avis__note">
         <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noopener noreferrer">
-          5,0 sur 5 — {AVIS_TOTAL_GOOGLE} avis Google
+          5,0 sur 5 — <ChiffreDefile valeur={AVIS_TOTAL_GOOGLE} /> avis Google
         </a>
       </p>
     </section>

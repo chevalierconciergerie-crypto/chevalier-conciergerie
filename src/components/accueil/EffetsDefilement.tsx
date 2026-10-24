@@ -8,7 +8,9 @@ import { abonner, mouvementReduit } from "./effets";
   - défilement adouci à la molette (Lenis ; le tactile garde le défilement natif) ;
   - fine barre cuivre en haut de l'écran, qui avance avec la lecture de la page ;
   - photos marquées data-zoom : elles se resserrent (zoom arrière) et glissent
-    légèrement dans leur cadre pendant qu'elles traversent l'écran, dans les deux sens.
+    légèrement dans leur cadre pendant qu'elles traversent l'écran, dans les deux sens ;
+  - cadres marqués data-rideau : la photo se découvre de bas en haut, comme un rideau
+    qui se lève, à mesure que le cadre monte dans l'écran, et se referme si l'on remonte.
   Rien de tout ça si le visiteur a demandé de réduire les animations.
 */
 export default function EffetsDefilement() {
@@ -31,10 +33,12 @@ export default function EffetsDefilement() {
     if (mouvementReduit()) return;
     const barre = document.querySelector<HTMLElement>(".chv-progression-page");
     let photos: HTMLElement[] = [];
+    let rideaux: HTMLElement[] = [];
     let attente = 0;
     const chercher = () => {
       attente = 0;
       photos = [...document.querySelectorAll<HTMLElement>("[data-zoom]")];
+      rideaux = [...document.querySelectorAll<HTMLElement>("[data-rideau]")];
     };
     chercher();
     // Les sections arrivent après coup (pages chargées à la demande) : on recherche à chaque ajout.
@@ -54,6 +58,14 @@ export default function EffetsDefilement() {
         const p = Math.max(0, Math.min(1, (h - r.top) / (h + r.height)));
         const zoom = 1.12 + 0.16 * (1 - Math.min(1, p * 1.8));
         photo.style.transform = `translateY(${((p - 0.5) * 10).toFixed(2)}%) scale(${zoom.toFixed(3)})`;
+      }
+      for (const cadre of rideaux) {
+        const r = cadre.getBoundingClientRect();
+        if (r.bottom < -100 || r.top > h + 100) continue;
+        // Ouvert à moitié quand le cadre a monté d'un cinquième d'écran, tout à fait à 45 %.
+        const p = Math.max(0, Math.min(1, (h - r.top) / (h * 0.45)));
+        const ouvert = 1 - Math.pow(1 - p, 2.2);
+        cadre.style.clipPath = ouvert >= 0.999 ? "" : `inset(${((1 - ouvert) * 100).toFixed(2)}% 0 0 0)`;
       }
     });
     return () => {

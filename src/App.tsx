@@ -11,6 +11,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import BandeauCookies from "./components/accueil/BandeauCookies";
 import Assistant from "./components/accueil/Assistant";
 import EffetsDefilement from "./components/accueil/EffetsDefilement";
+import TransitionPages from "./components/accueil/TransitionPages";
 import SuiviPages from "./components/SuiviPages";
 import Index from "./pages/Index";
 import Conciergerie from "./pages/Conciergerie";
@@ -48,6 +49,7 @@ const App = () => (
             <BandeauCookies />
             <Assistant />
             <EffetsDefilement />
+            <TransitionPages />
             {/*
               Chaque route est montée deux fois : nue en français, préfixée /en
               en anglais. La langue vit donc dans l'adresse — /tarifs et

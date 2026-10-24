@@ -1,5 +1,5 @@
-import { Fragment, type CSSProperties, type ElementType, type ReactNode } from "react";
-import { useRevele } from "./effets";
+import { Fragment, useEffect, useRef, type CSSProperties, type ElementType, type ReactNode } from "react";
+import { abonner, mouvementReduit, useRevele } from "./effets";
 import "./chevalier.css";
 
 /** Apparition au défilement : l'élément monte, ou arrive incliné dans la profondeur. */
@@ -51,6 +51,34 @@ export function TitreAnime({ lignes, className = "", as: Balise = "h2" }: { lign
         </span>
       ))}
     </Balise>
+  );
+}
+
+const enChiffres = (v: number, decimales: number) =>
+  v.toLocaleString("fr-FR", { minimumFractionDigits: decimales, maximumFractionDigits: decimales });
+
+/**
+  Un nombre qui défile jusqu'à sa valeur pendant qu'il monte dans l'écran, et
+  redescend quand on remonte : il suit le défilement dans les deux sens. Le HTML
+  porte la valeur finale, celle que lisent Google et les visiteurs sans JavaScript.
+*/
+export function ChiffreDefile({ valeur, decimales = 0, className = "" }: { valeur: number; decimales?: number; className?: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || mouvementReduit()) return;
+    return abonner(() => {
+      const r = el.getBoundingClientRect();
+      const h = window.innerHeight;
+      // 0 quand le nombre entre par le bas de l'écran, 1 quand il en atteint la moitié.
+      const p = Math.max(0, Math.min(1, (h - r.top) / (h * 0.5)));
+      el.textContent = enChiffres(valeur * (1 - Math.pow(1 - p, 3)), decimales);
+    });
+  }, [valeur, decimales]);
+  return (
+    <span ref={ref} className={`chv-chiffre ${className}`}>
+      {enChiffres(valeur, decimales)}
+    </span>
   );
 }
 
