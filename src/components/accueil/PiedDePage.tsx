@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react";
 import { useT, useLangue } from "@/i18n/langue";
 import { Link } from "react-router-dom";
 import { COURRIEL, LEGAL, RESEAUX, TELEPHONE } from "@/data/accueil";
@@ -7,18 +6,14 @@ import { useMontee } from "./effets";
 import "./chevalier.css";
 
 /*
-  Le grand CHEVALIER du bas de page : les lettres montent l'une après l'autre
-  au fil du défilement, et redescendent quand on remonte.
+  Le grand CHEVALIER du bas de page, en contour : il se remplit de cuivre de
+  gauche à droite au fil du défilement, et se vide quand on remonte.
 */
 function MotGeant() {
   const ref = useMontee<HTMLDivElement>();
   return (
     <div ref={ref} className="chv-pied__geant" aria-hidden="true">
-      {"CHEVALIER".split("").map((lettre, i) => (
-        <span key={i} style={{ "--i": i } as CSSProperties}>
-          {lettre}
-        </span>
-      ))}
+      CHEVALIER
     </div>
   );
 }

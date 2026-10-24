@@ -32,7 +32,7 @@ function CarteArticle({ article, rang }: { article: Article; rang: number }) {
       <Link ref={carte} to={article.path} className="chv-article__carte">
         <div className="chv-article__interieur">
           <div className="chv-article__couverture">
-            <img src={couverture(article)} alt="" loading="lazy" />
+            <img data-zoom src={couverture(article)} alt="" loading="lazy" />
           </div>
           <div className="chv-article__texte">
             <p className="chv-article__meta">

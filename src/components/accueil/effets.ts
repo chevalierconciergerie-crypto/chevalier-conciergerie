@@ -66,7 +66,7 @@ function planifier() {
   requestAnimationFrame(tourner);
 }
 
-function abonner(f: Abonne) {
+export function abonner(f: Abonne) {
   if (abonnes.size === 0) {
     window.addEventListener("scroll", planifier, { passive: true });
     window.addEventListener("resize", planifier);
@@ -83,9 +83,9 @@ function abonner(f: Abonne) {
 }
 
 /**
-  Avancée de l'élément dans l'écran, pilotée par le défilement, dans les deux
-  sens : --p vaut 0 quand son haut touche le bas de l'écran, 1 quand il est
-  entièrement visible. Le CSS s'en sert pour faire monter ou redescendre.
+  Pour un élément du bas de la page : --p vaut 0 quand son haut touche le bas
+  de l'écran, 1 quand on arrive tout en bas de la page, et suit le défilement
+  dans les deux sens entre les deux. Le CSS s'en sert pour remplir ou vider.
 */
 export function useMontee<T extends HTMLElement>(): RefObject<T> {
   const ref = useRef<T>(null);
@@ -100,7 +100,9 @@ export function useMontee<T extends HTMLElement>(): RefObject<T> {
       const r = el.getBoundingClientRect();
       const h = window.innerHeight;
       if (r.top > h + 50 || r.bottom < -50) return;
-      const p = Math.max(0, Math.min(1, (h - r.top) / (r.height * 0.9)));
+      const reste = document.documentElement.scrollHeight - h - window.scrollY;
+      const course = h - r.top + reste;
+      const p = course > 0 ? Math.max(0, Math.min(1, (h - r.top) / course)) : 1;
       el.style.setProperty("--p", p.toFixed(3));
     });
   }, []);

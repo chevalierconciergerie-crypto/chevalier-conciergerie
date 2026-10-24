@@ -49,6 +49,7 @@ export default function Visionneuse({ photos, depart, fermer }: { photos: PhotoV
   return (
     <div
       className="chv-visionneuse"
+      data-lenis-prevent
       role="dialog"
       aria-modal="true"
       aria-label={t("Photos du logement")}

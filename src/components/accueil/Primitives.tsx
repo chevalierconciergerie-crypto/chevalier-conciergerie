@@ -1,4 +1,4 @@
-import type { CSSProperties, ElementType, ReactNode } from "react";
+import { Fragment, type CSSProperties, type ElementType, type ReactNode } from "react";
 import { useRevele } from "./effets";
 import "./chevalier.css";
 
@@ -31,8 +31,8 @@ export function Revele({
 }
 
 /**
-  Le grand titre d'une section : chaque ligne monte derrière un masque à
-  l'entrée dans l'écran, avec un léger décalage de l'une à l'autre.
+  Le grand titre d'une section : chaque mot monte derrière le masque de sa
+  ligne à l'entrée dans l'écran, l'un après l'autre.
 */
 export function TitreAnime({ lignes, className = "", as: Balise = "h2" }: { lignes: string[]; className?: string; as?: ElementType }) {
   const [ref, visible] = useRevele<HTMLHeadingElement>(0.25);
@@ -40,9 +40,14 @@ export function TitreAnime({ lignes, className = "", as: Balise = "h2" }: { lign
     <Balise ref={ref} className={`chv-titre ${visible ? "est-visible" : ""} ${className}`}>
       {lignes.map((ligne, i) => (
         <span key={ligne} className="chv-masque">
-          <span className="chv-ligne" style={{ "--i": i } as CSSProperties}>
-            {ligne}
-          </span>
+          {ligne.split(" ").map((mot, j) => (
+            <Fragment key={j}>
+              {j > 0 && " "}
+              <span className="chv-ligne" style={{ "--i": i, "--j": j } as CSSProperties}>
+                {mot}
+              </span>
+            </Fragment>
+          ))}
         </span>
       ))}
     </Balise>

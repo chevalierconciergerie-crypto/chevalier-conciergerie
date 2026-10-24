@@ -167,7 +167,7 @@ const EnTete = () => {
     <>
       <header>{barre(false)}</header>
 
-      <div id="chv-menu" className={`chv-menu ${ouvert ? "est-ouvert" : ""}`} aria-hidden={!ouvert} role="dialog" aria-label="Menu">
+      <div id="chv-menu" data-lenis-prevent className={`chv-menu ${ouvert ? "est-ouvert" : ""}`} aria-hidden={!ouvert} role="dialog" aria-label="Menu">
         {barre(true)}
         <div className="chv-menu__corps">
           <nav aria-label={t("Rubriques")}>

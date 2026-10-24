@@ -83,7 +83,7 @@ export default function Assistant() {
   return (
     <div className="chv-assistant">
       {ouvert && (
-        <section className="chv-assistant__panneau" aria-label="Assistant">
+        <section className="chv-assistant__panneau" aria-label="Assistant" data-lenis-prevent>
           <header>
             <p>
               <strong>Une question ?</strong>
