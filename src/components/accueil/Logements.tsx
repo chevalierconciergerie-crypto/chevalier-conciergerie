@@ -35,7 +35,7 @@ function CarteLogement({ logement, rang }: { logement: LogementVitrine; rang: nu
         </span>
         <span className="chv-carte-logement__haut">
           <span className="chv-carte-logement__nom">{logement.nom}</span>
-          <span className="chv-carte-logement__note">★ {logement.note.valeur}</span>
+          <span className="chv-carte-logement__note">{logement.note.nouveau ? t("Nouveau") : `★ ${logement.note.valeur}`}</span>
         </span>
         <span className="chv-carte-logement__ligne">{t(logement.lieu)}</span>
         <span className="chv-carte-logement__ligne">{logement.details.slice(0, 2).map((d) => t(d)).join(" · ")}</span>

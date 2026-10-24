@@ -1110,6 +1110,9 @@ function escSeo(s) {
 // Les routes /en/* couvertes en priorité : celles qui vendent. Les mentions légales et
 // l'estimation restent hors bilingue pour l'instant — leurs contenus techniques attendent
 // la phase 2 (traduction des <Helmet> des pages intérieures).
+// Fiches des logements générées depuis leurs annonces (voir src/data/logementsVitrine.ts).
+STATIC_ROUTES.push(...JSON.parse(readFileSync(path.join(root, "scripts/logements-seo.json"), "utf8")));
+
 const ROUTES_EN = STATIC_ROUTES
   .filter((r) => !["/cgv", "/mentions-legales", "/politique-confidentialite", "/estimation-sous-location"].includes(r.path))
   .map(traduireRoute)

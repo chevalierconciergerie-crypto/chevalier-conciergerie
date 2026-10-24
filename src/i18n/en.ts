@@ -472,6 +472,7 @@ export const EN: Record<string, string> = {
   "Numéro d'enregistrement :": "Registration number:",
   "Gestion": "Management",
   "Réserver": "Book",
+  "Nouveau": "New",
   "Photos": "Photos",
   "2 lits": "2 beds",
   "1 canapé convertible": "1 sofa bed",

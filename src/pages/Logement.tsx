@@ -102,7 +102,7 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
                 ))}
               </ul>
               <p className="chv-logement__note">
-                <span aria-hidden="true">★</span> {l.note.valeur} · {l.note.avis} {t("avis")}
+                {l.note.nouveau ? t("Nouveau") : <><span aria-hidden="true">★</span> {l.note.valeur} · {l.note.avis} {t("avis")}</>}
               </p>
             </header>
 
@@ -111,7 +111,7 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
               {l.description.intro.map((p) => (
                 <p key={p} className="chv-fiche__texte">{t(p)}</p>
               ))}
-              <p className="chv-fiche__texte">{t(l.description.texte)}</p>
+              {l.description.texte && <p className="chv-fiche__texte">{t(l.description.texte)}</p>}
               <div className="chv-fiche__listes">
                 {l.description.listes.map((liste) => (
                   <div key={liste.titre}>
@@ -129,6 +129,7 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
               ))}
             </section>
 
+            {l.couchages.length > 0 && (
             <section className="chv-fiche__bloc" aria-labelledby="fiche-couchages">
               <h2 id="fiche-couchages" className="chv-fiche__intertitre">{t("Où vous dormirez")}</h2>
               <div className="chv-fiche__couchages">
@@ -141,6 +142,7 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
                 ))}
               </div>
             </section>
+            )}
 
             <section id="photos" className="chv-fiche__bloc" aria-labelledby="fiche-photos">
               <h2 id="fiche-photos" className="chv-fiche__intertitre">{t("Photos")}</h2>
@@ -188,9 +190,10 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
               )}
             </section>
 
+            {!l.note.nouveau && (
             <section className="chv-fiche__bloc" aria-labelledby="fiche-notes">
               <h2 id="fiche-notes" className="chv-fiche__intertitre">
-                <span aria-hidden="true">★</span> {l.note.valeur} · {l.note.avis} {t("avis")}
+                {l.note.nouveau ? t("Nouveau") : <><span aria-hidden="true">★</span> {l.note.valeur} · {l.note.avis} {t("avis")}</>}
               </h2>
               <p className="chv-fiche__texte chv-fiche__texte--discret">{t("Notes laissées par les voyageurs sur Airbnb.")}</p>
               <dl className="chv-fiche__notes">
@@ -207,6 +210,7 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
                 ))}
               </dl>
             </section>
+            )}
 
             <section className="chv-fiche__bloc" aria-labelledby="fiche-savoir">
               <h2 id="fiche-savoir" className="chv-fiche__intertitre">{t("À savoir")}</h2>
@@ -273,7 +277,7 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
             <div className="chv-fiche__carte">
               <p className="chv-fiche__carte-nom">{l.nom}</p>
               <p className="chv-logement__note">
-                <span aria-hidden="true">★</span> {l.note.valeur} · {l.note.avis} {t("avis")}
+                {l.note.nouveau ? t("Nouveau") : <><span aria-hidden="true">★</span> {l.note.valeur} · {l.note.avis} {t("avis")}</>}
               </p>
               <BoutonReservation logement={l} />
               <ul className="chv-fiche__carte-infos">
@@ -299,7 +303,7 @@ function Fiche({ logement: l }: { logement: LogementVitrine }) {
           <p>
             <strong>{l.nom}</strong>
             <span>
-              ★ {l.note.valeur} · {l.note.avis} {t("avis")}
+              {l.note.nouveau ? t("Nouveau") : `★ ${l.note.valeur} · ${l.note.avis} ${t("avis")}`}
             </span>
           </p>
           <BoutonReservation logement={l} />
