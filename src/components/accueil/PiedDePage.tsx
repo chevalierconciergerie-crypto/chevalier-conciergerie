@@ -109,6 +109,8 @@ const PiedDePage = () => {
         © {new Date().getFullYear()} Chevalier Conciergerie. {t("Tous droits réservés — Taxe de séjour collectée pour le compte de la collectivité et reversée intégralement.")}
       </span>
     </p>
+    {/* La marque en très grand, sur toute la largeur, coupée en bas de page. Décorative. */}
+    <div className="chv-pied__geant" aria-hidden="true">CHEVALIER</div>
   </footer>
   );
 };
