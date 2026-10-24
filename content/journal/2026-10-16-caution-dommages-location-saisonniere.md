@@ -3,7 +3,7 @@ title: "Caution et dommages en location saisonnière : ce que la plateforme couv
 description: "Caution et dommages en location saisonnière : ce que couvrent Airbnb et Booking, les délais pour réclamer, les exclusions, et comment protéger votre logement."
 date: 2026-10-16
 category: Conciergerie
-image: /journal/journal-defaut.jpg
+image: /journal/caution-dommages-location-saisonniere.jpg
 author: Victor Chevalier
 keywords: [caution location saisonnière, dommages location saisonnière, caution airbnb, aircover hôte, caution booking]
 ---

@@ -3,7 +3,7 @@ title: "Conciergerie Vaucluse : l'expertise locale à Avignon"
 description: "Conciergerie Vaucluse : pourquoi une expertise locale à Avignon fait la différence face aux opérateurs nationaux — connaissance des quartiers, saisonnalité, réglementation."
 date: 2026-08-17
 category: Conciergerie
-image: /journal/journal-defaut.jpg
+image: /journal/conciergerie-vaucluse.jpg
 author: Victor Chevalier
 keywords: ["conciergerie Vaucluse", "conciergerie locale Avignon", "conciergerie Avignon Villeneuve-lès-Avignon", "conciergerie appartement Avignon", "gestion locative Vaucluse"]
 ---

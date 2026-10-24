@@ -3,7 +3,7 @@ title: "Louer sur Airbnb à Avignon : gérer à distance"
 description: "Louer son appartement sur Airbnb à Avignon sans être sur place : les trois options qui marchent — conciergerie, sous-location, gestion mixte — comparées poste par poste."
 date: 2026-08-22
 category: Conciergerie
-image: /journal/journal-defaut.jpg
+image: /journal/louer-sur-airbnb-a-avignon.jpg
 author: Victor Chevalier
 keywords: ["comment louer son appartement sur airbnb à avignon sans avoir de voyageurs sur place", "gérer un airbnb à distance à Avignon", "conciergerie Airbnb Avignon sans présence", "sous-location loyer garanti Avignon", "louer sans être présent Avignon"]
 ---

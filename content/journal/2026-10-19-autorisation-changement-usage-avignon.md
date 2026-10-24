@@ -3,7 +3,7 @@ title: "Changement d'usage à Avignon : démarche, délais et pièces à fournir
 description: "Changement d'usage à Avignon : qui doit le demander, le seuil de 70 nuitées, les pièces du dossier, les délais d'instruction et la durée de l'autorisation."
 date: 2026-10-19
 category: Réglementation
-image: /journal/journal-defaut.jpg
+image: /journal/autorisation-changement-usage-avignon.jpg
 author: Victor Chevalier
 keywords: [changement d'usage avignon, autorisation changement d'usage meublé de tourisme, autorisation temporaire changement d'usage, location courte durée avignon réglementation, changementdusage.fr avignon]
 ---

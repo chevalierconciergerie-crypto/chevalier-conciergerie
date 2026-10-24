@@ -3,7 +3,7 @@ title: "Festival d'Avignon : louer son bien en juillet"
 description: "Festival d'Avignon : ce qu'un propriétaire doit régler avant juillet, de l'enregistrement au calendrier, au ménage et à la formule de gestion."
 date: 2026-10-07
 category: Avignon
-image: /journal/journal-defaut.jpg
+image: /journal/festival-avignon-louer-son-bien-en-juillet.jpg
 author: Victor Chevalier
 keywords: [location festival avignon, louer pendant le festival d'avignon, location saisonnière avignon juillet, conciergerie avignon festival, airbnb festival avignon]
 ---

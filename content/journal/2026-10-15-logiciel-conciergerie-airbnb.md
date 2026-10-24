@@ -3,7 +3,7 @@ title: "Logiciel de conciergerie Airbnb : celui que nous utilisons à Avignon"
 description: "Le logiciel qui fait tourner notre conciergerie à Avignon : calendriers Airbnb et Booking, ménages, cautions, factures des propriétaires. Prix et limites."
 date: 2026-10-15
 category: Conciergerie
-image: /journal/journal-defaut.jpg
+image: /journal/logiciel-conciergerie-airbnb.jpg
 author: Victor Chevalier
 keywords: [logiciel conciergerie airbnb, logiciel de conciergerie, logiciel gestion conciergerie, chevalier pms, pms conciergerie, channel manager airbnb booking]
 ---

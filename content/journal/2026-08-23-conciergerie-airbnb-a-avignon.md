@@ -3,7 +3,7 @@ title: "Conciergerie Airbnb Avignon : avant de confier votre bien"
 description: "Conciergerie Airbnb à Avignon : gestion complète, 25 % HT tout inclus, conformité 2026 et accueil voyageurs 7 j/7. Ce qu'il faut vraiment savoir avant de confier votre bien."
 date: 2026-08-23
 category: Conciergerie
-image: /journal/journal-defaut.jpg
+image: /journal/conciergerie-airbnb-a-avignon.jpg
 author: Victor Chevalier
 keywords: ["conciergerie airbnb avignon", "conciergerie location courte durée avignon", "gestion airbnb avignon", "conciergerie airbnb tarif avignon", "conciergerie saisonnière avignon"]
 ---

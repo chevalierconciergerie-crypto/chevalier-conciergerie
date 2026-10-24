@@ -3,7 +3,7 @@ title: "Welkeys à Avignon : avis, tarifs et comparaison avec Chevalier Concierg
 description: "Welkeys à Avignon : commission affichée, services, zone et engagement, comparés point par point avec Chevalier Conciergerie, à partir du site de Welkeys."
 date: 2026-10-23
 category: Conciergerie
-image: /journal/journal-defaut.jpg
+image: /journal/welkeys-avis-tarifs-avignon.jpg
 author: Victor Chevalier
 keywords: [Welkeys avis, Welkeys tarifs, Welkeys Avignon, conciergerie Airbnb Avignon, Welkeys ou Chevalier Conciergerie]
 ---

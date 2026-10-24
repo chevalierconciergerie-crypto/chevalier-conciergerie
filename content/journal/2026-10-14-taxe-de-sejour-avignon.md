@@ -3,7 +3,7 @@ title: "Taxe de séjour à Avignon : qui la collecte, comment la reverser, et po
 description: "Taxe de séjour à Avignon : qui la paie, qui la collecte, comment la reverser et pourquoi elle ne doit jamais être comptée comme un revenu locatif."
 date: 2026-10-14
 category: Réglementation
-image: /journal/journal-defaut.jpg
+image: /journal/taxe-de-sejour-avignon.jpg
 author: Victor Chevalier
 keywords: [taxe de séjour avignon, taxe de séjour location saisonnière, taxe de séjour meublé non classé, reverser la taxe de séjour, taxe de séjour airbnb]
 ---

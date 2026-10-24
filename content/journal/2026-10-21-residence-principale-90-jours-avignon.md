@@ -3,7 +3,7 @@ title: "Résidence principale et plafond de 90 jours à Avignon : comment le sui
 description: "Résidence principale louée à Avignon : le plafond de 90 jours par an, comment compter vos jours sur plusieurs plateformes et ce que risque un dépassement."
 date: 2026-10-21
 category: Réglementation
-image: /journal/journal-defaut.jpg
+image: /journal/residence-principale-90-jours-avignon.jpg
 author: Victor Chevalier
 keywords: [90 jours résidence principale avignon, plafond location résidence principale, louer sa résidence principale airbnb avignon, compter jours location meublé de tourisme]
 ---

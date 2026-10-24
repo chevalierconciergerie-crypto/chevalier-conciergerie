@@ -3,7 +3,7 @@ title: "Conciergerie Avignon : quelle offre choisir pour louer"
 description: "Conciergerie à Avignon : conciergerie classique à 25 % HT ou sous-location avec loyer garanti chaque mois ? Comparez les deux formules chiffrées pour choisir la vôtre."
 date: 2026-08-20
 category: Conciergerie
-image: /journal/journal-defaut.jpg
+image: /journal/conciergerie-avignon.jpg
 author: Victor Chevalier
 keywords: ["conciergerie avignon", "conciergerie location avignon", "gestion locative avignon", "loyer garanti avignon", "conciergerie airbnb avignon"]
 ---

@@ -3,7 +3,7 @@ title: "Loyer garanti location saisonnière Avignon"
 description: "Loyer garanti à Avignon sans vacance locative : le contrat de sous-location professionnelle qui verse le même montant chaque mois, saison creuse comprise. Comment ça marche."
 date: 2026-08-18
 category: Conciergerie
-image: /journal/journal-defaut.jpg
+image: /journal/loyer-garanti-location-saisonniere-avignon-sans-vacance-locative.jpg
 author: Victor Chevalier
 keywords: ["loyer garanti location saisonnière Avignon sans vacance locative", "loyer garanti Avignon", "sous-location conciergerie Avignon", "revenu locatif fixe Avignon", "garantie loyer courte durée Avignon"]
 ---
