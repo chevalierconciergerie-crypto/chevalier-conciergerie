@@ -303,6 +303,7 @@ export const CONFIDENTIALITE = {
             "Voyageurs de nationalité étrangère : fiche individuelle de police, exigée par l'article R814-1 du Code de l'entrée et du séjour des étrangers.",
             "Propriétaires et prospects : nom, prénom, coordonnées, informations sur le bien, messages envoyés.",
             "Visiteurs du site : données de mesure d'audience (pages vues, type d'appareil), uniquement si vous l'acceptez.",
+            "Assistant de discussion : vos questions et les réponses de l'assistant, la page d'où vous écrivez. Ne saisissez pas de données sensibles.",
           ],
         },
       ],
@@ -317,6 +318,7 @@ export const CONFIDENTIALITE = {
             "Gestion de la relation avec les propriétaires : exécution du contrat.",
             "Comptabilité, taxe de séjour et fiches de police : obligations légales.",
             "Mesure d'audience du site : votre consentement.",
+            "Assistant de discussion (réponses générées par une intelligence artificielle, Anthropic) : intérêt légitime à répondre à vos questions et à améliorer nos réponses.",
           ],
         },
       ],
@@ -325,7 +327,7 @@ export const CONFIDENTIALITE = {
       titre: "Destinataires",
       blocs: [
         {
-          p: "Vos données sont destinées à nos équipes et, pour une réservation, au propriétaire du logement réservé. Elles sont aussi traitées par nos prestataires techniques, dans la limite de leur mission : hébergement du site (Vercel Inc.), logiciel de gestion des réservations, prestataire de paiement, mesure d'audience (Google Ireland Limited). Nous ne vendons aucune donnée.",
+          p: "Vos données sont destinées à nos équipes et, pour une réservation, au propriétaire du logement réservé. Elles sont aussi traitées par nos prestataires techniques, dans la limite de leur mission : hébergement du site et stockage des conversations de l'assistant (Vercel Inc.), réponses de l'assistant (Anthropic PBC), logiciel de gestion des réservations, prestataire de paiement, mesure d'audience (Google Ireland Limited). Nous ne vendons aucune donnée.",
         },
       ],
     },
@@ -346,6 +348,7 @@ export const CONFIDENTIALITE = {
             "Fiches de police : 6 mois.",
             "Pièces comptables et factures : 10 ans.",
             "Prospects : 3 ans après le dernier contact.",
+            "Conversations avec l'assistant : 12 mois.",
             "Cookies de mesure d'audience : 13 mois au plus.",
           ],
         },

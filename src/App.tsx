@@ -9,6 +9,7 @@ import { HelmetProvider } from "@/lib/seo";
 import { LangueProvider } from "@/i18n/langue";
 import ScrollToTop from "./components/ScrollToTop";
 import BandeauCookies from "./components/accueil/BandeauCookies";
+import Assistant from "./components/accueil/Assistant";
 import SuiviPages from "./components/SuiviPages";
 import Index from "./pages/Index";
 import Conciergerie from "./pages/Conciergerie";
@@ -44,6 +45,7 @@ const App = () => (
           <SuiviPages />
           <LangueProvider>
             <BandeauCookies />
+            <Assistant />
             {/*
               Chaque route est montée deux fois : nue en français, préfixée /en
               en anglais. La langue vit donc dans l'adresse — /tarifs et

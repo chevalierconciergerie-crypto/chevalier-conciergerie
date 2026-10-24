@@ -1611,3 +1611,33 @@ main.chv > .chv-section:first-child { padding-top: max(min(11vw, 120px), calc(va
   .chv-legal__fiche div { grid-template-columns: 1fr; gap: 2px; }
   .chv-legal p, .chv-legal li { font-size: 15px; }
 }
+
+/* ============ Assistant de discussion ============ */
+.chv-assistant { position: fixed; z-index: 70; right: 18px; bottom: 18px; font-family: var(--chv-texte); }
+.chv-assistant__bouton { height: 48px; padding: 0 20px; border: 0; border-radius: 999px; background: var(--chv-noir); color: var(--chv-creme); font-family: var(--chv-texte); font-size: 13px; letter-spacing: 0.06em; cursor: pointer; box-shadow: 0 14px 30px -14px rgba(10, 10, 10, 0.6); }
+.chv-assistant__panneau { width: min(380px, calc(100vw - 32px)); height: min(560px, calc(100svh - 120px)); display: flex; flex-direction: column; background: var(--chv-creme); border: 1px solid rgba(10, 10, 10, 0.12); border-radius: 16px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(10, 10, 10, 0.55); }
+.chv-assistant__panneau header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; background: var(--chv-noir); color: var(--chv-creme); }
+.chv-assistant__panneau header p { margin: 0; }
+.chv-assistant__panneau header strong { display: block; font-family: var(--chv-titre); font-weight: 400; font-size: 19px; }
+.chv-assistant__panneau header span { font-size: 11px; opacity: 0.7; letter-spacing: 0.04em; }
+.chv-assistant__panneau header button { width: 40px; height: 40px; border: 0; border-radius: 50%; background: none; color: inherit; cursor: pointer; display: grid; place-items: center; }
+.chv-assistant__fil { flex: 1; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+.chv-assistant__msg { max-width: 86%; margin: 0; padding: 10px 13px; border-radius: 14px; font-size: 14.5px; line-height: 1.5; white-space: pre-wrap; }
+.chv-assistant__msg--assistant { align-self: flex-start; background: #fff; border: 1px solid rgba(10, 10, 10, 0.08); }
+.chv-assistant__msg--user { align-self: flex-end; background: var(--chv-noir); color: var(--chv-creme); }
+.chv-assistant__msg a { color: var(--chv-cuivre-fonce); font-weight: 500; }
+.chv-assistant__attente { opacity: 0.6; }
+.chv-assistant__panneau form { display: flex; gap: 8px; padding: 10px; border-top: 1px solid rgba(10, 10, 10, 0.1); background: #fff; }
+.chv-assistant__panneau input { flex: 1; min-width: 0; height: 44px; padding: 0 12px; border: 1px solid rgba(10, 10, 10, 0.15); border-radius: 10px; font-family: var(--chv-texte); font-size: 16px; background: var(--chv-creme); }
+.chv-assistant__panneau form button { height: 44px; padding: 0 14px; border: 0; border-radius: 10px; background: var(--chv-degrade-cuivre); color: var(--chv-noir); font-family: var(--chv-texte); font-size: 13px; cursor: pointer; }
+.chv-assistant__panneau form button:disabled { opacity: 0.5; cursor: default; }
+.chv-assistant__mention { margin: 0; padding: 0 12px 10px; background: #fff; font-size: 11px; line-height: 1.4; color: rgba(10, 10, 10, 0.5); }
+.chv-assistant__mention a { color: inherit; }
+@media (max-width: 900px) {
+  /* sur une fiche, au-dessus de la barre « Réserver » */
+  body:has(.chv-fiche__barre) .chv-assistant { bottom: 90px; }
+}
+@media (max-width: 560px) {
+  .chv-assistant { right: 12px; bottom: 12px; }
+  .chv-assistant__bouton { height: 44px; padding: 0 16px; }
+}
