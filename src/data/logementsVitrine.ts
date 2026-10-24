@@ -284,13 +284,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "hauteur": 900,
     "alt": "L'Adresse, Avignon"
   },
-  "mosaique": [
-    "chambre-1-2",
-    "salon-3",
-    "salon-5",
-    "salon-6",
-    "patio-2"
-  ],
+  "mosaique": ["salon-5", "chambre-1-2", "salon-3", "salon-6", "patio-2"],
   "pieces": [
     {
       "piece": "Salon",
@@ -687,13 +681,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "hauteur": 900,
     "alt": "Le Cornue, Avignon"
   },
-  "mosaique": [
-    "exterieur-2",
-    "chambre-1",
-    "cuisine-1",
-    "salle-de-bain-2",
-    "exterieur-4"
-  ],
+  "mosaique": ["exterieur-2", "chambre-1", "cuisine-1", "salle-de-bain-2", "exterieur-4"],
   "pieces": [
     {
       "piece": "Salon",
@@ -1056,13 +1044,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "hauteur": 900,
     "alt": "La Loge, Avignon"
   },
-  "mosaique": [
-    "espace-de-vie-4",
-    "espace-de-vie-3",
-    "espace-de-vie-5",
-    "espace-de-vie-6",
-    "cuisine-1"
-  ],
+  "mosaique": ["espace-de-vie-6", "espace-de-vie-4", "espace-de-vie-3", "espace-de-vie-5", "cuisine-1"],
   "pieces": [
     {
       "piece": "Espace de vie",
@@ -1458,13 +1440,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "hauteur": 900,
     "alt": "Le Vernet Lumineux, Avignon"
   },
-  "mosaique": [
-    "salon-1",
-    "chambre-1-1",
-    "cuisine-1",
-    "chambre-2-1",
-    "salle-de-bain-1"
-  ],
+  "mosaique": ["salon-1", "chambre-1-1", "cuisine-1", "chambre-2-1", "salle-de-bain-1"],
   "pieces": [
     {
       "piece": "Salon",
@@ -1762,13 +1738,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "hauteur": 900,
     "alt": "L'Incontournable, Avignon"
   },
-  "mosaique": [
-    "chambre-2-1",
-    "autres-photos-2",
-    "cuisine-1",
-    "chambre-1-1",
-    "chambre-2-3"
-  ],
+  "mosaique": ["salon-1", "chambre-2-1", "autres-photos-2", "cuisine-1", "chambre-1-1"],
   "pieces": [
     {
       "piece": "Salon",
@@ -2111,13 +2081,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "hauteur": 900,
     "alt": "La Bastide, Avignon"
   },
-  "mosaique": [
-    "salon-1",
-    "exterieur-1",
-    "espace-repas-1",
-    "chambre-2-1",
-    "salle-de-bain-1"
-  ],
+  "mosaique": ["salon-1", "exterieur-1", "espace-repas-1", "chambre-2-1", "salle-de-bain-1"],
   "pieces": [
     {
       "piece": "Salon",
@@ -2512,13 +2476,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "hauteur": 900,
     "alt": "L'Intramuros, Avignon"
   },
-  "mosaique": [
-    "espace-chambre-1",
-    "cuisine-1",
-    "cuisine-2",
-    "cuisine-3",
-    "espace-repas-1"
-  ],
+  "mosaique": ["espace-chambre-1", "cuisine-1", "cuisine-2", "cuisine-3", "espace-repas-1"],
   "pieces": [
     {
       "piece": "Cuisine",
@@ -2796,13 +2754,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "hauteur": 900,
     "alt": "Le Havre, Avignon"
   },
-  "mosaique": [
-    "chambre-1",
-    "salon-1",
-    "exterieur-1",
-    "espace-repas-1",
-    "exterieur-2"
-  ],
+  "mosaique": ["exterieur-2", "chambre-1", "salon-1", "exterieur-1", "espace-repas-1"],
   "pieces": [
     {
       "piece": "Salon",
@@ -3075,13 +3027,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "hauteur": 900,
     "alt": "La Coulisse, Avignon"
   },
-  "mosaique": [
-    "chambre-1",
-    "espace-repas-1",
-    "cuisine-1",
-    "exterieur-1",
-    "chambre-2"
-  ],
+  "mosaique": ["chambre-1", "espace-repas-1", "cuisine-1", "exterieur-1", "chambre-2"],
   "pieces": [
     {
       "piece": "Cuisine",
@@ -3442,13 +3388,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "hauteur": 900,
     "alt": "Le Central, Avignon"
   },
-  "mosaique": [
-    "espace-de-vie-1",
-    "espace-chambre-1",
-    "cuisine-1",
-    "salle-de-bain-2",
-    "espace-repas-1"
-  ],
+  "mosaique": ["espace-chambre-1", "espace-de-vie-1", "cuisine-1", "salle-de-bain-2", "espace-repas-1"],
   "pieces": [
     {
       "piece": "Espace de vie",
@@ -3736,13 +3676,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "hauteur": 900,
     "alt": "La Scène, Avignon"
   },
-  "mosaique": [
-    "espace-chambre-1",
-    "espace-repas-1",
-    "espace-repas-3",
-    "espace-chambre-2",
-    "espace-chambre-3"
-  ],
+  "mosaique": ["espace-chambre-2", "espace-chambre-1", "espace-repas-1", "espace-repas-3", "espace-chambre-3"],
   "pieces": [
     {
       "piece": "Cuisine",
@@ -4090,13 +4024,7 @@ export const LOGEMENTS_VITRINE: LogementVitrine[] = [
     "hauteur": 900,
     "alt": "Le Cocon d'Intramuros, Avignon"
   },
-  "mosaique": [
-    "espace-chambre-2",
-    "espace-chambre-3",
-    "espace-repas-1",
-    "espace-chambre-4",
-    "cuisine-1"
-  ],
+  "mosaique": ["espace-chambre-4", "espace-chambre-2", "espace-chambre-3", "espace-repas-1", "cuisine-1"],
   "pieces": [
     {
       "piece": "Cuisine",
