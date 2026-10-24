@@ -592,12 +592,4 @@ export const EN: Record<string, string> = {
   "À savoir": "Good to know",
   "Équipements": "Amenities",
   "Écrire sur WhatsApp": "Message us on WhatsApp",
-
-  /* ---------- Nos deux rives (accueil) ---------- */
-  "Nos deux rives": "Both banks of the Rhône",
-  "Avignon d'un côté du Rhône,": "Avignon on one side of the Rhône,",
-  "Villeneuve-lès-Avignon et Les Angles de l'autre.": "Villeneuve-lès-Avignon and Les Angles on the other.",
-  "Dessin du Pont d'Avignon entre Avignon et Villeneuve-lès-Avignon": "Drawing of the Pont d'Avignon between Avignon and Villeneuve-lès-Avignon",
-  "le Rhône": "the Rhône",
-  "Nous gérons des logements sur les deux rives.": "We manage homes on both banks.",
 };

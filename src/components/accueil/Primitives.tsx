@@ -70,9 +70,14 @@ export function ChiffreDefile({ valeur, decimales = 0, className = "" }: { valeu
     return abonner(() => {
       const r = el.getBoundingClientRect();
       const h = window.innerHeight;
-      // 0 quand le nombre entre par le bas de l'écran, 1 quand il en atteint la moitié.
-      const p = Math.max(0, Math.min(1, (h - r.top) / (h * 0.5)));
-      el.textContent = enChiffres(valeur * (1 - Math.pow(1 - p, 3)), decimales);
+      // 0 quand le nombre entre par le bas de l'écran, 1 quand il a monté d'un quart
+      // d'écran : il a sa vraie valeur bien avant d'arriver au milieu.
+      const p = Math.max(0, Math.min(1, (h * 0.95 - r.top) / (h * 0.25)));
+      const texte = enChiffres(valeur * (1 - Math.pow(1 - p, 3)), decimales);
+      // On change la valeur du nœud texte plutôt que textContent : pas de nœud remplacé,
+      // donc pas de réveil de l'observateur qui recherche les photos à chaque ajout.
+      const noeud = el.firstChild;
+      if (noeud && noeud.nodeValue !== texte) noeud.nodeValue = texte;
     });
   }, [valeur, decimales]);
   return (

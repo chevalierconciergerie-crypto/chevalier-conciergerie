@@ -1,7 +1,6 @@
 import { Helmet } from "@/lib/seo";
 import EnTete from "@/components/accueil/EnTete";
 import HeroAvignon from "@/components/accueil/HeroAvignon";
-import DeuxRives from "@/components/accueil/DeuxRives";
 import Fondateur from "@/components/accueil/Fondateur";
 import { Temoignages } from "@/components/accueil/Journal";
 import { LogementsAccueil } from "@/components/accueil/Logements";
@@ -45,8 +44,6 @@ const Index = () => {
         <EnTete />
         <main>
           <HeroAvignon />
-          {/* Le Pont d'Avignon qui se dessine au défilement, entre nos deux rives. */}
-          <DeuxRives />
           <Fondateur />
           {/*
             Conciergerie, sous-location, franchise, blog et contact ont chacun leur page
