@@ -22,3 +22,4 @@ Format : `- slug | photo | page Unsplash | photographe | date`
 - caution-dommages-location-saisonniere | photo-1665249934445-1de680641f50 | https://unsplash.com/fr/photos/un-salon-avec-une-grande-fenetre-AgK_XAqSbfk | Danilo Rios | 2026-10-24
 - residence-principale-90-jours-avignon | photo-1435527173128-983b87201f4d | https://unsplash.com/fr/photos/agenda-mensuel-ouvert-sur-un-bureau-en-bois-FoKO4DpXamQ | Eric Rothermel | 2026-10-24
 - keysmanager-avis-tarifs-avignon | photo-1784289834624-795a2fe656d3 | https://unsplash.com/fr/photos/une-rotonde-de-pierre-avec-des-arches-des-arbres-verts-et-des-fleurs-roses-iv6ll65Gpt8 | Carnet de Voyage d'Alex | 2026-10-26
+- la-fine-equipe-avis-tarifs-avignon | photo-1758814841560-4b2966459567 | https://unsplash.com/fr/photos/riviere-avec-un-pont-et-les-toits-lointains-de-la-ville-95OkRQM-KsM | Boudewijn Huysmans | 2026-10-28
