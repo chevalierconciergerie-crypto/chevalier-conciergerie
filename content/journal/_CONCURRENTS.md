@@ -16,8 +16,16 @@ Aucune conciergerie établie aux Angles n'est ressortie.
 - [x] Keysmanager (fiche « Conciergerie Airbnb », Frédéric Palermini) | conciergerie-avignon.com | Avignon | « conciergerie airbnb avignon » : 7e résultat (fiche avignon-tourisme.com/en/offres/conciergerie-airbnb-avignon-en-5600404) | 2026-10-23 — la fiche renvoie vers conciergerie-avignon.com et les comptes keysmanagerfr : même entreprise que la ligne Keysmanager. Publié le 2026-10-26 : /blog/keysmanager-avis-tarifs-avignon
 - [x] La Fine Equipe Conciergerie | lafineequipe-conciergerie.fr (identifié le 2026-10-28 via toploc.com) | Grand Avignon | citée dans les résultats « conciergerie airbnb avignon » | 2026-10-23 — publié le 2026-10-28 : /blog/la-fine-equipe-avis-tarifs-avignon
 - [ ] Conciergerie Clef en Main | site à identifier (citée par toploc.com) | Avignon | « conciergerie avignon gestion location courte durée » : classement toploc, 2e résultat | 2026-10-23 — **à exclure** : société CONCIERGERIE CLEF EN MAIN (SIREN 889 123 287) fermée le 2024-06-24 d'après recherche-entreprises.api.gouv.fr (consulté le 2026-10-26).
-- [ ] La Conciergerie Avignon (Rochefort-du-Gard) | fiche tourismegard.com/fr/fiche/commerce-et-service/la-conciergerie-avignon-rochefort-du-gard_TFO6512900/ | Grand Avignon | « conciergerie avignon gestion location courte durée » : 5e et 6e résultats ; « conciergerie villeneuve-lès-avignon » | 2026-10-23
+- [x] La Conciergerie Avignon (Rochefort-du-Gard) | laconciergerieavignon.com (identifié le 2026-10-30 via la fiche tourismegard.com) | Grand Avignon et Gard | « conciergerie avignon gestion location courte durée » : 5e et 6e résultats ; « conciergerie villeneuve-lès-avignon » | 2026-10-23 — publié le 2026-10-30 : /blog/la-conciergerie-avignon-avis-tarifs-avignon
 - [ ] Hostnfly | hostnfly.com | réseau national, offre locale à vérifier | non relevée dans ces recherches, citée dans src/pages/LocalSeoPage.tsx | 2026-10-23
+
+Recherches complémentaires du 2026-10-30 (« conciergerie airbnb avignon », « gestion location courte durée avignon conciergerie », « conciergerie villeneuve-lès-avignon location courte durée », « conciergerie les angles gard airbnb », « sous-location airbnb avignon loyer garanti conciergerie ») :
+Les Meilleurs Concierges ressortent aussi sous le nom « The Best Concierges » avec une fiche active avignon-tourisme.com/en/offres/the-best-concierges-avignon-en-4566019 (Avignon, Villeneuve-lès-Avignon, Les Angles) : à rouvrir pour chercher un site officiel.
+
+- [ ] Conciergerie Avignon Prestations | site à identifier (citée par toploc.com/blog/conciergerie/conciergerie-avignon) | Avignon | « conciergerie airbnb avignon » : classement toploc, 4e et 5e résultats | 2026-10-30
+- [ ] LBH Conciergerie | site à identifier (fiche airbtics.com/airbnb-management-companies/lbh-conciergerie-441309319) | Avignon | « conciergerie airbnb avignon » : 7e résultat | 2026-10-30
+- [ ] Conciergerie du Palais | site à identifier (cité dans les résultats provenceguide.com) | Avignon | « gestion location courte durée avignon conciergerie » | 2026-10-30
+- [ ] Enjoy Conciergerie | fiche provenceguide.co.uk/commercial-service/avignon/enjoy-conciergerie/provence-4791783-1.html | Avignon | « conciergerie villeneuve-lès-avignon location courte durée » : 14e résultat | 2026-10-30
 
 ---
 
@@ -54,3 +62,15 @@ Aucune conciergerie établie aux Angles n'est ressortie.
 - Villeneuve-lès-Avignon et Les Angles : non nommées sur le site (seul « Grand Avignon » est mentionné) → **à faire vérifier**.
 - Fiche Google Business : non consultée.
 
+### La Conciergerie Avignon (consultées le 2026-10-30)
+
+- https://laconciergerieavignon.com/ — services « Conciergerie », « Ménage », « Entretien et gardiennage » ; devis gratuits ; « disponibles à la carte, ou combinez-les pour créer votre forfait » ; français, anglais, italien ; assurance RCP ; « Règlement facturé ou par carte de débit/crédit ». (Avis voyageurs Airbnb affichés sur la page : non repris, conformément au cadre.)
+- https://laconciergerieavignon.com/nos-services-la-conciergerie-avignon/ — conciergerie : messages voyageurs avant/pendant/après, ouverture et fermeture, panier d'accueil produits locaux, check-in/check-out, remise et récupération des clés, conseils, confirmation de départ, gestion des avis, réponse d'urgence ; ménage : draps et serviettes, blanchisserie et location de linge, nettoyage complet, produits ménagers et de beauté, extérieurs, piscine, inventaire ; entretien et gardiennage : contrôles fuites/humidité/compteurs, jardin, piscine, sécurisation, plantes, courrier, rapports, préparatifs hivernaux/estivaux, petites réparations, inspection d'urgence ; chaque service « à partir de 20 € à la carte ou créer votre forfait » (unité non précisée) ; « 5 ans d'expérience ». Création d'annonce, tarification, photos et plateformes : non mentionnées.
+- https://laconciergerieavignon.com/apropos/ — fondateur Phillip, « ancien chef d'entreprise et hôte professionnel au Royaume Uni depuis 2014 » ; « gestion complète ou partielle » ; concierge situé à Rochefort-du-Gard ; zone « Grand Avignon et du Gard » (page d'accueil, bloc À propos) ; partenaire de l'office de tourisme du Grand Avignon et d'Avignon Tourisme ; nombre de logements non communiqué.
+- https://laconciergerieavignon.com/conditions-generales-de-vente/ (datées « Janvier 2023 ») — entreprise individuelle de M. Phillip Chandler, RCS Nîmes, SIRET 920 180 718 00024, 5 rue du Centre, 30650 Rochefort-du-Gard ; prix en euros HT ; service ponctuel : acompte 50 % ou 30 € minimum, solde sous 10 jours ouvrables, supplément de 30 € si commande à moins de 48 h ; forfait : contrat de prestation, facturation mensuelle payable sous 30 jours ; résiliation « à l'issue d'un délai de 30 jours moyennant le respect d'un préavis de 30 jours » ; médiateur SAS Médiation Solution. Sous-location : non mentionnée nulle part sur le site.
+- https://laconciergerieavignon.com/mentions-legales/ — « LA CONCIERGERIE AVIGNON – E.I. Phillip Chandler », directeur de publication Phillip Chandler.
+- https://laconciergerieavignon.com/contactez-nous-la-conciergerie-avignon/ — adresse 5 rue du Centre, 30650 Rochefort-du-Gard.
+- https://recherche-entreprises.api.gouv.fr/search?q=920180718 — PHILLIP CHANDLER (LA CONCIERGERIE AVIGNON), SIREN 920 180 718, entrepreneur individuel (code 1000), créée le 2022-11-01, active, NAF 96.09Z.
+- https://www.tourismegard.com/fr/fiche/commerce-et-service/la-conciergerie-avignon-villeneuve-lez-avignon_TFO6512900 — fiche mise à jour le 30/09/2024 ; « région du Grand Avignon » ; aucun tarif.
+- Villeneuve-lès-Avignon et Les Angles : non nommées sur le site → **à faire vérifier**. Tarif d'un forfait complet, du ménage et du linge : non communiqués.
+- Fiche Google Business : non consultée.
