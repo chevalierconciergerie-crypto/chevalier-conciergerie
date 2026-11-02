@@ -288,7 +288,7 @@ export const CONFIDENTIALITE = {
   titre: "Politique de confidentialité",
   intro:
     "Cette page explique quelles données personnelles nous traitons, pourquoi, combien de temps nous les gardons et comment exercer vos droits, conformément au Règlement général sur la protection des données (RGPD).",
-  maj: "octobre 2026",
+  maj: "novembre 2026",
   sections: [
     {
       titre: "Responsable du traitement",
@@ -302,6 +302,7 @@ export const CONFIDENTIALITE = {
             "Voyageurs qui réservent : nom, prénom, coordonnées, dates de séjour, nombre de voyageurs, échanges avec nous. Les données de carte bancaire sont traitées par le prestataire de paiement ; nous ne les conservons pas.",
             "Voyageurs de nationalité étrangère : fiche individuelle de police, exigée par l'article R814-1 du Code de l'entrée et du séjour des étrangers.",
             "Propriétaires et prospects : nom, prénom, coordonnées, informations sur le bien, messages envoyés.",
+            "Les coordonnées professionnelles des loueurs proviennent de sources publiques, comme leur annonce en ligne.",
             "Visiteurs du site : données de mesure d'audience (pages vues, type d'appareil), uniquement si vous l'acceptez.",
             "Assistant de discussion : vos questions et les réponses de l'assistant, la page d'où vous écrivez. Ne saisissez pas de données sensibles.",
           ],
@@ -316,6 +317,7 @@ export const CONFIDENTIALITE = {
             "Gestion des réservations, du séjour et du dépôt de garantie : exécution du contrat.",
             "Réponse aux demandes de contact et de devis : mesures précontractuelles.",
             "Gestion de la relation avec les propriétaires : exécution du contrat.",
+            "Prospection des loueurs professionnels par e-mail et par téléphone : intérêt légitime à présenter nos services. Vous pouvez vous y opposer à tout moment, gratuitement, en répondant STOP.",
             "Comptabilité, taxe de séjour et fiches de police : obligations légales.",
             "Mesure d'audience du site : votre consentement.",
             "Assistant de discussion (réponses générées par une intelligence artificielle, Anthropic) : intérêt légitime à répondre à vos questions et à améliorer nos réponses.",
@@ -347,7 +349,7 @@ export const CONFIDENTIALITE = {
             "Réservations et échanges avec les voyageurs : 5 ans après le séjour.",
             "Fiches de police : 6 mois.",
             "Pièces comptables et factures : 10 ans.",
-            "Prospects : 3 ans après le dernier contact.",
+            "Prospects : 3 ans après la collecte ou votre dernier contact. Refus de prospection : empreinte de l'adresse conservée au moins 3 ans.",
             "Conversations avec l'assistant : 12 mois.",
             "Cookies de mesure d'audience : 13 mois au plus.",
           ],
