@@ -329,7 +329,7 @@ export const CONFIDENTIALITE = {
       titre: "Destinataires",
       blocs: [
         {
-          p: "Vos données sont destinées à nos équipes et, pour une réservation, au propriétaire du logement réservé. Elles sont aussi traitées par nos prestataires techniques, dans la limite de leur mission : hébergement du site et stockage des conversations de l'assistant (Vercel Inc.), réponses de l'assistant (Anthropic PBC), logiciel de gestion des réservations, prestataire de paiement, mesure d'audience (Google Ireland Limited). Nous ne vendons aucune donnée.",
+          p: "Vos données sont destinées à nos équipes et, pour une réservation, au propriétaire du logement réservé. Elles sont aussi traitées par nos prestataires techniques, dans la limite de leur mission : hébergement du site et stockage des conversations de l'assistant (Vercel Inc.), réponses de l'assistant (Anthropic PBC), logiciel de gestion des réservations, prestataire de paiement, mesure d'audience (Google Ireland Limited), vérification des adresses e-mail avant un premier envoi de prospection (Southern Vector Limited, service MillionVerifier). Nous ne vendons aucune donnée.",
         },
       ],
     },
@@ -337,7 +337,7 @@ export const CONFIDENTIALITE = {
       titre: "Transferts hors de l'Union européenne",
       blocs: [
         {
-          p: "Certains prestataires (hébergement du site, mesure d'audience) peuvent traiter des données aux États-Unis. Ces transferts sont encadrés par le cadre de protection des données UE–États-Unis ou par les clauses contractuelles types de la Commission européenne.",
+          p: "Certains prestataires (hébergement du site, mesure d'audience) peuvent traiter des données aux États-Unis. Ces transferts sont encadrés par le cadre de protection des données UE–États-Unis ou par les clauses contractuelles types de la Commission européenne. Le prestataire de vérification des adresses e-mail est établi en Nouvelle-Zélande, pays reconnu par la Commission européenne comme offrant un niveau de protection adéquat ; il peut aussi traiter ces adresses dans l'Espace économique européen et aux États-Unis.",
         },
       ],
     },
