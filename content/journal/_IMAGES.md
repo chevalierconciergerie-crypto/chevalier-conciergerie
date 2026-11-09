@@ -27,3 +27,4 @@ Format : `- slug | photo | page Unsplash | photographe | date`
 - hostnfly-avis-tarifs-avignon | photo-1746385473161-62439be16f7f | https://unsplash.com/fr/photos/une-fontaine-se-trouve-dans-une-cour-de-beaux-batiments-hZ6Tx-Om1pI | Sebastián Brito | 2026-11-02
 - les-meilleurs-concierges-avis-tarifs-avignon | photo-1679516873265-89d9006eb814 | https://unsplash.com/fr/photos/un-vieux-batiment-avec-des-volets-verts-et-des-fleurs-devant-lui-StrlBKQHCk8 | Vladan Raznatovic | 2026-11-04
 - leduc-conciergerie-avis-tarifs-avignon | photo-1786051376076-9ff627bcdcba | https://unsplash.com/fr/photos/salon-elegant-avec-des-meubles-blancs-et-de-grandes-fenetres-M_Xd4ddcyNk | asd asd | 2026-11-06
+- conciergerie-du-palais-avis-tarifs-avignon | photo-1612389702440-85ad6cf5d8e5 | https://unsplash.com/fr/photos/couloir-en-beton-blanc-et-brun-OH-zX2Ab9_Q | Diego Guzmán | 2026-11-09
