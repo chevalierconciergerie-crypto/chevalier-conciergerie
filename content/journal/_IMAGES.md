@@ -29,3 +29,4 @@ Format : `- slug | photo | page Unsplash | photographe | date`
 - leduc-conciergerie-avis-tarifs-avignon | photo-1786051376076-9ff627bcdcba | https://unsplash.com/fr/photos/salon-elegant-avec-des-meubles-blancs-et-de-grandes-fenetres-M_Xd4ddcyNk | asd asd | 2026-11-06
 - conciergerie-du-palais-avis-tarifs-avignon | photo-1612389702440-85ad6cf5d8e5 | https://unsplash.com/fr/photos/couloir-en-beton-blanc-et-brun-OH-zX2Ab9_Q | Diego Guzmán | 2026-11-09
 - week-where-avis-tarifs-avignon | photo-1715792001784-708b1d2c0bcd | https://unsplash.com/fr/photos/un-champ-de-fleurs-avec-une-maison-en-arriere-plan-47_mTKeJ30o | le Sixième Rêve | 2026-11-11
+- bs-conciergerie-bagagerie-avis-tarifs-avignon | photo-1784896588157-0d426ea1ce4b | https://unsplash.com/fr/photos/une-ruelle-ensoleillee-entre-de-vieux-batiments-avec-des-volets-verts-ZXIeQBYUURc | Dhiemas Afif Febriyan | 2026-11-13
