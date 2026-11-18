@@ -31,3 +31,4 @@ Format : `- slug | photo | page Unsplash | photographe | date`
 - week-where-avis-tarifs-avignon | photo-1715792001784-708b1d2c0bcd | https://unsplash.com/fr/photos/un-champ-de-fleurs-avec-une-maison-en-arriere-plan-47_mTKeJ30o | le Sixième Rêve | 2026-11-11
 - bs-conciergerie-bagagerie-avis-tarifs-avignon | photo-1784896588157-0d426ea1ce4b | https://unsplash.com/fr/photos/une-ruelle-ensoleillee-entre-de-vieux-batiments-avec-des-volets-verts-ZXIeQBYUURc | Dhiemas Afif Febriyan | 2026-11-13
 - rachel-conciergerie-avis-tarifs-avignon | photo-1773847469674-189153e5e32d | https://unsplash.com/fr/photos/veranda-lumineuse-avec-des-plantes-et-une-table-a-manger-BnDI_MVomAI | Clay Banks | 2026-11-16
+- lcd-conciergerie-avis-tarifs-avignon | photo-1621243605345-a3bddbbaab2a | https://unsplash.com/fr/photos/batiment-en-beton-brun-au-sommet-de-la-montagne-pendant-la-journee-aJEJ9siAppM | Alexander Van Steenberge | 2026-11-18
